@@ -9,7 +9,7 @@ package-lock.json
 ## Webpack ##
 client/public/bundle.js
 
-## Configuration Files ## 
+## Configuration Files ##
 config.js
 
 ## Auth ##

@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
-const store = require('../db/store.js');
-const streams = require('../db/index.js');
+const db = require('../db/index.js');
 
 const app = express();
 const port = process.env.PORT || 5421;

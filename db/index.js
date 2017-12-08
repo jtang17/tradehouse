@@ -19,7 +19,7 @@ sequelize
     return console.error('unable to connect to sql: ', err);
   });
 
-const User = sequelize.define('user', {
+const Consumer = sequelize.define('consumer', {
   username: {
     type: Sequelize.STRING
   },
@@ -28,4 +28,4 @@ const User = sequelize.define('user', {
   }
 });
 
-module.exports.User = User;
+module.exports.Consumer = Consumer;
