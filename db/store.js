@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/storedb', {useMongoClient: true});
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/storedb', { useMongoClient: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', () => {
