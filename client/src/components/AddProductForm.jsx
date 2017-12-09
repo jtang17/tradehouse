@@ -1,0 +1,44 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+class AddProductForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      productName: ''
+    };
+    this.onProductNameChanged = this.onProductNameChanged.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+  }
+
+  componentWillMount() {
+    const { store } = this.context;
+    console.log(store);
+  }
+
+  onFormSubmit(e) {
+    e.preventDefault();
+    store.dispatch(addProduct(this.state.productName));
+    this.setState({ productName: '' });
+  }
+
+  onProductNameChanged(e) {
+    var productName = e.target.value;
+    this.setState({ productName: productName });
+  }
+
+  render() {
+    const { store } = this.context;
+    return (
+      <form onSubmit={this.onFormSubmit}>
+        <input type="text" placeholder="Product..." onChange={this.onProductNameChanged} value={this.state.productName} />
+        <input type="submit" value="Add" />
+      </form>
+    );
+  }
+}
+AddProductForm.contextTypes = {
+  store: PropTypes.object
+};
+
+export default AddProductForm;

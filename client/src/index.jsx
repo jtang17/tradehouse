@@ -1,16 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+import AddProductForm from './components/AddProductForm.jsx';
+import ProductList from './components/ProductList.jsx';
+import productList from './reducers/reducers.jsx';
+import {
+  addProduct,
+  deleteProduct,
+  clearProduct
+} from './actions/actions.jsx';
+
+var defaultState = {
+  products: {
+    items: []
+  }
+};
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
     return (
-      <div>Trade House</div>
+      <div>
+        <h1>Product List</h1>
+        <AddProductForm />
+        <ProductList />
+          <iframe width="560" height="315"
+              src="https://www.youtube.com/embed/live_stream?channel=UCSJ4gkVC6NrvII8umztf0Ow&autoplay=1"
+              frameBorder="0"
+              allowFullScreen>
+          </iframe>
+      </div>
     )
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <Provider store={createStore(productList, defaultState)}>
+    <App />
+  </Provider>, document.getElementById('app'));
