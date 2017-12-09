@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const db = require('../db/index.js');
+const db = require('../models/index.js');
 
 const app = express();
 const port = process.env.PORT || 5421;
