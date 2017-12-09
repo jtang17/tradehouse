@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
   addProduct
@@ -21,13 +22,8 @@ class AddProductForm extends React.Component {
 
   }
 
-  componentWillMount() {
-    const { store } = this.context;
-  }
-
   onFormSubmit(e) {
     e.preventDefault();
-    const { store } = this.context;
     let product = {
       productName: this.state.productName,
       productQuantity: this.state.productQuantity,
@@ -35,8 +31,8 @@ class AddProductForm extends React.Component {
       description: this.state.description,
     };
     console.log(product);
-    store.dispatch(addProduct(product));
-    // store.dispatch(addProduct(this.state.productName));
+    this.props.dispatch(addProduct(product));
+
     this.setState({
       productName: '',
       productQuantity: '',
@@ -62,7 +58,6 @@ class AddProductForm extends React.Component {
   }
 
   render() {
-    const { store } = this.context;
     return (
       <form onSubmit={this.onFormSubmit}>
         <input type="text" placeholder="Product..." onChange={this.onProductNameChanged} value={this.state.productName} />
@@ -74,8 +69,13 @@ class AddProductForm extends React.Component {
     );
   }
 }
-AddProductForm.contextTypes = {
-  store: PropTypes.object
-};
 
-export default AddProductForm;
+const mapDispatchToProps = dispatch => {
+  return {
+    addProduct : () => dispatch({
+      type: 'ADD_PRODUCT'
+    })
+  }
+}
+
+export default connect(mapDispatchToProps)(AddProductForm)
