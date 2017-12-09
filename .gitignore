@@ -4,7 +4,7 @@
 ## NPM ##
 node_modules
 npm-debug.log
-
+package-lock.json
 
 ## Webpack ##
 client/public/bundle.js
@@ -15,3 +15,5 @@ config.js
 ## Auth ##
 Auth/Auth0-variables.js
 
+## Environment Variables ##
+.env

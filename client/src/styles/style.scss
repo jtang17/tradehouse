@@ -1,0 +1,11 @@
+@import 'header';
+
+$blue: #5566DD;
+
+body {
+	background: $blue;
+
+	form {
+		background: red;
+	}
+}

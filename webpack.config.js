@@ -9,7 +9,7 @@ module.exports = {
   entry: ["webpack-hot-middleware/client?reload=true", `${APP_DIR}/index.jsx`],
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?/,
         include: APP_DIR,
@@ -46,7 +46,17 @@ module.exports = {
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.scss$/,
+          use: [{
+            loader: "style-loader"
+          }, {
+            loader: "css-loader" 
+          }, {
+            loader: "sass-loader"
+          }]
+      },
     ]
   },
   output: {
