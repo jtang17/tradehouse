@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import ProductItem from './ProductItem.jsx';
 import {
   clearProducts
@@ -26,14 +27,11 @@ class ProductList extends React.Component {
   }
 
   clearProductList() {
-    const { store } = this.context;
-    store.dispatch(clearProducts());
+    this.props.dispatch(clearProducts());
   }
 
   render() {
-    const { store } = this.context;
     var items = [];
-
     this.state.items.forEach((product, index) => {
       items.push(<ProductItem
                    key={index}
@@ -62,4 +60,19 @@ ProductList.contextTypes = {
   store: PropTypes.object
 };
 
-export default ProductList;
+// const mapStateToProps = state => {
+//   return {
+//     items: state.products.items
+//   }
+// }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    clearProducts: () => dispatch({
+      type: 'CLEAR_PRODUCTS'
+    })
+  }
+}
+
+// need mapStateToProps
+export default connect(mapDispatchToProps)(ProductList);

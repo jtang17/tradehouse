@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import {
   deleteProduct,
 } from '../actions/actions.jsx';
@@ -10,8 +11,9 @@ class ProductItem extends React.Component {
   }
 
   onDeleteClick() {
-    const { store } = this.context;
-    store.dispatch(deleteProduct(this.props.index));
+    // const { store } = this.context;
+    // store.dispatch(deleteProduct(this.props.index));
+    this.props.dispatch(deleteProduct(this.props.index));
   }
 
   render() {
@@ -30,4 +32,11 @@ ProductItem.contextTypes = {
   store: PropTypes.object
 };
 
-export default ProductItem;
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteProduct: () => dispatch({
+      type: 'DELETE_PRODUCT'
+    })
+  }
+}
+export default connect(mapDispatchToProps)(ProductItem);
