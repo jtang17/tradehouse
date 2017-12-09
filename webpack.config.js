@@ -1,12 +1,12 @@
-const webpack = require("webpack");
-const path = require("path");
+const webpack = require('webpack');
+const path = require('path');
 
-const BUILD_DIR = path.resolve(__dirname, "client/public");
-const APP_DIR = path.resolve(__dirname, "client/src");
+const BUILD_DIR = path.resolve(__dirname, 'client/public');
+const APP_DIR = path.resolve(__dirname, 'client/src');
 
 module.exports = {
   context: APP_DIR,
-  entry: ["webpack-hot-middleware/client?reload=true", `${APP_DIR}/index.jsx`],
+  entry: ['webpack-hot-middleware/client?reload=true', `${APP_DIR}/index.jsx`],
 
   module: {
     rules: [
@@ -14,9 +14,9 @@ module.exports = {
         test: /\.jsx?/,
         include: APP_DIR,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         query: {
-          presets: ["react", "es2015", "stage-0"]
+          presets: ['react', 'es2015', 'stage-0']
         }
       },
       {
@@ -50,18 +50,18 @@ module.exports = {
       {
         test: /\.scss$/,
           use: [{
-            loader: "style-loader"
+            loader: 'style-loader'
           }, {
-            loader: "css-loader" 
+            loader: 'css-loader'
           }, {
-            loader: "sass-loader"
+            loader: 'sass-loader'
           }]
       },
     ]
   },
   output: {
     path: BUILD_DIR,
-    filename: "bundle.js"
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),

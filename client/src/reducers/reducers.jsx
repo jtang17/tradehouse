@@ -16,10 +16,7 @@ function products(
   switch (action.type) {
     case 'ADD_PRODUCT':
       var newState = Object.assign({}, state);
-
-      newState.products.items.push({
-        productName: action.productName,
-      });
+      newState.products.items.push(action.product);
 
       return newState;
 

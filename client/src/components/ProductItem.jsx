@@ -21,7 +21,7 @@ class ProductItem extends React.Component {
       <li>
         <a href="#">{this.props.product.productName.trim()}</a>
         <a href="#" onClick={this.onDeleteClick.bind(this)} style={{textDecoration: 'none'}}>[x]</a>
-        <p>{this.props.product.productQuantity} {this.props.product.price} {this.props.product.description}</p>
+        <span> | Quantity: {this.props.product.productQuantity} | Price: {this.props.product.price} | Description: {this.props.product.description}</span>
       </li>
     );
   }

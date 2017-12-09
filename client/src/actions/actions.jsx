@@ -1,8 +1,8 @@
 
-export const addProduct = (productName) => {
+export const addProduct = (product) => {
   return {
     type: 'ADD_PRODUCT',
-    productName: productName,
+    product: product,
   };
 }
 
