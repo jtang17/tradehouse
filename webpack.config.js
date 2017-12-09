@@ -1,8 +1,8 @@
-const webpack = require("webpack");
-const path = require("path");
+const webpack = require('webpack');
+const path = require('path');
 
-const BUILD_DIR = path.resolve(__dirname, "client/public");
-const APP_DIR = path.resolve(__dirname, "client/src");
+const BUILD_DIR = path.resolve(__dirname, 'client/public');
+const APP_DIR = path.resolve(__dirname, 'client/src');
 
 module.exports = {
   context: APP_DIR,
@@ -61,7 +61,7 @@ module.exports = {
   },
   output: {
     path: BUILD_DIR,
-    filename: "bundle.js"
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
