@@ -34,11 +34,11 @@ class ProductList extends React.Component {
     const { store } = this.context;
     var items = [];
 
-    this.state.items.forEach((item, index) => {
+    this.state.items.forEach((product, index) => {
       items.push(<ProductItem
         key={index}
         index={index}
-        productName={item.productName}
+        product={product}
       />);
     });
 

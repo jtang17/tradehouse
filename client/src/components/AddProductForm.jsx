@@ -8,7 +8,12 @@ class AddProductForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      productName: ''
+      productName: '',
+      productQuantity: '',
+      price: '',
+      description: '',
+      publishDate: '',
+      lastEditedDate: '',
     };
     this.onProductNameChanged = this.onProductNameChanged.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);

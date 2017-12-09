@@ -18,7 +18,7 @@ class ProductItem extends React.Component {
     const { store } = this.context;
     return (
       <li>
-        <a href="#">{this.props.productName.trim()}</a>
+        <a href="#">{this.props.product.productName.trim()}</a>
         <a href="#" onClick={this.onDeleteClick.bind(this)} style={{textDecoration: 'none'}}>[x]</a>
       </li>
     );
