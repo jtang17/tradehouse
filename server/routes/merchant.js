@@ -13,6 +13,7 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
   //   password: 'aaa'
   // };
   const newMerchant = await controllers.saveNewMerchant(req.body);
+  // console.log(newMerchant);
   res.json(newMerchant);
 }));
 
