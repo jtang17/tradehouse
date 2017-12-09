@@ -29,6 +29,15 @@ app.use(
 app.use(webpackHotMiddleware(compiler));
 
 app.post('/api/products', (req, res) => {
+  // assuming req.body has the following keys: productName, productQuantity, price, description, merchantId
+  controllers
+    .saveNewProduct(req.body)
+    .then(() => {
+      res.send('saved product');
+    })
+    .catch((err) => {
+      return console.error(err);
+    });
 });
 
 app.use(express.static(path.join(__dirname, '/../client/public')));

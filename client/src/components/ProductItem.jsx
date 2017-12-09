@@ -6,7 +6,7 @@ import {
 
 class ProductItem extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   onDeleteClick() {
@@ -16,7 +16,7 @@ class ProductItem extends React.Component {
 
   render() {
     const { store } = this.context;
-    console.log(this.props.product)
+    console.log(this.props.product);
     return (
       <li>
         <a href="#">{this.props.product.productName.trim()}</a>
@@ -28,6 +28,6 @@ class ProductItem extends React.Component {
 }
 ProductItem.contextTypes = {
   store: PropTypes.object
-}
+};
 
 export default ProductItem;
