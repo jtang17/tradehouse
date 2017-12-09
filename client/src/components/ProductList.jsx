@@ -36,9 +36,9 @@ class ProductList extends React.Component {
 
     this.state.items.forEach((product, index) => {
       items.push(<ProductItem
-        key={index}
-        index={index}
-        product={product}
+                   key={index}
+                   index={index}
+                   product={product}
       />);
     });
 
