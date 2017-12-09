@@ -30,7 +30,6 @@ class AddProductForm extends React.Component {
       price: this.state.price,
       description: this.state.description,
     };
-    console.log(product);
     this.props.dispatch(addProduct(product));
 
     this.setState({

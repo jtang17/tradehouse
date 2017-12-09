@@ -17,7 +17,7 @@ function products(
     case 'ADD_PRODUCT':
       var newState = Object.assign({}, state);
       newState.products.items.push(action.product);
-
+      console.log('newState:', newState);
       return newState;
 
     case 'DELETE_PRODUCT':
@@ -47,7 +47,6 @@ function products(
 const reducer = combineReducers({
   products
 });
-console.log(reducer);
 
 //export default reducer
 export default products;
