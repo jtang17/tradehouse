@@ -9,9 +9,6 @@ import {
 class ProductList extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      items: []
-    };
     this.clearProductList = this.clearProductList.bind(this);
   }
 
