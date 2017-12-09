@@ -17,6 +17,15 @@ const saveNewMerchant = (entry) => {
   });
 };
 
+const getAllMerchants = () => {
+  return db.Merchant.findAll({});
+};
+
+const getAllProducts = () => {
+  return db.Product.findAll({});
+};
 
 module.exports.saveNewProduct = saveNewProduct;
 module.exports.saveNewMerchant = saveNewMerchant;
+module.exports.getAllMerchants = getAllMerchants;
+module.exports.getAllProducts = getAllProducts;

@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const controllers = require('../controllers/controllers.js');
 const db = require('../models/index.js');
+const mountRoutes = require('./routes');
 
 const app = express();
 const port = process.env.PORT || 5421;
@@ -29,42 +29,7 @@ app.use(
 );
 app.use(webpackHotMiddleware(compiler));
 
-app.post('/api/merchants', (req, res) => {
-  // // example data
-  // req.body = {
-  //   username: 'bob',
-  //   password: 'aaa'
-  // };
-
-  controllers
-    .saveNewMerchant(req.body)
-    .then(() => {
-      res.send('saved merchant');
-    })
-    .catch((err) => {
-      return console.error(err);
-    });
-});
-
-app.post('/api/products', (req, res) => {
-  // // example data
-  // req.body = {
-  //   productName: 'toothpaste',
-  //   description: 'minty',
-  //   productQuantity: '5',
-  //   price: '4.99',
-  //   merchantId: '1'
-  // };
-
-  controllers
-    .saveNewProduct(req.body)
-    .then(() => {
-      res.send('saved product');
-    })
-    .catch((err) => {
-      return console.error(err);
-    });
-});
+mountRoutes(app);
 
 app.use(express.static(path.join(__dirname, '/../client/public')));
 
