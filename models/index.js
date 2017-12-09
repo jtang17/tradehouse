@@ -29,8 +29,6 @@ if (!global.hasOwnProperty('db')) {
       return console.error('Unable to connect to SQL: ', err);
     });
 
-  // TODO: fix syntax for the four join tables; at present, four extra tables are stored
-
   global.db = {
     Sequelize: Sequelize,
     sequelize: sequelize,
@@ -50,38 +48,38 @@ if (!global.hasOwnProperty('db')) {
   };
 
   global.db.Consumer.belongsToMany(global.db.Merchant, {
-    through: 'global.db.DirectMessage',
+    through: 'direct_message',
     unique: false
   });
   global.db.Merchant.belongsToMany(global.db.Consumer, {
-    through: 'global.db.DirectMessage',
+    through: 'direct_message',
     unique: false
   });
 
   global.db.Consumer.belongsToMany(global.db.Merchant, {
-    through: 'global.db.Subscription',
+    through: 'subscription',
     unique: 'consumer_merchant_subscription'
   });
   global.db.Merchant.belongsToMany(global.db.Consumer, {
-    through: 'global.db.Subscription',
+    through: 'subscription',
     unique: 'consumer_merchant_subscription'
   });
 
   global.db.Consumer.belongsToMany(global.db.Product, {
-    through: 'global.db.WishlistedProduct',
+    through: 'wishlisted_product',
     unique: 'consumer_product_wishlisted'
   });
   global.db.Product.belongsToMany(global.db.Consumer, {
-    through: 'global.db.WishlistedProduct',
+    through: 'wishlisted_product',
     unique: 'consumer_product_wishlisted'
   });
 
   global.db.Consumer.belongsToMany(global.db.Product, {
-    through: 'global.db.PurchasedProduct',
+    through: 'purchased_product',
     unique: false
   });
   global.db.Product.belongsToMany(global.db.Consumer, {
-    through: 'global.db.PurchasedProduct',
+    through: 'purchased_product',
     unique: false
   });
 
