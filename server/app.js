@@ -72,6 +72,7 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/public/index.html'));
 });
 
+// TODO: prevent sync from outputting so much to console
 db.sequelize
   .sync()
   .then(() => {
