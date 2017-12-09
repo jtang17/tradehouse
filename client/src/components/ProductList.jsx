@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ProductItem from './ProductItem.jsx';
+import {
+  clearProducts
+} from '../actions/actions.jsx';
+
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -8,6 +12,7 @@ class ProductList extends React.Component {
     this.state = {
       items: []
     };
+    this.clearProductList = this.clearProductList.bind(this);
   }
 
   componentWillMount() {
@@ -18,6 +23,11 @@ class ProductList extends React.Component {
         items: state.products.items
       });
     });
+  }
+
+  clearProductList() {
+    const { store } = this.context;
+    store.dispatch(clearProducts());
   }
 
   render() {
@@ -41,7 +51,10 @@ class ProductList extends React.Component {
     }
 
     return (
-      <ol>{ items }</ol>
+      <span>
+        <ol>{ items }</ol>
+        <button onClick={this.clearProductList}>Clear Product List</button>
+      </span>
     );
   }
 }

@@ -2,10 +2,17 @@ import { combineReducers } from 'redux';
 import {
   ADD_PRODUCT,
   DELETE_PRODUCT,
-  CLEAR_PRODUCT
+  CLEAR_PRODUCTS
 } from '../actions/actions.jsx'
 
-const productList = (state, action) => {
+function products(
+  state = {
+    products: {
+      items: []
+    }
+  },
+  action
+) {
   switch (action.type) {
     case 'ADD_PRODUCT':
       var newState = Object.assign({}, state);
@@ -27,7 +34,7 @@ const productList = (state, action) => {
         }
       });
 
-    case 'CLEAR_PRODUCT':
+    case 'CLEAR_PRODUCTS':
       return Object.assign({}, state, {
         products: {
           items: []
@@ -39,4 +46,11 @@ const productList = (state, action) => {
   }
 }
 
-export default productList;
+//combineReducer is not working properly yet
+const reducer = combineReducers({
+  products
+});
+console.log(reducer);
+
+//export default reducer
+export default products;

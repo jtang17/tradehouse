@@ -13,8 +13,8 @@ export const deleteProduct = (index) => {
   };
 }
 
-export const clearProduct = () => {
+export const clearProducts = () => {
   return {
-    type: 'CLEAR_PRODUCT'
+    type: 'CLEAR_PRODUCTS'
   };
 }
