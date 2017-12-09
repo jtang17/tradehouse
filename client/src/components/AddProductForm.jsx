@@ -6,7 +6,7 @@ import {
 
 class AddProductForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       productName: '',
       productQuantity: '',
@@ -33,7 +33,7 @@ class AddProductForm extends React.Component {
       productQuantity: this.state.productQuantity,
       price: this.state.price,
       description: this.state.description,
-    }
+    };
     console.log(product);
     store.dispatch(addProduct(product));
     // store.dispatch(addProduct(this.state.productName));

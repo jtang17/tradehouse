@@ -1,15 +1,19 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 const controllers = require('../controllers/controllers.js');
 
 const app = express();
 const port = process.env.PORT || 5421;
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 /* Webpack Hot Reloads */
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('../webpack.config');
+
 const compiler = webpack(config);
 app.use(
   webpackDevMiddleware(compiler, {
