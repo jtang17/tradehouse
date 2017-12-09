@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  deleteProduct,
+} from '../actions/actions.jsx';
 
 class ProductItem extends React.Component {
   constructor(props) {
     super(props)
   }
 
-  componentWillMount() {
-    const { store } = this.context;
-  }
   onDeleteClick() {
+    const { store } = this.context;
     store.dispatch(deleteProduct(this.props.index));
   }
 

@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  addProduct
+} from '../actions/actions.jsx';
 
 class AddProductForm extends React.Component {
   constructor(props) {
@@ -13,11 +16,11 @@ class AddProductForm extends React.Component {
 
   componentWillMount() {
     const { store } = this.context;
-    console.log(store);
   }
 
   onFormSubmit(e) {
     e.preventDefault();
+    const { store } = this.context;
     store.dispatch(addProduct(this.state.productName));
     this.setState({ productName: '' });
   }

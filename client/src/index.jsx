@@ -6,17 +6,14 @@ import { createStore } from 'redux';
 import AddProductForm from './components/AddProductForm.jsx';
 import ProductList from './components/ProductList.jsx';
 import productList from './reducers/reducers.jsx';
-import {
-  addProduct,
-  deleteProduct,
-  clearProduct
-} from './actions/actions.jsx';
 
 var defaultState = {
   products: {
     items: []
   }
 };
+
+const store = createStore(productList, defaultState);
 
 class App extends React.Component {
   constructor(props) {
@@ -40,6 +37,7 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-  <Provider store={createStore(productList, defaultState)}>
+  <Provider store={ store }>
     <App />
-  </Provider>, document.getElementById('app'));
+  </Provider>,
+  document.getElementById('app'));
