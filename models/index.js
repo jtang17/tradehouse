@@ -47,14 +47,42 @@ if (!global.hasOwnProperty('db')) {
     })
   };
 
-  global.db.Consumer.belongsToMany(global.db.Merchant, { through: 'global.db.DirectMessage' });
-  global.db.Merchant.belongsToMany(global.db.Consumer, { through: 'global.db.DirectMessage' });
-  global.db.Consumer.belongsToMany(global.db.Merchant, { through: 'global.db.Subscription' });
-  global.db.Merchant.belongsToMany(global.db.Consumer, { through: 'global.db.Subscription' });
-  global.db.Consumer.belongsToMany(global.db.Product, { through: 'global.db.WishlistedProduct' });
-  global.db.Product.belongsToMany(global.db.Consumer, { through: 'global.db.WishlistedProduct' });
-  global.db.Consumer.belongsToMany(global.db.Product, { through: 'global.db.PurchasedProduct' });
-  global.db.Product.belongsToMany(global.db.Consumer, { through: 'global.db.PurchasedProduct' });
+  global.db.Consumer.belongsToMany(global.db.Merchant, {
+    through: 'global.db.DirectMessage',
+    unique: false
+  });
+  global.db.Merchant.belongsToMany(global.db.Consumer, {
+    through: 'global.db.DirectMessage',
+    unique: false
+  });
+
+  global.db.Consumer.belongsToMany(global.db.Merchant, {
+    through: 'global.db.Subscription',
+    unique: 'consumer_merchant_subscription'
+  });
+  global.db.Merchant.belongsToMany(global.db.Consumer, {
+    through: 'global.db.Subscription',
+    unique: 'consumer_merchant_subscription'
+  });
+
+  global.db.Consumer.belongsToMany(global.db.Product, {
+    through: 'global.db.WishlistedProduct',
+    unique: 'consumer_product_wishlisted'
+  });
+  global.db.Product.belongsToMany(global.db.Consumer, {
+    through: 'global.db.WishlistedProduct',
+    unique: 'consumer_product_wishlisted'
+  });
+
+  global.db.Consumer.belongsToMany(global.db.Product, {
+    through: 'global.db.PurchasedProduct',
+    unique: false
+  });
+  global.db.Product.belongsToMany(global.db.Consumer, {
+    through: 'global.db.PurchasedProduct',
+    unique: false
+  });
+
   global.db.Product.belongsTo(global.db.Merchant);
 }
 
