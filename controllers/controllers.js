@@ -10,4 +10,13 @@ const saveNewProduct = (entry) => {
   });
 };
 
+const saveNewMerchant = (entry) => {
+  return db.Merchant.create({
+    username: entry.username,
+    password: entry.password
+  });
+};
+
+
 module.exports.saveNewProduct = saveNewProduct;
+module.exports.saveNewMerchant = saveNewMerchant;

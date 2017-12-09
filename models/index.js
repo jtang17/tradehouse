@@ -29,6 +29,8 @@ if (!global.hasOwnProperty('db')) {
       return console.error('Unable to connect to SQL: ', err);
     });
 
+  // TODO: fix syntax for the four join tables; at present, four extra tables are stored
+
   global.db = {
     Sequelize: Sequelize,
     sequelize: sequelize,

@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const controllers = require('../controllers/controllers.js');
+const db = require('../models/index.js');
 
 const app = express();
 const port = process.env.PORT || 5421;
@@ -28,8 +29,33 @@ app.use(
 );
 app.use(webpackHotMiddleware(compiler));
 
+app.post('/api/merchants', (req, res) => {
+  // // example data
+  // req.body = {
+  //   username: 'bob',
+  //   password: 'aaa'
+  // };
+
+  controllers
+    .saveNewMerchant(req.body)
+    .then(() => {
+      res.send('saved merchant');
+    })
+    .catch((err) => {
+      return console.error(err);
+    });
+});
+
 app.post('/api/products', (req, res) => {
-  // assuming req.body has the following keys: productName, productQuantity, price, description, merchantId
+  // // example data
+  // req.body = {
+  //   productName: 'toothpaste',
+  //   description: 'minty',
+  //   productQuantity: '5',
+  //   price: '4.99',
+  //   merchantId: '1'
+  // };
+
   controllers
     .saveNewProduct(req.body)
     .then(() => {
@@ -46,6 +72,10 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/public/index.html'));
 });
 
-app.listen(port, () => {
-  console.log(`Tradehouse server listening on port ${port}`);
-});
+db.sequelize
+  .sync()
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Tradehouse server listening on port ${port}`);
+    });
+  });
