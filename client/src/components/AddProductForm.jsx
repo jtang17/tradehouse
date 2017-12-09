@@ -12,11 +12,13 @@ class AddProductForm extends React.Component {
       productQuantity: '',
       price: '',
       description: '',
-      publishDate: '',
-      lastEditedDate: '',
     };
-    this.onProductNameChanged = this.onProductNameChanged.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.onProductNameChanged = this.onProductNameChanged.bind(this);
+    this.onProductQuantityChanged = this.onProductQuantityChanged.bind(this);
+    this.onPriceChanged = this.onPriceChanged.bind(this);
+    this.onDescriptionChanged = this.onDescriptionChanged.bind(this);
+
   }
 
   componentWillMount() {
@@ -26,13 +28,36 @@ class AddProductForm extends React.Component {
   onFormSubmit(e) {
     e.preventDefault();
     const { store } = this.context;
+    let product = {
+      productName: this.state.productName,
+      productQuantity: this.state.productQuantity,
+      price: this.state.price,
+      description: this.state.description,
+    }
+    console.log(product);
     store.dispatch(addProduct(this.state.productName));
-    this.setState({ productName: '' });
+    this.setState({
+      productName: '',
+      productQuantity: '',
+      price: '',
+      description: '',
+    });
   }
 
   onProductNameChanged(e) {
-    var productName = e.target.value;
-    this.setState({ productName: productName });
+    this.setState({ productName: e.target.value });
+  }
+
+  onProductQuantityChanged(e) {
+    this.setState({ productQuantity: e.target.value });
+  }
+
+  onPriceChanged(e) {
+    this.setState({ price: e.target.value });
+  }
+
+  onDescriptionChanged(e) {
+    this.setState({ description: e.target.value });
   }
 
   render() {
@@ -40,6 +65,9 @@ class AddProductForm extends React.Component {
     return (
       <form onSubmit={this.onFormSubmit}>
         <input type="text" placeholder="Product..." onChange={this.onProductNameChanged} value={this.state.productName} />
+        <input type="text" placeholder="Quantity..." onChange={this.onProductQuantityChanged} value={this.state.productQuantity} />
+        <input type="text" placeholder="$0.00" onChange={this.onPriceChanged} value={this.state.price} />
+        <input type="text" placeholder="Description..." onChange={this.onDescriptionChanged} value={this.state.description} />
         <input type="submit" value="Add" />
       </form>
     );

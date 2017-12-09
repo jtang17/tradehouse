@@ -16,10 +16,12 @@ class ProductItem extends React.Component {
 
   render() {
     const { store } = this.context;
+    console.log(this.props.product)
     return (
       <li>
         <a href="#">{this.props.product.productName.trim()}</a>
         <a href="#" onClick={this.onDeleteClick.bind(this)} style={{textDecoration: 'none'}}>[x]</a>
+        <p>{this.props.product.productQuantity} {this.props.product.price} {this.props.product.description}</p>
       </li>
     );
   }

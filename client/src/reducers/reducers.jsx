@@ -46,7 +46,7 @@ function products(
   }
 }
 
-//combineReducer is not working properly yet
+//combineReducers is not working properly yet
 const reducer = combineReducers({
   products
 });
