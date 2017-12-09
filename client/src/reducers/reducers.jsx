@@ -43,19 +43,11 @@ function products(
   }
 }
 
-<<<<<<< HEAD
 //combineReducers is not working properly yet
-=======
-//combineReducer is not working properly yet
->>>>>>> Fix clear products, need to refactor to connect() from context passing down store
 const reducer = combineReducers({
   products
 });
 console.log(reducer);
 
 //export default reducer
-<<<<<<< HEAD
 export default products;
-=======
-export default products;
->>>>>>> Fix clear products, need to refactor to connect() from context passing down store

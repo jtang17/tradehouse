@@ -1,5 +1,5 @@
 
-export const addProduct = (product) => {
+export const addProduct = (productName) => {
   return {
     type: 'ADD_PRODUCT',
     product: product,
