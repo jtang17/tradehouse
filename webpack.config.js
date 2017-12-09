@@ -1,25 +1,62 @@
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require("webpack");
+const path = require("path");
 
-const BUILD_DIR = path.resolve(__dirname, 'client/public');
-const APP_DIR = path.resolve(__dirname, 'client/src');
+const BUILD_DIR = path.resolve(__dirname, "client/public");
+const APP_DIR = path.resolve(__dirname, "client/src");
 
 module.exports = {
-  entry: `${APP_DIR}/index.jsx`,
+  context: APP_DIR,
+  entry: ["webpack-hot-middleware/client?reload=true", `${APP_DIR}/index.jsx`],
+
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?/,
+        include: APP_DIR,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        query: {
+          presets: ["react", "es2015", "stage-0"]
+        }
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        loaders: [
+          'file-loader', {
+            loader: 'image-webpack-loader',
+            options: {
+              gifsicle: {
+                interlaced: false,
+              },
+              optipng: {
+                optimizationLevel: 7,
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              // Specifying webp here will create a WEBP version of your JPG/PNG images
+              webp: {
+                quality: 75
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: "bundle.js"
   },
-  module: {
-    loaders: [{
-      test: /\.jsx?/,
-      include: APP_DIR,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['react', 'es2015'],
-      }
-    }
-   ]
-  }
+  plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+  ],
+
 };

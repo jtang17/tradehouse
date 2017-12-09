@@ -1,10 +1,3 @@
-# tradehouse
-
-
-
-
-
-
 ### Terminology Consisntency
 * Merchant = Merchant
 * Consumer = Consumer

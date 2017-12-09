@@ -1,3 +1,17 @@
-node_modules
+## MAC Files ##
+.DS_Store
 
+## NPM ##
+node_modules
+npm-debug.log
+
+
+## Webpack ##
 client/public/bundle.js
+
+## Configuration Files ## 
+config.js
+
+## Auth ##
+Auth/Auth0-variables.js
+
