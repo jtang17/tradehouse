@@ -7,10 +7,9 @@ const lock = new Auth0Lock(AUTH_CONFIG.clientId, AUTH_CONFIG.domain, AUTH_CONFIG
 
 
 
-export default class Auth {
+class Auth {
   constructor() {
-    // this.handleAuthentication();
-    // binds functions to keep this context
+    this.handleAuthentication();
 
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
@@ -38,13 +37,15 @@ export default class Auth {
          if (err) {
            console.log(err);
          }
+         console.log(profile);
          localStorage.setItem('accessToken', authResult.accessToken);
          localStorage.setItem('profile', JSON.stringify(profile));
          localStorage.setItem('idToken', authResult.idToken);
          // navigate to the home route
-      
+         console.log("authenticated", profile);
        });
      }
+     window.location.reload();
   }
 
   logout() {
@@ -52,6 +53,8 @@ export default class Auth {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('idToken');
     localStorage.removeItem('profile');
+    console.log('i\'ve logged out');
+    window.location.reload();
     // navigate to the home route
 
   }
@@ -65,4 +68,6 @@ export default class Auth {
   }
 }
 
-module.exports.Lock = lock;
+module.exports.lock = lock;
+module.exports.Auth = Auth;
+

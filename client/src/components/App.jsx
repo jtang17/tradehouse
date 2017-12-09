@@ -1,16 +1,19 @@
 import React from 'react';
 import AddProductForm from './AddProductForm.jsx';
 import ProductList from './ProductList.jsx';
+import Header from './Header.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props)
   }
 
+
   render() {
     return (
       <div>
-        <h1>Product List</h1>
+        <Header />
         <AddProductForm />
         <ProductList />
         <div />
