@@ -1,11 +1,14 @@
 @import 'header';
 
-$blue: #5566DD;
+$dblue: #324851;
+$green: #86AC41;
+$teal: #34675c;
+$mist: #7DA3A1;
 
 body {
-	background: $blue;
+	background: $teal;
 
 	form {
-		background: red;
+		background: $dblue;
 	}
 }
