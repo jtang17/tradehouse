@@ -11,8 +11,6 @@ class ProductItem extends React.Component {
   }
 
   onDeleteClick() {
-    // const { store } = this.context;
-    // store.dispatch(deleteProduct(this.props.index));
     this.props.dispatch(deleteProduct(this.props.index));
   }
 

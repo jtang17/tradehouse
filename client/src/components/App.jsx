@@ -29,10 +29,3 @@ class App extends React.Component {
 }
 
 export default App;
-// const mapStateToProps = state => {
-//   return {
-//     items: state.products.items
-//   }
-// }
-
-// export default connect(mapStateToProps)(App);
