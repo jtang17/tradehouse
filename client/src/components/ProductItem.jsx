@@ -17,8 +17,7 @@ class ProductItem extends React.Component {
   }
 
   render() {
-    const { store } = this.context;
-    console.log(this.props.product);
+    console.log(this.props);
     return (
       <li>
         <a href="#">{this.props.product.productName.trim()}</a>
@@ -39,4 +38,5 @@ const mapDispatchToProps = dispatch => {
     })
   }
 }
+
 export default connect(mapDispatchToProps)(ProductItem);

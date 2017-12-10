@@ -18,3 +18,7 @@ export const clearProducts = () => {
     type: 'CLEAR_PRODUCTS'
   };
 }
+
+export const fetchProducts = (url = '/api/products') => {
+
+}

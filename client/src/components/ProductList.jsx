@@ -13,10 +13,11 @@ class ProductList extends React.Component {
   }
 
   clearProductList() {
-    this.props.dispatch(clearProducts());
+    this.props.clearProducts();
   }
 
   render() {
+    console.log(this.props);
     let items =
       this.props.items.map((product, index) => {
         return <ProductItem key={index} index={index} product={product} />
@@ -42,12 +43,10 @@ ProductList.contextTypes = {
   store: PropTypes.object
 };
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
   return {
-    clearProducts: () => dispatch({
-      type: 'CLEAR_PRODUCTS'
-    })
+    items: state.products.items
   }
 }
 
-export default connect(mapDispatchToProps)(ProductList);
+export default connect(mapStateToProps, { clearProducts })(ProductList);

@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
+
 import PropTypes from 'prop-types';
 import {
   addProduct
@@ -26,11 +28,19 @@ class AddProductForm extends React.Component {
     e.preventDefault();
     let product = {
       productName: this.state.productName,
-      productQuantity: this.state.productQuantity,
-      price: this.state.price,
+      productQuantity: parseInt(this.state.productQuantity),
+      price: parseFloat(this.state.price),
       description: this.state.description,
+      merchantId: 1,
     };
     console.log(product);
+    axios.post('/api/products', product)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
     this.props.dispatch(addProduct(product));
 
     this.setState({
