@@ -20,5 +20,19 @@ export const clearProducts = () => {
 }
 
 export const fetchProducts = (url = '/api/products') => {
-
+  return dispatch => {
+    axios.get(url)
+      .then((res) => {
+        return dispatch({
+          type: FETCH_PRODUCTS_SUCCESS,
+          data: res.data
+        })
+      })
+      .catch((err) => {
+        return dispatch({
+          type: FETCH_PRODUCTS_FAILURE,
+          error: err
+        })
+      })
+  }
 }

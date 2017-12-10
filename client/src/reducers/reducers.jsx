@@ -2,7 +2,9 @@ import { combineReducers } from 'redux';
 import {
   ADD_PRODUCT,
   DELETE_PRODUCT,
-  CLEAR_PRODUCTS
+  CLEAR_PRODUCTS,
+  FETCH_PRODUCTS_SUCCESS,
+  FETCH_PRODUCTS_FAILURE
 } from '../actions/actions.jsx'
 
 function products(
@@ -44,9 +46,27 @@ function products(
   }
 }
 
+function fetch(state, action) {
+  switch (action.type) {
+    case 'FETCH_PRODUCTS_FAILURE':
+      return {
+
+      }
+
+    case 'FETCH_PRODUCTS_SUCCESS':
+      return {
+
+      }
+
+    default:
+      return state;
+  }
+}
+
 //combineReducers is not working properly yet
 const reducer = combineReducers({
-  products
+  products,
+  fetch
 });
 console.log(reducer);
 
