@@ -36,6 +36,14 @@ const findOneMerchant = (entry) => {
   return db.Merchant.findOne({ username: entry.merchant || entry.username });
 };
 
+const findProductsOfMerchant = (merchantId) => {
+  return db.Product.findAll({
+    where: {
+      merchantId: merchantId
+    }
+  });
+};
+
 const getAllMerchants = () => {
   return db.Merchant.findAll({});
 };
@@ -49,7 +57,7 @@ const getAllConsumers = () => {
 };
 
 module.exports = {
-  saveNewProduct: saveNewProduct,
+  savenewproduct: saveNewProduct,
   saveNewMerchant: saveNewMerchant,
   saveNewConsumer: saveNewConsumer,
   saveNewSubscription: saveNewSubscription,
@@ -57,5 +65,6 @@ module.exports = {
   findOneMerchant: findOneMerchant,
   getAllMerchants: getAllMerchants,
   getAllProducts: getAllProducts,
-  getAllConsumers: getAllConsumers
+  getAllConsumers: getAllConsumers,
+  findProductsOfMerchant: findProductsOfMerchant
 };
