@@ -1,6 +1,8 @@
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const CLEAR_PRODUCTS = 'CLEAR_PRODUCTS';
+export const CHANGE_VIDEO = 'CHANGE_VIDEO';
+
 export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
 export const FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE';
 
@@ -22,6 +24,13 @@ export const clearProducts = () => {
   return {
     type: CLEAR_PRODUCTS
   };
+}
+
+export const changeVideo = (video) => {
+  return {
+    type: CHANGE_VIDEO,
+    video
+  }
 }
 
 export const fetchProducts = (url = '/api/products') => {

@@ -4,7 +4,8 @@ import {
   DELETE_PRODUCT,
   CLEAR_PRODUCTS,
   FETCH_PRODUCTS_SUCCESS,
-  FETCH_PRODUCTS_FAILURE
+  FETCH_PRODUCTS_FAILURE,
+  CHANGE_VIDEO
 } from '../actions/actions.jsx'
 
 const initialState = {
@@ -14,15 +15,27 @@ const initialState = {
 function products(state = initialState, action) {
   switch (action.type) {
     case ADD_PRODUCT: {
-      return Object.assign({}, state, { items: state.items.concat(action.product) });
+      // return Object.assign({}, state, { items: state.items.concat(action.product) });
+      return {...state, items: [...state.items, action.product]}
     }
     case DELETE_PRODUCT: {
       const items = [].concat(state.items);
       items.splice(action.index, 1);
-      return Object.assign({}, state, { items });
+      return {...state, items};
     }
     case CLEAR_PRODUCTS: {
-      return Object.assign({}, state, { items: [] });
+      return {...state, items: []};
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
+function video(state = '', action) {
+  switch (action.type) {
+    case CHANGE_VIDEO: {
+      return action.video;
     }
     default: {
       return state;
@@ -32,7 +45,7 @@ function products(state = initialState, action) {
 
 const tradehouseApp = combineReducers({
   products,
-  /* fetch*/
+  video
 });
 
 export default tradehouseApp;

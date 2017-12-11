@@ -11,7 +11,7 @@ class ProductItem extends React.Component {
   }
 
   onDeleteClick() {
-    this.props.dispatch(deleteProduct(this.props.index));
+    this.props.deleteProduct(this.props.index);
   }
 
   render() {
@@ -31,12 +31,4 @@ ProductItem.contextTypes = {
   store: PropTypes.object
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    deleteProduct: () => dispatch({
-      type: 'DELETE_PRODUCT'
-    })
-  }
-}
-
-export default connect(mapDispatchToProps)(ProductItem);
+export default connect(null, { deleteProduct })(ProductItem);

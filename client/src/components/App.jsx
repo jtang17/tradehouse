@@ -15,8 +15,12 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <AddProductForm />
-        <ProductList items={this.props.items} />
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/live_stream?channel=UCSJ4gkVC6NrvII8umztf0Ow&autoplay=1"
+            frameBorder="0"
+            allowFullScreen>
+        </iframe>
+        <a href ="/MerchantHome">Merchant Home</a>
       </div>
     )
   }
