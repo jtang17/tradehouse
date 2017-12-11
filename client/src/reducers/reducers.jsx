@@ -58,9 +58,9 @@ function fetch(
 }
 
 //combineReducers is not working properly yet
-const reducer = combineReducers({
+const tradehouseApp = combineReducers({
   products,
   /* fetch*/
 });
 
-export default reducer;
+export default tradehouseApp;
