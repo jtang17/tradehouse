@@ -33,7 +33,18 @@ class ProductList extends React.Component {
 
     return (
       <span>
-        <ol>{ items }</ol>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+        <tbody>{ items }</tbody>
+        </table>
         <button onClick={this.clearProductList}>Clear Product List</button>
       </span>
     );

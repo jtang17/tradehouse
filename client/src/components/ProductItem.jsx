@@ -15,13 +15,15 @@ class ProductItem extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
-      <li>
-        <a href="#">{this.props.product.productName.trim()}</a>
-        <a href="#" onClick={this.onDeleteClick.bind(this)} style={{textDecoration: 'none'}}>[x]</a>
-        <span> | Quantity: {this.props.product.productQuantity} | Price: {this.props.product.price} | Description: {this.props.product.description}</span>
-      </li>
+      <tr>
+        <th>{this.props.index+1}</th>
+        <td><a href="#">{this.props.product.productName.trim()}</a>
+            <a href="#" onClick={this.onDeleteClick.bind(this)} style={{textDecoration: 'none'}}>[x]</a></td>
+        <td>Quantity: {this.props.product.productQuantity}</td>
+        <td>Price: {this.props.product.price}</td>
+        <td> Description: {this.props.product.description} </td>
+      </tr>
     );
   }
 }
