@@ -9,7 +9,7 @@ module.exports = router;
 router.post('/', asyncMiddleware(async (req, res, next) => {
   // // example data
   // req.body = {
-  //   username: 'bob',
+  //   username: 'eeea',
   //   password: 'aaa'
   // };
   const newMerchant = await controllers.saveNewMerchant(req.body);

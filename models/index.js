@@ -6,7 +6,8 @@ if (!global.hasOwnProperty('db')) {
     sequelize = new Sequelize(process.env.DATABASE_URL, {
       dialect: 'mysql',
       protocol: 'mysql',
-      logging: true
+      logging: true,
+      charset: 'utf8'
     });
   } else {
     sequelize = new Sequelize('tradehouse_streams', 'root', '', {
@@ -17,7 +18,8 @@ if (!global.hasOwnProperty('db')) {
         min: 0,
         acquire: 30000,
         idle: 10000
-      }
+      },
+      charset: 'utf8'
     });
   }
   sequelize

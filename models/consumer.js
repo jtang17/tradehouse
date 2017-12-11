@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
   // TODO: enforce unique usernames
   return sequelize.define('consumer', {
-    username: { type: DataTypes.STRING },
+    username: { type: DataTypes.STRING, unique: true },
     password: DataTypes.STRING
   });
 };
