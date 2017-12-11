@@ -17,7 +17,6 @@ class ProductList extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     let items =
       this.props.items.map((product, index) => {
         return <ProductItem key={index} index={index} product={product} />

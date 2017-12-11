@@ -7,10 +7,11 @@ import {
   FETCH_PRODUCTS_FAILURE
 } from '../actions/actions.jsx'
 
-function products(
-  state = {
-    items: []
-  }, action) {
+const initialState = {
+  items: [],
+}
+
+function products(state = initialState, action) {
   switch (action.type) {
     case ADD_PRODUCT: {
       return Object.assign({}, state, { items: state.items.concat(action.product) });
@@ -26,27 +27,6 @@ function products(
     default: {
       return state;
     }
-  }
-}
-
-function fetch(state, action) {
-  switch (action.type) {
-    case FETCH_PRODUCTS_FAILURE:
-      return {
-        products: {
-          items: []
-        }
-      }
-
-    case FETCH_PRODUCTS_SUCCESS:
-      return {
-        products: {
-          items: []
-        }
-      }
-
-    default:
-      return state;
   }
 }
 
