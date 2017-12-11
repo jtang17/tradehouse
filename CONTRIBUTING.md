@@ -5,13 +5,9 @@ This project uses a linear history workflow, i.e., /rebase/ instead of /merge/.
 This project uses the Airbnb style guide. Refer to: https://github.com/airbnb/javascript.
 
 * Definitions
-|----------+---------------------------|
-| TERM     | REPO                      |
-|----------+---------------------------|
-| Upstream | stoneandsand/fieldofgreens|
-| Origin   | your github/fieldofgreens |
-| Local    | Local files in git.       |
-|----------+---------------------------|
+Upstream: corekoans/tradehouse
+Origin: your github/tradehouse
+Local: Local files in git.
 
 * Workflow
 ** 1. Update the local master branch.
