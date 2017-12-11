@@ -9,8 +9,8 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
       <div>
-      <Route path="/customerView" component={CustomerView} />
-      <Route exact path="/" component={App} />
+        <Route path="/customerView" component={CustomerView} />
+        <Route exact path="/" component={App} />
       </div>
     </Router>
   </Provider>

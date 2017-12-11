@@ -9,53 +9,47 @@ import {
 
 function products(
   state = {
+    items: []
+  }, action) {
+  switch (action.type) {
+    case ADD_PRODUCT: {
+      return Object.assign({}, state, { items: state.items.concat(action.product) });
+    }
+    case DELETE_PRODUCT: {
+      const items = [].concat(state.items);
+      items.splice(action.index, 1);
+      return Object.assign({}, state, { items });
+    }
+    case CLEAR_PRODUCTS: {
+      return Object.assign({}, state, { items: [] });
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
+/* fetch should not do anything unless our state has a property called fetch?*/
+function fetch(
+  state = {
     products: {
       items: []
     }
   },
-  action
-) {
+  action) {
   switch (action.type) {
-    case 'ADD_PRODUCT':
-      return {
-        products: {
-          items: [...state.products.items, action.product]
-        }
-      };
-
-    case 'DELETE_PRODUCT':
-      var items = [].concat(state.products.items);
-      var index = action.index;
-      items.splice(index, 1);
-
-      return {
-        products: {
-          items: items
-        }
-      };
-
-    case 'CLEAR_PRODUCTS':
+    case FETCH_PRODUCTS_FAILURE:
       return {
         products: {
           items: []
         }
-      };
-
-    default:
-      return state;
-  }
-}
-
-function fetch(state, action) {
-  switch (action.type) {
-    case 'FETCH_PRODUCTS_FAILURE':
-      return {
-
       }
 
-    case 'FETCH_PRODUCTS_SUCCESS':
+    case FETCH_PRODUCTS_SUCCESS:
       return {
-
+        products: {
+          items: []
+        }
       }
 
     default:
@@ -66,9 +60,7 @@ function fetch(state, action) {
 //combineReducers is not working properly yet
 const reducer = combineReducers({
   products,
-  fetch
+  /* fetch*/
 });
-console.log(reducer);
 
-//export default reducer
-export default products;
+export default reducer;
