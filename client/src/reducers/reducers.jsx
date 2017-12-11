@@ -57,7 +57,6 @@ function fetch(
   }
 }
 
-//combineReducers is not working properly yet
 const tradehouseApp = combineReducers({
   products,
   /* fetch*/
