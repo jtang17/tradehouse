@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import Root from './components/Root.jsx';
-import products from './reducers/reducers.jsx';
+import reducer from './reducers/reducers.jsx';
 
 var defaultState = {
   products: {
@@ -15,6 +15,6 @@ var defaultState = {
   }
 };
 
-const store = createStore(products, defaultState, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(reducer, defaultState, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(<Root store={store} />, document.getElementById('app'));

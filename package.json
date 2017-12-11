@@ -37,7 +37,6 @@
     "googleapis": "^23.0.0",
     "mysql2": "^1.5.1",
     "nodemon": "^1.12.5",
-    "path": "^0.12.7",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
