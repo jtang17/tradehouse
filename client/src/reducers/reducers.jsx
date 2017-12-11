@@ -29,14 +29,7 @@ function products(
   }
 }
 
-/* fetch should not do anything unless our state has a property called fetch?*/
-function fetch(
-  state = {
-    products: {
-      items: []
-    }
-  },
-  action) {
+function fetch(state, action) {
   switch (action.type) {
     case FETCH_PRODUCTS_FAILURE:
       return {

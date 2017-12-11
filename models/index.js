@@ -37,16 +37,10 @@ if (!global.hasOwnProperty('db')) {
     Consumer: sequelize.import(__dirname + '/consumer'),
     Product: sequelize.import(__dirname + '/product'),
     Merchant: sequelize.import(__dirname + '/merchant'),
-    DirectMessage: sequelize.define('direct_message', {
-      body: Sequelize.TEXT
-    }),
-    Subscription: sequelize.define('subscription', {
-    }),
-    WishlistedProduct: sequelize.define('wishlisted_product', {
-    }),
-    PurchasedProduct: sequelize.define('purchased_product', {
-      quantity: Sequelize.INTEGER
-    })
+    DirectMessage: sequelize.import(__dirname + '/directMessage'),
+    Subscription: sequelize.import(__dirname + '/subscription'),
+    WishlistedProduct: sequelize.import(__dirname + '/wishlistedProduct'),
+    PurchasedProduct: sequelize.import(__dirname + '/purchasedProduct')
   };
 
   global.db.Consumer.belongsToMany(global.db.Merchant, {
