@@ -12,7 +12,6 @@ test('CheckboxWithLabel changes the text after click', () => {
   const checkbox = shallow(<CheckboxWithLabel labelOn="On" labelOff="Off" />);
   console.log(checkbox);
   expect(checkbox.text()).toEqual('Off');
-  expect(checkbox.find('.app-Header')).to.have.length(0);
   checkbox.find('input').simulate('change');
 
   checkbox.find('input').simulate('click');

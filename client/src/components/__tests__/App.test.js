@@ -9,8 +9,7 @@ configure({ adapter: new Adapter() });
 
 test('App.jsx renders an anchor to Merchant Home', () => {
 	const app = shallow(<App />);
-	console.log(app);
-	
-	var header = app.find('.merc-home__link');
-
+	console.log('APP: ',app);
+	var header = JSON.stringify(app.find('.mercHomeLink'));
+  console.log('HEADER: ',header);
 });
