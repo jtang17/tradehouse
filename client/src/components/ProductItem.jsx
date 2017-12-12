@@ -12,7 +12,7 @@ class ProductItem extends React.Component {
 
   onDeleteClick() {
     console.log('need to query database and delete this product');
-    //need to write
+    this.props.deleteProduct(this.props.product);
   }
 
   render() {

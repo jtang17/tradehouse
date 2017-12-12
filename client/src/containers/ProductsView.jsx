@@ -2,7 +2,7 @@ import React from 'react';
 import AddProductForm from '../components/AddProductForm.jsx';
 import ProductList from '../components/ProductList.jsx';
 import { connect } from 'react-redux';
-import { addProduct, fetchProducts } from '../actions/actions.jsx';
+import { addProduct, deleteProduct, fetchProducts } from '../actions/actions.jsx';
 
 import { Redirect } from 'react-router'
 import { Auth } from "../Auth/Auth.js";
@@ -28,7 +28,10 @@ class ProductsView extends React.Component {
         <AddProductForm
           addProduct={this.props.addProduct}
         />
-        <ProductList products={this.props.items} />
+        <ProductList
+          products={this.props.items}
+          deleteProduct={this.props.deleteProduct}
+        />
       </div>
     );
   }
@@ -40,4 +43,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addProduct, fetchProducts })(ProductsView);
+export default connect(mapStateToProps, { addProduct, deleteProduct, fetchProducts })(ProductsView);

@@ -2,9 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ProductItem from './ProductItem.jsx';
-import {
-  clearProducts
-} from '../actions/actions.jsx';
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -14,7 +11,7 @@ class ProductList extends React.Component {
   render() {
     let items =
       this.props.products.map((product, index) => {
-        return <ProductItem key={index} index={index} product={product} />
+        return <ProductItem key={index} index={index} product={product} deleteProduct={this.props.deleteProduct} />
       });
 
     if (!items.length) {
