@@ -1,5 +1,6 @@
 import React from 'react';
-import CompanyStats from '../components/CompanyStats.jsx';
+import MerchantOverview from '../components/MerchantOverview.jsx';
+import MerchantStats from '../components/MerchantStats.jsx';
 
 import { Redirect } from 'react-router'
 import { Auth } from "../Auth/Auth.js";
@@ -17,25 +18,8 @@ class MerchantHome extends React.Component {
     }
     return (
       <div>
-        <div className="container">
-          <h4>Company Overview</h4>
-          <div className="row">
-            <div className="col">
-            Company Name:<br/>
-            Company Website:<br/>
-            Company Ratings:<br/>
-            Company Location:<br/>
-            Categories:<br/>
-            </div>
-            <div className="col">
-            Support E-mail:<br/>
-            Facebook:<br/>
-            Twitter:<br/>
-            Description:<br/>
-            </div>
-          </div>
-        </div>
-        <CompanyStats />
+        <MerchantOverview />
+        <MerchantStats />
       </div>
     )
   }

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const CompanyStats = props => {
+const MerchantStats = props => {
   return (
     <div className="container">
-      <h4>Company Statistics</h4>
+      <h4>Merchant Statistics</h4>
       <div className="row">
         <div className="col">
           <p> Broadcast Statistics: 1000000 views </p>
@@ -17,4 +17,4 @@ const CompanyStats = props => {
   )
 }
 
-export default CompanyStats;
+export default MerchantStats;
