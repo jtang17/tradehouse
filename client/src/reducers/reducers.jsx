@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import {
   ADD_PRODUCT_SUCCESS,
   ADD_PRODUCT_FAILURE,
   FETCH_PRODUCTS_SUCCESS,
   FETCH_PRODUCTS_FAILURE,
-  CHANGE_VIDEO
-} from '../actions/actions.jsx'
+  CHANGE_VIDEO,
+} from '../actions/actions.jsx';
 
 const initialState = {
   items: [],
@@ -44,7 +45,8 @@ function video(state = '', action) {
 
 const tradehouseApp = combineReducers({
   items,
-  video
+  video,
+  form: formReducer,
 });
 
 export default tradehouseApp;
