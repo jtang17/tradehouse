@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductControlItem from './ProductControlItem.jsx';
 
 class ProductControl extends React.Component {
   constructor(props) {
@@ -32,12 +33,8 @@ class ProductControl extends React.Component {
           <h4>Product List</h4>
           {this.props.products.map((product, index) => {
             return (
-              <div className="card" key={index} value={index} onClick={this.selectFeaturedProduct.bind(null, index)}>
-                <div className="card-body">
-                  <h4 className="card-title">{product.title} (${parseFloat(product.unitPrice).toFixed(2)})
-                  </h4>
-                  <p className="card-text">{product.description}</p>
-                </div>
+              <div key={index} onClick={this.selectFeaturedProduct.bind(null, index)}>
+                <ProductControlItem product={product} />
               </div>
             )
           })}
