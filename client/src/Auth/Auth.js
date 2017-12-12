@@ -10,9 +10,10 @@ const lock = new Auth0Lock(AUTH_CONFIG.clientId, AUTH_CONFIG.domain, AUTH_CONFIG
 class Auth {
   constructor() {
     this.handleAuthentication();
-
+    this.userProfile = null;
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
+    this.getProfile = this.getProfile.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.setSession = this.setSession.bind(this);
@@ -27,7 +28,20 @@ class Auth {
     lock.on('authorization_error', (err) => {
       console.log(err);
       alert(`Error: ${err.error}. Check the console for further details.`);
-      history.replace('/login');
+      
+    });
+  }
+
+  getProfile(cb) {
+    let accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      throw new Error('Access token required for fetching profile');
+    }
+    lock.getUserInfo(accessToken, (err, profile) => {
+      if (profile) {
+        this.userProfile = profile;
+      }
+      console.log("err",err, "profile", profile);
     });
   }
 
@@ -45,6 +59,7 @@ class Auth {
          console.log("authenticated", profile);
        });
      }
+     history.replace('MerchantHome');
      window.location.reload();
   }
 
@@ -53,7 +68,8 @@ class Auth {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('idToken');
     localStorage.removeItem('profile');
-    console.log('i\'ve logged out');
+    this.userProfile = null;
+    history.replace('/');
     window.location.reload();
     // navigate to the home route
 

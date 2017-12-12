@@ -2,8 +2,9 @@
 @import 'header';
 
 body {
-	background: $teal;
-
+	background: $mist;
+	box-sizing: border-box;
+	color: $marbe;
 	form {
 		background: $mist;
 	}

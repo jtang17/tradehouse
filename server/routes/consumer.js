@@ -4,7 +4,6 @@ const asyncMiddleware = require('./utils/asyncMiddleware');
 
 const router = new Router();
 
-module.exports = router;
 
 router.get('/', asyncMiddleware(async (req, res, next) => {
   const rows = await controllers.getAllConsumers();
@@ -35,3 +34,5 @@ router.post('/subscription', asyncMiddleware(async (req, res, next) => {
   });
   res.json(subscription);
 }));
+
+module.exports = router;

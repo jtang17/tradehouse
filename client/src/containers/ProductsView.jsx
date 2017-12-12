@@ -4,6 +4,10 @@ import ProductList from '../components/ProductList.jsx';
 import { connect } from 'react-redux';
 import { addProduct, fetchProducts } from '../actions/actions.jsx';
 
+import { Redirect } from 'react-router'
+import { Auth } from "../Auth/Auth.js";
+const auth = new Auth();
+
 class ProductsView extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +18,11 @@ class ProductsView extends React.Component {
   }
 
   render() {
+    // redirect to home if not logged in, shouldn't be here
+    if (!auth.isAuthenticated()) {
+     return <Redirect to="/"/>
+    }
+
     return (
       <div>
         <AddProductForm

@@ -1,5 +1,5 @@
 import React from "react";
-import { lock, Auth } from '../Auth/Auth.js';
+import { lock, Auth } from "../Auth/Auth.js";
 const auth = new Auth();
 
 class Header extends React.Component {
@@ -15,10 +15,7 @@ class Header extends React.Component {
 		this.logout = this.logout.bind(this);
 	}
 
-	componentWillMount(){
-
-
-	}
+	componentWillMount() {}
 
 	registerFunc() {
 		auth.login();
@@ -28,13 +25,13 @@ class Header extends React.Component {
 		auth.logout();
 	}
 
-
 	render() {
-
 		if (!auth.isAuthenticated()) {
 			return (
 				<div className="header__container">
-					<img src="https://www.tradehousecrafts.com/wp-content/uploads/2016/02/trade-house-crafts-logo2.png" />
+					<a href="/">
+						<img src="https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif" />
+					</a>
 					<div className="header__social">
 						<p>Social Media Section</p>
 						<p>About Us Section</p>
@@ -47,11 +44,19 @@ class Header extends React.Component {
 		} else {
 			return (
 				<div className="header__container">
-					<img src="https://www.tradehousecrafts.com/wp-content/uploads/2016/02/trade-house-crafts-logo2.png" />
+					<a href="/">
+						<img src="https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif" />
+					</a>
 					<div className="btn-group">
-						<a className="btn btn-primary" href="/MerchantHome">Home</a>
-						<a className="btn btn-primary" href="/ProductsView">Manage Store</a>
-						<a className="btn btn-primary" href="/BroadcastView">Broadcast</a>
+						<a className="btn btn-primary" href="/MerchantHome">
+							Home
+						</a>
+						<a className="btn btn-primary" href="/ProductsView">
+							Manage Store
+						</a>
+						<a className="btn btn-primary" href="/BroadcastView">
+							Broadcast
+						</a>
 					</div>
 					<div className="header__account--register">
 						<button onClick={this.logout}>Logout</button>
@@ -59,7 +64,6 @@ class Header extends React.Component {
 				</div>
 			);
 		}
-
 	}
 }
 
