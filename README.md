@@ -30,4 +30,4 @@ npm run be-start
 
 ## Contributing
 
-This project uses the Airbnb style guide. See [CONTRIBUTING.md](_CONTRIBUTING.md) for contribution guidelines.
+This project uses the Airbnb style guide. See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
