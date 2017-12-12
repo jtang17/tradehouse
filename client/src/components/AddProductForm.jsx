@@ -1,10 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-
 import PropTypes from 'prop-types';
-import {
-  addProduct
-} from '../actions/actions.jsx';
 
 let AddProductForm = (props) => {
   const handleSubmit = (values) => {

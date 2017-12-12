@@ -6,21 +6,30 @@ const saveNewProduct = (entry) => {
     description: entry.description,
     quantity: entry.productQuantity,
     unitPrice: entry.price,
-    merchantId: entry.merchantId
+    merchantId: entry.merchantId,
+  });
+};
+
+const deleteProduct = (entry) => {
+  return db.Product.destroy({
+    where: {
+      merchantId: entry.merchantId,
+      title: entry.productName,
+    },
   });
 };
 
 const saveNewMerchant = (entry) => {
   return db.Merchant.create({
     username: entry.username,
-    password: entry.password
+    password: entry.password,
   });
 };
 
 const saveNewConsumer = (entry) => {
   return db.Consumer.create({
     username: entry.username,
-    password: entry.password
+    password: entry.password,
   });
 };
 
@@ -39,8 +48,8 @@ const findOneMerchant = (entry) => {
 const findProductsOfMerchant = (merchantId) => {
   return db.Product.findAll({
     where: {
-      merchantId
-    }
+      merchantId,
+    },
   });
 };
 
@@ -58,6 +67,7 @@ const getAllConsumers = () => {
 
 module.exports = {
   saveNewProduct,
+  deleteProduct,
   saveNewMerchant,
   saveNewConsumer,
   saveNewSubscription,
@@ -66,5 +76,5 @@ module.exports = {
   getAllMerchants,
   getAllProducts,
   getAllConsumers,
-  findProductsOfMerchant
+  findProductsOfMerchant,
 };

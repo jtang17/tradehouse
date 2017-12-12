@@ -27,18 +27,17 @@ class ProductsView extends React.Component {
       <div>
         <AddProductForm
           addProduct={this.props.addProduct}
-          fetchProducts={this.props.fetchProducts}
         />
         <ProductList products={this.props.items} />
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    items: state.items
-  }
-}
+    items: state.items,
+  };
+};
 
 export default connect(mapStateToProps, { addProduct, fetchProducts })(ProductsView);

@@ -23,3 +23,16 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
   const rows = await controllers.getAllProducts();
   res.json(rows);
 }));
+
+// TODO: decide on location of API endpoints
+
+router.delete('/', (req, res, next) => {
+  // // example data
+  // req.body = {
+  //   productName: 'HMM',
+  //   merchantId: '1'
+  // };
+  controllers.deleteProduct(req.body)
+    .then(() => res.send('Deleted product'))
+    .catch(err => console.error(err));
+});
