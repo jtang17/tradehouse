@@ -18,10 +18,10 @@ class ProductItem extends React.Component {
     return (
       <tr>
         <th>{this.props.index+1}</th>
-        <td><a href="#">{this.props.product.productName.trim()}</a>
+        <td><a href="#">{this.props.product.title.trim()}</a>
             <a href="#" onClick={this.onDeleteClick.bind(this)} style={{textDecoration: 'none'}}>[x]</a></td>
-        <td>Quantity: {this.props.product.productQuantity}</td>
-        <td>Price: {this.props.product.price}</td>
+        <td>Quantity: {this.props.product.quantity}</td>
+        <td>Price: {this.props.product.unitPrice}</td>
         <td> Description: {this.props.product.description} </td>
       </tr>
     );

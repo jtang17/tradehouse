@@ -1,7 +1,7 @@
 import React from 'react';
 import AddProductForm from './AddProductForm.jsx';
 import ProductList from './ProductList.jsx';
-import Header from './Header.jsx';
+// import Header from './Header.jsx';
 
 import { connect } from 'react-redux';
 
@@ -14,7 +14,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
         <iframe width="560" height="315"
             src="https://www.youtube.com/embed/live_stream?channel=UCSJ4gkVC6NrvII8umztf0Ow&autoplay=1"
             frameBorder="0"

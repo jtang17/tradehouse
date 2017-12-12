@@ -33,15 +33,15 @@ class AddProductForm extends React.Component {
       description: this.state.description,
       merchantId: 1,
     };
-    console.log(product);
-    axios.post('/api/products', product)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-    this.props.dispatch(addProduct(product));
+    // console.log(product);
+    // axios.post('/api/products', product)
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
+    this.props.addProduct(product);
 
     this.setState({
       productName: '',
@@ -80,12 +80,4 @@ class AddProductForm extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addProduct : () => dispatch({
-      type: 'ADD_PRODUCT'
-    })
-  }
-}
-
-export default connect(mapDispatchToProps)(AddProductForm)
+export default AddProductForm;

@@ -16,8 +16,8 @@ class Header extends React.Component {
 	}
 
 	componentWillMount(){
-		
-	
+
+
 	}
 
 	registerFunc() {

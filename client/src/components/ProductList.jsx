@@ -9,16 +9,11 @@ import {
 class ProductList extends React.Component {
   constructor(props) {
     super(props)
-    this.clearProductList = this.clearProductList.bind(this);
-  }
-
-  clearProductList() {
-    this.props.clearProducts();
   }
 
   render() {
     let items =
-      this.props.items.map((product, index) => {
+      this.props.products.map((product, index) => {
         return <ProductItem key={index} index={index} product={product} />
       });
 
@@ -44,7 +39,6 @@ class ProductList extends React.Component {
           </thead>
         <tbody>{ items }</tbody>
         </table>
-        <button onClick={this.clearProductList}>Clear Product List</button>
       </span>
     );
   }
@@ -53,10 +47,4 @@ ProductList.contextTypes = {
   store: PropTypes.object
 };
 
-const mapStateToProps = state => {
-  return {
-    items: state.products.items
-  }
-}
-
-export default connect(mapStateToProps, { clearProducts })(ProductList);
+export default ProductList;

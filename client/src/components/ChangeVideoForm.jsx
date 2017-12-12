@@ -24,7 +24,7 @@ class ChangeVideoForm extends React.Component {
   onUrlChanged(e) {
     this.setState({
       url: e.target.value
-    })
+    });
   }
 
   render() {

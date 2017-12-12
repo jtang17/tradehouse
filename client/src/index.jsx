@@ -14,15 +14,17 @@ import tradehouseApp from './reducers/reducers.jsx';
 import { Provider } from 'react-redux';
 
 import App from './components/App.jsx';
+import Header from './components/Header.jsx';
 import CustomerView from './containers/CustomerView.jsx';
 import ProductsView from './containers/ProductsView.jsx';
 import MerchantHome from './containers/MerchantHome.jsx';
 import BroadcastView from './containers/BroadcastView.jsx';
 
 var defaultState = {
-  products: {
-    items: []
-  },
+  // products: {
+  //   items: []
+  // },
+  items: [],
   video: ''
 };
 
@@ -32,6 +34,7 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
       <div>
+        <Header />
         <Route path="/CustomerView" component={CustomerView} />
         <Route path="/ProductsView" component={ProductsView} />
         <Route path="/MerchantHome" component={MerchantHome} />

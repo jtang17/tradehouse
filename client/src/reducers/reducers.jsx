@@ -1,8 +1,7 @@
 import { combineReducers } from 'redux';
 import {
-  ADD_PRODUCT,
-  DELETE_PRODUCT,
-  CLEAR_PRODUCTS,
+  ADD_PRODUCT_SUCCESS,
+  ADD_PRODUCT_FAILURE,
   FETCH_PRODUCTS_SUCCESS,
   FETCH_PRODUCTS_FAILURE,
   CHANGE_VIDEO
@@ -12,19 +11,19 @@ const initialState = {
   items: [],
 }
 
-function products(state = initialState, action) {
+function items(state = [], action) {
   switch (action.type) {
-    case ADD_PRODUCT: {
-      // return Object.assign({}, state, { items: state.items.concat(action.product) });
-      return {...state, items: [...state.items, action.product]}
+    // case ADD_PRODUCT_SUCCESS: {
+    //   return state;
+    // }
+    case ADD_PRODUCT_FAILURE: {
+      return action.error;
     }
-    case DELETE_PRODUCT: {
-      const items = [].concat(state.items);
-      items.splice(action.index, 1);
-      return {...state, items};
+    case FETCH_PRODUCTS_SUCCESS: {
+      return action.items;
     }
-    case CLEAR_PRODUCTS: {
-      return {...state, items: []};
+    case FETCH_PRODUCTS_FAILURE: {
+      return action.error;
     }
     default: {
       return state;
@@ -44,7 +43,8 @@ function video(state = '', action) {
 }
 
 const tradehouseApp = combineReducers({
-  products,
+  // products,
+  items,
   video
 });
 
