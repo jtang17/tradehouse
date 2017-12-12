@@ -10,32 +10,37 @@ import {
   CHANGE_VIDEO,
 } from '../actions/actions.jsx';
 
-const initialState = {
-  items: [],
-}
-
 function items(state = [], action) {
   switch (action.type) {
     case ADD_PRODUCT_SUCCESS: {
       return [...state, action.product];
     }
     case ADD_PRODUCT_FAILURE: {
-      return action.error;
+      console.error(action.error);
+      return state;
+      // notify user of error?
     }
     case DELETE_PRODUCT_SUCCESS: {
-      return state;
-      //return state without deleted product
+      const newState = state.slice();
+      for (let i = 0; i < newState.length; i + 1) {
+        if (newState[i].title === action.title) {
+          newState.splice(i, 1);
+        }
+      }
+      return newState;
     }
     case DELETE_PRODUCT_FAILURE: {
+      console.error(action.error);
       return state;
-      //use action.error for some notification system for user?
+      // notify user of error?
     }
     case FETCH_PRODUCTS_SUCCESS: {
       return action.items;
     }
     case FETCH_PRODUCTS_FAILURE: {
+      console.error(action.error);
       return state;
-      //use action.error for some notification system for user?
+      // notify user of error?
     }
     default: {
       return state;
