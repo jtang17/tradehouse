@@ -33,14 +33,7 @@ class AddProductForm extends React.Component {
       description: this.state.description,
       merchantId: 1,
     };
-    // console.log(product);
-    // axios.post('/api/products', product)
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
+
     this.props.addProduct(product);
 
     this.setState({
@@ -70,11 +63,25 @@ class AddProductForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.onFormSubmit}>
-        <input type="text" placeholder="Product..." onChange={this.onProductNameChanged} value={this.state.productName} />
-        <input type="text" placeholder="Quantity..." onChange={this.onProductQuantityChanged} value={this.state.productQuantity} />
-        <input type="text" placeholder="$0.00" onChange={this.onPriceChanged} value={this.state.price} />
-        <input type="text" placeholder="Description..." onChange={this.onDescriptionChanged} value={this.state.description} />
-        <input type="submit" value="Add" />
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <input type="text" className="form-control" placeholder="Product..." onChange={this.onProductNameChanged} value={this.state.productName} />
+            </div>
+            <div className="col">
+              <input type="text" className="form-control" placeholder="Quantity..." onChange={this.onProductQuantityChanged} value={this.state.productQuantity} />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <input type="text" className="form-control" placeholder="$0.00" onChange={this.onPriceChanged} value={this.state.price} />
+            </div>
+            <div className="col">
+              <input type="text" className="form-control" placeholder="Description..." onChange={this.onDescriptionChanged} value={this.state.description} />
+            </div>
+          </div>
+          <input className="btn btn-primary" type="submit" value="Add Product" />
+        </div>
       </form>
     );
   }

@@ -29,7 +29,7 @@ class ChangeVideoForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         Current Video: {this.props.video}
         <form onSubmit={this.onFormSubmit}>
           <input type="text" placeholder="Video URL..." onChange={this.onUrlChanged} value={this.state.url} />

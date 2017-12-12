@@ -48,9 +48,10 @@ class Header extends React.Component {
 			return (
 				<div className="header__container">
 					<img src="https://www.tradehousecrafts.com/wp-content/uploads/2016/02/trade-house-crafts-logo2.png" />
-					<div className="header__social">
-						<p>Social Media Section</p>
-						<p>About Us Section</p>
+					<div className="btn-group">
+						<a className="btn btn-primary" href="/MerchantHome">Home</a>
+						<a className="btn btn-primary" href="/ProductsView">Manage Store</a>
+						<a className="btn btn-primary" href="/BroadcastView">Broadcast</a>
 					</div>
 					<div className="header__account--register">
 						<button onClick={this.logout}>Logout</button>
