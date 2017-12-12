@@ -2,9 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import PropTypes from 'prop-types';
-import {
-  changeVideo
-} from '../actions/actions.jsx';
 
 class ChangeVideoForm extends React.Component {
   constructor(props) {
@@ -19,6 +16,9 @@ class ChangeVideoForm extends React.Component {
   onFormSubmit(e) {
     e.preventDefault();
     this.props.changeVideo(this.state.url);
+    this.setState({
+      url: '',
+    })
   }
 
   onUrlChanged(e) {
@@ -30,20 +30,14 @@ class ChangeVideoForm extends React.Component {
   render() {
     return (
       <div className="container">
-        Current Video: {this.props.video}
         <form onSubmit={this.onFormSubmit}>
-          <input type="text" placeholder="Video URL..." onChange={this.onUrlChanged} value={this.state.url} />
-          <input type="submit" value="Set Video Url" />
+          <label>Enter Youtube Channel ID</label>
+          <input type="text" placeholder="Youtube Channel ID..." onChange={this.onUrlChanged} value={this.state.url} />
+          <input type="submit" value="Submit" />
         </form>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    video: state.video
-  }
-}
-
-export default connect(mapStateToProps, { changeVideo })(ChangeVideoForm);
+export default ChangeVideoForm;
