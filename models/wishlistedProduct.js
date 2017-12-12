@@ -1,4 +1,3 @@
-module.exports = (sequelize, DataTypes) => {
-  return sequelize.define('wishlisted_product', {
+module.exports = (sequelize, DataTypes) =>
+  sequelize.define('wishlisted_product', {
   });
-};

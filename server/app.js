@@ -3,17 +3,17 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const db = require('../models/index.js');
 const mountRoutes = require('./routes');
+/* Webpack Hot Reloads */
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const config = require('../webpack.config');
 
 const app = express();
 const port = process.env.PORT || 5421;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-/* Webpack Hot Reloads */
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const config = require('../webpack.config');
 
 const compiler = webpack(config);
 app.use(

@@ -1,5 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
-  return sequelize.define('direct_message', {
-    body: DataTypes.TEXT
+module.exports = (sequelize, DataTypes) =>
+  sequelize.define('direct_message', {
+    body: DataTypes.TEXT,
   });
-};

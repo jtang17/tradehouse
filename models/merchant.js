@@ -1,6 +1,11 @@
-module.exports = (sequelize, DataTypes) => {
-  return sequelize.define('merchant', {
+module.exports = (sequelize, DataTypes) =>
+  sequelize.define('merchant', {
+    logo: DataTypes.STRING,
     username: { type: DataTypes.STRING, unique: true },
-    password: DataTypes.STRING
+    website: DataTypes.STRING,
+    location: DataTypes.LOCATION,
+    email: DataTypes.STRING,
+    facebook: DataTypes.STRING,
+    twitter: DataTypes.STRING,
+    description: DataTypes.TEXT,
   });
-};

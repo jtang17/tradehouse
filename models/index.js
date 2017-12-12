@@ -7,7 +7,7 @@ if (!global.hasOwnProperty('db')) {
       dialect: 'mysql',
       protocol: 'mysql',
       logging: true,
-      charset: 'utf8'
+      charset: 'utf8',
     });
   } else {
     sequelize = new Sequelize('tradehouse_streams', 'root', '', {
@@ -17,9 +17,9 @@ if (!global.hasOwnProperty('db')) {
         max: 5,
         min: 0,
         acquire: 30000,
-        idle: 10000
+        idle: 10000,
       },
-      charset: 'utf8'
+      charset: 'utf8',
     });
   }
   sequelize
@@ -27,56 +27,54 @@ if (!global.hasOwnProperty('db')) {
     .then(() => {
       console.log('Connected to MySQL db');
     })
-    .catch((err) => {
-      return console.error('Unable to connect to SQL: ', err);
-    });
+    .catch(err => console.error('Unable to connect to SQL: ', err));
 
   global.db = {
-    Sequelize: Sequelize,
-    sequelize: sequelize,
+    Sequelize,
+    sequelize,
     Consumer: sequelize.import(__dirname + '/consumer'),
     Product: sequelize.import(__dirname + '/product'),
     Merchant: sequelize.import(__dirname + '/merchant'),
     DirectMessage: sequelize.import(__dirname + '/directMessage'),
     Subscription: sequelize.import(__dirname + '/subscription'),
     WishlistedProduct: sequelize.import(__dirname + '/wishlistedProduct'),
-    PurchasedProduct: sequelize.import(__dirname + '/purchasedProduct')
+    PurchasedProduct: sequelize.import(__dirname + '/purchasedProduct'),
   };
 
   global.db.Consumer.belongsToMany(global.db.Merchant, {
     through: 'direct_message',
-    unique: false
+    unique: false,
   });
   global.db.Merchant.belongsToMany(global.db.Consumer, {
     through: 'direct_message',
-    unique: false
+    unique: false,
   });
 
   global.db.Consumer.belongsToMany(global.db.Merchant, {
     through: 'subscription',
-    unique: 'consumer_merchant_subscription'
+    unique: 'consumer_merchant_subscription',
   });
   global.db.Merchant.belongsToMany(global.db.Consumer, {
     through: 'subscription',
-    unique: 'consumer_merchant_subscription'
+    unique: 'consumer_merchant_subscription',
   });
 
   global.db.Consumer.belongsToMany(global.db.Product, {
     through: 'wishlisted_product',
-    unique: 'consumer_product_wishlisted'
+    unique: 'consumer_product_wishlisted',
   });
   global.db.Product.belongsToMany(global.db.Consumer, {
     through: 'wishlisted_product',
-    unique: 'consumer_product_wishlisted'
+    unique: 'consumer_product_wishlisted',
   });
 
   global.db.Consumer.belongsToMany(global.db.Product, {
     through: 'purchased_product',
-    unique: false
+    unique: false,
   });
   global.db.Product.belongsToMany(global.db.Consumer, {
     through: 'purchased_product',
-    unique: false
+    unique: false,
   });
 
   global.db.Product.belongsTo(global.db.Merchant);
