@@ -17,10 +17,7 @@ class ProductControl extends React.Component {
   }
 
   render() {
-    const featured =
-      <div>
-        {this.state.selected.title}
-      </div>
+    const featured = <ProductControlItem product={this.state.selected} />
 
     return (
       <div className="container">
