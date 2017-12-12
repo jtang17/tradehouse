@@ -17,15 +17,15 @@ export const addProduct = (product) => {
   return dispatch => {
     axios.post('/api/products', product)
       .then((res) => {
-        dispatch(fetchProducts);
         return dispatch({
           type: ADD_PRODUCT_SUCCESS,
+          product: res.data,
         });
       })
       .catch((err) => {
         return dispatch({
           type: ADD_PRODUCT_FAILURE,
-          error: err
+          error: err,
         });
       });
   }

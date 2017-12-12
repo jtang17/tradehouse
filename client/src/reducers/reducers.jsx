@@ -13,9 +13,9 @@ const initialState = {
 
 function items(state = [], action) {
   switch (action.type) {
-    // case ADD_PRODUCT_SUCCESS: {
-    //   return state;
-    // }
+    case ADD_PRODUCT_SUCCESS: {
+      return [...state, action.product];
+    }
     case ADD_PRODUCT_FAILURE: {
       return action.error;
     }
@@ -43,7 +43,6 @@ function video(state = '', action) {
 }
 
 const tradehouseApp = combineReducers({
-  // products,
   items,
   video
 });
