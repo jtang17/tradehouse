@@ -4,7 +4,7 @@
   "description": "Trade House",
   "main": "server/app.js",
   "scripts": {
-    "test": "jest --watch",
+    "test": "jest",
     "react-dev": "webpack -d --watch",
     "be-start": "nodemon --inspect ./server/app.js"
   },
