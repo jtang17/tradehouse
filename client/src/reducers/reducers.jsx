@@ -8,6 +8,7 @@ import {
   FETCH_PRODUCTS_SUCCESS,
   FETCH_PRODUCTS_FAILURE,
   CHANGE_VIDEO,
+  CHANGE_BROADCAST_MESSAGE
 } from '../actions/actions.jsx';
 
 function items(state = [], action) {
@@ -59,9 +60,21 @@ function video(state = '', action) {
   }
 }
 
+function broadcastMessage(state ='', action) {
+  switch (action.type) {
+    case CHANGE_BROADCAST_MESSAGE: {
+      return action.broadcastMessage;
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
 const tradehouseApp = combineReducers({
   items,
   video,
+  broadcastMessage,
   form: formReducer,
 });
 

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const CHANGE_VIDEO = 'CHANGE_VIDEO';
+export const CHANGE_BROADCAST_MESSAGE ='CHANGE_BROADCAST_MESSAGE';
 export const ADD_PRODUCT_SUCCESS = 'ADD_PRODUCT_SUCCESS';
 export const ADD_PRODUCT_FAILURE = 'ADD_PRODUCT_FAILURE';
 export const DELETE_PRODUCT_SUCCESS = 'DELETE_PRODUCT_SUCCESS';
@@ -11,6 +12,11 @@ export const FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE';
 export const changeVideo = video => ({
   type: CHANGE_VIDEO,
   video,
+});
+
+export const changeBroadcastMessage = broadcastMessage => ({
+  type: CHANGE_BROADCAST_MESSAGE,
+  broadcastMessage,
 });
 
 export const addProduct = product => (dispatch) => {
