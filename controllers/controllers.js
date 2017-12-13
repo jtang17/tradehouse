@@ -43,23 +43,27 @@ const saveNewProductReview = (entry) => {
 };
 
 const editProductReview = (entry) => {
-  return db.ProductReview.findOne({ id: entry.productId })
-    .then((review) => {
-      return review.set({
-        rating: entry.rating,
-        text: entry.text,
-      });
+  return db.ProductReview.findOne({
+    productId: entry.productId,
+    consumerId: entry.consumerId,
+  }).then((review) => {
+    return review.set({
+      rating: entry.rating,
+      text: entry.text,
     });
+  });
 };
 
 const editMerchantReview = (entry) => {
-  return db.MerchantReview.findOne({ id: entry.merchantId })
-    .then((review) => {
-      return review.set({
-        rating: entry.rating,
-        text: entry.text,
-      });
+  return db.MerchantReview.findOne({
+    merchantId: entry.merchantId,
+    consumerId: entry.consumerId,
+  }).then((review) => {
+    return review.set({
+      rating: entry.rating,
+      text: entry.text,
     });
+  });
 };
 
 const saveNewMerchantReview = (entry) => {
