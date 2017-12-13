@@ -22,12 +22,12 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
   res.json(rows);
 }));
 
-router.get('/:merchantId', asyncMiddleware(async (req, res, next) => {
+router.get('/:id', asyncMiddleware(async (req, res, next) => {
   const merchant = await controllers.findOneMerchant(req.params);
   res.json(merchant);
 }));
 
-router.post('/:merchantId/products', asyncMiddleware(async (req, res, next) => {
+router.post('/:id/products', asyncMiddleware(async (req, res, next) => {
   // // example data
   // req.body = {
   //   title: 'toothpaste',

@@ -20,7 +20,7 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
   res.json(newConsumer);
 }));
 
-router.get('/:consumerId', asyncMiddleware(async (req, res, next) => {
+router.get('/:id', asyncMiddleware(async (req, res, next) => {
   const consumer = await controllers.findOneConsumer(req.params);
   res.json(consumer);
 }));
