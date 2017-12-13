@@ -36,6 +36,7 @@ if (!global.hasOwnProperty('db')) {
     Product: sequelize.import(__dirname + '/product'),
     Merchant: sequelize.import(__dirname + '/merchant'),
     ProductReview: sequelize.import(__dirname + '/productReview'),
+    MerchantReview: sequelize.import(__dirname + '/merchantReview'),
     DirectMessage: sequelize.import(__dirname + '/directMessage'),
     Subscription: sequelize.import(__dirname + '/subscription'),
     WishlistedProduct: sequelize.import(__dirname + '/wishlistedProduct'),
@@ -85,6 +86,15 @@ if (!global.hasOwnProperty('db')) {
   global.db.Product.belongsToMany(global.db.Consumer, {
     through: 'product_review',
     unique: 'consumer_product_review',
+  });
+
+  global.db.Consumer.belongsToMany(global.db.Product, {
+    through: 'merchant_review',
+    unique: 'consumer_merchant_review',
+  });
+  global.db.Product.belongsToMany(global.db.Consumer, {
+    through: 'merchant_review',
+    unique: 'consumer_merchant_review',
   });
 
   global.db.Product.belongsTo(global.db.Merchant);

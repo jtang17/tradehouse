@@ -33,6 +33,24 @@ const saveNewConsumer = (entry) => {
   });
 };
 
+const saveNewProductReview = (entry) => {
+  return db.ProductReview.create({
+    rating: entry.rating,
+    text: entry.text,
+    productId: entry.productId,
+    consumerId: entry.consumerId,
+  });
+};
+
+const saveNewMerchantReview = (entry) => {
+  return db.MerchantReview.create({
+    rating: entry.rating,
+    text: entry.text,
+    productId: entry.productId,
+    consumerId: entry.consumerId,
+  });
+};
+
 const saveNewSubscription = (entry) => {
   return db.Subscription.create({ ...entry });
 };
@@ -77,4 +95,6 @@ module.exports = {
   getAllProducts,
   getAllConsumers,
   findProductsOfMerchant,
+  saveNewProductReview,
+  saveNewMerchantReview,
 };
