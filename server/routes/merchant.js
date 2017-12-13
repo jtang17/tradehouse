@@ -30,7 +30,7 @@ router.get('/:merchantId', asyncMiddleware(async (req, res, next) => {
 router.post('/:merchantId/products', asyncMiddleware(async (req, res, next) => {
   // // example data
   // req.body = {
-  //   productName: 'toothpaste',
+  //   title: 'toothpaste',
   //   description: 'minty',
   //   productQuantity: '5',
   //   price: '4.99',

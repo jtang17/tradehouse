@@ -11,7 +11,7 @@ class ProductItem extends React.Component {
   }
 
   onDeleteClick() {
-    console.log('need to query database and delete this product');
+    console.log(`deleting ${this.props.product}`)
     this.props.deleteProduct(this.props.product);
   }
 
@@ -20,7 +20,7 @@ class ProductItem extends React.Component {
       <tr>
         <th>{this.props.index+1}</th>
         <td>{this.props.product.title.trim()}
-            <a href="#" onClick={this.onDeleteClick.bind(this)} style={{textDecoration: 'none', color: 'red'}}>[x]</a></td>
+            <a href="#" onClick={this.onDeleteClick} style={{textDecoration: 'none', color: 'red'}}>[x]</a></td>
         <td>{this.props.product.quantity}</td>
         <td>${parseFloat(this.props.product.unitPrice).toFixed(2)}</td>
         <td>{this.props.product.description} </td>

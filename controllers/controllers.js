@@ -2,7 +2,7 @@ const db = require('../models/index.js');
 
 const saveNewProduct = (entry) => {
   return db.Product.create({
-    title: entry.productName,
+    title: entry.title,
     description: entry.description,
     quantity: entry.productQuantity,
     unitPrice: entry.price,
@@ -14,7 +14,7 @@ const deleteProduct = (entry) => {
   return db.Product.destroy({
     where: {
       merchantId: entry.merchantId,
-      title: entry.productName,
+      title: entry.title,
     },
   });
 };

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 let AddProductForm = (props) => {
   const handleSubmit = (values) => {
     const product = {
-      productName: values.target[0].defaultValue,
+      title: values.target[0].defaultValue,
       productQuantity: parseInt(values.target[1].defaultValue, 10),
       price: parseFloat(values.target[2].defaultValue),
       description: values.target[3].defaultValue,
@@ -17,7 +17,7 @@ let AddProductForm = (props) => {
     <form onSubmit={handleSubmit}>
       <div className="row">
         <div className="col">
-          <Field type="text" component="input" name="productName" placeholder="Product Name" />
+          <Field type="text" component="input" name="title" placeholder="Title" />
         </div>
         <div className="col">
           <Field type="text" component="input" name="productQuantity" placeholder="Quantity" />

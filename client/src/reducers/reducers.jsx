@@ -22,6 +22,7 @@ function items(state = [], action) {
       // notify user of error?
     }
     case DELETE_PRODUCT_SUCCESS: {
+      console.log(action.title);
       const newState = state.slice();
       for (let i = 0; i < newState.length; i + 1) {
         if (newState[i].title === action.title) {

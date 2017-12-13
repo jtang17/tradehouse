@@ -9,7 +9,7 @@ module.exports = router;
 router.post('/', asyncMiddleware(async (req, res, next) => {
   // // example data
   // req.body = {
-  //   productName: 'toothpaste',
+  //   title: 'toothpaste',
   //   description: 'minty',
   //   productQuantity: '5',
   //   price: '4.99',
