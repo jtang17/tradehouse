@@ -1,4 +1,4 @@
-if(AUTH_DOMAIN) {
+if(CIRCLECI) {
   const domain = AUTH_DOMAIN;
   const clientId = AUTH_CLIENT_ID;
 } else {
