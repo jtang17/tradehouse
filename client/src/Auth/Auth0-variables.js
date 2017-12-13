@@ -1,15 +1,6 @@
-if(CIRCLECI) {
-  const domain = AUTH_DOMAIN;
-  const clientId = AUTH_CLIENT_ID;
-} else {
-  const config = require('../../../config.js');
-  const domain = config.domain;
-  const clientId = config.clientId;
-}
-
 export const AUTH_CONFIG = {
-  domain: domain,
-  clientId: clientId,
+  domain: 'antonvs.auth0.com',
+  clientId: 'l5HhVRbwlvmryIQQljzDaHoMMAxF8873',
   callbackUrl: 'http://localhost:5421/callback',
   options: {
     languageDictionary: {
