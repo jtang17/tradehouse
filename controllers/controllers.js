@@ -42,6 +42,26 @@ const saveNewProductReview = (entry) => {
   });
 };
 
+const editProductReview = (entry) => {
+  return db.ProductReview.findOne({ id: entry.id })
+    .then((review) => {
+      return review.set({
+        rating: entry.rating,
+        text: entry.text,
+      });
+    });
+};
+
+const editMerchantReview = (entry) => {
+  return db.MerchantReview.findOne({ id: entry.id })
+    .then((review) => {
+      return review.set({
+        rating: entry.rating,
+        text: entry.text,
+      });
+    });
+};
+
 const saveNewMerchantReview = (entry) => {
   return db.MerchantReview.create({
     rating: entry.rating,
@@ -56,11 +76,11 @@ const saveNewSubscription = (entry) => {
 };
 
 const findOneConsumer = (entry) => {
-  return db.Consumer.findOne({ username: entry.consumer || entry.username });
+  return db.Consumer.findOne({ id: entry.id });
 };
 
 const findOneMerchant = (entry) => {
-  return db.Merchant.findOne({ username: entry.merchant || entry.username });
+  return db.Merchant.findOne({ id: entry.id });
 };
 
 const findProductsOfMerchant = (merchantId) => {
@@ -113,6 +133,8 @@ module.exports = {
   findProductsOfMerchant,
   saveNewProductReview,
   saveNewMerchantReview,
+  editMerchantReview,
+  editProductReview,
   findReviewsOfMerchant,
   findReviewsOfProduct,
 };
