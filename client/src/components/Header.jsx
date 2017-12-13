@@ -33,8 +33,7 @@ class Header extends React.Component {
 						<img src="https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif" />
 					</a>
 					<div className="header__social">
-						<p>Social Media Section</p>
-						<p>About Us Section</p>
+						<p>Tradehouse: buy and sell more effectively</p>
 					</div>
 					<div className="header__account--register">
 						<button onClick={this.registerFunc}>Register/Login</button>

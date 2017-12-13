@@ -26,16 +26,16 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
 
 // TODO: decide on location of API endpoints
 
-router.delete('/', (req, res, next) => {
+router.delete('/', asyncMiddleware(async (req, res, next) => {
   // // example data
   // req.body = {
-  //   productName: 'HMM',
+  //   title: 'aaa',
   //   merchantId: '1'
   // };
-  controllers.deleteProduct(req.body)
-    .then(() => res.send('Deleted product'))
-    .catch(err => console.error(err));
-});
+  const rows = await controllers.deleteProduct(req.body)
+    .then(() => controllers.findProductsOfMerchant(req.body.merchantId));
+  res.json(rows);
+}));
 
 router.post('/reviews', asyncMiddleware(async (req, res, next) => {
   const newReview = await controllers.saveNewProductReview(req.body);

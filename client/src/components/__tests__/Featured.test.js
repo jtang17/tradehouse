@@ -1,16 +1,15 @@
 import React from 'react';
 import {shallow, configure } from 'enzyme';
-import App from '../App.jsx';
+import Featured from '../Featured.jsx';
 import Header from '../Header.jsx';
-
 
 // Enzyme clauses
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
-test('App.jsx renders an anchor to Merchant Home', () => {
-	const app = shallow(<App />);
-	console.log('APP: ',app);
-	var header = JSON.stringify(app.find('.mercHomeLink'));
+test('Featured.jsx renders an anchor to Customer View', () => {
+	const featured = shallow(<Featured />);
+	console.log('APP: ', featured);
+	var header = JSON.stringify(featured.find('.customerViewLink'));
   console.log('HEADER: ',header);
 });

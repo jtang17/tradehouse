@@ -8,7 +8,8 @@ import {
   FETCH_PRODUCTS_SUCCESS,
   FETCH_PRODUCTS_FAILURE,
   CHANGE_VIDEO,
-  CHANGE_BROADCAST_MESSAGE
+  CHANGE_BROADCAST_MESSAGE,
+  SELECT_FEATURED_PRODUCT,
 } from '../actions/actions.jsx';
 
 function items(state = [], action) {
@@ -22,14 +23,7 @@ function items(state = [], action) {
       // notify user of error?
     }
     case DELETE_PRODUCT_SUCCESS: {
-      console.log(action.title);
-      const newState = state.slice();
-      for (let i = 0; i < newState.length; i + 1) {
-        if (newState[i].title === action.title) {
-          newState.splice(i, 1);
-        }
-      }
-      return newState;
+      return action.items;
     }
     case DELETE_PRODUCT_FAILURE: {
       console.error(action.error);
@@ -49,6 +43,16 @@ function items(state = [], action) {
     }
   }
 }
+function broadcastMessage(state = '', action) {
+  switch (action.type) {
+    case CHANGE_BROADCAST_MESSAGE: {
+      return action.broadcastMessage;
+    }
+    default: {
+      return state;
+    }
+  }
+}
 
 function video(state = '', action) {
   switch (action.type) {
@@ -61,10 +65,11 @@ function video(state = '', action) {
   }
 }
 
-function broadcastMessage(state ='', action) {
+function featuredProduct(state = false, action) {
   switch (action.type) {
-    case CHANGE_BROADCAST_MESSAGE: {
-      return action.broadcastMessage;
+    case SELECT_FEATURED_PRODUCT: {
+      console.log(action.product);
+      return action.product;
     }
     default: {
       return state;
@@ -76,6 +81,7 @@ const tradehouseApp = combineReducers({
   items,
   video,
   broadcastMessage,
+  featuredProduct,
   form: formReducer,
 });
 

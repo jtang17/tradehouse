@@ -6,7 +6,7 @@ const ChannelID = 'UCSJ4gkVC6NrvII8umztf0Ow';
 const CustomerView = props => {
   return (
     <div>
-      Current Video: {props.video}
+      Viewing: {props.video}
       <br />
       <iframe
         width="560" height="315"

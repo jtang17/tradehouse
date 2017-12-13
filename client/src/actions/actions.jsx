@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 export const CHANGE_VIDEO = 'CHANGE_VIDEO';
-export const CHANGE_BROADCAST_MESSAGE ='CHANGE_BROADCAST_MESSAGE';
+export const CHANGE_BROADCAST_MESSAGE = 'CHANGE_BROADCAST_MESSAGE';
+export const SELECT_FEATURED_PRODUCT = 'SELECT_FEATURED_PRODUCT';
 export const ADD_PRODUCT_SUCCESS = 'ADD_PRODUCT_SUCCESS';
 export const ADD_PRODUCT_FAILURE = 'ADD_PRODUCT_FAILURE';
 export const DELETE_PRODUCT_SUCCESS = 'DELETE_PRODUCT_SUCCESS';
@@ -17,6 +18,11 @@ export const changeVideo = video => ({
 export const changeBroadcastMessage = broadcastMessage => ({
   type: CHANGE_BROADCAST_MESSAGE,
   broadcastMessage,
+});
+
+export const selectFeaturedProduct = product => ({
+  type: SELECT_FEATURED_PRODUCT,
+  product,
 });
 
 export const addProduct = product => (dispatch) => {
@@ -37,7 +43,7 @@ export const deleteProduct = (product) => {
     axios.delete('/api/products', { data: product })
       .then(res => dispatch({
         type: DELETE_PRODUCT_SUCCESS,
-        title: product.title,
+        items: res.data,
       }))
       .catch(err => dispatch({
         type: DELETE_PRODUCT_FAILURE,

@@ -10,10 +10,9 @@ import thunk from 'redux-thunk';
 
 import tradehouseApp from './reducers/reducers.jsx';
 
-
 import { Provider } from 'react-redux';
 
-import App from './components/App.jsx';
+import Home from './containers/Home.jsx';
 import Header from './components/Header.jsx';
 import CustomerView from './containers/CustomerView.jsx';
 import ProductsView from './containers/ProductsView.jsx';
@@ -21,11 +20,10 @@ import MerchantHome from './containers/MerchantHome.jsx';
 import BroadcastView from './containers/BroadcastView.jsx';
 
 var defaultState = {
-  // products: {
-  //   items: []
-  // },
+  broadcastMessage: '',
   items: [],
-  video: ''
+  video: '',
+  featuredProduct: {},
 };
 
 const store = createStore(tradehouseApp, defaultState, composeWithDevTools(applyMiddleware(thunk)));
@@ -39,7 +37,7 @@ const Root = ({ store }) => (
         <Route path="/ProductsView" component={ProductsView} />
         <Route path="/MerchantHome" component={MerchantHome} />
         <Route path="/BroadcastView" component={BroadcastView} />
-        <Route exact path="/" component={App} />
+        <Route exact path="/" component={Home} />
       </div>
     </Router>
   </Provider>

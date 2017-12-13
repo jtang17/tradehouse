@@ -4,27 +4,20 @@ import ProductControlItem from './ProductControlItem.jsx';
 class ProductControl extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selected: '',
-    }
     this.selectFeaturedProduct = this.selectFeaturedProduct.bind(this);
   }
 
   selectFeaturedProduct(index) {
-    this.setState({
-      selected: this.props.products[index],
-    })
+    this.props.selectFeaturedProduct(this.props.products[index]);
   }
 
   render() {
-    const featured = <ProductControlItem product={this.state.selected} />
-
     return (
       <div className="container">
         <div className="row">
           <div className="col">
             <h4>Currently Featured Product:</h4>
-            {this.state.selected ? featured : 'No product selected'}
+            <ProductControlItem product={this.props.featuredProduct} />
           </div>
           <div className="col">
           <h4>Product List</h4>
