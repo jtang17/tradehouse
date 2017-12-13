@@ -71,6 +71,22 @@ const findProductsOfMerchant = (merchantId) => {
   });
 };
 
+const findReviewsOfMerchant = (merchantId) => {
+  return db.MerchantReview.findAll({
+    where: {
+      merchantId,
+    },
+  });
+};
+
+const findReviewsOfProduct = (productId) => {
+  return db.ProductReview.findAll({
+    where: {
+      productId,
+    },
+  });
+};
+
 const getAllMerchants = () => {
   return db.Merchant.findAll({});
 };
@@ -97,4 +113,6 @@ module.exports = {
   findProductsOfMerchant,
   saveNewProductReview,
   saveNewMerchantReview,
+  findReviewsOfMerchant,
+  findReviewsOfProduct,
 };

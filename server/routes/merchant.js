@@ -39,3 +39,13 @@ router.get('/:merchantId/products', asyncMiddleware(async (req, res, next) => {
   const products = await controllers.findProductsOfMerchant(req.params.merchantId);
   res.json(products);
 }));
+
+router.post('/:merchantId/reviews', asyncMiddleware(async (req, res, next) => {
+  const newReview = await controllers.saveNewMerchantReview(req.body);
+  res.json(newReview);
+}));
+
+router.get('/:merchantId/reviews', asyncMiddleware(async (req, res, next) => {
+  const reviews = await controllers.findReviewsOfMerchant(req.params.merchantId);
+  res.json(reviews);
+}));

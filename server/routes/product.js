@@ -36,3 +36,13 @@ router.delete('/', (req, res, next) => {
     .then(() => res.send('Deleted product'))
     .catch(err => console.error(err));
 });
+
+router.post('/reviews', asyncMiddleware(async (req, res, next) => {
+  const newReview = await controllers.saveNewProductReview(req.body);
+  res.json(newReview);
+}));
+
+router.get('/reviews', asyncMiddleware(async (req, res, next) => {
+  const reviews = await controllers.findReviewsOfProduct(req.params.productId);
+  res.json(reviews);
+}));
