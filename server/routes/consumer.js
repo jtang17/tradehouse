@@ -21,22 +21,12 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.get('/:consumerId', asyncMiddleware(async (req, res, next) => {
-  const consumer = await controllers.findOneConsumer(req.params.consumerId);
+  const consumer = await controllers.findOneConsumer(req.params);
   res.json(consumer);
 }));
 
 router.post('/subscriptions', asyncMiddleware(async (req, res, next) => {
-  // // example data
-  // req.body = {
-  //   consumer: 'ann',
-  //   merchant: 'bob'
-  // };
-  const consumer = await controllers.findOneConsumer(req.body);
-  const merchant = await controllers.findOneMerchant(req.body);
-  const subscription = await controllers.saveNewSubscription({
-    consumerId: consumer.dataValues.id,
-    merchantId: merchant.dataValues.id,
-  });
+  const subscription = await controllers.saveNewSubscription(req.body);
   res.json(subscription);
 }));
 

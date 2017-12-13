@@ -23,7 +23,7 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.get('/:merchantId', asyncMiddleware(async (req, res, next) => {
-  const merchant = await controllers.findOneMerchant(req.params.merchantId);
+  const merchant = await controllers.findOneMerchant(req.params);
   res.json(merchant);
 }));
 
@@ -41,7 +41,7 @@ router.post('/:merchantId/products', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.get('/:merchantId/products', asyncMiddleware(async (req, res, next) => {
-  const products = await controllers.findProductsOfMerchant(req.params.merchantId);
+  const products = await controllers.findProductsOfMerchant(req.params);
   res.json(products);
 }));
 
@@ -56,6 +56,6 @@ router.put('/:merchantId/reviews', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.get('/:merchantId/reviews', asyncMiddleware(async (req, res, next) => {
-  const reviews = await controllers.findReviewsOfMerchant(req.params.merchantId);
+  const reviews = await controllers.findReviewsOfMerchant(req.params);
   res.json(reviews);
 }));

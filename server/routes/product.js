@@ -29,11 +29,13 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
 router.delete('/', asyncMiddleware(async (req, res, next) => {
   // // example data
   // req.body = {
-  //   title: 'aaa',
+  //   title: '????',
   //   merchantId: '1'
   // };
+
+  // TODO: on frontend, make it so that it is not necessary to pass back entire product list
   const rows = await controllers.deleteProduct(req.body)
-    .then(() => controllers.findProductsOfMerchant(req.body.merchantId));
+    .then(() => controllers.findProductsOfMerchant(req.body));
   res.json(rows);
 }));
 
@@ -48,6 +50,6 @@ router.put('/reviews', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.get('/:productId/reviews', asyncMiddleware(async (req, res, next) => {
-  const reviews = await controllers.findReviewsOfProduct(req.params.productId);
+  const reviews = await controllers.findReviewsOfProduct(req.params);
   res.json(reviews);
 }));

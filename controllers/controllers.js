@@ -75,8 +75,11 @@ const saveNewMerchantReview = (entry) => {
   });
 };
 
-const saveNewSubscription = (entry) => {
-  return db.Subscription.create({ ...entry });
+const saveNewSubscription = ({ consumerId, merchantId }) => {
+  return db.Subscription.create({
+    consumerId,
+    merchantId,
+  });
 };
 
 const findOneConsumer = ({ id }) => {
