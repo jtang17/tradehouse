@@ -43,7 +43,7 @@ const saveNewProductReview = (entry) => {
 };
 
 const editProductReview = (entry) => {
-  return db.ProductReview.findOne({ id: entry.id })
+  return db.ProductReview.findOne({ id: entry.productId })
     .then((review) => {
       return review.set({
         rating: entry.rating,
@@ -53,7 +53,7 @@ const editProductReview = (entry) => {
 };
 
 const editMerchantReview = (entry) => {
-  return db.MerchantReview.findOne({ id: entry.id })
+  return db.MerchantReview.findOne({ id: entry.merchantId })
     .then((review) => {
       return review.set({
         rating: entry.rating,
