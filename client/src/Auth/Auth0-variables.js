@@ -1,7 +1,7 @@
 const config = require('../../../config.js');
 
-const clientId = config.clientId;
-const domain = config.domain;
+const clientId = CLIENT_ID || config.clientId;
+const domain = DOMAIN || config.domain;
 
 export const AUTH_CONFIG = {
   domain: domain,
