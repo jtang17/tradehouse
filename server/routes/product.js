@@ -42,6 +42,11 @@ router.post('/reviews', asyncMiddleware(async (req, res, next) => {
   res.json(newReview);
 }));
 
+router.put('/reviews', asyncMiddleware(async (req, res, next) => {
+  const editedReview = await controllers.editProductReview(req.body);
+  res.json(editedReview);
+}));
+
 router.get('/reviews', asyncMiddleware(async (req, res, next) => {
   const reviews = await controllers.findReviewsOfProduct(req.params.productId);
   res.json(reviews);
