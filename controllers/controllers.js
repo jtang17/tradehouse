@@ -79,15 +79,15 @@ const saveNewSubscription = (entry) => {
   return db.Subscription.create({ ...entry });
 };
 
-const findOneConsumer = (entry) => {
-  return db.Consumer.findOne({ id: entry.id });
+const findOneConsumer = ({ id }) => {
+  return db.Consumer.findOne({ id });
 };
 
-const findOneMerchant = (entry) => {
-  return db.Merchant.findOne({ id: entry.id });
+const findOneMerchant = ({ id }) => {
+  return db.Merchant.findOne({ id });
 };
 
-const findProductsOfMerchant = (merchantId) => {
+const findProductsOfMerchant = ({ merchantId }) => {
   return db.Product.findAll({
     where: {
       merchantId,
@@ -95,7 +95,7 @@ const findProductsOfMerchant = (merchantId) => {
   });
 };
 
-const findReviewsOfMerchant = (merchantId) => {
+const findReviewsOfMerchant = ({ merchantId }) => {
   return db.MerchantReview.findAll({
     where: {
       merchantId,
@@ -103,7 +103,7 @@ const findReviewsOfMerchant = (merchantId) => {
   });
 };
 
-const findReviewsOfProduct = (productId) => {
+const findReviewsOfProduct = ({ productId }) => {
   return db.ProductReview.findAll({
     where: {
       productId,

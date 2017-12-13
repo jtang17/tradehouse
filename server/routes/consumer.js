@@ -20,6 +20,11 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
   res.json(newConsumer);
 }));
 
+router.get('/:consumerId', asyncMiddleware(async (req, res, next) => {
+  const consumer = await controllers.findOneConsumer(req.params.consumerId);
+  res.json(consumer);
+}));
+
 router.post('/subscriptions', asyncMiddleware(async (req, res, next) => {
   // // example data
   // req.body = {

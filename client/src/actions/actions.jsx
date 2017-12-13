@@ -9,6 +9,8 @@ export const DELETE_PRODUCT_SUCCESS = 'DELETE_PRODUCT_SUCCESS';
 export const DELETE_PRODUCT_FAILURE = 'DELETE_PRODUCT_FAILURE';
 export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
 export const FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE';
+export const FETCH_CUSTOMER_SUCCESS = 'FETCH_CUSTOMER_SUCCESS';
+export const FETCH_CUSTOMER_FAILURE = 'FETCH_CUSTOMER_FAILURE';
 
 export const changeVideo = video => ({
   type: CHANGE_VIDEO,
@@ -67,5 +69,23 @@ export const fetchProducts = (url = '/api/products') => (dispatch) => {
 
 export const fetchProductsLoading = bool => ({
   type: 'PRODUCTS_LOADING',
+  isLoading: bool,
+});
+
+export const fetchCustomerInfo = (url = '/api/products') => (dispatch) => {
+  dispatch(fetchProductsLoading(true));
+  axios.get(url)
+    .then(res => dispatch({
+      type: FETCH_CUSTOMER_SUCCESS,
+      items: res.data,
+    }))
+    .catch(err => dispatch({
+      type: FETCH_CUSTOMER_FAILURE,
+      error: err,
+    }));
+};
+
+export const fetchCustomerLoading = bool => ({
+  type: 'CUSTOMER_LOADING',
   isLoading: bool,
 });
