@@ -42,6 +42,9 @@ app.get('/*', (req, res) => {
 
 io.on('connection', (socket) => {
   console.log('a user connected');
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
 });
 
 // TODO: prevent sync from outputting so much to console
