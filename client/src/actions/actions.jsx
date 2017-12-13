@@ -72,20 +72,22 @@ export const fetchProductsLoading = bool => ({
   isLoading: bool,
 });
 
-export const fetchCustomerInfo = (url = '/api/products') => (dispatch) => {
-  dispatch(fetchProductsLoading(true));
-  axios.get(url)
-    .then(res => dispatch({
-      type: FETCH_CUSTOMER_SUCCESS,
-      items: res.data,
-    }))
-    .catch(err => dispatch({
-      type: FETCH_CUSTOMER_FAILURE,
-      error: err,
-    }));
-};
-
 export const fetchCustomerLoading = bool => ({
   type: 'CUSTOMER_LOADING',
   isLoading: bool,
 });
+
+export const fetchCustomerInfo = ({ id }) => (dispatch) => {
+  dispatch(fetchCustomerLoading(true));
+  axios.get('/api/customer', {
+    params: {
+      id,
+    },
+  }).then(res => dispatch({
+      type: FETCH_CUSTOMER_SUCCESS,
+      items: res.data,
+    }), err => dispatch({
+      type: FETCH_CUSTOMER_FAILURE,
+      error: err,
+    }));
+};
