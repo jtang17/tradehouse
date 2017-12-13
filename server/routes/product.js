@@ -47,7 +47,7 @@ router.put('/reviews', asyncMiddleware(async (req, res, next) => {
   res.json(editedReview);
 }));
 
-router.get('/reviews', asyncMiddleware(async (req, res, next) => {
+router.get('/:productId/reviews', asyncMiddleware(async (req, res, next) => {
   const reviews = await controllers.findReviewsOfProduct(req.params.productId);
   res.json(reviews);
 }));

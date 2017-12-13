@@ -20,7 +20,7 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
   res.json(newConsumer);
 }));
 
-router.post('/subscription', asyncMiddleware(async (req, res, next) => {
+router.post('/subscriptions', asyncMiddleware(async (req, res, next) => {
   // // example data
   // req.body = {
   //   consumer: 'ann',
