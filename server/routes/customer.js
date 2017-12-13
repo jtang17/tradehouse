@@ -6,7 +6,7 @@ const router = new Router();
 
 
 router.get('/', asyncMiddleware(async (req, res, next) => {
-  const rows = await controllers.getAllConsumers();
+  const rows = await controllers.getAllCustomers();
   res.json(rows);
 }));
 
@@ -16,13 +16,13 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
   //   username: 'ann',
   //   password: 'aaa'
   // };
-  const newConsumer = await controllers.saveNewConsumer(req.body);
-  res.json(newConsumer);
+  const newCustomer = await controllers.saveNewCustomer(req.body);
+  res.json(newCustomer);
 }));
 
 router.get('/:id', asyncMiddleware(async (req, res, next) => {
-  const consumer = await controllers.findOneConsumer(req.params);
-  res.json(consumer);
+  const customer = await controllers.findOneCustomer(req.params);
+  res.json(customer);
 }));
 
 router.post('/subscriptions', asyncMiddleware(async (req, res, next) => {

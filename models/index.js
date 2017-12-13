@@ -32,7 +32,7 @@ if (!global.hasOwnProperty('db')) {
   global.db = {
     Sequelize,
     sequelize,
-    Consumer: sequelize.import(__dirname + '/consumer'),
+    Customer: sequelize.import(__dirname + '/customer'),
     Product: sequelize.import(__dirname + '/product'),
     Merchant: sequelize.import(__dirname + '/merchant'),
     ProductReview: sequelize.import(__dirname + '/productReview'),
@@ -43,58 +43,58 @@ if (!global.hasOwnProperty('db')) {
     PurchasedProduct: sequelize.import(__dirname + '/purchasedProduct'),
   };
 
-  global.db.Consumer.belongsToMany(global.db.Merchant, {
+  global.db.Customer.belongsToMany(global.db.Merchant, {
     through: 'direct_message',
     unique: false,
   });
-  global.db.Merchant.belongsToMany(global.db.Consumer, {
+  global.db.Merchant.belongsToMany(global.db.Customer, {
     through: 'direct_message',
     unique: false,
   });
 
-  global.db.Consumer.belongsToMany(global.db.Merchant, {
+  global.db.Customer.belongsToMany(global.db.Merchant, {
     through: 'subscription',
-    unique: 'consumer_merchant_subscription',
+    unique: 'customer_merchant_subscription',
   });
-  global.db.Merchant.belongsToMany(global.db.Consumer, {
+  global.db.Merchant.belongsToMany(global.db.Customer, {
     through: 'subscription',
-    unique: 'consumer_merchant_subscription',
+    unique: 'customer_merchant_subscription',
   });
 
-  global.db.Consumer.belongsToMany(global.db.Product, {
+  global.db.Customer.belongsToMany(global.db.Product, {
     through: 'wishlisted_product',
-    unique: 'consumer_product_wishlisted',
+    unique: 'customer_product_wishlisted',
   });
-  global.db.Product.belongsToMany(global.db.Consumer, {
+  global.db.Product.belongsToMany(global.db.Customer, {
     through: 'wishlisted_product',
-    unique: 'consumer_product_wishlisted',
+    unique: 'customer_product_wishlisted',
   });
 
-  global.db.Consumer.belongsToMany(global.db.Product, {
+  global.db.Customer.belongsToMany(global.db.Product, {
     through: 'purchased_product',
     unique: false,
   });
-  global.db.Product.belongsToMany(global.db.Consumer, {
+  global.db.Product.belongsToMany(global.db.Customer, {
     through: 'purchased_product',
     unique: false,
   });
 
-  global.db.Consumer.belongsToMany(global.db.Product, {
+  global.db.Customer.belongsToMany(global.db.Product, {
     through: 'product_review',
-    unique: 'consumer_product_review',
+    unique: 'customer_product_review',
   });
-  global.db.Product.belongsToMany(global.db.Consumer, {
+  global.db.Product.belongsToMany(global.db.Customer, {
     through: 'product_review',
-    unique: 'consumer_product_review',
+    unique: 'customer_product_review',
   });
 
-  global.db.Consumer.belongsToMany(global.db.Product, {
+  global.db.Customer.belongsToMany(global.db.Product, {
     through: 'merchant_review',
-    unique: 'consumer_merchant_review',
+    unique: 'customer_merchant_review',
   });
-  global.db.Product.belongsToMany(global.db.Consumer, {
+  global.db.Product.belongsToMany(global.db.Customer, {
     through: 'merchant_review',
-    unique: 'consumer_merchant_review',
+    unique: 'customer_merchant_review',
   });
 
   global.db.Product.belongsTo(global.db.Merchant);

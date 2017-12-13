@@ -26,8 +26,8 @@ const saveNewMerchant = (entry) => {
   });
 };
 
-const saveNewConsumer = (entry) => {
-  return db.Consumer.create({
+const saveNewCustomer = (entry) => {
+  return db.Customer.create({
     username: entry.username,
     password: entry.password,
   });
@@ -38,14 +38,14 @@ const saveNewProductReview = (entry) => {
     rating: entry.rating,
     text: entry.text,
     productId: entry.productId,
-    consumerId: entry.consumerId,
+    customerId: entry.customerId,
   });
 };
 
 const editProductReview = (entry) => {
   return db.ProductReview.findOne({
     productId: entry.productId,
-    consumerId: entry.consumerId,
+    customerId: entry.customerId,
   }).then((review) => {
     return review.set({
       rating: entry.rating,
@@ -57,7 +57,7 @@ const editProductReview = (entry) => {
 const editMerchantReview = (entry) => {
   return db.MerchantReview.findOne({
     merchantId: entry.merchantId,
-    consumerId: entry.consumerId,
+    customerId: entry.customerId,
   }).then((review) => {
     return review.set({
       rating: entry.rating,
@@ -71,19 +71,19 @@ const saveNewMerchantReview = (entry) => {
     rating: entry.rating,
     text: entry.text,
     productId: entry.productId,
-    consumerId: entry.consumerId,
+    customerId: entry.customerId,
   });
 };
 
-const saveNewSubscription = ({ consumerId, merchantId }) => {
+const saveNewSubscription = ({ customerId, merchantId }) => {
   return db.Subscription.create({
-    consumerId,
+    customerId,
     merchantId,
   });
 };
 
-const findOneConsumer = ({ id }) => {
-  return db.Consumer.findOne({ id });
+const findOneCustomer = ({ id }) => {
+  return db.Customer.findOne({ id });
 };
 
 const findOneMerchant = ({ id }) => {
@@ -122,21 +122,21 @@ const getAllProducts = () => {
   return db.Product.findAll({});
 };
 
-const getAllConsumers = () => {
-  return db.Consumer.findAll({});
+const getAllCustomers = () => {
+  return db.Customer.findAll({});
 };
 
 module.exports = {
   saveNewProduct,
   deleteProduct,
   saveNewMerchant,
-  saveNewConsumer,
+  saveNewCustomer,
   saveNewSubscription,
-  findOneConsumer,
+  findOneCustomer,
   findOneMerchant,
   getAllMerchants,
   getAllProducts,
-  getAllConsumers,
+  getAllCustomers,
   findProductsOfMerchant,
   saveNewProductReview,
   saveNewMerchantReview,
