@@ -11,9 +11,5 @@ client/public/bundle.js
 ## Configuration Files ##
 config.js
 
-## Auth ##
-Auth/Auth0-variables.js
-client/src/Auth/Auth0-variables.js
-
 ## Environment Variables ##
 .env
