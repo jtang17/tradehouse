@@ -16,14 +16,12 @@ class Home extends React.Component {
   render() {
     return (
       <Featured video={this.props.featuredVideo} />
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    featuredVideo: state.featuredVideo,
-  }
-}
+const mapStateToProps = state => ({
+  featuredVideo: state.featuredVideo,
+});
 
 export default connect(null, null)(Home);

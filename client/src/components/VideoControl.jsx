@@ -9,7 +9,7 @@ class VideoControl extends React.Component {
     this.state = {
       id: '',
       broadcastMessage: '',
-    }
+    };
     this.onIdSubmit = this.onIdSubmit.bind(this);
     this.onIdChanged = this.onIdChanged.bind(this);
     this.onBroadcastMessageSubmit = this.onBroadcastMessageSubmit.bind(this);
@@ -58,7 +58,7 @@ class VideoControl extends React.Component {
           <input type="submit" value="Submit" />
         </form>
       </div>
-    )
+    );
   }
 }
 

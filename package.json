@@ -7,7 +7,7 @@
     "test": "jest",
     "react-dev": "webpack -d --watch",
     "be-start": "nodemon --inspect ./server/app.js",
-    "lint": "eslint --fix ."
+    "lint": "eslint --fix . --ext .jsx --ext .js."
   },
   "repository": {
     "type": "git",

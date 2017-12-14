@@ -14,14 +14,14 @@ class MerchantHome extends React.Component {
   render() {
     // redirect to home if not logged in, shouldn't be here
     if (!auth.isAuthenticated()) {
-     return <Redirect to="/"/>
+      return <Redirect to="/" />;
     }
     return (
       <div>
         <MerchantOverview />
         <MerchantStats />
       </div>
-    )
+    );
   }
 }
 

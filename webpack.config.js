@@ -16,8 +16,8 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015', 'stage-0']
-        }
+          presets: ['react', 'es2015', 'stage-0'],
+        },
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
@@ -33,40 +33,40 @@ module.exports = {
               },
               pngquant: {
                 quality: '65-90',
-                speed: 4
+                speed: 4,
               },
               mozjpeg: {
                 progressive: true,
-                quality: 65
+                quality: 65,
               },
               // Specifying webp here will create a WEBP version of your JPG/PNG images
               webp: {
-                quality: 75
-              }
-            }
-          }
-        ]
+                quality: 75,
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
         use: [{
-          loader: 'style-loader'
+          loader: 'style-loader',
         }, {
-          loader: 'css-loader'
+          loader: 'css-loader',
         }, {
-          loader: 'sass-loader'
-        }]
+          loader: 'sass-loader',
+        }],
       },
-    ]
+    ],
   },
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   ],
-  devtool: 'inline-source-map'
+  devtool: 'inline-source-map',
 };

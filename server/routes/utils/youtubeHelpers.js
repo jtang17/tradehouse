@@ -1,5 +1,6 @@
-const config = require('../../../config.js')
+const config = require('../../../config.js');
 const axios = require('axios');
+
 const YOUTUBE_API_KEY = config.YOUTUBE_API_KEY;
 
 const getYoutubeChannelId = (username, cb) => {
@@ -12,15 +13,15 @@ const getYoutubeChannelId = (username, cb) => {
       cb(youtubeId, snippet, details);
     })
     .catch((err) => {
-      console.error(err)
+      console.error(err);
     });
-}
+};
 
 const callback = (id, snippet, details) => {
   console.log(id);
   console.log(snippet);
   console.log(details);
   return id;
-}
+};
 
-//getYoutubeChannelId('Chillhopdotcom', callback);
+// getYoutubeChannelId('Chillhopdotcom', callback);

@@ -20,18 +20,16 @@ class ProductControl extends React.Component {
             <ProductControlItem product={this.props.featuredProduct} />
           </div>
           <div className="col">
-          <h4>Product List</h4>
-          {this.props.products.map((product, index) => {
-            return (
+            <h4>Product List</h4>
+            {this.props.products.map((product, index) => (
               <div key={index} onClick={this.selectFeaturedProduct.bind(null, index)}>
                 <ProductControlItem product={product} />
               </div>
-            )
-          })}
+            ))}
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

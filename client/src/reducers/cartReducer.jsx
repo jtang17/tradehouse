@@ -1,5 +1,5 @@
 import {
-  ADD_TO_CART
+  ADD_TO_CART,
 } from '../actions/cartActions.jsx';
 
 export default function cart(state = [], action) {

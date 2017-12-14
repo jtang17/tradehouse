@@ -20,7 +20,7 @@ import MerchantHome from './containers/MerchantHome.jsx';
 import BroadcastView from './containers/BroadcastView.jsx';
 import StoreView from './containers/StoreView.jsx';
 
-var defaultState = {
+const defaultState = {
   broadcastMessage: '',
   items: [],
   video: '',
@@ -43,10 +43,10 @@ const Root = ({ store }) => (
       </div>
     </Router>
   </Provider>
-)
+);
 
 Root.propTypes = {
-  store: PropTypes.object.isRequired
-}
+  store: PropTypes.object.isRequired,
+};
 
 ReactDOM.render(<Root store={store} />, document.getElementById('app'));

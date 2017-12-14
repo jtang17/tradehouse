@@ -5,12 +5,12 @@ import { fetchProducts } from '../actions/actions.jsx';
 
 class StoreView extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   componentDidMount() {
     this.props.fetchProducts();
-    //should fetchProducts of one merchant
+    // should fetchProducts of one merchant
   }
 
   render() {
@@ -18,24 +18,20 @@ class StoreView extends React.Component {
     return (
       <div>
         <div className="storeHeader">
-        <h4>Store Page: Hardcoded Merchant Name</h4>
+          <h4>Store Page: Hardcoded Merchant Name</h4>
           An avid cheese seller
         </div>
         <div className="storeProductList">
-        <h4>Products:</h4>
-        {this.props.items.map((product, index) => {
-          return <StoreItem key={index} product={product} />
-        })}
+          <h4>Products:</h4>
+          {this.props.items.map((product, index) => <StoreItem key={index} product={product} />)}
         </div>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    items: state.items,
-  };
-}
+const mapStateToProps = state => ({
+  items: state.items,
+});
 
 export default connect(mapStateToProps, { fetchProducts })(StoreView);

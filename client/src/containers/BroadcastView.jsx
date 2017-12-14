@@ -1,6 +1,7 @@
 import React from 'react';
-import { Redirect } from 'react-router'
-import { Auth } from "../Auth/Auth.js";
+import { Redirect } from 'react-router';
+import { Auth } from '../Auth/Auth.js';
+
 const auth = new Auth();
 
 import { connect } from 'react-redux';
@@ -15,7 +16,8 @@ class BroadcastView extends React.Component {
     super(props);
     this.state = {
       currentUrl: '',
-    }
+      test: 'test',
+    };
   }
 
   componentDidMount() {
@@ -24,7 +26,7 @@ class BroadcastView extends React.Component {
 
   render() {
     if (!auth.isAuthenticated()) {
-     return <Redirect to="/"/>
+      return <Redirect to="/" />;
     }
     return (
       <div className="container">
@@ -48,17 +50,17 @@ class BroadcastView extends React.Component {
           selectFeaturedProduct={this.props.selectFeaturedProduct}
         />
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    broadcastMessage: state.broadcastMessage,
-    featuredProduct: state.featuredProduct,
-    products: state.items,
-    video: state.video,
-  }
-}
+const mapStateToProps = state => ({
+  broadcastMessage: state.broadcastMessage,
+  featuredProduct: state.featuredProduct,
+  products: state.items,
+  video: state.video,
+});
 
-export default connect(mapStateToProps, { fetchProducts, changeVideo, changeBroadcastMessage, selectFeaturedProduct })(BroadcastView);
+export default connect(mapStateToProps, {
+  fetchProducts, changeVideo, changeBroadcastMessage, selectFeaturedProduct,
+})(BroadcastView);

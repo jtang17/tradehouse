@@ -19,17 +19,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 const compiler = webpack(config);
-app.use(
-  webpackDevMiddleware(compiler, {
-    publicPath: config.output.publicPath,
-    noInfo: true,
-    hot: true,
-    historyApiFallback: true,
-    stats: {
-      colors: true,
-    },
-  })
-);
+app.use(webpackDevMiddleware(compiler, {
+  publicPath: config.output.publicPath,
+  noInfo: true,
+  hot: true,
+  historyApiFallback: true,
+  stats: {
+    colors: true,
+  },
+}));
 app.use(webpackHotMiddleware(compiler));
 
 mountRoutes(app);

@@ -5,3 +5,4 @@
 **/__tests__
 **/*.min.js
 client/src/Auth/*
+client/public/*

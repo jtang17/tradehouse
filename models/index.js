@@ -1,7 +1,7 @@
 if (!global.hasOwnProperty('db')) {
-  var Sequelize = require('sequelize');
+  const Sequelize = require('sequelize');
 
-  var sequelize = null;
+  let sequelize = null;
   if (process.env.DATABASE_URL) {
     sequelize = new Sequelize(process.env.DATABASE_URL, {
       dialect: 'mysql',
@@ -32,15 +32,15 @@ if (!global.hasOwnProperty('db')) {
   global.db = {
     Sequelize,
     sequelize,
-    Customer: sequelize.import(__dirname + '/customer'),
-    Product: sequelize.import(__dirname + '/product'),
-    Merchant: sequelize.import(__dirname + '/merchant'),
-    ProductReview: sequelize.import(__dirname + '/productReview'),
-    MerchantReview: sequelize.import(__dirname + '/merchantReview'),
-    DirectMessage: sequelize.import(__dirname + '/directMessage'),
-    Subscription: sequelize.import(__dirname + '/subscription'),
-    WishlistedProduct: sequelize.import(__dirname + '/wishlistedProduct'),
-    PurchasedProduct: sequelize.import(__dirname + '/purchasedProduct'),
+    Customer: sequelize.import(`${__dirname}/customer`),
+    Product: sequelize.import(`${__dirname}/product`),
+    Merchant: sequelize.import(`${__dirname}/merchant`),
+    ProductReview: sequelize.import(`${__dirname}/productReview`),
+    MerchantReview: sequelize.import(`${__dirname}/merchantReview`),
+    DirectMessage: sequelize.import(`${__dirname}/directMessage`),
+    Subscription: sequelize.import(`${__dirname}/subscription`),
+    WishlistedProduct: sequelize.import(`${__dirname}/wishlistedProduct`),
+    PurchasedProduct: sequelize.import(`${__dirname}/purchasedProduct`),
   };
 
   global.db.Customer.belongsToMany(global.db.Merchant, {

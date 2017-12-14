@@ -5,14 +5,12 @@ import ProductItem from './ProductItem.jsx';
 
 class ProductList extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
-    let items =
-      this.props.products.map((product, index) => {
-        return <ProductItem key={index} index={index} product={product} deleteProduct={this.props.deleteProduct} />
-      });
+    const items =
+      this.props.products.map((product, index) => <ProductItem key={index} index={index} product={product} deleteProduct={this.props.deleteProduct} />);
 
     if (!items.length) {
       return (
@@ -34,14 +32,14 @@ class ProductList extends React.Component {
               <th>Description</th>
             </tr>
           </thead>
-        <tbody>{ items }</tbody>
+          <tbody>{ items }</tbody>
         </table>
       </span>
     );
   }
 }
 ProductList.contextTypes = {
-  store: PropTypes.object
+  store: PropTypes.object,
 };
 
 export default ProductList;
