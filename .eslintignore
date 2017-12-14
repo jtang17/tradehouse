@@ -1,0 +1,7 @@
+.eslint*
+**/node_modules
+**/bower_components
+**/vendor
+**/__tests__
+**/*.min.js
+client/src/Auth/*
