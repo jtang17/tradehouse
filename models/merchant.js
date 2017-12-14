@@ -9,4 +9,7 @@ module.exports = (sequelize, DataTypes) =>
     facebook: DataTypes.STRING,
     twitter: DataTypes.STRING,
     description: DataTypes.TEXT,
+    stream: DataTypes.STRING,
+    broadcastMessage: DataTypes.TEXT,
+    currentProduct: DataTypes.TEXT,
   });
