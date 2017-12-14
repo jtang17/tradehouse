@@ -1,0 +1,9 @@
+.sidebar__container {
+	display: block;
+	background: lighten(#BAB7B3, 15);
+	padding: 15px;
+	box-shadow: 1px 1px 2px darken($slate, 25);
+	overflow-wrap: break-word;
+	z-index: 9999;
+}
+

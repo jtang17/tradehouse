@@ -7,7 +7,7 @@ export const AUTH_CONFIG = {
       title: "TradeHouse"
     },
     theme: {
-      logo: 'https://www.tradehousecrafts.com/wp-content/uploads/2016/02/trade-house-crafts-logo2.png',
+      logo: 'https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif',
       primaryColor: '#34675c',
       socialButtonStyle: 'big'
     },

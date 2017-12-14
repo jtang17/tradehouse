@@ -37,7 +37,7 @@ class Header extends React.Component {
             <p>Tradehouse: buy and sell more effectively</p>
           </div>
           <div className="header__account--register">
-            <button onClick={this.registerFunc}>Register/Login</button>
+            <button className="hvr-icon-pulse" onClick={this.registerFunc}>Register/Login</button>
           </div>
         </div>
       );
@@ -59,7 +59,7 @@ class Header extends React.Component {
           </a>
         </div>
         <div className="header__account--register">
-          <button onClick={this.logout}>Logout</button>
+          <button className="hvr-icon-pulse" onClick={this.logout}>Logout</button>
         </div>
       </div>
     );

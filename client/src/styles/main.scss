@@ -1,0 +1,6 @@
+.mainContent__container {
+	display:grid;
+	grid-template-columns: [sidebar] 200px [content] auto;
+	grid-gap: 10px;
+	margin: 5px 0;
+}

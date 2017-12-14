@@ -14,6 +14,8 @@ import { Provider } from 'react-redux';
 
 import Home from './containers/Home.jsx';
 import Header from './components/common/Header.jsx';
+import Sidebar from './components/common/Sidebar.jsx';
+import Footer from './components/common/Footer.jsx';
 import ChannelView from './containers/ChannelView.jsx';
 import ProductsView from './containers/ProductsView.jsx';
 import MerchantHome from './containers/MerchantHome.jsx';
@@ -32,14 +34,18 @@ const store = createStore(tradehouseApp, defaultState, composeWithDevTools(apply
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
-      <div>
+      <div className="app__container">
         <Header />
-        <Route exact path="/" component={Home} />
-        <Route path="/ChannelView" component={ChannelView} />
-        <Route path="/ProductsView" component={ProductsView} />
-        <Route path="/MerchantHome" component={MerchantHome} />
-        <Route path="/BroadcastView" component={BroadcastView} />
-        <Route path="/StoreView" component={StoreView} />
+        <div className="mainContent__container">
+        <Sidebar />
+          <Route exact path="/" component={Home} />
+          <Route path="/ChannelView" component={ChannelView} />
+          <Route path="/ProductsView" component={ProductsView} />
+          <Route path="/MerchantHome" component={MerchantHome} />
+          <Route path="/BroadcastView" component={BroadcastView} />
+          <Route path="/StoreView" component={StoreView} />
+        </div>
+        <Footer />
       </div>
     </Router>
   </Provider>

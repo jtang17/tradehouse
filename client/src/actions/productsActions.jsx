@@ -17,14 +17,14 @@ export const addProduct = product => (dispatch) => {
     }));
 };
 
-export const deleteProduct = (product) => (dispatch) => {
-    axios.delete('/api/products', { data: product })
-      .then(res => dispatch({
-        type: DELETE_PRODUCT_SUCCESS,
-        items: res.data,
-      }))
-      .catch(err => dispatch({
-        type: DELETE_PRODUCT_FAILURE,
-        error: err,
-      }));
+export const deleteProduct = product => (dispatch) => {
+  axios.delete('/api/products', { data: product })
+    .then(res => dispatch({
+      type: DELETE_PRODUCT_SUCCESS,
+      items: res.data,
+    }))
+    .catch(err => dispatch({
+      type: DELETE_PRODUCT_FAILURE,
+      error: err,
+    }));
 };

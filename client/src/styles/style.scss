@@ -1,11 +1,22 @@
+@import 'libs/hover';
+
 @import 'vars';
+@import 'normalize';
+
 @import 'header';
+@import 'footer';
+@import 'buttons';
+@import 'content';
+@import 'main';
+@import 'sidebar';
+@import 'app';
 
 body {
-	background: $mist;
+	background: $lmarble;
 	box-sizing: border-box;
-	color: $marbe;
+	color: darken($slate, 20);
 	form {
 		background: $mist;
 	}
 }
+
