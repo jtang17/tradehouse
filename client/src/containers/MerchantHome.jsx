@@ -17,7 +17,7 @@ class MerchantHome extends React.Component {
       return <Redirect to="/" />;
     }
     return (
-      <div>
+      <div className="merchantHome__container">
         <MerchantOverview />
         <MerchantStats />
       </div>

@@ -38,7 +38,7 @@ const Root = ({ store }) => (
       <div className="app__container">
         <Header />
         <div className="mainContent__container">
-        <Sidebar />
+          <Sidebar />
           <Route exact path="/" component={Home} />
           <Route path="/ChannelView" component={ChannelView} />
           <Route path="/ProductsView" component={ProductsView} />

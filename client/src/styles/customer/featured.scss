@@ -1,0 +1,12 @@
+.featuredBroadcast__container {
+	grid-column: content;
+	border-top: 5px solid $gray;
+	border-radius: 25px 13px 0 0;
+	padding: 10px;
+	box-shadow: 0px 2px 3px $pine;
+	max-width: 750px;
+
+	.featured__description {
+		width: 500px;
+	}
+}

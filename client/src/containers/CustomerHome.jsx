@@ -26,7 +26,7 @@ class CustomerHome extends React.Component {
       <div>
         <CustomerProfile
           customerInfo={this.props.customerInfo}
-          />
+        />
       </div>
     );
   }

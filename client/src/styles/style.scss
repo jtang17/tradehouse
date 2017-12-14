@@ -9,12 +9,20 @@
 @import 'content';
 @import 'main';
 @import 'sidebar';
-@import 'app';
+
+// Customer
+@import 'customer/featured';
+
+// Merchant
+@import 'merchant/mercHome';
 
 body {
 	background: $lmarble;
 	box-sizing: border-box;
+	line-height: 1.25;
 	color: $text;
-
 }
 
+* {
+	box-sizing: border-box;
+}

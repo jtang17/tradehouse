@@ -1,23 +1,23 @@
 import React from 'react';
 
 const MerchantOverview = props => (
-  <div className="container">
-    <h4>Company Overview</h4>
-    <div className="row">
-      <div className="col">
-          Company Name:<br />
-          Company Website:<br />
-          Company Ratings:<br />
-          Company Location:<br />
-          Categories:<br />
-      </div>
-      <div className="col">
-          Support E-mail:<br />
-          Facebook:<br />
-          Twitter:<br />
-          Description:<br />
-      </div>
-    </div>
+  <div className="mercOverview__container">
+    <h4 className="mercOverview__title"><span>Company Overview</span></h4>
+    <span className="mercOverview__profile">
+      <section className="mercOverview__profile--part1">
+        Company Name:<br />
+        Company Website:<br />
+        Company Ratings:<br />
+        Company Location:<br />
+      </section>
+      <section className="mercOverview__profile--part2">
+        Categories:<br />
+        Support E-mail:<br />
+        Facebook:<br />
+        Twitter:<br />
+        Description:<br />
+      </section>
+    </span>
   </div>
 );
 

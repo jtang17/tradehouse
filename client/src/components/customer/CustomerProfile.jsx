@@ -1,4 +1,5 @@
 import React from 'react';
+
 const CustomerProfile = props => (
   <div className="container">
     <h4>Customer Overview</h4>
