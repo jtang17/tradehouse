@@ -57,6 +57,9 @@ class Header extends React.Component {
           <a className="btn btn-primary" href="/BroadcastView">
 							Broadcast
           </a>
+          <a className="btn btn-primary" href="/CustomerHome">
+							Customer Home
+          </a>
         </div>
         <div className="header__account--register">
           <button className="hvr-icon-pulse" onClick={this.logout}>Logout</button>

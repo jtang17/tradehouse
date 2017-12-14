@@ -21,6 +21,7 @@ import ProductsView from './containers/ProductsView.jsx';
 import MerchantHome from './containers/MerchantHome.jsx';
 import BroadcastView from './containers/BroadcastView.jsx';
 import StoreView from './containers/StoreView.jsx';
+import CustomerHome from './containers/CustomerHome.jsx';
 
 const defaultState = {
   broadcastMessage: '',
@@ -44,6 +45,7 @@ const Root = ({ store }) => (
           <Route path="/MerchantHome" component={MerchantHome} />
           <Route path="/BroadcastView" component={BroadcastView} />
           <Route path="/StoreView" component={StoreView} />
+          <Route path="/CustomerHome" component={CustomerHome} />
         </div>
         <Footer />
       </div>

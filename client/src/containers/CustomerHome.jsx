@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Auth } from '../Auth/Auth';
 import { fetchCustomerInfo } from '../actions/actions.jsx';
+import CustomerProfile from '../components/customer/CustomerProfile.jsx';
 
 const auth = new Auth();
 
@@ -22,7 +23,11 @@ class CustomerHome extends React.Component {
       return <Redirect to="/" />;
     }
     return (
-      <div />
+      <div>
+        <CustomerProfile
+          customerInfo={this.props.customerInfo}
+          />
+      </div>
     );
   }
 }

@@ -20,7 +20,8 @@ async function seed() {
   for (let i = 0; i < products.length; i += 1) {
     const index = Math.floor(Math.random() * (Math.floor(savedMerchants.length)));
     productPromises.push(controllers.saveNewProduct(Object.assign(products[i], {
-      merchantId: savedMerchants[index].id,
+      // merchantId: savedMerchants[index].id,
+      merchantId: 1,
     })));
   }
   return Promise.all(productPromises);

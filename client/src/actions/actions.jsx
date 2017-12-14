@@ -31,7 +31,7 @@ export const fetchCustomerLoading = bool => ({
 
 export const fetchCustomerInfo = ({ id }) => (dispatch) => {
   dispatch(fetchCustomerLoading(true));
-  return axios.get('/api/customers', {
+  return axios.get('/api/customers/:id', {
     params: {
       id,
     },
