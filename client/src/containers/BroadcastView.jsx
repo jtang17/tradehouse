@@ -5,7 +5,7 @@ import { Auth } from '../Auth/Auth.js';
 const auth = new Auth();
 
 import { connect } from 'react-redux';
-import { fetchProducts } from '../actions/actions.jsx';
+import { fetchProducts } from '../actions/productActions.jsx';
 import { changeVideo, changeBroadcastMessage, selectFeaturedProduct } from '../actions/broadcastActions.jsx';
 
 import BroadcastViewVideo from '../components/broadcast/BroadcastViewVideo.jsx';

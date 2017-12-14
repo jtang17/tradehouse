@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Auth } from '../Auth/Auth';
-import { fetchCustomerInfo } from '../actions/actions.jsx';
+import { fetchCustomerInfo } from '../actions/customerActions.jsx';
 import CustomerProfile from '../components/customer/CustomerProfile.jsx';
 
 const auth = new Auth();
