@@ -1,22 +1,46 @@
 [
   {
+    "logo": "aoeu.com",
     "username": "Antonia",
-    "password": "aoeu",
-    "email": "a@gmail.com"
+    "website": "aoeu.com",
+    "rating": 5.00,
+    "location": "Toronto, Canada",
+    "email": "a@gmail.com",
+    "facebook": "antonia",
+    "twitter": "antonia",
+    "description": "used-car salesperson"
   },
   {
+    "logo": "aoeu.com",
     "username": "Briony",
-    "password": "aoeu",
-    "email": "b@gmail.com"
+    "website": "aoeu.com",
+    "rating": 5.00,
+    "location": "Paris, France",
+    "email": "b@gmail.com",
+    "facebook": "briony",
+    "twitter": "briony",
+    "description": "used-car salesperson"
   },
   {
+    "logo": "aoeu.com",
     "username": "Christine",
-    "password": "aoeu",
-    "email": "c@gmail.com"
+    "website": "aoeu.com",
+    "rating": 5.00,
+    "location": "Reno, Nevada",
+    "email": "c@gmail.com",
+    "facebook": "christine",
+    "twitter": "christine",
+    "description": "used-car salesperson"
   },
   {
+    "logo": "aoeu.com",
     "username": "Jane",
-    "password": "aoeu",
-    "email": "d@gmail.com"
+    "website": "aoeu.com",
+    "rating": 5.00,
+    "location": "Topeka, Kansas",
+    "email": "j@gmail.com",
+    "facebook": "jane",
+    "twitter": "jane",
+    "description": "used-car salesperson"
   }
 ]
