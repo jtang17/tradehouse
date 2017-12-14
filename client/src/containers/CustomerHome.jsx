@@ -30,5 +30,3 @@ class CustomerHome extends React.Component {
 
 const mapStateToProps = state => state.customerInfo;
 export default connect(mapStateToProps, { fetchCustomerInfo })(CustomerHome);
-
-/* export default CustomerHome;*/

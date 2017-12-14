@@ -30,6 +30,7 @@ const saveNewCustomer = (entry) => {
   return db.Customer.create({
     username: entry.username,
     password: entry.password,
+    email: entry.email,
   });
 };
 
