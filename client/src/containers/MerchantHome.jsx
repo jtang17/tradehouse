@@ -1,7 +1,9 @@
 import React from 'react';
+import { Redirect } from 'react-router';
+import { connect } from 'react-redux';
 import MerchantOverview from '../components/merchant/MerchantOverview.jsx';
 import MerchantStats from '../components/merchant/MerchantStats.jsx';
-import { Redirect } from 'react-router';
+import { fetchMerchantInfo } from '../actions/actions.jsx';
 import { Auth } from '../Auth/Auth';
 
 const auth = new Auth();
@@ -11,6 +13,11 @@ class MerchantHome extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    /* TODO: use ID retrieved from DB upon login, instead of hardcoding */
+    this.props.fetchMerchantInfo({ id: 1 });
+  }
+
   render() {
     // redirect to home if not logged in, shouldn't be here
     if (!auth.isAuthenticated()) {
@@ -18,11 +25,14 @@ class MerchantHome extends React.Component {
     }
     return (
       <div className="merchantHome__container">
-        <MerchantOverview />
+        <MerchantOverview
+          merchantInfo={this.props.merchantInfo}
+        />
         <MerchantStats />
       </div>
     );
   }
 }
 
-export default MerchantHome;
+const mapStateToProps = state => ({ merchantInfo: state.merchantInfo });
+export default connect(mapStateToProps, { fetchMerchantInfo })(MerchantHome);
