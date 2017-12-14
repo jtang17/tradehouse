@@ -84,10 +84,10 @@ export const fetchCustomerInfo = ({ id }) => (dispatch) => {
       id,
     },
   }).then(res => dispatch({
-      type: FETCH_CUSTOMER_SUCCESS,
-      items: res.data,
-    }), err => dispatch({
-      type: FETCH_CUSTOMER_FAILURE,
-      error: err,
-    }));
+    type: FETCH_CUSTOMER_SUCCESS,
+    customerInfo: res.data,
+  }), err => dispatch({
+    type: FETCH_CUSTOMER_FAILURE,
+    error: err,
+  }));
 };

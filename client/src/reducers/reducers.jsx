@@ -11,6 +11,8 @@ import {
   CHANGE_VIDEO,
   CHANGE_BROADCAST_MESSAGE,
   SELECT_FEATURED_PRODUCT,
+  FETCH_CUSTOMER_SUCCESS,
+  FETCH_CUSTOMER_FAILURE,
 } from '../actions/actions.jsx';
 
 function items(state = [], action) {
@@ -78,6 +80,21 @@ function featuredProduct(state = false, action) {
   }
 }
 
+function customerInfo(state = {}, action) {
+  switch (action.type) {
+    case FETCH_CUSTOMER_SUCCESS: {
+      return action.customerInfo;
+    }
+    case FETCH_CUSTOMER_FAILURE: {
+      console.error(action.error);
+      return state;
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
 const tradehouseApp = combineReducers({
   cart,
   items,
@@ -85,6 +102,7 @@ const tradehouseApp = combineReducers({
   broadcastMessage,
   featuredProduct,
   form: formReducer,
+  customerInfo,
 });
 
 export default tradehouseApp;
