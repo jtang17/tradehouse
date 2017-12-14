@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow, configure } from 'enzyme';
 import Featured from '../Featured.jsx';
-import Header from '../Header.jsx';
+import Header from '../common/Header.jsx';
 
 // Enzyme clauses
 import Adapter from 'enzyme-adapter-react-16';
