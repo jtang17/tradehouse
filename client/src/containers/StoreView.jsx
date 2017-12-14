@@ -1,5 +1,5 @@
 import React from 'react';
-import StoreItem from '../components/StoreItem.jsx';
+import StoreItem from '../components/customer/StoreItem.jsx';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../actions/actions.jsx';
 

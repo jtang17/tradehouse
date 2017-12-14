@@ -1,9 +1,9 @@
 import React from 'react';
-import AddProductForm from '../components/AddProductForm.jsx';
-import ProductList from '../components/ProductList.jsx';
+import AddProductForm from '../components/products/AddProductForm.jsx';
+import ProductList from '../components/products/ProductList.jsx';
 import { connect } from 'react-redux';
-import { addProduct, deleteProduct, fetchProducts } from '../actions/actions.jsx';
-
+import { addProduct, deleteProduct } from '../actions/productsActions.jsx';
+import { fetchProducts } from '../actions/actions.jsx';
 import { Redirect } from 'react-router';
 import { Auth } from '../Auth/Auth.js';
 

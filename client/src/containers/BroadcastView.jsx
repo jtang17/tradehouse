@@ -5,11 +5,12 @@ import { Auth } from '../Auth/Auth.js';
 const auth = new Auth();
 
 import { connect } from 'react-redux';
-import { fetchProducts, changeVideo, changeBroadcastMessage, selectFeaturedProduct } from '../actions/actions.jsx';
+import { fetchProducts } from '../actions/actions.jsx';
+import { changeVideo, changeBroadcastMessage, selectFeaturedProduct } from '../actions/broadcastActions.jsx';
 
-import BroadcastViewVideo from '../components/BroadcastViewVideo.jsx';
-import VideoControl from '../components/VideoControl.jsx';
-import ProductControl from '../components/ProductControl.jsx';
+import BroadcastViewVideo from '../components/broadcast/BroadcastViewVideo.jsx';
+import VideoControl from '../components/broadcast/VideoControl.jsx';
+import ProductControl from '../components/broadcast/ProductControl.jsx';
 
 class BroadcastView extends React.Component {
   constructor(props) {

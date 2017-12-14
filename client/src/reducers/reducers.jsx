@@ -1,16 +1,19 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import { cart } from './cartReducer.jsx';
 import {
   ADD_PRODUCT_SUCCESS,
   ADD_PRODUCT_FAILURE,
   DELETE_PRODUCT_SUCCESS,
   DELETE_PRODUCT_FAILURE,
-  FETCH_PRODUCTS_SUCCESS,
-  FETCH_PRODUCTS_FAILURE,
+} from '../actions/productsActions.jsx';
+import {
   CHANGE_VIDEO,
   CHANGE_BROADCAST_MESSAGE,
   SELECT_FEATURED_PRODUCT,
+} from '../actions/broadcastActions.jsx';
+import {
+  FETCH_PRODUCTS_SUCCESS,
+  FETCH_PRODUCTS_FAILURE,
   FETCH_CUSTOMER_SUCCESS,
   FETCH_CUSTOMER_FAILURE,
 } from '../actions/actions.jsx';
@@ -96,7 +99,6 @@ function customerInfo(state = {}, action) {
 }
 
 const tradehouseApp = combineReducers({
-  cart,
   items,
   video,
   broadcastMessage,

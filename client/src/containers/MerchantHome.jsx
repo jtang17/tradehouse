@@ -1,6 +1,6 @@
 import React from 'react';
-import MerchantOverview from '../components/MerchantOverview.jsx';
-import MerchantStats from '../components/MerchantStats.jsx';
+import MerchantOverview from '../components/merchant/MerchantOverview.jsx';
+import MerchantStats from '../components/merchant/MerchantStats.jsx';
 import { Redirect } from 'react-router';
 import { Auth } from '../Auth/Auth';
 

@@ -1,7 +1,4 @@
 import React from 'react';
-import AddProductForm from './AddProductForm.jsx';
-import ProductList from './ProductList.jsx';
-// import Header from './Header.jsx';
 
 class Featured extends React.Component {
   constructor(props) {

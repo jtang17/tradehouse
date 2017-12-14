@@ -1,5 +1,5 @@
 import React from 'react';
-import { lock, Auth } from '../Auth/Auth.js';
+import { lock, Auth } from '../../Auth/Auth.js';
 
 const auth = new Auth();
 

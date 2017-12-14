@@ -1,8 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  deleteProduct,
-} from '../actions/actions.jsx';
 
 class ProductItem extends React.Component {
   constructor(props) {

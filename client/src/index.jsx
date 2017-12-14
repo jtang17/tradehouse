@@ -13,7 +13,7 @@ import tradehouseApp from './reducers/reducers.jsx';
 import { Provider } from 'react-redux';
 
 import Home from './containers/Home.jsx';
-import Header from './components/Header.jsx';
+import Header from './components/common/Header.jsx';
 import ChannelView from './containers/ChannelView.jsx';
 import ProductsView from './containers/ProductsView.jsx';
 import MerchantHome from './containers/MerchantHome.jsx';
