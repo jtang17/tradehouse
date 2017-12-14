@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "react-dev": "webpack -d --watch",
-    "be-start": "nodemon --inspect ./server/app.js"
+    "be-start": "nodemon --inspect ./server/app.js",
+    "lint": "eslint --fix ."
   },
   "repository": {
     "type": "git",
