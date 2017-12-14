@@ -16,8 +16,15 @@ const deleteProduct = entry => db.Product.destroy({
 });
 
 const saveNewMerchant = entry => db.Merchant.create({
+  logo: entry.logo,
   username: entry.username,
-  password: entry.password,
+  website: entry.website,
+  rating: entry.rating,
+  location: entry.location,
+  email: entry.email,
+  facebook: entry.facebook,
+  twitter: entry.twitter,
+  description: entry.description,
 });
 
 const saveNewCustomer = entry => db.Customer.create({

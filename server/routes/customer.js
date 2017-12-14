@@ -4,18 +4,12 @@ const asyncMiddleware = require('./utils/asyncMiddleware');
 
 const router = new Router();
 
-
 router.get('/', asyncMiddleware(async (req, res, next) => {
   const rows = await controllers.getAllCustomers();
   res.json(rows);
 }));
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
-  // // example data
-  // req.body = {
-  //   username: 'ann',
-  //   password: 'aaa'
-  // };
   const newCustomer = await controllers.saveNewCustomer(req.body);
   res.json(newCustomer);
 }));

@@ -7,13 +7,7 @@ const router = new Router();
 module.exports = router;
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
-  // // example data
-  // req.body = {
-  //   username: 'eeea',
-  //   password: 'aaa'
-  // };
   const newMerchant = await controllers.saveNewMerchant(req.body);
-  // console.log(newMerchant);
   res.json(newMerchant);
 }));
 
@@ -28,14 +22,6 @@ router.get('/:id', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.post('/:id/products', asyncMiddleware(async (req, res, next) => {
-  // // example data
-  // req.body = {
-  //   title: 'toothpaste',
-  //   description: 'minty',
-  //   productQuantity: '5',
-  //   price: '4.99',
-  //   merchantId: '1'
-  // };
   const newProduct = await controllers.saveNewProduct(req.body);
   res.json(newProduct);
 }));

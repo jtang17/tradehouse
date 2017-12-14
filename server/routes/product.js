@@ -7,14 +7,6 @@ const router = new Router();
 module.exports = router;
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
-  // // example data
-  // req.body = {
-  //   title: 'toothpaste',
-  //   description: 'minty',
-  //   productQuantity: '5',
-  //   price: '4.99',
-  //   merchantId: '1'
-  // };
   const newProduct = await controllers.saveNewProduct(req.body);
   res.json(newProduct);
 }));
@@ -27,13 +19,8 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
 // TODO: decide on location of API endpoints
 
 router.delete('/', asyncMiddleware(async (req, res, next) => {
-  // // example data
-  // req.body = {
-  //   title: '????',
-  //   merchantId: '1'
-  // };
-
   // TODO: on frontend, make it so that it is not necessary to pass back entire product list
+  // presently, only the products for a given merchant are passed back
   const rows = await controllers.deleteProduct(req.body)
     .then(() => controllers.findProductsOfMerchant(req.body));
   res.json(rows);
