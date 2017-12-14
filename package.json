@@ -27,7 +27,6 @@
     "express": "^4.16.2",
     "express-promise-router": "^2.0.0",
     "mysql2": "^1.5.1",
-    "nodemon": "^1.12.7",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dnd": "^2.5.4",
