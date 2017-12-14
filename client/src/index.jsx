@@ -14,10 +14,11 @@ import { Provider } from 'react-redux';
 
 import Home from './containers/Home.jsx';
 import Header from './components/Header.jsx';
-import CustomerView from './containers/CustomerView.jsx';
+import ChannelView from './containers/ChannelView.jsx';
 import ProductsView from './containers/ProductsView.jsx';
 import MerchantHome from './containers/MerchantHome.jsx';
 import BroadcastView from './containers/BroadcastView.jsx';
+import StoreView from './containers/StoreView.jsx';
 
 var defaultState = {
   broadcastMessage: '',
@@ -33,11 +34,12 @@ const Root = ({ store }) => (
     <Router>
       <div>
         <Header />
-        <Route path="/CustomerView" component={CustomerView} />
+        <Route exact path="/" component={Home} />
+        <Route path="/ChannelView" component={ChannelView} />
         <Route path="/ProductsView" component={ProductsView} />
         <Route path="/MerchantHome" component={MerchantHome} />
         <Route path="/BroadcastView" component={BroadcastView} />
-        <Route exact path="/" component={Home} />
+        <Route path="/StoreView" component={StoreView} />
       </div>
     </Router>
   </Provider>

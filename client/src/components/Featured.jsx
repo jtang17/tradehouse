@@ -13,7 +13,7 @@ class Featured extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col">
-            <a className="customerViewLink" href="/CustomerView">
+            <a className="channelViewLink" href="/ChannelView">
               <h4>Featured Broadcast: QVC Live Stream</h4>
             </a>
             <iframe width="448" height="252"

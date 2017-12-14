@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 const ChannelID = 'UCSJ4gkVC6NrvII8umztf0Ow';
 
-const CustomerView = props => {
+const ChannelView = props => {
   return (
     <div>
-      Viewing: {props.video}
+      Viewing: lofi hiphop radio - <a href="/StoreView">Store</a>
       <br />
       <iframe
         width="560" height="315"
@@ -16,7 +16,7 @@ const CustomerView = props => {
       </iframe>
       <ul id="messages"></ul>
       <form action="">
-        <input id="m" autocomplete="off" /><button>Send</button>
+        <input id="m" autoComplete="off" /><button>Send</button>
       </form>
       <script src="/socket.io/socket.io.js"></script>
       <script>
@@ -32,4 +32,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, null)(CustomerView);
+export default connect(mapStateToProps, null)(ChannelView);

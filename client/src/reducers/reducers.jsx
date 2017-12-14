@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
+import { cart } from './cartReducer.jsx';
 import {
   ADD_PRODUCT_SUCCESS,
   ADD_PRODUCT_FAILURE,
@@ -78,6 +79,7 @@ function featuredProduct(state = false, action) {
 }
 
 const tradehouseApp = combineReducers({
+  cart,
   items,
   video,
   broadcastMessage,
