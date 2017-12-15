@@ -1,18 +1,21 @@
-import SQL_PSWD from '/config.js';
+if(process.env.NODE_ENV === 'production') {
+  const SQL_PSWD = require('../config.js');
+  process.env.DATABASE_URL = 'tradehouse_streams';
+}
 
 if (!global.hasOwnProperty('db')) {
   const Sequelize = require('sequelize');
 
   let sequelize = null;
   if (process.env.DATABASE_URL) {
-    sequelize = new Sequelize(process.env.DATABASE_URL, {
+    sequelize = new Sequelize(process.env.DATABASE_URL, 'circleci', SQL_PSWD, {
       dialect: 'mysql',
       protocol: 'mysql',
       logging: true,
       charset: 'utf8',
     });
   } else {
-    sequelize = new Sequelize('tradehouse_streams', 'circleci', SQL_PSWD, {
+    sequelize = new Sequelize('tradehouse_streams', 'root', '', {
       host: 'localhost',
       dialect: 'mysql',
       pool: {
