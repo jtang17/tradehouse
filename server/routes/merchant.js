@@ -21,6 +21,11 @@ router.get('/:id', asyncMiddleware(async (req, res, next) => {
   res.json(merchant);
 }));
 
+router.put('/:id', asyncMiddleware(async (req, res, next) => {
+  const merchant = await controllers.editMerchantProfile(req.params);
+  res.json(merchant);
+}));
+
 router.post('/:id/products', asyncMiddleware(async (req, res, next) => {
   const newProduct = await controllers.saveNewProduct(req.body);
   res.json(newProduct);

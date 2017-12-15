@@ -93,6 +93,23 @@ const editShoppingCartedProduct = entry => db.ShoppingCartedProduct.findOne({
   quantity: entry.quantity,
 }));
 
+const editMerchantProfile = entry => db.Merchant.findOne({
+  id: entry.id,
+}).then(merchant => merchant.set({
+  logo: entry.logo,
+  username: entry.username,
+  website: entry.website,
+  rating: entry.rating,
+  location: entry.location,
+  email: entry.email,
+  facebook: entry.facebook,
+  twitter: entry.twitter,
+  description: entry.description,
+  stream: entry.stream,
+  broadcastMessage: entry.broadcastMessage,
+  currentProduct: entry.currentProduct,
+}));
+
 const findOneCustomer = ({ id }) => db.Customer.findOne({ id });
 
 const findOneMerchant = ({ id }) => db.Merchant.findOne({ id });
@@ -143,4 +160,5 @@ module.exports = {
   saveNewShoppingCartedProduct,
   editShoppingCartedProduct,
   deleteShoppingCartedProduct,
+  editMerchantProfile,
 };
