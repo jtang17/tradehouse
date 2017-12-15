@@ -19,10 +19,25 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
   res.json(newCustomer);
 }));
 
-
 router.post('/subscriptions', asyncMiddleware(async (req, res, next) => {
   const subscription = await controllers.saveNewSubscription(req.body);
   res.json(subscription);
+}));
+
+router.get('/shoppingCart', asyncMiddleware(async (req, res, next) => {
+  const rows = await controllers.findShoppingCartedProducts();
+  res.json(rows);
+}));
+
+router.post('/shoppingCart', asyncMiddleware(async (req, res, next) => {
+  const newItem = await controllers.saveNewShoppingCartedProduct(req.body);
+  res.json(newItem);
+}));
+
+router.delete('/shoppingCart', asyncMiddleware(async (req, res, next) => {
+  const products = await controllers.deleteShoppingCartedProduct(req.body)
+        .then(() => controllers.findShoppingCartedProducts(req.body));
+  res.json(products);
 }));
 
 module.exports = router;
