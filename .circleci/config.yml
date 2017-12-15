@@ -26,6 +26,10 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
+      - run: npm install
+
+      - run: git checkout package-lock.json
+
       - save_cache:
           paths:
             - node_modules
@@ -36,4 +40,4 @@ jobs:
 
       - deploy:
           name: digital-ocean
-          command: ssh -o "StrictHostKeyChecking no" circleci@198.199.94.120 "cd tradehouse; git pull --rebase origin master; npm install"
+          command: ssh -o "StrictHostKeyChecking no" circleci@198.199.94.120 "cd tradehouse; git pull --rebase origin master; npm install; git checkout package-lock.json"
