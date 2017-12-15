@@ -3,7 +3,7 @@ import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import MerchantOverview from '../components/merchant/MerchantOverview.jsx';
 import MerchantStats from '../components/merchant/MerchantStats.jsx';
-import { fetchMerchantInfo } from '../actions/actions.jsx';
+import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
 import { Auth } from '../Auth/Auth';
 
 const auth = new Auth();
