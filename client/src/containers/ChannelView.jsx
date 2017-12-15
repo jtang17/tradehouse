@@ -5,7 +5,7 @@ const ChannelID = 'UCSJ4gkVC6NrvII8umztf0Ow';
 
 const ChannelView = props => (
   <div>
-      Viewing: lofi hiphop radio - <a href="/StoreView">Store</a>
+      Viewing: lofi hiphop radio - <a href="/store">Store</a>
     <br />
     <iframe
       width="560"

@@ -7,8 +7,11 @@ export const CHANGE_BROADCAST_MESSAGE_FAILURE = 'CHANGE_BROADCAST_MESSAGE_FAILUR
 export const SELECT_FEATURED_PRODUCT_SUCCESS = 'SELECT_FEATURED_PRODUCT_SUCCESS';
 export const SELECT_FEATURED_PRODUCT_FAILURE = 'SELECT_FEATURED_PRODUCT_FAILURE';
 
+// TODO: PASS IN ID THROUGH FUNCTIONS AND REMOVE STATIC ID ASSIGNMENT ON NEXT LINE
+const id = 1;
+
 export const changeVideo = url => (dispatch) => {
-  axios.post('/api/merchants/:id/stream', { url }) // TODO: FIX ROUTE
+  axios.post(`/api/merchants/${id}/stream`, { url }) // TODO: FIX ROUTE
     .then(res => dispatch({
       type: CHANGE_VIDEO_SUCCESS,
       url,
@@ -21,7 +24,7 @@ export const changeVideo = url => (dispatch) => {
 };
 
 export const changeBroadcastMessage = broadcastMessage => (dispatch) => {
-  axios.post('/api/merchants/:id/broadcast', { broadcastMessage }) // TODO: FIX ROUTE
+  axios.post(`/api/merchants/${id}/broadcast`, { broadcastMessage }) // TODO: FIX ROUTE
     .then(res => dispatch({
       type: CHANGE_BROADCAST_MESSAGE_SUCCESS,
       broadcastMessage,
@@ -34,7 +37,7 @@ export const changeBroadcastMessage = broadcastMessage => (dispatch) => {
 };
 
 export const selectFeaturedProduct = product => (dispatch) => {
-  axios.post('/api/merchants/:id/featured', { product }) // TODO: FIX ROUTE
+  axios.post(`/api/merchants/${id}/featured`, { product }) // TODO: FIX ROUTE
     .then(res => dispatch({
       type: SELECT_FEATURED_PRODUCT_SUCCESS,
       product,

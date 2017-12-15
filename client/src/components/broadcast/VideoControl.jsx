@@ -49,12 +49,22 @@ class VideoControl extends React.Component {
       <div className="container">
         <form onSubmit={this.onIdSubmit}>
           <label>Enter Youtube Channel ID</label>
-          <input type="text" placeholder="Youtube Channel ID..." onChange={this.onIdChanged} value={this.state.url} />
+          <input
+            type="text"
+            placeholder="Youtube Channel ID..."
+            onChange={this.onIdChanged}
+            value={this.state.url}
+          />
           <input type="submit" value="Submit" />
         </form>
         <form onSubmit={this.onBroadcastMessageSubmit}>
           <label>Enter Broadcast Message</label>
-          <input type="text" placeholder="Broadcast Message..." onChange={this.onBroadcastMessageChanged} value={this.state.broadcastMessage} />
+          <input
+            type="text"
+            placeholder="Broadcast Message..."
+            onChange={this.onBroadcastMessageChanged}
+            value={this.state.broadcastMessage}
+          />
           <input type="submit" value="Submit" />
         </form>
       </div>

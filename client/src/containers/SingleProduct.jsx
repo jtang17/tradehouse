@@ -32,7 +32,7 @@ class SingleProduct extends React.Component {
     };
     return (
       <div>
-        {product.title} - {productQuantity} remaining<br />
+        {product.title} - {product.productQuantity} remaining<br />
         {product.unitPrice}<br />
         {product.description}<br />
         <button onClick={this.handleAddClick}>Add to Cart</button>

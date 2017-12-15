@@ -13,13 +13,13 @@ class StoreView extends React.Component {
   componentDidMount() {
     this.props.fetchProducts();
     // should fetchProducts of one particular merchant
+    // should fetchMerchantInfo of one particular merchant
 
     // this.props.fetchCart();
     // should fetch cart of logged in customer
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <Cart cart={this.props.cart} />

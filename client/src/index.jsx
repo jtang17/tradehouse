@@ -23,6 +23,8 @@ import BroadcastView from './containers/BroadcastView.jsx';
 import StoreView from './containers/StoreView.jsx';
 import CustomerHome from './containers/CustomerHome.jsx';
 import Checkout from './containers/Checkout.jsx';
+import Browser from './containers/Browser.jsx';
+import SingleProduct from './containers/SingleProduct.jsx';
 
 const defaultState = {
   broadcastMessage: '',
@@ -43,13 +45,15 @@ const Root = ({ store }) => (
         <div className="mainContent__container">
           <Sidebar />
           <Route exact path="/" component={Home} />
-          <Route path="/ChannelView" component={ChannelView} />
+          <Route path="/channel" component={ChannelView} />
           <Route path="/ProductsView" component={ProductsView} />
           <Route path="/MerchantHome" component={MerchantHome} />
           <Route path="/BroadcastView" component={BroadcastView} />
-          <Route path="/StoreView" component={StoreView} />
+          <Route path="/store" component={StoreView} />
           <Route path="/CustomerHome" component={CustomerHome} />
           <Route path="/checkout" component={Checkout} />
+          <Route path="/browse" component={Browser} />
+          <Route path="/product" component={SingleProduct} />
         </div>
         <Footer />
       </div>

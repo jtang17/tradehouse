@@ -8,7 +8,7 @@ class Featured extends React.Component {
   render() {
     return (
       <div className="featuredBroadcast__container">
-        <a className="channelViewLink" href="/ChannelView">
+        <a className="channelViewLink" href="/channel">
           <h2>Featured Broadcast: QVC Live Stream</h2>
         </a>
         <iframe

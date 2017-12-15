@@ -16,4 +16,3 @@ describe('cart reducers', () => {
     expect(originalState.length).toBe(1);
   });
 })
-
