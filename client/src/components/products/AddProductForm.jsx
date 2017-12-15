@@ -7,7 +7,7 @@ let AddProductForm = (props) => {
     const product = {
       title: values.target[0].defaultValue,
       productQuantity: parseInt(values.target[1].defaultValue, 10),
-      price: parseFloat(values.target[2].defaultValue),
+      unitPrice: parseFloat(values.target[2].defaultValue),
       description: values.target[3].defaultValue,
       merchantId: 1,
     };
