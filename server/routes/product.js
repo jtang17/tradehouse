@@ -26,12 +26,17 @@ router.delete('/', asyncMiddleware(async (req, res, next) => {
   res.json(rows);
 }));
 
-router.post('/reviews', asyncMiddleware(async (req, res, next) => {
+router.get('/:productId', asyncMiddleware(async (req, res, next) => {
+  const product = await controllers.findOneProduct(req.params.productId);
+  res.json(product);
+}));
+
+router.post('/:productId/reviews', asyncMiddleware(async (req, res, next) => {
   const newReview = await controllers.saveNewProductReview(req.body);
   res.json(newReview);
 }));
 
-router.put('/reviews', asyncMiddleware(async (req, res, next) => {
+router.put('/:productId/reviews', asyncMiddleware(async (req, res, next) => {
   const editedReview = await controllers.editProductReview(req.body);
   res.json(editedReview);
 }));

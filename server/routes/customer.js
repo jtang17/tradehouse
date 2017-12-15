@@ -19,7 +19,7 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
   res.json(newCustomer);
 }));
 
-router.post('/subscriptions', asyncMiddleware(async (req, res, next) => {
+router.post('/:customerId/subscriptions', asyncMiddleware(async (req, res, next) => {
   const subscription = await controllers.saveNewSubscription(req.body);
   res.json(subscription);
 }));

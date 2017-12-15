@@ -114,6 +114,8 @@ const findOneCustomer = ({ customerId }) => db.Customer.findOne({ id: customerId
 
 const findOneMerchant = ({ merchantId }) => db.Merchant.findOne({ id: merchantId });
 
+const findOneProduct = ({ productId }) => db.Product.findOne({ id: productId });
+
 const findProductsOfMerchant = ({ merchantId }) => db.Product.findAll({
   where: {
     merchantId,
@@ -146,6 +148,7 @@ module.exports = {
   saveNewSubscription,
   findOneCustomer,
   findOneMerchant,
+  findOneProduct,
   getAllMerchants,
   getAllProducts,
   getAllCustomers,
