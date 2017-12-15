@@ -1,5 +1,6 @@
-if(process.env.NODE_ENV === 'production') {
-  const SQL_PSWD = require('../config.js');
+let SQL_PSWD;
+if (process.env.HOME === '/home/circleci') {
+  SQL_PSWD = require('../config.js').SQL_PSWD;
   process.env.DATABASE_URL = 'tradehouse_streams';
 }
 
