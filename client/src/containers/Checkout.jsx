@@ -3,9 +3,16 @@ import { connect } from 'react-redux';
 
 import Cart from '../components/customer/Cart.jsx';
 
+import { fetchCart } from '../actions/cartActions.jsx';
+
 class CheckoutView extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    // this.props.fetchCart();
+    //fetch cart of logged in customer
   }
 
   render() {
@@ -24,4 +31,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(CheckoutView);
+export default connect(mapStateToProps, { fetchCart })(CheckoutView);

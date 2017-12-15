@@ -26,6 +26,7 @@ import Checkout from './containers/Checkout.jsx';
 
 const defaultState = {
   broadcastMessage: '',
+  singleProduct: {},
   cart: [],
   items: [],
   video: '',

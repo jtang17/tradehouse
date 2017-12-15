@@ -5,6 +5,8 @@ import {
   DELETE_PRODUCT_FAILURE,
   FETCH_PRODUCTS_SUCCESS,
   FETCH_PRODUCTS_FAILURE,
+  FETCH_SINGLE_PRODUCT_SUCCESS,
+  FETCH_SINGLE_PRODUCT_FAILURE,
 } from '../actions/productActions.jsx';
 
 export function items(state = [], action) {
@@ -32,6 +34,21 @@ export function items(state = [], action) {
       console.error(action.error);
       return state;
       // notify user of error?
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
+export function singleProduct(state = {}, action) {
+  switch (action.type) {
+    case FETCH_SINGLE_PRODUCT_SUCCESS: {
+      return action.product;
+    }
+    case FETCH_SINGLE_PRODUCT_FAILURE: {
+      console.error(action.error);
+      return state;
     }
     default: {
       return state;
