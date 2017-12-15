@@ -10,15 +10,12 @@ export const fetchMerchantLoading = bool => ({
 
 export const fetchMerchantInfo = ({ id }) => (dispatch) => {
   dispatch(fetchMerchantLoading(true));
-  return axios.get('/api/merchants/:id', {
-    params: {
-      id,
-    },
-  }).then(res => dispatch({
-    type: FETCH_MERCHANT_SUCCESS,
-    merchantInfo: res.data,
-  }), err => dispatch({
-    type: FETCH_MERCHANT_FAILURE,
-    error: err,
-  }));
+  return axios.get(`/api/merchants/${id}`)
+    .then(res => dispatch({
+      type: FETCH_MERCHANT_SUCCESS,
+      merchantInfo: res.data,
+    }), err => dispatch({
+      type: FETCH_MERCHANT_FAILURE,
+      error: err,
+    }));
 };

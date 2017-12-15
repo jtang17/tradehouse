@@ -10,15 +10,12 @@ export const fetchCustomerLoading = bool => ({
 
 export const fetchCustomerInfo = ({ id }) => (dispatch) => {
   dispatch(fetchCustomerLoading(true));
-  return axios.get('/api/customers/:id', {
-    params: {
-      id,
-    },
-  }).then(res => dispatch({
-    type: FETCH_CUSTOMER_SUCCESS,
-    customerInfo: res.data,
-  }), err => dispatch({
-    type: FETCH_CUSTOMER_FAILURE,
-    error: err,
-  }));
+  return axios.get(`/api/customers/${id}`)
+    .then(res => dispatch({
+      type: FETCH_CUSTOMER_SUCCESS,
+      customerInfo: res.data,
+    }), err => dispatch({
+      type: FETCH_CUSTOMER_FAILURE,
+      error: err,
+    }));
 };
