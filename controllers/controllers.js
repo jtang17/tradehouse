@@ -71,6 +71,24 @@ const saveNewSubscription = ({ customerId, merchantId }) => db.Subscription.crea
   merchantId,
 });
 
+const saveNewShoppingCartedProduct = entry => db.ShoppingCartedProduct.create({
+  quantity: entry.quantity,
+  customerId: entry.customerId,
+  productId: entry.productId,
+});
+
+const deleteShoppingCartedProduct = entry => db.ShoppingCartedProduct.destroy({
+  customerId: entry.customerId,
+  productId: entry.productId,
+});
+
+const editShoppingCartedProduct = entry => db.ShoppingCartedProduct.findOne({
+  customerId: entry.customerId,
+  productId: entry.productId,
+}).then(product => product.set({
+  quantity: entry.quantity,
+}));
+
 const findOneCustomer = ({ id }) => db.Customer.findOne({ id });
 
 const findOneMerchant = ({ id }) => db.Merchant.findOne({ id });
@@ -117,4 +135,7 @@ module.exports = {
   editProductReview,
   findReviewsOfMerchant,
   findReviewsOfProduct,
+  saveNewShoppingCartedProduct,
+  editShoppingCartedProduct,
+  deleteShoppingCartedProduct,
 };
