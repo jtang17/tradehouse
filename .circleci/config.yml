@@ -37,5 +37,5 @@ jobs:
       - run: npm test
 
       - deploy:
-        name: digital-ocean
-        command: ssh circleci@198.199.94.129 "cd tradehouse; git pull --rebase origin master; npm install"
+          name: digital-ocean
+          command: ssh circleci@198.199.94.129 "cd tradehouse; git pull --rebase origin master; npm install"
