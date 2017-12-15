@@ -4,8 +4,8 @@ const asyncMiddleware = require('./utils/asyncMiddleware');
 
 const router = new Router();
 
-router.get('/:id', asyncMiddleware(async (req, res, next) => {
-  const customer = await controllers.findOneCustomer(req.params);
+router.get('/:customerId', asyncMiddleware(async (req, res, next) => {
+  const customer = await controllers.findOneCustomer(req.params.customerId);
   res.json(customer);
 }));
 
@@ -24,19 +24,19 @@ router.post('/subscriptions', asyncMiddleware(async (req, res, next) => {
   res.json(subscription);
 }));
 
-router.get('/shoppingCart', asyncMiddleware(async (req, res, next) => {
-  const rows = await controllers.findShoppingCartedProducts();
+router.get('/:customerId/cart', asyncMiddleware(async (req, res, next) => {
+  const rows = await controllers.findShoppingCartedProducts(req.params.customerId);
   res.json(rows);
 }));
 
-router.post('/shoppingCart', asyncMiddleware(async (req, res, next) => {
+router.post('/:customerId/cart', asyncMiddleware(async (req, res, next) => {
   const newItem = await controllers.saveNewShoppingCartedProduct(req.body);
   res.json(newItem);
 }));
 
-router.delete('/shoppingCart', asyncMiddleware(async (req, res, next) => {
+router.delete('/:customerId/cart', asyncMiddleware(async (req, res, next) => {
   const products = await controllers.deleteShoppingCartedProduct(req.body)
-        .then(() => controllers.findShoppingCartedProducts(req.body));
+    .then(() => controllers.findShoppingCartedProducts(req.body));
   res.json(products);
 }));
 

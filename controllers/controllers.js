@@ -110,9 +110,9 @@ const editMerchantProfile = entry => db.Merchant.findOne({
   currentProduct: entry.currentProduct,
 }));
 
-const findOneCustomer = ({ id }) => db.Customer.findOne({ id });
+const findOneCustomer = ({ customerId }) => db.Customer.findOne({ id: customerId });
 
-const findOneMerchant = ({ id }) => db.Merchant.findOne({ id });
+const findOneMerchant = ({ merchantId }) => db.Merchant.findOne({ id: merchantId });
 
 const findProductsOfMerchant = ({ merchantId }) => db.Product.findAll({
   where: {
