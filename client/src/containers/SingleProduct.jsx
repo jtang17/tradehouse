@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addToCart } from '../actions/cartActions.jsx';
 import { fetchSingleProduct } from '../actions/productActions.jsx';
 
-//TODO: BUILD SINGLE PRODUCT VIEW
+// TODO: BUILD SINGLE PRODUCT VIEW
 
 class SingleProduct extends React.Component {
   constructor(props) {
@@ -13,8 +13,8 @@ class SingleProduct extends React.Component {
   }
 
   componentDidMount() {
-    //this.props.fetchSingleProduct();
-    //fetch information of specific product
+    // this.props.fetchSingleProduct();
+    // fetch information of specific product
 
   }
 
@@ -28,20 +28,20 @@ class SingleProduct extends React.Component {
       title: 'Mooncake',
       description: 'Yummy',
       productQuantity: 5,
-      unitPrice: 1.99
-    }
+      unitPrice: 1.99,
+    };
     return (
       <div>
         {product.title} - {productQuantity} remaining<br />
         {product.unitPrice}<br />
-        {product.description}<br/>
+        {product.description}<br />
         <button onClick={this.handleAddClick}>Add to Cart</button>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   cart: state.cart,
   product: state.singleProduct,
 });

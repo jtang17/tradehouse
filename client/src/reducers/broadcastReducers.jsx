@@ -7,7 +7,7 @@ import {
   SELECT_FEATURED_PRODUCT_FAILURE,
 } from '../actions/broadcastActions.jsx';
 
-//TODO: failure cases should return state when api routes are properly set up
+// TODO: failure cases should return state when api routes are properly set up
 
 export function broadcastMessage(state = '', action) {
   switch (action.type) {

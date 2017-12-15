@@ -8,15 +8,15 @@ export const FETCH_CART_SUCCESS = 'FETCH_CART_SUCCESS';
 export const FETCH_CART_FAILURE = 'FETCH_CART_FAILURE';
 
 
-//TODO: REMOVE TEST_ADD ACTION WHEN CART ROUTES READY; ALSO NEED TO FIX ROUTES IN AXIOS CALLS
+// TODO: REMOVE TEST_ADD ACTION WHEN CART ROUTES READY; ALSO NEED TO FIX ROUTES IN AXIOS CALLS
 export const TEST_ADD = 'TEST_ADD';
 
-export const testAdd = (product) => ({
+export const testAdd = product => ({
   type: TEST_ADD,
-  product
+  product,
 });
 
-export const addToCart = (product) => (dispatch) => {
+export const addToCart = product => (dispatch) => {
   axios.post('/api/customers/:customerId/cart', product)
     .then(res => dispatch({
       type: ADD_TO_CART_SUCCESS,
@@ -28,7 +28,7 @@ export const addToCart = (product) => (dispatch) => {
     }));
 };
 
-export const removeFromCart = (product) => (dispatch) => {
+export const removeFromCart = product => (dispatch) => {
   axios.delete('/api/customers/:customerId/cart', { data: product })
     .then(res => dispatch({
       type: REMOVE_FROM_CART_SUCCESS,

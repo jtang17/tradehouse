@@ -12,7 +12,7 @@ class CheckoutView extends React.Component {
 
   componentDidMount() {
     // this.props.fetchCart();
-    //fetch cart of logged in customer
+    // fetch cart of logged in customer
   }
 
   render() {
@@ -21,14 +21,12 @@ class CheckoutView extends React.Component {
         <div>Checkout View</div>
         <Cart cart={this.props.cart} />
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    cart: state.cart,
-  }
-}
+const mapStateToProps = state => ({
+  cart: state.cart,
+});
 
 export default connect(mapStateToProps, { fetchCart })(CheckoutView);

@@ -9,7 +9,7 @@ import {
 } from '../actions/cartActions.jsx';
 
 export function cart(state = [], action) {
-  switch (action.type) {        //TODO: REMOVE THIS CASE WHEN CARTS SAVED ON DB
+  switch (action.type) { // TODO: REMOVE THIS CASE WHEN CARTS SAVED ON DB
     case TEST_ADD: {
       return [...state, action.product];
     }

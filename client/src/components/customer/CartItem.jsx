@@ -6,7 +6,7 @@ const CartItem = (props) => {
     <div>
       {props.product.title} - ${parseFloat(props.product.unitPrice).toFixed(2)}
     </div>
-  )
-}
+  );
+};
 
 export default CartItem;

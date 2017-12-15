@@ -51,7 +51,7 @@ export const fetchProductsLoading = bool => ({
   isLoading: bool,
 });
 
-export const fetchSingleProduct = (productId) => (dispatch) => {
+export const fetchSingleProduct = productId => (dispatch) => {
   axios.get(`/api/products/${productId}`)
     .then(res => dispatch({
       type: FETCH_SINGLE_PRODUCT_SUCCESS,

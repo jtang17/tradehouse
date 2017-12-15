@@ -41,6 +41,8 @@ const mapStateToProps = state => ({
   cart: state.cart,
 });
 
-const mapDispatchToProps = { fetchProducts, addToCart, fetchCart, removeFromCart, testAdd };
+const mapDispatchToProps = {
+  fetchProducts, addToCart, fetchCart, removeFromCart, testAdd,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(StoreView);

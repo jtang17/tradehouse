@@ -9,9 +9,7 @@ const Cart = (props) => {
   return (
     <div>
       <ol>
-        Current Cart: {props.cart.map((product, index) => {
-          return <CartItem product={product} key={index} />
-        })}
+        Current Cart: {props.cart.map((product, index) => <CartItem product={product} key={index} />)}
       </ol>
       <br />
       Total Price: ${parseFloat(totalCost).toFixed(2)}
@@ -19,7 +17,7 @@ const Cart = (props) => {
         <button>Checkout</button>
       </a>
     </div>
-  )
-}
+  );
+};
 
 export default Cart;

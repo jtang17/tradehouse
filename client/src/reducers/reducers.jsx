@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-//reducers
+// reducers
 import { broadcastMessage, featuredProduct, video } from './broadcastReducers.jsx';
 import { cart } from './cartReducers.jsx';
 import { items, singleProduct } from './productReducers.jsx';
