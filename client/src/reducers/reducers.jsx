@@ -8,6 +8,7 @@ import { customerInfo } from './customerReducers.jsx';
 import { merchantInfo } from './merchantReducers.jsx';
 
 const tradehouseApp = combineReducers({
+  cart,
   items,
   video,
   broadcastMessage,

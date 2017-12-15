@@ -22,9 +22,11 @@ import MerchantHome from './containers/MerchantHome.jsx';
 import BroadcastView from './containers/BroadcastView.jsx';
 import StoreView from './containers/StoreView.jsx';
 import CustomerHome from './containers/CustomerHome.jsx';
+import Checkout from './containers/Checkout.jsx';
 
 const defaultState = {
   broadcastMessage: '',
+  cart: [],
   items: [],
   video: '',
   featuredProduct: {},
@@ -46,6 +48,7 @@ const Root = ({ store }) => (
           <Route path="/BroadcastView" component={BroadcastView} />
           <Route path="/StoreView" component={StoreView} />
           <Route path="/CustomerHome" component={CustomerHome} />
+          <Route path="/checkout" component={Checkout} />
         </div>
         <Footer />
       </div>

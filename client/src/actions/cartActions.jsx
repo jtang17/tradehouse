@@ -7,6 +7,13 @@ export const REMOVE_FROM_CART_FAILURE = 'REMOVE_FROM_CART_FAILURE';
 export const FETCH_CART_SUCCESS = 'FETCH_CART_SUCCESS';
 export const FETCH_CART_FAILURE = 'FETCH_CART_FAILURE';
 
+export const TEST_ADD = 'TEST_ADD';
+
+export const testAdd = (product) => ({
+  type: TEST_ADD,
+  product
+});
+
 export const addToCart = (product) => (dispatch) => {
   axios.post('/api/customers/:customerId/cart', product)
     .then(res => dispatch({
