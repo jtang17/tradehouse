@@ -1,3 +1,5 @@
+import SQL_PSWD from '/config.js';
+
 if (!global.hasOwnProperty('db')) {
   const Sequelize = require('sequelize');
 
@@ -10,7 +12,7 @@ if (!global.hasOwnProperty('db')) {
       charset: 'utf8',
     });
   } else {
-    sequelize = new Sequelize('tradehouse_streams', 'root', '', {
+    sequelize = new Sequelize('tradehouse_streams', 'circleci', SQL_PSWD, {
       host: 'localhost',
       dialect: 'mysql',
       pool: {
