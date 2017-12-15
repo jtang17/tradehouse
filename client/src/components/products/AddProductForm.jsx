@@ -6,7 +6,7 @@ let AddProductForm = (props) => {
   const handleSubmit = (values) => {
     const product = {
       title: values.target[0].defaultValue,
-      productQuantity: parseInt(values.target[1].defaultValue, 10),
+      quantity: parseInt(values.target[1].defaultValue, 10),
       unitPrice: parseFloat(values.target[2].defaultValue),
       description: values.target[3].defaultValue,
       merchantId: 1,

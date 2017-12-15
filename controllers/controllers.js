@@ -3,7 +3,7 @@ const db = require('../models/index.js');
 const saveNewProduct = entry => db.Product.create({
   title: entry.title,
   description: entry.description,
-  quantity: entry.productQuantity,
+  quantity: entry.quantity,
   unitPrice: entry.unitPrice,
   merchantId: entry.merchantId,
 });

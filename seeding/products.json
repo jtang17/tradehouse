@@ -2,25 +2,25 @@
    {
       "title":"Mooncake",
       "description":"Yummy.",
-      "productQuantity":5,
+      "quantity":5,
       "unitPrice":1.99
    },
    {
       "title":"Piano",
       "description":"Untuned.",
-      "productQuantity":1,
+      "quantity":1,
       "unitPrice":4999.99
    },
    {
       "title":"Boba milk tea",
       "description":"Refreshing.",
-      "productQuantity":10,
+      "quantity":10,
       "unitPrice":2.99
    },
    {
       "title":"Sublime license",
       "description":"If you cannot tolerate any more ads.",
-      "productQuantity":9999,
+      "quantity":9999,
       "unitPrice":80
    }
 ]
