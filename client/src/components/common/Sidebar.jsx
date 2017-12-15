@@ -7,11 +7,7 @@ export default class Sidebar extends React.Component {
         <a href="/browse">Browse Content</a>
         <br />
         <span>
-					SidebarSidebarSidebarSidebarSidebarSidebar
-					rSidebarSidebarSidebarSidebarSidebarSidebar
-					SidebarSidebarSidebarSidebarSidebarS
-					idebarSidebarSidebarSidebarSidebarS
-					idebarSidebarSidebarSidebarSidebarSidebar
+					This is going to work
         </span>
       </div>
     );

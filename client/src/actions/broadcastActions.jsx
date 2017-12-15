@@ -11,7 +11,7 @@ export const SELECT_FEATURED_PRODUCT_FAILURE = 'SELECT_FEATURED_PRODUCT_FAILURE'
 const id = 1;
 
 export const changeVideo = url => (dispatch) => {
-  axios.post(`/api/merchants/${id}/stream`, { url }) // TODO: FIX ROUTE
+  axios.put(`/api/merchants/${id}/stream`, { url }) // TODO: FIX ROUTE
     .then(res => dispatch({
       type: CHANGE_VIDEO_SUCCESS,
       url,
@@ -24,7 +24,7 @@ export const changeVideo = url => (dispatch) => {
 };
 
 export const changeBroadcastMessage = broadcastMessage => (dispatch) => {
-  axios.post(`/api/merchants/${id}/broadcast`, { broadcastMessage }) // TODO: FIX ROUTE
+  axios.put(`/api/merchants/${id}/broadcast`, { broadcastMessage }) // TODO: FIX ROUTE
     .then(res => dispatch({
       type: CHANGE_BROADCAST_MESSAGE_SUCCESS,
       broadcastMessage,
@@ -37,7 +37,7 @@ export const changeBroadcastMessage = broadcastMessage => (dispatch) => {
 };
 
 export const selectFeaturedProduct = product => (dispatch) => {
-  axios.post(`/api/merchants/${id}/featured`, { product }) // TODO: FIX ROUTE
+  axios.put(`/api/merchants/${id}/featured`, { product }) // TODO: FIX ROUTE
     .then(res => dispatch({
       type: SELECT_FEATURED_PRODUCT_SUCCESS,
       product,
