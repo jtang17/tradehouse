@@ -38,4 +38,4 @@ jobs:
 
       - deploy:
           name: digital-ocean
-          command: ssh circleci@198.199.94.129 "cd tradehouse; git pull --rebase origin master; npm install"
+          command: ssh circleci@198.199.94.120 "cd tradehouse; git pull --rebase origin master; npm install"
