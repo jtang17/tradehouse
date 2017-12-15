@@ -23,7 +23,7 @@
     "facebook":"briony",
     "twitter":"briony",
     "description":"used-car salesperson",
-    "stream":"twitch.tv/antonia",
+    "stream":"twitch.tv/briony",
     "broadcastMessage":"hi",
     "currentProduct":"van"
   },
@@ -37,7 +37,7 @@
     "facebook":"christine",
     "twitter":"christine",
     "description":"used-car salesperson",
-    "stream":"twitch.tv/antonia",
+    "stream":"twitch.tv/christine",
     "broadcastMessage":"hi",
     "currentProduct":"van"
   },
@@ -51,7 +51,7 @@
     "facebook":"jane",
     "twitter":"jane",
     "description":"used-car salesperson",
-    "stream":"twitch.tv/antonia",
+    "stream":"twitch.tv/jane",
     "broadcastMessage":"hi",
     "currentProduct":"van"
   }
