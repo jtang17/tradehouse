@@ -13,26 +13,21 @@ class SingleProduct extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchSingleProduct();
+    this.props.fetchSingleProduct(2);
     // fetch information of specific product
 
   }
 
   handleAddClick() {
-    // this.props.addToCart(this.props.product);
+    this.props.addToCart(this.props.product);
     // add product from single product view to current customer's cart
   }
 
   render() {
-    const product = {
-      title: 'Mooncake',
-      description: 'Yummy',
-      productQuantity: 5,
-      unitPrice: 1.99,
-    };
+    const { product } = this.props;
     return (
       <div>
-        {product.title} - {product.productQuantity} remaining<br />
+        {product.title} - {product.quantity} remaining<br />
         {product.unitPrice}<br />
         {product.description}<br />
         <button onClick={this.handleAddClick}>Add to Cart</button>
