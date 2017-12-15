@@ -14,7 +14,7 @@ import { Provider } from 'react-redux';
 
 import Home from './containers/Home.jsx';
 import Header from './components/common/Header.jsx';
-import Sidebar from './components/common/Sidebar.jsx';
+import Sidebar from './containers/Sidebar.jsx';
 import Footer from './components/common/Footer.jsx';
 import ChannelView from './containers/ChannelView.jsx';
 import ProductsView from './containers/ProductsView.jsx';
