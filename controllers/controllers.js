@@ -4,7 +4,7 @@ const saveNewProduct = entry => db.Product.create({
   title: entry.title,
   description: entry.description,
   quantity: entry.productQuantity,
-  unitPrice: entry.price,
+  unitPrice: entry.unitPrice,
   merchantId: entry.merchantId,
 });
 
