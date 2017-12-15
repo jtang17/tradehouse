@@ -16,7 +16,11 @@ class Header extends React.Component {
     this.logout = this.logout.bind(this);
   }
 
-  componentWillMount() {}
+  componentWillMount() {
+    if (auth.isAuthenticated()) {
+      auth.getProfile();
+    }
+  }
 
   registerFunc() {
     auth.login();
