@@ -190,7 +190,7 @@ const findReviewsOfMerchant = merchantId => db.MerchantReview.findAll({
   },
 });
 
-const findReviewsOfProduct = ({ productId }) => db.ProductReview.findAll({
+const findReviewsOfProduct = productId => db.ProductReview.findAll({
   where: {
     productId,
   },

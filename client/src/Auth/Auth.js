@@ -52,7 +52,7 @@ class Auth {
     if (authResult && authResult.accessToken && authResult.idToken) {
       lock.getUserInfo(authResult.accessToken, function(err, profile) {
         if (err) {
-          console.log(err);
+          return console.error(err);
         }
         localStorage.setItem('accessToken', authResult.accessToken);
         localStorage.setItem('profile', JSON.stringify(profile));
@@ -66,11 +66,14 @@ class Auth {
               username: profile.username,
               email: profile.email,
               facebook,
-            }).then((res) => {
+            }).then(res => {
               console.log(res);
-            }).catch((err) => {
+            }).catch(err => {
               console.error(err);
-            });
+            }).then(() => {
+              history.replace('MerchantHome');
+              window.location.reload();
+            }).catch(err => console.error(err));
           } else {
             axios.post('/api/customers', {
               username: profile.username,
@@ -80,14 +83,16 @@ class Auth {
               console.log(res);
             }).catch(err => {
               console.error(err);
-            });
+            }).then(() => {
+              history.replace('CustomerHome');
+              window.location.reload();
+            }).catch(err => console.error(err));
           }
-
         }
       });
     }
-    history.replace('MerchantHome');
-    window.location.reload();
+    // history.replace('MerchantHome');
+    // window.location.reload();
   }
 
   logout() {

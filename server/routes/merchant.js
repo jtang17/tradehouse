@@ -47,7 +47,7 @@ router.put('/:merchantId/reviews', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.get('/:merchantId/reviews', asyncMiddleware(async (req, res, next) => {
-  const reviews = await controllers.findReviewsOfMerchant(req.params);
+  const reviews = await controllers.findReviewsOfMerchant(req.params.merchantId);
   res.json(reviews);
 }));
 
