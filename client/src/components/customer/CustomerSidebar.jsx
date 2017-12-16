@@ -4,7 +4,7 @@ class CustomerSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      leftSide: true,
+      leftTab: true,
     };
   }
 
@@ -12,8 +12,8 @@ class CustomerSidebar extends React.Component {
     return (
       <div className="CustomerSidebar">
         <div className="tabs">
-          <h3>Chat</h3>
-          <h3>Search</h3>
+          <h3 className="leftTab">Chat</h3>
+          <h3 className="rightTab">Search</h3>
         </div>
       </div>
     );
