@@ -202,15 +202,15 @@ const getAllProducts = () => db.Product.findAll({});
 
 const getAllCustomers = () => db.Customer.findAll({});
 
-const editMerchantStreamUrl = (entry, merchantId) => {
-  return db.Merchant.findOne({
+const editMerchantStreamUrl = (entry, merchantId) =>
+  db.Merchant.findOne({
     where: {
       id: merchantId,
     },
   }).then(merchant => merchant.update({
     stream: entry,
   }));
-};
+
 
 const editMerchantBroadcastMessage = (entry, merchantId) => db.Merchant.findOne({
   where: {
