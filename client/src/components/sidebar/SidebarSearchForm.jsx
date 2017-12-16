@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
 
@@ -23,5 +24,9 @@ let SidebarSearchForm = (props) => {
 SidebarSearchForm = reduxForm({
   form: 'SidebarSearchForm'
 })(SidebarSearchForm);
+
+const mapStateToProps = state => ({
+  allMerchants: state.allMerchants,
+})
 
 export default SidebarSearchForm;
