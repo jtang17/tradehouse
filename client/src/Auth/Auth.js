@@ -9,7 +9,6 @@ const lock = new Auth0Lock(AUTH_CONFIG.clientId, AUTH_CONFIG.domain, AUTH_CONFIG
 
 class Auth {
   constructor() {
-    this.handleAuthentication();
     this.userProfile = null;
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
@@ -25,10 +24,13 @@ class Auth {
 
   handleAuthentication() {
     lock.on('authenticated', this.setSession);
-    lock.on('authorization_error', (err) => {
-      console.log(err);
-      alert(`Error: ${err.error}. Check the console for further details.`);
-      
+    lock.on('authorization_error', (err, profile) => {
+      console.log(err, "profile", profile);
+    });
+    lock.on('signup submit', () => {
+      console.log('singed up');
+      var user = this.getProfile();
+      console.log(user);
     });
   }
 

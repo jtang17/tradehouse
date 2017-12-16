@@ -1,12 +1,10 @@
 import React from 'react';
 import { lock, Auth } from '../../Auth/Auth.js';
-
 const auth = new Auth();
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    const auth = new Auth();
 
     this.state = {
       loggedIn: false,
@@ -17,9 +15,7 @@ class Header extends React.Component {
   }
 
   componentWillMount() {
-    if (auth.isAuthenticated()) {
-      auth.getProfile();
-    }
+    auth.handleAuthentication();
   }
 
   registerFunc() {
@@ -31,6 +27,7 @@ class Header extends React.Component {
   }
 
   render() {
+    
     if (!auth.isAuthenticated()) {
       return (
         <div className="header__container">
