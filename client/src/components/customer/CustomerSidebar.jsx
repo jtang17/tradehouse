@@ -11,7 +11,10 @@ class CustomerSidebar extends React.Component {
   render() {
     return (
       <div className="CustomerSidebar">
-        <h1>Customer Test</h1>
+        <div className="tabs">
+          <h3>Chat</h3>
+          <h3>Search</h3>
+        </div>
       </div>
     );
   }
