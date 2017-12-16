@@ -5,10 +5,7 @@ export default class Footer extends React.Component {
     return (
       <div className="footer__container">
         <span>
-					FooterFooterFooterFooterFooterFooterFooterFooterFooterFoo
-					terFooterFooterFooterFooterFooterFooterFooterFooterFo
-					oterFooterFooterFooterFooterFooterFooterFooterFo
-					oterFooterFooterFooterFooterFooterFooterFooterFooterFooter
+					Tradehouse Streams
         </span>
       </div>
     );
