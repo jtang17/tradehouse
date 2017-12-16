@@ -2,6 +2,8 @@ import axios from 'axios';
 
 export const FETCH_CUSTOMER_SUCCESS = 'FETCH_CUSTOMER_SUCCESS';
 export const FETCH_CUSTOMER_FAILURE = 'FETCH_CUSTOMER_FAILURE';
+export const FETCH_ALL_MERCHANTS_SUCCESS = 'FETCH_ALL_MERCHANTS_SUCCESS';
+export const FETCH_ALL_MERCHANTS_FAILURE = 'FETCH_ALL_MERCHANTS_FAILURE';
 
 export const fetchCustomerLoading = bool => ({
   type: 'CUSTOMER_LOADING',
@@ -16,6 +18,17 @@ export const fetchCustomerInfo = ({ id }) => (dispatch) => {
       customerInfo: res.data,
     }), err => dispatch({
       type: FETCH_CUSTOMER_FAILURE,
+      error: err,
+    }));
+};
+
+export const fetchAllMerchants = () => (dispatch) => {
+  return axios.get(`/api/merchants`)
+    .then(res => dispatch({
+      type: FETCH_ALL_MERCHANTS_SUCCESS,
+      allMerchants: res.data,
+    }), err => dispatch({
+      type: FETCH_ALL_MERCHANTS_FAILURE,
       error: err,
     }));
 };
