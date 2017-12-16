@@ -2,7 +2,6 @@ import React from 'react';
 import CartItem from './CartItem.jsx';
 
 const Cart = (props) => {
-  console.log(props.cart);
   let totalCost = 0;
   props.cart.forEach((item) => {
     totalCost += item.unitPrice;

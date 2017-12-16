@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 class StoreItem extends React.Component {
   constructor(props) {
     super(props);
@@ -14,10 +16,13 @@ class StoreItem extends React.Component {
     //TODO: Need to be able to click on a product and view its SingleProduct container view
     return (
       <div>
-        Product: {product.title}<br />
-        Price: ${parseFloat(product.unitPrice).toFixed(2)}<br />
-        Only {product.quantity} left!<br />
-        Description: {product.description}<br />
+        <Link to={`/product/${this.props.product.id}`}>
+          Product: {this.props.product.title}
+        </Link>
+        <br />
+        Price: ${parseFloat(this.props.product.unitPrice).toFixed(2)}<br />
+        Only {this.props.product.quantity} left!<br />
+        Description: {this.props.product.description}<br />
         <button onClick={this.handleAddToCart} >Add to cart</button>
       </div>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { lock, Auth } from '../../Auth/Auth.js';
 const auth = new Auth();
 
@@ -27,7 +28,7 @@ class Header extends React.Component {
   }
 
   render() {
-    
+
     if (!auth.isAuthenticated()) {
       return (
         <div className="header__container">
@@ -49,15 +50,15 @@ class Header extends React.Component {
           <img src="https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif" />
         </a>
         <div className="btn-group">
-          <a className="btn btn-primary" href="/merchant_profile">
-							Home
-          </a>
-          <a className="btn btn-primary" href="/manage_store">
+          <Link to={`/merchant_profile/${1}`} >
+							Merchant Profile
+          </Link>
+          <Link to={`/manage_store/${1}`}>
 							Manage Store
-          </a>
-          <a className="btn btn-primary" href="/broadcast">
+          </Link>
+          <Link to={`/broadcast/${1}`}>
 							Broadcast
-          </a>
+          </Link>
         </div>
         <div className="header__account--register">
           <button className="hvr-icon-pulse" onClick={this.logout}>Logout</button>

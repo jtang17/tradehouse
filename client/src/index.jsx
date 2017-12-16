@@ -2,7 +2,7 @@ import './styles/style.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -44,16 +44,18 @@ const Root = ({ store }) => (
         <Header />
         <div className="mainContent__container">
           <Sidebar />
-          <Route exact path="/" component={Home} />
-          <Route path="/channel" component={ChannelView} />
-          <Route exact path="/manage_store" component={ProductsView} />
-          <Route exact path="/merchant_profile" component={MerchantHome} />
-          <Route path="/broadcast" component={BroadcastView} />
-          <Route path="/store" component={StoreView} />
-          <Route path="/customer_profile" component={CustomerHome} />
-          <Route path="/checkout" component={Checkout} />
-          <Route path="/browse" component={Browser} />
-          <Route path="/product" component={SingleProduct} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/channel/:merchantId" component={ChannelView} />
+            <Route path="/manage_store/:merchantId" component={ProductsView} />
+            <Route path="/merchant_profile/:merchantId" component={MerchantHome} />
+            <Route path="/broadcast/:merchantId" component={BroadcastView} />
+            <Route path="/store/:merchantId" component={StoreView} />
+            <Route path="/customer_profile/:customerId" component={CustomerHome} />
+            <Route path="/checkout/:customerId" component={Checkout} />
+            <Route path="/browse" component={Browser} />
+            <Route path="/product/:productId" component={SingleProduct} />
+          </Switch>
         </div>
         <Footer />
       </div>
