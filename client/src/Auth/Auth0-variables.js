@@ -1,6 +1,6 @@
 export const AUTH_CONFIG = {
-  domain: 'antonvs.auth0.com',
-  clientId: 'l5HhVRbwlvmryIQQljzDaHoMMAxF8873',
+  domain: 'tradehouse.auth0.com',
+  clientId: 'wqEnTUSCU67QGxKiZnKOX4Ge5IIfI9sj',
   options: {
     languageDictionary: {
       title: "TradeHouse"
