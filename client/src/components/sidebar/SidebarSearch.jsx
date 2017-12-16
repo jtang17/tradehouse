@@ -1,4 +1,5 @@
 import React from 'react';
+import SidebarSearchForm from './SidebarSearchForm.jsx';
 
 class SidebarSearch extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class SidebarSearch extends React.Component {
   render() {
     return (
       <div>
-        <h1>Search Test</h1>
+        <SidebarSearchForm />
       </div>
     );
   }
