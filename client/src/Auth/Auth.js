@@ -1,4 +1,5 @@
 import auth0 from 'auth0-js';
+import axios from 'axios';
 import history from './history.js';
 import { AUTH_CONFIG } from './Auth0-variables.js';
 import Auth0Lock from 'auth0-lock';
@@ -53,16 +54,20 @@ class Auth {
          if (err) {
            console.log(err);
          }
-         console.log(profile);
          localStorage.setItem('accessToken', authResult.accessToken);
          localStorage.setItem('profile', JSON.stringify(profile));
          localStorage.setItem('idToken', authResult.idToken);
-         // navigate to the home route
-         console.log("authenticated", profile);
+         axios.post('/api/merchants', profile)
+           .then(res => {
+             console.log(res.data);
+           })
+           .catch(err => {
+             console.error(err);
+           });
        });
      }
-     history.replace('MerchantHome');
-     window.location.reload();
+     // history.replace('MerchantHome');
+     // window.location.reload();
   }
 
   logout() {

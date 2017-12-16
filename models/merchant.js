@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) =>
     website: DataTypes.STRING,
     rating: DataTypes.DOUBLE(3, 2),
     location: DataTypes.TEXT,
-    email: DataTypes.STRING,
+    email: { type: DataTypes.STRING, unique: true },
     facebook: DataTypes.STRING,
     twitter: DataTypes.STRING,
     description: DataTypes.TEXT,

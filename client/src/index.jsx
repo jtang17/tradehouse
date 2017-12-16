@@ -12,6 +12,7 @@ import tradehouseApp from './reducers/reducers.jsx';
 
 import { Provider } from 'react-redux';
 
+import { Auth } from './Auth/Auth';
 import Home from './containers/Home.jsx';
 import Header from './components/common/Header.jsx';
 import Sidebar from './containers/Sidebar.jsx';
@@ -38,7 +39,7 @@ const defaultState = {
 };
 
 const store = createStore(tradehouseApp, defaultState, composeWithDevTools(applyMiddleware(thunk)));
-
+const auth = new Auth();
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
