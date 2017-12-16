@@ -1,6 +1,8 @@
 const Router = require('express-promise-router');
+const jwtAuthz = require('express-jwt-authz');
 const controllers = require('../../controllers/controllers');
 const asyncMiddleware = require('./utils/asyncMiddleware');
+const jwtCheck = require('./utils/authMiddleware');
 
 const router = new Router();
 
@@ -14,7 +16,8 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
   res.json(rows);
 }));
 
-router.post('/', asyncMiddleware(async (req, res, next) => {
+router.post('/', jwtCheck, jwtAuthz(['batch: upload']), asyncMiddleware(async (req, res, next) => {
+// router.post('/', asyncMiddleware(async (req, res, next) => {
   const newCustomer = await controllers.saveNewCustomer(req.body);
   res.json(newCustomer);
 }));

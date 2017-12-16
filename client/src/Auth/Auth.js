@@ -66,6 +66,11 @@ class Auth {
               username: profile.username,
               email: profile.email,
               facebook,
+            }, {
+              headers: {
+                // 'Authorization': 'Bearer ' + authResult.accessToken,
+                Authorization: `Bearer ${authResult.accessToken}`,
+              },
             }).then(res => {
               console.log(res);
             }).catch(err => {
@@ -76,9 +81,15 @@ class Auth {
             }).catch(err => console.error(err));
           } else {
             axios.post('/api/customers', {
+              accessToken: authResult.accessToken,
               username: profile.username,
               email: profile.email,
               facebook,
+            }, {
+              headers: {
+                // 'Authorization': 'Bearer ' + authResult.accessToken,
+                Authorization: `Bearer ${authResult.accessToken}`,
+              },
             }).then(res => {
               console.log(res);
             }).catch(err => {
