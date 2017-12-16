@@ -71,19 +71,25 @@ const saveNewSubscription = ({ customerId, merchantId }) => db.Subscription.crea
   merchantId,
 });
 
-const findShoppingCartedProducts = entry => db.ShoppingCartedProduct.findAll({
-  where: { customerId: entry.customerId },
+const findShoppingCartedProducts = customerId => db.ShoppingCartedProduct.findAll({
+  where: { customerId: customerId },
 });
 
-const saveNewShoppingCartedProduct = entry => db.ShoppingCartedProduct.create({
+const saveNewShoppingCartedProduct = (entry, customerId) => db.ShoppingCartedProduct.create({
+  title: entry.title,
+  description: entry.description,
+  unitPrice: entry.unitPrice,
   quantity: entry.quantity,
-  customerId: entry.customerId,
-  productId: entry.productId,
+  customerId: customerId,
+  productId: entry.id,
+  //TODO: using id because currently, products do not have a productId property on fetchProducts
 });
 
-const deleteShoppingCartedProduct = entry => db.ShoppingCartedProduct.destroy({
-  customerId: entry.customerId,
-  productId: entry.productId,
+const deleteShoppingCartedProduct = (entry, customerId) => db.ShoppingCartedProduct.destroy({
+  where: {
+    customerId: customerId,
+    productId: entry.productId,
+  },
 });
 
 const editShoppingCartedProduct = entry => db.ShoppingCartedProduct.findOne({

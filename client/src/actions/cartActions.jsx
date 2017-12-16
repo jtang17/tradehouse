@@ -16,8 +16,11 @@ export const testAdd = product => ({
   product,
 });
 
+//TODO: PASS IN CUSTOMER ID FROM FRONT END AND REMOVE STATIC CUSTOMERID ASSIGNMENT
+const customerId = 1;
+
 export const addToCart = product => (dispatch) => {
-  axios.post('/api/customers/:customerId/cart', product)
+  axios.post(`/api/customers/${customerId}/cart`, product)
     .then(res => dispatch({
       type: ADD_TO_CART_SUCCESS,
       cart: res.data,
@@ -29,7 +32,7 @@ export const addToCart = product => (dispatch) => {
 };
 
 export const removeFromCart = product => (dispatch) => {
-  axios.delete('/api/customers/:customerId/cart', { data: product })
+  axios.delete(`/api/customers/${customerId}/cart`, { data: product })
     .then(res => dispatch({
       type: REMOVE_FROM_CART_SUCCESS,
       cart: res.data,
@@ -41,7 +44,7 @@ export const removeFromCart = product => (dispatch) => {
 };
 
 export const fetchCart = () => (dispatch) => {
-  axios.get('/api/customers/:customerId/cart')
+  axios.get(`/api/customers/${customerId}/cart`)
     .then(res => dispatch({
       type: FETCH_CART_SUCCESS,
       cart: res.data,

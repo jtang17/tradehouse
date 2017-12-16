@@ -49,17 +49,14 @@ class Header extends React.Component {
           <img src="https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif" />
         </a>
         <div className="btn-group">
-          <a className="btn btn-primary" href="/MerchantHome">
+          <a className="btn btn-primary" href="/merchant_profile">
 							Home
           </a>
-          <a className="btn btn-primary" href="/ProductsView">
+          <a className="btn btn-primary" href="/manage_store">
 							Manage Store
           </a>
-          <a className="btn btn-primary" href="/BroadcastView">
+          <a className="btn btn-primary" href="/broadcast">
 							Broadcast
-          </a>
-          <a className="btn btn-primary" href="/CustomerHome">
-							Customer Home
           </a>
         </div>
         <div className="header__account--register">

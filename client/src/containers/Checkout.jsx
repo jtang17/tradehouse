@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Cart from '../components/customer/Cart.jsx';
 
-import { fetchCart } from '../actions/cartActions.jsx';
+import { fetchCart, removeFromCart } from '../actions/cartActions.jsx';
 
 class CheckoutView extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class CheckoutView extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchCart();
+    this.props.fetchCart();
     // fetch cart of logged in customer
   }
 
@@ -19,7 +19,7 @@ class CheckoutView extends React.Component {
     return (
       <div>
         <div>Checkout View</div>
-        <Cart cart={this.props.cart} />
+        <Cart cart={this.props.cart} removeFromCart={this.props.removeFromCart} />
       </div>
     );
   }
@@ -29,4 +29,4 @@ const mapStateToProps = state => ({
   cart: state.cart,
 });
 
-export default connect(mapStateToProps, { fetchCart })(CheckoutView);
+export default connect(mapStateToProps, { fetchCart, removeFromCart })(CheckoutView);

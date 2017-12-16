@@ -15,21 +15,20 @@ class StoreView extends React.Component {
     // should fetchProducts of one particular merchant
     // should fetchMerchantInfo of one particular merchant
 
-    // this.props.fetchCart();
-    // should fetch cart of logged in customer
+    this.props.fetchCart();
   }
 
   render() {
     return (
       <div>
-        <Cart cart={this.props.cart} />
+        <Cart cart={this.props.cart} removeFromCart={this.props.removeFromCart} />
         <div className="storeHeader">
           <h4>Store Page: Hardcoded Merchant Name</h4>
           An avid cheese seller
         </div>
         <div className="storeProductList">
           <h4>Products:</h4>
-          {this.props.items.map((product, index) => <StoreItem key={index} product={product} testAdd={this.props.testAdd} cart={this.props.cart} />)}
+          {this.props.items.map((product, index) => <StoreItem key={index} product={product} addToCart={this.props.addToCart} cart={this.props.cart} />)}
         </div>
       </div>
     );

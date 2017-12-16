@@ -7,7 +7,7 @@ class StoreItem extends React.Component {
   }
 
   handleAddToCart() {
-    this.props.testAdd(this.props.product);
+    this.props.addToCart(this.props.product);
   }
 
   render() {

@@ -30,13 +30,13 @@ router.get('/:customerId/cart', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.post('/:customerId/cart', asyncMiddleware(async (req, res, next) => {
-  const newItem = await controllers.saveNewShoppingCartedProduct(req.body);
-  res.json(newItem);
+  const products = await controllers.saveNewShoppingCartedProduct(req.body, req.params.customerId).then(() => controllers.findShoppingCartedProducts(req.params.customerId));
+  res.json(products);
 }));
 
 router.delete('/:customerId/cart', asyncMiddleware(async (req, res, next) => {
-  const products = await controllers.deleteShoppingCartedProduct(req.body)
-    .then(() => controllers.findShoppingCartedProducts(req.body));
+  const products = await controllers.deleteShoppingCartedProduct(req.body, req.params.customerId)
+    .then(() => controllers.findShoppingCartedProducts(req.params.customerId));
   res.json(products);
 }));
 

@@ -46,11 +46,11 @@ const Root = ({ store }) => (
           <Sidebar />
           <Route exact path="/" component={Home} />
           <Route path="/channel" component={ChannelView} />
-          <Route path="/ProductsView" component={ProductsView} />
-          <Route path="/MerchantHome" component={MerchantHome} />
-          <Route path="/BroadcastView" component={BroadcastView} />
+          <Route exact path="/manage_store" component={ProductsView} />
+          <Route exact path="/merchant_profile" component={MerchantHome} />
+          <Route path="/broadcast" component={BroadcastView} />
           <Route path="/store" component={StoreView} />
-          <Route path="/CustomerHome" component={CustomerHome} />
+          <Route path="/customer_profile" component={CustomerHome} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/browse" component={Browser} />
           <Route path="/product" component={SingleProduct} />
