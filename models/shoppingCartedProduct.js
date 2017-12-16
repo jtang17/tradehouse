@@ -3,6 +3,5 @@ module.exports = (sequelize, DataTypes) =>
     quantity: DataTypes.INTEGER,
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
-    quantity: DataTypes.INTEGER,
     unitPrice: DataTypes.DOUBLE(6, 2),
   });
