@@ -50,24 +50,44 @@ class Auth {
 
   setSession(authResult) {
     if (authResult && authResult.accessToken && authResult.idToken) {
-       lock.getUserInfo(authResult.accessToken, function(err, profile) {
-         if (err) {
-           console.log(err);
-         }
-         localStorage.setItem('accessToken', authResult.accessToken);
-         localStorage.setItem('profile', JSON.stringify(profile));
-         localStorage.setItem('idToken', authResult.idToken);
-         axios.post('/api/merchants', profile)
-           .then(res => {
-             console.log(res.data);
-           })
-           .catch(err => {
-             console.error(err);
-           });
-       });
-     }
-     // history.replace('MerchantHome');
-     // window.location.reload();
+      lock.getUserInfo(authResult.accessToken, function(err, profile) {
+        if (err) {
+          console.log(err);
+        }
+        localStorage.setItem('accessToken', authResult.accessToken);
+        localStorage.setItem('profile', JSON.stringify(profile));
+        localStorage.setItem('idToken', authResult.idToken);
+        let facebook;
+        if (profile.link) facebook = profile.link;
+
+        if (Object.prototype.hasOwnProperty.call(profile.user_metadata, 'MerchantAccount')) {
+          if (profile.user_metadata.MerchantAccount === 'true') {
+            axios.post('/api/merchants', {
+              username: profile.username,
+              email: profile.email,
+              facebook,
+            }).then((res) => {
+              console.log(res);
+            }).catch((err) => {
+              console.error(err);
+            });
+          } else {
+            axios.post('/api/customers', {
+              username: profile.username,
+              email: profile.email,
+              facebook,
+            }).then(res => {
+              console.log(res);
+            }).catch(err => {
+              console.error(err);
+            });
+          }
+
+        }
+      });
+    }
+    history.replace('MerchantHome');
+    window.location.reload();
   }
 
   logout() {
@@ -84,10 +104,10 @@ class Auth {
 
   isAuthenticated() {
     // this.logout();
-     // Check whether the current time is past the
-     // access token's expiry time
-     // Clear access token and ID token from local storage
-     return (!!localStorage.getItem('accessToken') && !!localStorage.getItem('idToken'));
+    // Check whether the current time is past the
+    // access token's expiry time
+    // Clear access token and ID token from local storage
+    return (!!localStorage.getItem('accessToken') && !!localStorage.getItem('idToken'));
   }
 }
 

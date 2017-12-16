@@ -32,10 +32,12 @@ const saveNewMerchant = entry => db.Merchant.findOrCreate({
   },
 });
 
-const saveNewCustomer = entry => db.Customer.create({
-  username: entry.username,
-  password: entry.password,
-  email: entry.email,
+const saveNewCustomer = entry => db.Customer.findOrCreate({
+  where: {
+    username: entry.username,
+    // password: entry.password,
+    email: entry.email,
+  },
 });
 
 const saveNewProductReview = entry => db.ProductReview.create({
@@ -59,7 +61,7 @@ const editMerchantReview = entry => db.MerchantReview.findOne({
   where: {
     merchantId: entry.merchantId,
     customerId: entry.customerId,
-  }
+  },
 }).then(review => review.update({
   rating: entry.rating,
   text: entry.text,
@@ -78,55 +80,52 @@ const saveNewSubscription = ({ customerId, merchantId }) => db.Subscription.crea
 });
 
 const findShoppingCartedProducts = customerId => db.ShoppingCartedProduct.findAll({
-  where: { customerId: customerId },
+  where: { customerId },
 });
 
-const saveNewShoppingCartedProduct = (entry, customerId) => {
-
-  //TODO: using id because currently, products do not have a productId property on fetchProducts
+const saveNewShoppingCartedProduct = (entry, customerId) =>
+  // TODO: using id because currently, products do not have a productId property on fetchProducts
   // if product exists, increase quantity
-  return db.ShoppingCartedProduct.findOne({
+  db.ShoppingCartedProduct.findOne({
     where: {
-      customerId: customerId,
-      productId: entry.id
-    }
+      customerId,
+      productId: entry.id,
+    },
   }).then((product) => {
     if (product) {
       return product.update({
-        quantity: product.quantity+1,
-      });
-    } else {
-      //if product doesn't exist, create it
-      return db.ShoppingCartedProduct.create({
-        title: entry.title,
-        description: entry.description,
-        unitPrice: entry.unitPrice,
-        quantity: 1,
-        customerId: customerId,
-        productId: entry.id,
+        quantity: product.quantity + 1,
       });
     }
+    // if product doesn't exist, create it
+    return db.ShoppingCartedProduct.create({
+      title: entry.title,
+      description: entry.description,
+      unitPrice: entry.unitPrice,
+      quantity: 1,
+      customerId,
+      productId: entry.id,
+    });
   });
 
-};
 
 const deleteShoppingCartedProduct = (entry, customerId) => db.ShoppingCartedProduct.destroy({
   where: {
-    customerId: customerId,
+    customerId,
     productId: entry.productId,
   },
 });
 
-const editShoppingCartedProduct = (entry, customerId) => {
-  return db.ShoppingCartedProduct.findOne({
+const editShoppingCartedProduct = (entry, customerId) =>
+  db.ShoppingCartedProduct.findOne({
     where: {
-      customerId: customerId,
+      customerId,
       productId: entry.productId,
-    }
+    },
   }).then((product) => {
     if (entry.type === 'increase') {
       return product.update({
-        quantity: product.quantity+1,
+        quantity: product.quantity + 1,
       });
     }
     if (entry.type === 'decrease') {
@@ -134,14 +133,14 @@ const editShoppingCartedProduct = (entry, customerId) => {
         product.destroy();
       }
       return product.update({
-        quantity: product.quantity-1,
+        quantity: product.quantity - 1,
       });
     }
-  })
-};
+  });
 
-const editMerchantProfile = entry => {
-  return db.Merchant.findOne({
+
+const editMerchantProfile = entry =>
+  db.Merchant.findOne({
     where: {
       id: entry.id,
     },
@@ -159,11 +158,15 @@ const editMerchantProfile = entry => {
     broadcastMessage: entry.broadcastMessage,
     currentProduct: entry.currentProduct,
   }));
-};
 
-const findOneCustomer = ({ customerId }) => db.Customer.findOne({ id: customerId });
 
-const findOneMerchant = (merchantId) => db.Merchant.findOne({
+const findOneCustomer = customerId => db.Customer.findOne({
+  where: {
+    id: customerId,
+  },
+});
+
+const findOneMerchant = merchantId => db.Merchant.findOne({
   where: {
     id: merchantId,
   },
@@ -175,13 +178,13 @@ const findOneProduct = productId => db.Product.findOne({
   },
 });
 
-const findProductsOfMerchant = (merchantId) => db.Product.findAll({
+const findProductsOfMerchant = merchantId => db.Product.findAll({
   where: {
-    merchantId: merchantId,
+    merchantId,
   },
 });
 
-const findReviewsOfMerchant = (merchantId) => db.MerchantReview.findAll({
+const findReviewsOfMerchant = merchantId => db.MerchantReview.findAll({
   where: {
     id: merchantId,
   },
@@ -209,25 +212,25 @@ const editMerchantStreamUrl = (entry, merchantId) => {
   }));
 };
 
-const editMerchantBroadcastMessage = (entry, merchantId) => {
-  return db.Merchant.findOne({
-    where: {
-      id: merchantId,
-    },
-  }).then(merchant => merchant.update({
-    broadcastMessage: entry,
-  }));
-};
+const editMerchantBroadcastMessage = (entry, merchantId) => db.Merchant.findOne({
+  where: {
+    id: merchantId,
+  },
+}).then(merchant => merchant.update({
+  broadcastMessage: entry,
+}));
 
-const editMerchantFeaturedProduct = (entry, merchantId) => {
-  return db.Merchant.findOne({
-    where: {
-      id: merchantId,
-    },
-  }).then(merchant => merchant.update({
-    currentProduct: entry,
-  }));
-};
+
+const editMerchantFeaturedProduct = (entry, merchantId) => db.Merchant.findOne({
+  where: {
+    id: merchantId,
+  },
+}).then(merchant => merchant.update({
+  currentProduct: entry,
+}));
+
+const changeToMerchant = customerId => db.Customer.findOne({ id: customerId })
+  .then(customer => saveNewMerchant({ email: customer.email }));
 
 module.exports = {
   saveNewProduct,
@@ -245,6 +248,7 @@ module.exports = {
   saveNewProductReview,
   saveNewMerchantReview,
   editMerchantReview,
+  editMerchantProfile,
   editProductReview,
   findReviewsOfMerchant,
   findReviewsOfProduct,
@@ -252,8 +256,8 @@ module.exports = {
   saveNewShoppingCartedProduct,
   editShoppingCartedProduct,
   deleteShoppingCartedProduct,
-  editMerchantProfile,
   editMerchantStreamUrl,
   editMerchantBroadcastMessage,
   editMerchantFeaturedProduct,
+  changeToMerchant,
 };
