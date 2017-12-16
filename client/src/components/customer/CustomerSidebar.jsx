@@ -1,5 +1,6 @@
 import React from 'react';
 import SidebarSearch from '../sidebar/SidebarSearch.jsx';
+import SidebarCustomerDashboard from '../sidebar/SidebarCustomerDashboard.jsx';
 
 class CustomerSidebar extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class CustomerSidebar extends React.Component {
           <h3 className="rightTab" onClick={this.handleRightTabClick}>Search</h3>
         </div>
         {
-          this.state.leftTab ? null : <SidebarSearch />
+          this.state.leftTab ? <SidebarCustomerDashboard /> : <SidebarSearch />
         }
       </div>
     );
