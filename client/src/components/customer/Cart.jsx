@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CartItem from './CartItem.jsx';
 
+//TODO: pass in customer Id for Link route
 const Cart = (props) => {
   let totalCost = 0;
   props.cart.forEach((item) => {
@@ -13,9 +15,9 @@ const Cart = (props) => {
       </ol>
       <br />
       Total Price: ${parseFloat(totalCost).toFixed(2)}
-      <a href="/checkout">
+      <Link to={`/checkout/${1}`}>
         <button>Checkout</button>
-      </a>
+      </Link>
     </div>
   );
 };
