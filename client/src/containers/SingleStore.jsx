@@ -15,12 +15,11 @@ class SingleStore extends React.Component {
 
   componentDidMount() {
     this.props.fetchProducts();
-    //TODO: should fetchProducts of one particular merchant
-    //TODO: should fetchMerchantInfo of one particular merchant
+    // TODO: should fetchProducts of one particular merchant
+    // TODO: should fetchMerchantInfo of one particular merchant
 
     this.props.fetchCart();
-    //TODO: should fetch cart of customer
-
+    // TODO: should fetch cart of customer
   }
 
   render() {
@@ -44,6 +43,8 @@ const mapStateToProps = state => ({
   cart: state.cart,
 });
 
-const mapDispatchToProps = { fetchProducts, addToCart, fetchCart, removeFromCart };
+const mapDispatchToProps = {
+  fetchProducts, addToCart, fetchCart, removeFromCart,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleStore);

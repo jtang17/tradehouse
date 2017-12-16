@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { lock, Auth } from '../../Auth/Auth.js';
+
 const auth = new Auth();
 
 class Header extends React.Component {
@@ -28,7 +29,6 @@ class Header extends React.Component {
   }
 
   render() {
-
     if (!auth.isAuthenticated()) {
       return (
         <div className="header__container">

@@ -13,7 +13,7 @@ class StoreItem extends React.Component {
   }
 
   render() {
-    //TODO: Need to be able to click on a product and view its SingleProduct container view
+    // TODO: Need to be able to click on a product and view its SingleProduct container view
     return (
       <div>
         <Link to={`/product/${this.props.product.id}`}>

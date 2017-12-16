@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem.jsx';
 
-//TODO: pass in customer Id for Link route
+// TODO: pass in customer Id for Link route
 const Cart = (props) => {
   let totalCost = 0;
   props.cart.forEach((item) => {

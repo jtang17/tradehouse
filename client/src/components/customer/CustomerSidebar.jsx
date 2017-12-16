@@ -13,11 +13,11 @@ class CustomerSidebar extends React.Component {
   }
 
   handleLeftTabClick() {
-    this.setState({leftTab: true});
+    this.setState({ leftTab: true });
   }
 
   handleRightTabClick() {
-    this.setState({leftTab: false});
+    this.setState({ leftTab: false });
   }
 
   render() {
