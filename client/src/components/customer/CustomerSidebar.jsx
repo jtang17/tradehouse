@@ -24,7 +24,7 @@ class CustomerSidebar extends React.Component {
     return (
       <div className="CustomerSidebar">
         <div className="tabs">
-          <h3 className="leftTab" onClick={this.handleLeftTabClick}>Chat</h3>
+          <h3 className="leftTab" onClick={this.handleLeftTabClick}>Dashboard</h3>
           <h3 className="rightTab" onClick={this.handleRightTabClick}>Search</h3>
         </div>
         {
