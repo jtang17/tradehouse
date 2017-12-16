@@ -1,6 +1,9 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
+
+import BrowseStreams from './browse/BrowseStreams.jsx';
+import BrowseVideos from './browse/BrowseVideos.jsx';
+import BrowseProducts from './browse/BrowseProducts.jsx';
 
 class BrowserBody extends React.Component {
   constructor(props) {
@@ -57,5 +60,7 @@ class BrowserBody extends React.Component {
     );
   }
 }
-
+        // {this.state.type === 'streams' && <BrowseStreams />}
+        // {this.state.type === 'videos' && <BrowseVideos />}
+        // {this.state.type === 'products' && <BrowseProducts />}
 export default BrowserBody;

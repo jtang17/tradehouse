@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const RouteNotFound = (props) => {
   return (
     <div>
-    <h4>404 page</h4>
-    <Link to="/">To TradeHouse Streams Home</Link>
+      <h4>404 page</h4>
+      <Link to="/">To TradeHouse Streams Home</Link>
     </div>
   )
 }

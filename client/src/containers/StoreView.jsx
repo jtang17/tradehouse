@@ -29,7 +29,7 @@ class StoreView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  items: state.items,
+  products: state.products,
   cart: state.cart,
 });
 

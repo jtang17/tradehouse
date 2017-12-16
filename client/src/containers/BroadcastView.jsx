@@ -5,7 +5,7 @@ import { Auth } from '../Auth/Auth.js';
 const auth = new Auth();
 
 import { connect } from 'react-redux';
-import { fetchProducts } from '../actions/productActions.jsx';
+import { fetchAllProducts } from '../actions/productActions.jsx';
 import { changeVideo, changeBroadcastMessage, selectFeaturedProduct } from '../actions/broadcastActions.jsx';
 
 import BroadcastViewVideo from '../components/broadcast/BroadcastViewVideo.jsx';
@@ -22,7 +22,7 @@ class BroadcastView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchProducts();
+    this.props.fetchAllProducts();
   }
 
   render() {
@@ -58,10 +58,10 @@ class BroadcastView extends React.Component {
 const mapStateToProps = state => ({
   broadcastMessage: state.broadcastMessage,
   featuredProduct: state.featuredProduct,
-  products: state.items,
+  products: state.products,
   video: state.video,
 });
 
 export default connect(mapStateToProps, {
-  fetchProducts, changeVideo, changeBroadcastMessage, selectFeaturedProduct,
+  fetchAllProducts, changeVideo, changeBroadcastMessage, selectFeaturedProduct,
 })(BroadcastView);
