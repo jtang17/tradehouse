@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartItem from '../components/customer/CartItem.jsx';
-import { removeFromCart, fetchCart } from '../actions/cartActions.jsx';
+import { removeFromCart, fetchCart, decreaseQuantityInCart, increaseQuantityInCart } from '../actions/cartActions.jsx';
 
 import { connect } from 'react-redux';
 
@@ -18,7 +18,7 @@ class Cart extends React.Component {
   render() {
     let totalCost = 0;
     this.props.cart.forEach((item) => {
-      totalCost += item.unitPrice;
+      totalCost += item.quantity * item.unitPrice;
     });
     return (
       <div>
@@ -41,4 +41,6 @@ const mapStateToProps = (state) => ({
   cart: state.cart,
 })
 
-export default connect(mapStateToProps, { removeFromCart, fetchCart })(Cart);
+const mapDispatchToProps = { removeFromCart, fetchCart, decreaseQuantityInCart, increaseQuantityInCart };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

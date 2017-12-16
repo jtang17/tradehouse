@@ -6,15 +6,10 @@ export const REMOVE_FROM_CART_SUCCESS = 'REMOVE_FROM_CART_SUCCESS';
 export const REMOVE_FROM_CART_FAILURE = 'REMOVE_FROM_CART_FAILURE';
 export const FETCH_CART_SUCCESS = 'FETCH_CART_SUCCESS';
 export const FETCH_CART_FAILURE = 'FETCH_CART_FAILURE';
-
-
-// TODO: REMOVE TEST_ADD ACTION WHEN CART ROUTES READY; ALSO NEED TO FIX ROUTES IN AXIOS CALLS
-export const TEST_ADD = 'TEST_ADD';
-
-export const testAdd = product => ({
-  type: TEST_ADD,
-  product,
-});
+export const INCREASE_QUANTITY_CART_SUCCESS = 'INCREASE_QUANTITY_CART_SUCCESS';
+export const INCREASE_QUANTITY_CART_FAILURE = 'INCREASE_QUANTITY_CART_FAILURE';
+export const DECREASE_QUANTITY_CART_SUCCESS = 'DECREASE_QUANTITY_CART_SUCCESS';
+export const DECREASE_QUANTITY_CART_FAILURE = 'DECREASE_QUANTITY_CART_FAILURE';
 
 // TODO: PASS IN CUSTOMER ID FROM FRONT END AND REMOVE STATIC CUSTOMERID ASSIGNMENT
 const customerId = 1;
@@ -51,6 +46,30 @@ export const fetchCart = () => (dispatch) => {
     }))
     .catch(err => dispatch({
       type: FETCH_CART_FAILURE,
+      error: err,
+    }));
+};
+
+export const increaseQuantityInCart = (product) => (dispatch) => {
+  axios.put(`/api/customers/${customerId}/cart`, {...product, type: 'increase'})
+    .then(res => dispatch({
+      type: INCREASE_QUANTITY_CART_SUCCESS,
+      cart: res.data,
+    }))
+    .catch(err => dispatch({
+      type: INCREASE_QUANTITY_CART_FAILURE,
+      error: err,
+    }));
+};
+
+export const decreaseQuantityInCart = (product) => (dispatch) => {
+  axios.put(`/api/customers/${customerId}/cart`, {...product, type: 'decrease'})
+    .then(res => dispatch({
+      type: DECREASE_QUANTITY_CART_SUCCESS,
+      cart: res.data,
+    }))
+    .catch(err => dispatch({
+      type: DECREASE_QUANTITY_CART_FAILURE,
       error: err,
     }));
 };

@@ -75,15 +75,33 @@ const findShoppingCartedProducts = customerId => db.ShoppingCartedProduct.findAl
   where: { customerId: customerId },
 });
 
-const saveNewShoppingCartedProduct = (entry, customerId) => db.ShoppingCartedProduct.create({
-  title: entry.title,
-  description: entry.description,
-  unitPrice: entry.unitPrice,
-  quantity: entry.quantity,
-  customerId: customerId,
-  productId: entry.id,
+const saveNewShoppingCartedProduct = (entry, customerId) => {
   //TODO: using id because currently, products do not have a productId property on fetchProducts
-});
+  // if product exists, increase quantity
+  return db.ShoppingCartedProduct.findOne({
+    where: {
+      customerId: customerId,
+      productId: entry.id
+    }
+  }).then((product) => {
+    if (product) {
+      product.update({
+        quantity: product.quantity+1,
+      });
+    } else {
+      //if product doesn't exist, create it
+      db.ShoppingCartedProduct.create({
+        title: entry.title,
+        description: entry.description,
+        unitPrice: entry.unitPrice,
+        quantity: 1,
+        customerId: customerId,
+        productId: entry.id,
+      });
+    }
+  });
+
+};
 
 const deleteShoppingCartedProduct = (entry, customerId) => db.ShoppingCartedProduct.destroy({
   where: {
@@ -92,12 +110,26 @@ const deleteShoppingCartedProduct = (entry, customerId) => db.ShoppingCartedProd
   },
 });
 
-const editShoppingCartedProduct = entry => db.ShoppingCartedProduct.findOne({
-  customerId: entry.customerId,
-  productId: entry.productId,
-}).then(product => product.set({
-  quantity: entry.quantity,
-}));
+const editShoppingCartedProduct = (entry, customerId) => db.ShoppingCartedProduct.findOne({
+  where: {
+    customerId: customerId,
+    productId: entry.productId,
+  }
+}).then((product) => {
+  if (entry.type === 'increase') {
+    product.update({
+      quantity: product.quantity+1,
+    });
+  }
+  if (entry.type === 'decrease') {
+    if (product.quantity === 1) {
+      product.destroy();
+    }
+    product.update({
+      quantity: product.quantity-1,
+    });
+  }
+});
 
 const editMerchantProfile = entry => db.Merchant.findOne({
   id: entry.id,

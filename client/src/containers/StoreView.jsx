@@ -3,13 +3,11 @@ import SingleStore from './SingleStore.jsx';
 import Cart from './Cart.jsx';
 import { connect } from 'react-redux';
 import { fetchMerchantProducts } from '../actions/productActions.jsx';
+import { fetchCart } from '../actions/cartActions.jsx';
 
 class StoreView extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
   }
 
   render() {
@@ -25,6 +23,7 @@ class StoreView extends React.Component {
 
 const mapStateToProps = state => ({
   products: state.products,
+  cart: state.cart,
 });
 
-export default connect(null, null)(StoreView);
+export default connect(mapStateToProps, null)(StoreView);

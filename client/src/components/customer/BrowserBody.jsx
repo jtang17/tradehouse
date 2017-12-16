@@ -16,6 +16,15 @@ class BrowserBody extends React.Component {
     this.toggleProducts = this.toggleProducts.bind(this);
   }
 
+  componentDidMount() {
+    //TODO:
+    //fetchTopStreams
+    //fetchTopVideos
+    //fetchTopProducts
+
+    this.props.f
+  }
+
   toggleStreams() {
     this.setState({
       type: 'streams',
