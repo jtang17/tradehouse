@@ -16,7 +16,7 @@ export const testAdd = product => ({
   product,
 });
 
-//TODO: PASS IN CUSTOMER ID FROM FRONT END AND REMOVE STATIC CUSTOMERID ASSIGNMENT
+// TODO: PASS IN CUSTOMER ID FROM FRONT END AND REMOVE STATIC CUSTOMERID ASSIGNMENT
 const customerId = 1;
 
 export const addToCart = product => (dispatch) => {

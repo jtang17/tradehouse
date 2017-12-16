@@ -15,7 +15,6 @@ class SingleProduct extends React.Component {
   componentDidMount() {
     this.props.fetchSingleProduct(2);
     // fetch information of specific product
-
   }
 
   handleAddClick() {

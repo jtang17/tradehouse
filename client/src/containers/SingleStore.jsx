@@ -8,8 +8,8 @@ class SingleStore extends React.Component {
   render() {
     console.log(this.props.params);
     return (
-      <div></div>
-    )
+      <div />
+    );
   }
 }
 
