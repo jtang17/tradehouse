@@ -15,8 +15,8 @@ class ProductsView extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllProducts();
-    //Should fetch this merchant's products only
-    //this.props.fetchProducts(id);
+    // Should fetch this merchant's products only
+    // this.props.fetchProducts(id);
   }
 
   render() {

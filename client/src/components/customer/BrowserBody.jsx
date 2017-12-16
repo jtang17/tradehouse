@@ -17,12 +17,12 @@ class BrowserBody extends React.Component {
   }
 
   componentDidMount() {
-    //TODO:
-    //fetchTopStreams
-    //fetchTopVideos
-    //fetchTopProducts
+    // TODO:
+    // fetchTopStreams
+    // fetchTopVideos
+    // fetchTopProducts
 
-    this.props.f
+    this.props.f;
   }
 
   toggleStreams() {
@@ -69,7 +69,7 @@ class BrowserBody extends React.Component {
     );
   }
 }
-        // {this.state.type === 'streams' && <BrowseStreams />}
-        // {this.state.type === 'videos' && <BrowseVideos />}
-        // {this.state.type === 'products' && <BrowseProducts />}
+// {this.state.type === 'streams' && <BrowseStreams />}
+// {this.state.type === 'videos' && <BrowseVideos />}
+// {this.state.type === 'products' && <BrowseProducts />}
 export default BrowserBody;

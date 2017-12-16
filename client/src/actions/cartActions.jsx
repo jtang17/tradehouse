@@ -50,8 +50,8 @@ export const fetchCart = () => (dispatch) => {
     }));
 };
 
-export const increaseQuantityInCart = (product) => (dispatch) => {
-  axios.put(`/api/customers/${customerId}/cart`, {...product, type: 'increase'})
+export const increaseQuantityInCart = product => (dispatch) => {
+  axios.put(`/api/customers/${customerId}/cart`, { ...product, type: 'increase' })
     .then(res => dispatch({
       type: INCREASE_QUANTITY_CART_SUCCESS,
       cart: res.data,
@@ -62,8 +62,8 @@ export const increaseQuantityInCart = (product) => (dispatch) => {
     }));
 };
 
-export const decreaseQuantityInCart = (product) => (dispatch) => {
-  axios.put(`/api/customers/${customerId}/cart`, {...product, type: 'decrease'})
+export const decreaseQuantityInCart = product => (dispatch) => {
+  axios.put(`/api/customers/${customerId}/cart`, { ...product, type: 'decrease' })
     .then(res => dispatch({
       type: DECREASE_QUANTITY_CART_SUCCESS,
       cart: res.data,

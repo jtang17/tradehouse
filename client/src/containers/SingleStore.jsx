@@ -19,7 +19,6 @@ class SingleStore extends React.Component {
 
     this.props.fetchMerchantInfo(1);
     // TODO: should fetchMerchantInfo of one particular merchant
-
   }
 
   render() {
@@ -47,7 +46,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  addToCart, removeFromCart, fetchMerchantProducts, fetchMerchantInfo
+  addToCart, removeFromCart, fetchMerchantProducts, fetchMerchantInfo,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleStore);

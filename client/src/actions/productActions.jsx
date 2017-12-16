@@ -48,7 +48,7 @@ export const fetchAllProducts = (url = '/api/products') => (dispatch) => {
     }));
 };
 
-export const fetchMerchantProducts = (id) => (dispatch) => {
+export const fetchMerchantProducts = id => (dispatch) => {
   dispatch(fetchProductsLoading(true));
   axios.get(`/api/merchants/${id}/products`)
     .then(res => dispatch({

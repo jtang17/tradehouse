@@ -23,9 +23,7 @@ class Cart extends React.Component {
     return (
       <div>
         <ol>
-          Current Cart: {this.props.cart.map((product, index) => {
-            return (<CartItem product={product} key={index} removeFromCart={this.props.removeFromCart} increaseQuantityInCart={this.props.increaseQuantityInCart} decreaseQuantityInCart={this.props.decreaseQuantityInCart} />)
-          })}
+          Current Cart: {this.props.cart.map((product, index) => (<CartItem product={product} key={index} removeFromCart={this.props.removeFromCart} increaseQuantityInCart={this.props.increaseQuantityInCart} decreaseQuantityInCart={this.props.decreaseQuantityInCart} />))}
         </ol>
         <br />
         Total Price: ${parseFloat(totalCost).toFixed(2)}
@@ -35,12 +33,14 @@ class Cart extends React.Component {
       </div>
     );
   }
-};
+}
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   cart: state.cart,
-})
+});
 
-const mapDispatchToProps = { removeFromCart, fetchCart, decreaseQuantityInCart, increaseQuantityInCart };
+const mapDispatchToProps = {
+  removeFromCart, fetchCart, decreaseQuantityInCart, increaseQuantityInCart,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
