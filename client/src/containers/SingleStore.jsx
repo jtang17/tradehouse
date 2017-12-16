@@ -26,7 +26,6 @@ class SingleStore extends React.Component {
     const { merchantInfo } = this.props;
     return (
       <div className="singleStore">
-        <Cart />
         <div className="storeHeader">
           <h4>Store Page: {merchantInfo.username}</h4>
           Location:{merchantInfo.location}<br />

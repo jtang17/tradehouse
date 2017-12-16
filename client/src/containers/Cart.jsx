@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartItem from '../components/customer/CartItem.jsx';
+import { removeFromCart, fetchCart } from '../actions/cartActions.jsx';
 
 import { connect } from 'react-redux';
 
@@ -8,6 +9,10 @@ import { connect } from 'react-redux';
 class Cart extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchCart();
   }
 
   render() {
@@ -19,7 +24,7 @@ class Cart extends React.Component {
       <div>
         <ol>
           Current Cart: {this.props.cart.map((product, index) => {
-            return (<CartItem product={product} key={index} removeFromCart={props.removeFromCart} increaseQuantityInCart={props.increaseQuantityInCart} decreaseQuantityInCart={props.decreaseQuantityInCart} />)
+            return (<CartItem product={product} key={index} removeFromCart={this.props.removeFromCart} increaseQuantityInCart={this.props.increaseQuantityInCart} decreaseQuantityInCart={this.props.decreaseQuantityInCart} />)
           })}
         </ol>
         <br />
@@ -32,4 +37,8 @@ class Cart extends React.Component {
   }
 };
 
-export default connect(null, null)(Cart);
+const mapStateToProps = (state) => ({
+  cart: state.cart,
+})
+
+export default connect(mapStateToProps, { removeFromCart, fetchCart })(Cart);
