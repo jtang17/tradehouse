@@ -15,7 +15,8 @@ class SingleProduct extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSingleProduct(2);
+    console.log(this.props.match.params.productId);
+    this.props.fetchSingleProduct(this.props.match.params.productId);
     // fetch information of specific product
   }
 
@@ -25,7 +26,6 @@ class SingleProduct extends React.Component {
   }
 
   render() {
-    // console.log(this.props.product);
     const { product } = this.props;
     return (
       <div>

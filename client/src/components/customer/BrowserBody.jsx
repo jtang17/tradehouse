@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 class BrowserBody extends React.Component {
   constructor(props) {
     super(props);
@@ -35,11 +37,12 @@ class BrowserBody extends React.Component {
     const streams =
       (<div>
         Streams:
-        <a href="/channel">Lofi hip hop radio </a><br />
-        <a href="/store">store</a>
+        <Link to={`"/channel/${1}`}>Lofi hip hop radio </Link>
+        <br />
+        <Link to={`/store/${1}`}>store</Link>
       </div>);
     const videos = <div>Videos: </div>;
-    const products = <div>Products: <a href="/product">sample product</a></div>;
+    const products = <div>Products: <Link to={`/product/${1}`}>sample product</Link></div>;
     return (
       <div>
         <div>

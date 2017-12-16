@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Featured from '../components/Featured.jsx';
 
@@ -15,7 +16,11 @@ class Home extends React.Component {
 
   render() {
     return (
-      <Featured video={this.props.featuredVideo} />
+      <div>
+        <Featured video={this.props.featuredVideo} />
+        <br />
+        <Link to="browse"><h4>Browse Content</h4></Link>
+      </div>
     );
   }
 }
