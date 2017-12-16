@@ -1,5 +1,5 @@
 import React from 'react';
-import StoreItem from '../components/customer/StoreItem.jsx';
+import SingleStore from './SingleStore.jsx';
 import Cart from '../components/customer/Cart.jsx';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../actions/productActions.jsx';
@@ -21,15 +21,15 @@ class StoreView extends React.Component {
   render() {
     return (
       <div>
-        <Cart cart={this.props.cart} removeFromCart={this.props.removeFromCart} />
-        <div className="storeHeader">
-          <h4>Store Page: Hardcoded Merchant Name</h4>
-          An avid cheese seller
-        </div>
-        <div className="storeProductList">
-          <h4>Products:</h4>
-          {this.props.items.map((product, index) => <StoreItem key={index} product={product} addToCart={this.props.addToCart} cart={this.props.cart} />)}
-        </div>
+        <Cart
+          cart={this.props.cart}
+          removeFromCart={this.props.removeFromCart}
+        />
+        <SingleStore
+          items={this.props.items}
+          addToCart={this.props.addToCart}
+          cart={this.props.cart}
+        />
       </div>
     );
   }
