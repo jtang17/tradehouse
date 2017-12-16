@@ -1,9 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import Cart from '../components/customer/Cart.jsx';
 import StoreItem from '../components/customer/StoreItem.jsx';
+
+import { fetchProducts } from '../actions/productActions.jsx';
+import { addToCart, fetchCart, removeFromCart } from '../actions/cartActions.jsx';
+
 
 class SingleStore extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchProducts();
+    //TODO: should fetchProducts of one particular merchant
+    //TODO: should fetchMerchantInfo of one particular merchant
+
+    this.props.fetchCart();
+    //TODO: should fetch cart of customer
+
   }
 
   render() {
@@ -22,4 +39,11 @@ class SingleStore extends React.Component {
   }
 }
 
-export default SingleStore;
+const mapStateToProps = state => ({
+  items: state.items,
+  cart: state.cart,
+});
+
+const mapDispatchToProps = { fetchProducts, addToCart, fetchCart, removeFromCart };
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleStore);

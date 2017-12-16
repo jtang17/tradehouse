@@ -11,7 +11,7 @@ class StoreItem extends React.Component {
   }
 
   render() {
-    const { product } = this.props;
+    //TODO: Need to be able to click on a product and view its SingleProduct container view
     return (
       <div>
         Product: {product.title}<br />
