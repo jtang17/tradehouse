@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addToCart, removeFromCart } from '../actions/cartActions.jsx';
 import { fetchSingleProduct } from '../actions/productActions.jsx';
 
-import Cart from '../components/customer/Cart.jsx';
+import Cart from './Cart.jsx';
 
 // TODO: BUILD SINGLE PRODUCT VIEW
 
@@ -29,10 +29,7 @@ class SingleProduct extends React.Component {
     const { product } = this.props;
     return (
       <div>
-        <Cart
-          cart={this.props.cart}
-          removeFromCart={this.props.removeFromCart}
-        />
+        <Cart />
         {product.title} - {product.quantity} remaining<br />
         {product.unitPrice}<br />
         {product.description}<br />

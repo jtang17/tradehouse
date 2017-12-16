@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Cart from '../components/customer/Cart.jsx';
+import Cart from './Cart.jsx';
 import StoreItem from '../components/customer/StoreItem.jsx';
 
-import { fetchAllProducts } from '../actions/productActions.jsx';
-import { addToCart, fetchCart, removeFromCart } from '../actions/cartActions.jsx';
-
+import { fetchMerchantProducts } from '../actions/productActions.jsx';
+import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
+import { addToCart, removeFromCart } from '../actions/cartActions.jsx';
 
 class SingleStore extends React.Component {
   constructor(props) {
@@ -14,24 +14,27 @@ class SingleStore extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllProducts();
+    this.props.fetchMerchantProducts(1);
     // TODO: should fetchProducts of one particular merchant
+
+    this.props.fetchMerchantInfo(1);
     // TODO: should fetchMerchantInfo of one particular merchant
 
-    this.props.fetchCart();
-    // TODO: should fetch cart of customer
   }
 
   render() {
+    const { merchantInfo } = this.props;
     return (
       <div className="singleStore">
+        <Cart />
         <div className="storeHeader">
-          <h4>Store Page: Hardcoded Merchant Name</h4>
-          An avid cheese seller
+          <h4>Store Page: {merchantInfo.username}</h4>
+          Location:{merchantInfo.location}<br />
+          <p>{merchantInfo.description}</p>
         </div>
         <div className="storeProductList">
           <h4>Products:</h4>
-          {this.props.products.map((product, index) => <StoreItem key={index} product={product} addToCart={this.props.addToCart} cart={this.props.cart} />)}
+          {this.props.products.map((product, index) => <StoreItem key={index} product={product} addToCart={this.props.addToCart} />)}
         </div>
       </div>
     );
@@ -39,12 +42,13 @@ class SingleStore extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  products: state.products,
+  products: state.merchantProducts,
   cart: state.cart,
+  merchantInfo: state.merchantInfo,
 });
 
 const mapDispatchToProps = {
-  fetchAllProducts, addToCart, fetchCart, removeFromCart,
+  addToCart, removeFromCart, fetchMerchantProducts, fetchMerchantInfo
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleStore);
