@@ -25,6 +25,7 @@ import CustomerHome from './containers/CustomerHome.jsx';
 import Checkout from './containers/Checkout.jsx';
 import Browser from './containers/Browser.jsx';
 import SingleProduct from './containers/SingleProduct.jsx';
+import RouteNotFound from './components/common/RouteNotFound.jsx';
 
 const defaultState = {
   broadcastMessage: '',
@@ -55,6 +56,7 @@ const Root = ({ store }) => (
             <Route path="/checkout/:customerId" component={Checkout} />
             <Route path="/browse" component={Browser} />
             <Route path="/product/:productId" component={SingleProduct} />
+            <RouteNotFound />
           </Switch>
         </div>
         <Footer />
