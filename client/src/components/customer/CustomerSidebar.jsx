@@ -33,7 +33,11 @@ class CustomerSidebar extends React.Component {
           <h3 className="rightTab" onClick={this.handleRightTabClick}>Search</h3>
         </div>
         {
-          this.state.leftTab ? <SidebarCustomerDashboard /> : <SidebarSearch allMerchants={allMerchants} fetchAllMerchants={fetchAllMerchants} />
+          this.state.leftTab ? <SidebarCustomerDashboard /> :
+          <SidebarSearch
+            allMerchants={allMerchants}
+            fetchAllMerchants={fetchAllMerchants}
+          />
         }
       </div>
     );
