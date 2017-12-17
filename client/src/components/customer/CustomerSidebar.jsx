@@ -21,6 +21,10 @@ class CustomerSidebar extends React.Component {
   }
 
   render() {
+    const {
+      allMerchants,
+      fetchAllMerchants,
+    } = this.props;
     console.log('customer sidebar: ',this.props);
     return (
       <div className="CustomerSidebar">
@@ -29,7 +33,7 @@ class CustomerSidebar extends React.Component {
           <h3 className="rightTab" onClick={this.handleRightTabClick}>Search</h3>
         </div>
         {
-          this.state.leftTab ? <SidebarCustomerDashboard /> : <SidebarSearch />
+          this.state.leftTab ? <SidebarCustomerDashboard /> : <SidebarSearch allMerchants={allMerchants} fetchAllMerchants={fetchAllMerchants} />
         }
       </div>
     );
