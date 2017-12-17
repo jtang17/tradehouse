@@ -17,7 +17,8 @@ class SingleStore extends React.Component {
     this.props.fetchMerchantProducts(1);
     // TODO: should fetchProducts of one particular merchant
 
-    this.props.fetchMerchantInfo(1);
+    this.props.fetchMerchantInfo({ id: 1 });
+    // this.props.fetchMerchantInfo(merchant);
     // TODO: should fetchMerchantInfo of one particular merchant
   }
 
@@ -32,7 +33,7 @@ class SingleStore extends React.Component {
         </div>
         <div className="storeProductList">
           <h4>Products:</h4>
-          {this.props.products.map((product, index) => <StoreItem key={index} product={product} addToCart={this.props.addToCart} />)}
+          {this.props.merchantProducts.map((product, index) => <StoreItem key={index} product={product} addToCart={this.props.addToCart} />)}
         </div>
       </div>
     );
@@ -40,7 +41,7 @@ class SingleStore extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  products: state.merchantProducts,
+  merchantProducts: state.merchantProducts,
   cart: state.cart,
   merchantInfo: state.merchantInfo,
 });

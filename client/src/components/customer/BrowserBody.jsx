@@ -21,8 +21,6 @@ class BrowserBody extends React.Component {
     // fetchTopStreams
     // fetchTopVideos
     // fetchTopProducts
-
-    this.props.f;
   }
 
   toggleStreams() {
@@ -49,7 +47,7 @@ class BrowserBody extends React.Component {
     const streams =
       (<div>
         Streams:
-        <Link to={`"/channel/${1}`}>Lofi hip hop radio </Link>
+        <Link to={`/channel/${1}`}>Lofi hip hop radio </Link>
         <br />
         <Link to={`/store/${1}`}>store</Link>
       </div>);

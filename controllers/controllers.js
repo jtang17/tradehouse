@@ -76,6 +76,7 @@ const findShoppingCartedProducts = customerId => db.ShoppingCartedProduct.findAl
 });
 
 const saveNewShoppingCartedProduct = (entry, customerId) => {
+
   //TODO: using id because currently, products do not have a productId property on fetchProducts
   // if product exists, increase quantity
   return db.ShoppingCartedProduct.findOne({
@@ -85,12 +86,12 @@ const saveNewShoppingCartedProduct = (entry, customerId) => {
     }
   }).then((product) => {
     if (product) {
-      product.update({
+      return product.update({
         quantity: product.quantity+1,
       });
     } else {
       //if product doesn't exist, create it
-      db.ShoppingCartedProduct.create({
+      return db.ShoppingCartedProduct.create({
         title: entry.title,
         description: entry.description,
         unitPrice: entry.unitPrice,
@@ -110,26 +111,28 @@ const deleteShoppingCartedProduct = (entry, customerId) => db.ShoppingCartedProd
   },
 });
 
-const editShoppingCartedProduct = (entry, customerId) => db.ShoppingCartedProduct.findOne({
-  where: {
-    customerId: customerId,
-    productId: entry.productId,
-  }
-}).then((product) => {
-  if (entry.type === 'increase') {
-    product.update({
-      quantity: product.quantity+1,
-    });
-  }
-  if (entry.type === 'decrease') {
-    if (product.quantity === 1) {
-      product.destroy();
+const editShoppingCartedProduct = (entry, customerId) => {
+  return db.ShoppingCartedProduct.findOne({
+    where: {
+      customerId: customerId,
+      productId: entry.productId,
     }
-    product.update({
-      quantity: product.quantity-1,
-    });
-  }
-});
+  }).then((product) => {
+    if (entry.type === 'increase') {
+      return product.update({
+        quantity: product.quantity+1,
+      });
+    }
+    if (entry.type === 'decrease') {
+      if (product.quantity === 1) {
+        product.destroy();
+      }
+      return product.update({
+        quantity: product.quantity-1,
+      });
+    }
+  })
+};
 
 const editMerchantProfile = entry => db.Merchant.findOne({
   id: entry.id,
@@ -150,7 +153,11 @@ const editMerchantProfile = entry => db.Merchant.findOne({
 
 const findOneCustomer = ({ customerId }) => db.Customer.findOne({ id: customerId });
 
-const findOneMerchant = ({ merchantId }) => db.Merchant.findOne({ id: merchantId });
+const findOneMerchant = (merchantId) => db.Merchant.findOne({
+  where: {
+    id: merchantId,
+  },
+});
 
 const findOneProduct = productId => db.Product.findOne({
   where: {
@@ -158,15 +165,15 @@ const findOneProduct = productId => db.Product.findOne({
   },
 });
 
-const findProductsOfMerchant = ({ merchantId }) => db.Product.findAll({
+const findProductsOfMerchant = (merchantId) => db.Product.findAll({
   where: {
-    merchantId,
+    merchantId: merchantId,
   },
 });
 
-const findReviewsOfMerchant = ({ merchantId }) => db.MerchantReview.findAll({
+const findReviewsOfMerchant = (merchantId) => db.MerchantReview.findAll({
   where: {
-    merchantId,
+    id: merchantId,
   },
 });
 

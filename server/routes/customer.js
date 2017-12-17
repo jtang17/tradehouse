@@ -41,8 +41,6 @@ router.delete('/:customerId/cart', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.put('/:customerId/cart', asyncMiddleware(async (req, res, next) => {
-  console.log(req.params.customerId);
-  console.log(req.body);
   const products = await controllers.editShoppingCartedProduct(req.body, req.params.customerId).then(() => controllers.findShoppingCartedProducts(req.params.customerId));
   res.json(products);
 }));

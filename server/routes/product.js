@@ -27,9 +27,7 @@ router.delete('/', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.get('/:productId', asyncMiddleware(async (req, res, next) => {
-  console.log(req.params.productId);
   const product = await controllers.findOneProduct(req.params.productId);
-  console.log(product);
   res.json(product);
 }));
 

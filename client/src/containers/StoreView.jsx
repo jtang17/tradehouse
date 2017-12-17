@@ -26,4 +26,4 @@ const mapStateToProps = state => ({
   cart: state.cart,
 });
 
-export default connect(mapStateToProps, null)(StoreView);
+export default connect(mapStateToProps, { fetchCart })(StoreView);

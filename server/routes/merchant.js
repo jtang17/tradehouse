@@ -32,7 +32,7 @@ router.post('/:merchantId/products', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.get('/:merchantId/products', asyncMiddleware(async (req, res, next) => {
-  const products = await controllers.findProductsOfMerchant(req.params);
+  const products = await controllers.findProductsOfMerchant(req.params.merchantId);
   res.json(products);
 }));
 
