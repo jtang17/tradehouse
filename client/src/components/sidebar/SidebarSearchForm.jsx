@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { fetchAllMerchants } from '../../actions/customerActions.jsx';
 import { Field, reduxForm } from 'redux-form';
 
 
@@ -10,7 +8,7 @@ let SidebarSearchForm = (props) => {
     console.log(values.target[0].defaultValue);
     return;
   };
-  console.log(props);
+  console.log('SearchForm: ',props);
   return (
     <div className="SidebarSearchForm">
       <form onSubmit={handleSubmit}>
@@ -29,8 +27,4 @@ SidebarSearchForm = reduxForm({
   form: 'SidebarSearchForm'
 })(SidebarSearchForm);
 
-const mapStateToProps = state => ({
-  allMerchants: state.allMerchants,
-})
-
-export default connect(mapStateToProps, { fetchAllMerchants })(SidebarSearchForm);
+export default SidebarSearchForm;
