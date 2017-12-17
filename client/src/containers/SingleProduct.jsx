@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addToCart, removeFromCart } from '../actions/cartActions.jsx';
+import { addToCart, removeFromCart, increaseQuantityInCart, decreaseQuantityInCart } from '../actions/cartActions.jsx';
 import { fetchSingleProduct } from '../actions/productActions.jsx';
 
 import Cart from './Cart.jsx';
@@ -33,7 +33,9 @@ class SingleProduct extends React.Component {
         {product.title} - {product.quantity} remaining<br />
         {product.unitPrice}<br />
         {product.description}<br />
-        <button onClick={this.handleAddClick}>Add to Cart</button>
+        <button onClick={this.props.addToCart.bind(null, this.props.product)}>
+          Add to Cart
+        </button>
       </div>
     );
   }
@@ -44,4 +46,6 @@ const mapStateToProps = state => ({
   product: state.singleProduct,
 });
 
-export default connect(mapStateToProps, { addToCart, fetchSingleProduct, removeFromCart })(SingleProduct);
+const mapDispatchToProps = { fetchSingleProduct, addToCart, removeFromCart, increaseQuantityInCart, decreaseQuantityInCart };
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleProduct);

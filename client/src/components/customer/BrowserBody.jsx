@@ -62,12 +62,12 @@ class BrowserBody extends React.Component {
         </div>
         {this.state.type === 'streams' && streams}
         {this.state.type === 'videos' && videos}
-        {this.state.type === 'products' && products}
+        {this.state.type === 'products' && <BrowseProducts products={this.props.products} />}
       </div>
     );
   }
 }
 // {this.state.type === 'streams' && <BrowseStreams />}
 // {this.state.type === 'videos' && <BrowseVideos />}
-// {this.state.type === 'products' && <BrowseProducts />}
+
 export default BrowserBody;

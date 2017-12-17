@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 class Featured extends React.Component {
   constructor(props) {
     super(props);
@@ -8,9 +10,9 @@ class Featured extends React.Component {
   render() {
     return (
       <div className="featuredBroadcast__container">
-        <a className="channelViewLink" href="/channel">
+        <Link to={`/channel/${1}`} className="channelViewLink">
           <h2>Featured Broadcast: QVC Live Stream</h2>
-        </a>
+        </Link>
         <iframe
           width="448"
           height="252"
