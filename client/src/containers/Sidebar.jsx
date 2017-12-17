@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomerSidebar from '../components/customer/CustomerSidebar.jsx';
 import MerchantSidebar from '../components/merchant/MerchantSidebar.jsx';
+import { connect } from 'react-redux';
 
 class Sidebar extends React.Component {
   constructor(props) {
