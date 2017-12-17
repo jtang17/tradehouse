@@ -14,7 +14,6 @@ import {
 export function cart(state = [], action) {
   switch (action.type) {
     case ADD_TO_CART_SUCCESS: {
-      console.log(action);
       return action.cart;
     }
     case ADD_TO_CART_FAILURE: {
@@ -39,7 +38,6 @@ export function cart(state = [], action) {
       // notify user of error?
     }
     case INCREASE_QUANTITY_CART_SUCCESS: {
-      console.log(action);
       return action.cart;
     }
     case INCREASE_QUANTITY_CART_FAILURE: {
@@ -48,7 +46,6 @@ export function cart(state = [], action) {
       // notify user of error?
     }
     case DECREASE_QUANTITY_CART_SUCCESS: {
-      console.log(action);
       return action.cart;
     }
     case DECREASE_QUANTITY_CART_FAILURE: {
