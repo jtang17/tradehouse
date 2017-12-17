@@ -1,5 +1,5 @@
 ### Terminology Consisntency
 * Merchant = Merchant
-* Consumer = Consumer
+* Customer = Customer 
 * Product = Product
 
