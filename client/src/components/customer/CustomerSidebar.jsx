@@ -21,6 +21,7 @@ class CustomerSidebar extends React.Component {
   }
 
   render() {
+    console.log('customer sidebar: ',this.props);
     return (
       <div className="CustomerSidebar">
         <div className="tabs">
