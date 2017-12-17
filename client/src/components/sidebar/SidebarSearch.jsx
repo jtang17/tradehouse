@@ -7,9 +7,17 @@ class SidebarSearch extends React.Component {
   }
 
   render() {
+    const {
+      allMerchants,
+      fetchAllMerchants,
+    } = this.props;
+    console.log('SidebarSearch: ',this.props);
     return (
       <div>
-        <SidebarSearchForm />
+        <SidebarSearchForm
+          allMerchants={allMerchants}
+          fetchAllMerchants={fetchAllMerchants}
+        />
       </div>
     );
   }
