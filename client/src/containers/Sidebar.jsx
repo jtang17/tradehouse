@@ -14,11 +14,15 @@ class Sidebar extends React.Component {
   }
 
   render() {
+    const {
+      allMerchants,
+      fetchAllMerchants,
+    } = this.props;
     console.log('sidebar container: ',this.props);
     return (
       <div className="sidebar__container">
         {
-          this.state.merchant ? <MerchantSidebar /> : <CustomerSidebar allMerchants={this.props.allMerchants} fetchAllMerchants={this.props.fetchAllMerchants} />
+          this.state.merchant ? <MerchantSidebar /> : <CustomerSidebar allMerchants={allMerchants} fetchAllMerchants={fetchAllMerchants} />
         }
       </div>
     );
