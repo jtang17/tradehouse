@@ -44,15 +44,6 @@ class BrowserBody extends React.Component {
   // TODO: refactor streams, videos, products to components
   // also, each stream/video/product within a card/container
   render() {
-    const streams =
-      (<div>
-        Streams:
-        <Link to={`/channel/${1}`}>Lofi hip hop radio </Link>
-        <br />
-        <Link to={`/store/${1}`}>store</Link>
-      </div>);
-    const videos = <div>Videos: </div>;
-    const products = <div>Products: <Link to={`/product/${1}`}>sample product</Link></div>;
     return (
       <div>
         <div>
@@ -60,8 +51,8 @@ class BrowserBody extends React.Component {
           <button onClick={this.toggleVideos}>Videos</button>
           <button onClick={this.toggleProducts}>Products</button>
         </div>
-        {this.state.type === 'streams' && streams}
-        {this.state.type === 'videos' && videos}
+        {this.state.type === 'streams' && <BrowseStreams />}
+        {this.state.type === 'videos' && <BrowseVideos />}
         {this.state.type === 'products' && <BrowseProducts products={this.props.products} />}
       </div>
     );
