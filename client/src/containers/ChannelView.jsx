@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { Link } from 'react-router-dom';
+
 const ChannelID = 'UCSJ4gkVC6NrvII8umztf0Ow';
 
 const ChannelView = props => (
   <div>
-      Viewing: lofi hiphop radio - <a href="/store">Store</a>
+      Viewing: lofi hiphop radio - <Link to={`/store/${1}`}>Store</Link>
     <br />
     <iframe
       width="560"
