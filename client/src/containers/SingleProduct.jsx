@@ -46,6 +46,8 @@ const mapStateToProps = state => ({
   product: state.singleProduct,
 });
 
-const mapDispatchToProps = { fetchSingleProduct, addToCart, removeFromCart, increaseQuantityInCart, decreaseQuantityInCart };
+const mapDispatchToProps = {
+  fetchSingleProduct, addToCart, removeFromCart, increaseQuantityInCart, decreaseQuantityInCart,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleProduct);
