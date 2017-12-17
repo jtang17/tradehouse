@@ -30,6 +30,8 @@ jobs:
 
       - run: git checkout package-lock.json
 
+      - run: node seeding/script.js
+
       - save_cache:
           paths:
             - node_modules
