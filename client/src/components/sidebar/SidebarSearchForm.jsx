@@ -23,6 +23,7 @@ let SidebarSearchForm = (props) => {
           placeholder="Search"
         />
       </form>
+      <button onClick={fetchAllMerchants.bind(null)}>Get all Merchants</button>
     </div>
   );
 };
