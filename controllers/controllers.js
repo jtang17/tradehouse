@@ -198,24 +198,33 @@ const getAllProducts = () => db.Product.findAll({});
 const getAllCustomers = () => db.Customer.findAll({});
 
 const editMerchantStreamUrl = (entry, merchantId) => {
-  console.log(entry);
-  console.log(merchantId);
-  //TODO: update merchant stream: { type: DataTypes.STRING, unique: true },
-  return;
+  return db.Merchant.findOne({
+    where: {
+      id: merchantId,
+    },
+  }).then(merchant => merchant.update({
+    stream: entry,
+  }));
 };
 
 const editMerchantBroadcastMessage = (entry, merchantId) => {
-  console.log(entry);
-  console.log(merchantId);
-  //TODO: update merchant broadcastMessage: DataTypes.TEXT,
-  return;
+  return db.Merchant.findOne({
+    where: {
+      id: merchantId,
+    },
+  }).then(merchant => merchant.update({
+    broadcastMessage: entry,
+  }));
 };
 
 const editMerchantFeaturedProduct = (entry, merchantId) => {
-  console.log(entry);
-  console.log(merchantId);
-  //TODO: update merchant currentProduct: DataTypes.TEXT,
-  return;
+  return db.Merchant.findOne({
+    where: {
+      id: merchantId,
+    },
+  }).then(merchant => merchant.update({
+    currentProduct: entry,
+  }));
 };
 
 module.exports = {
