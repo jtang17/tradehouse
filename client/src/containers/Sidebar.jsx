@@ -22,7 +22,11 @@ class Sidebar extends React.Component {
     return (
       <div className="sidebar__container">
         {
-          this.state.merchant ? <MerchantSidebar /> : <CustomerSidebar allMerchants={allMerchants} fetchAllMerchants={fetchAllMerchants} />
+          this.state.merchant ? <MerchantSidebar /> :
+          <CustomerSidebar
+            allMerchants={allMerchants}
+            fetchAllMerchants={fetchAllMerchants}
+          />
         }
       </div>
     );
