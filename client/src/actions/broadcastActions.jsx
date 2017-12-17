@@ -24,7 +24,7 @@ export const changeVideo = url => (dispatch) => {
 };
 
 export const changeBroadcastMessage = broadcastMessage => (dispatch) => {
-  axios.put(`/api/merchants/${id}/broadcast`, { broadcastMessage }) // TODO: FIX ROUTE
+  axios.put(`/api/merchants/${id}/broadcast_message`, { broadcastMessage }) // TODO: FIX ROUTE
     .then(res => dispatch({
       type: CHANGE_BROADCAST_MESSAGE_SUCCESS,
       broadcastMessage,

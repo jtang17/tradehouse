@@ -197,6 +197,27 @@ const getAllProducts = () => db.Product.findAll({});
 
 const getAllCustomers = () => db.Customer.findAll({});
 
+const editMerchantStreamUrl = (entry, merchantId) => {
+  console.log(entry);
+  console.log(merchantId);
+  //TODO: update merchant stream: { type: DataTypes.STRING, unique: true },
+  return;
+};
+
+const editMerchantBroadcastMessage = (entry, merchantId) => {
+  console.log(entry);
+  console.log(merchantId);
+  //TODO: update merchant broadcastMessage: DataTypes.TEXT,
+  return;
+};
+
+const editMerchantFeaturedProduct = (entry, merchantId) => {
+  console.log(entry);
+  console.log(merchantId);
+  //TODO: update merchant currentProduct: DataTypes.TEXT,
+  return;
+};
+
 module.exports = {
   saveNewProduct,
   deleteProduct,
@@ -221,4 +242,7 @@ module.exports = {
   editShoppingCartedProduct,
   deleteShoppingCartedProduct,
   editMerchantProfile,
+  editMerchantStreamUrl,
+  editMerchantBroadcastMessage,
+  editMerchantFeaturedProduct,
 };
