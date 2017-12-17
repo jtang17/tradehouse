@@ -25,3 +25,4 @@ const callback = (id, snippet, details) => {
 };
 
 // getYoutubeChannelId('Chillhopdotcom', callback);
+module.exports = getYoutubeChannelId;

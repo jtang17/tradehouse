@@ -44,17 +44,21 @@ const saveNewProductReview = entry => db.ProductReview.create({
 });
 
 const editProductReview = entry => db.ProductReview.findOne({
-  productId: entry.productId,
-  customerId: entry.customerId,
-}).then(review => review.set({
+  where: {
+    productId: entry.productId,
+    customerId: entry.customerId,
+  },
+}).then(review => review.update({
   rating: entry.rating,
   text: entry.text,
 }));
 
 const editMerchantReview = entry => db.MerchantReview.findOne({
-  merchantId: entry.merchantId,
-  customerId: entry.customerId,
-}).then(review => review.set({
+  where: {
+    merchantId: entry.merchantId,
+    customerId: entry.customerId,
+  }
+}).then(review => review.update({
   rating: entry.rating,
   text: entry.text,
 }));
@@ -134,22 +138,26 @@ const editShoppingCartedProduct = (entry, customerId) => {
   })
 };
 
-const editMerchantProfile = entry => db.Merchant.findOne({
-  id: entry.id,
-}).then(merchant => merchant.set({
-  logo: entry.logo,
-  username: entry.username,
-  website: entry.website,
-  rating: entry.rating,
-  location: entry.location,
-  email: entry.email,
-  facebook: entry.facebook,
-  twitter: entry.twitter,
-  description: entry.description,
-  stream: entry.stream,
-  broadcastMessage: entry.broadcastMessage,
-  currentProduct: entry.currentProduct,
-}));
+const editMerchantProfile = entry => {
+  return db.Merchant.findOne({
+    where: {
+      id: entry.id,
+    },
+  }).then(merchant => merchant.update({
+    logo: entry.logo,
+    username: entry.username,
+    website: entry.website,
+    rating: entry.rating,
+    location: entry.location,
+    email: entry.email,
+    facebook: entry.facebook,
+    twitter: entry.twitter,
+    description: entry.description,
+    stream: entry.stream,
+    broadcastMessage: entry.broadcastMessage,
+    currentProduct: entry.currentProduct,
+  }));
+};
 
 const findOneCustomer = ({ customerId }) => db.Customer.findOne({ id: customerId });
 
