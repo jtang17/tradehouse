@@ -8,7 +8,11 @@ let SidebarSearchForm = (props) => {
     console.log(values.target[0].defaultValue);
     return;
   };
-  console.log('SearchForm: ',props);
+  console.log('SidebarSearchForm: ',props);
+  const {
+    allMerchants,
+    fetchAllMerchants,
+  } = props;
   return (
     <div className="SidebarSearchForm">
       <form onSubmit={handleSubmit}>
