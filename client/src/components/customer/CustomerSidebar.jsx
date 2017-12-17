@@ -6,7 +6,7 @@ class CustomerSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      leftTab: true,
+      leftTab: false,
     };
     this.handleLeftTabClick = this.handleLeftTabClick.bind(this);
     this.handleRightTabClick = this.handleRightTabClick.bind(this);
