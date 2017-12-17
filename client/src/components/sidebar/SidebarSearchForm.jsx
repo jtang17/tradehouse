@@ -12,14 +12,16 @@ let SidebarSearchForm = (props) => {
   };
   console.log(props);
   return (
-    <form onSubmit={handleSubmit}>
-      <Field
-        name="searchForm"
-        component="input"
-        type="test"
-        placeholder="Search"
-      />
-    </form>
+    <div className="SidebarSearchForm">
+      <form onSubmit={handleSubmit}>
+        <Field
+          name="searchForm"
+          component="input"
+          type="test"
+          placeholder="Search"
+        />
+      </form>
+    </div>
   );
 };
 
