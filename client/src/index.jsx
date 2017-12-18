@@ -36,7 +36,7 @@ const defaultState = {
   merchantProducts: [],
   products: [],
   cart: [],
-  video: '',
+  stream: '',
   featuredProduct: {},
 };
 
