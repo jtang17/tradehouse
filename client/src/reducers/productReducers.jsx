@@ -11,6 +11,20 @@ import {
   FETCH_SINGLE_PRODUCT_FAILURE,
 } from '../actions/productActions.jsx';
 
+export function allProducts(state = [], action) {
+  switch(action.type) {
+    case FETCH_PRODUCTS_SUCCESS: {
+      return action.allProducts;
+    }
+    case FETCH_ALL_PRODUCTS_FAILURE: {
+      return state;
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
 export function products(state = [], action) {
   switch (action.type) {
     case ADD_PRODUCT_SUCCESS: {
