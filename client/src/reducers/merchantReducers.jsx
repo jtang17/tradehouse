@@ -17,3 +17,17 @@ export function merchantInfo(state = {}, action) {
     }
   }
 }
+
+export function allMerchants(state = [], action) {
+  switch (action.type) {
+    case FETCH_ALL_MERCHANTS_SUCCESS: {
+      return action.allMerchants;
+    }
+    case FETCH_ALL_MERCHANTS_FAILURE: {
+      return state;
+    }
+    default: {
+      return state;
+    }
+  }
+}
