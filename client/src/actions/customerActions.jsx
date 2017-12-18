@@ -22,13 +22,3 @@ export const fetchCustomerInfo = ({ id }) => (dispatch) => {
       error: err,
     }));
 };
-
-export const fetchAllMerchants = () => dispatch => axios.get('/api/merchants')
-  .then(res => dispatch({
-    type: FETCH_ALL_MERCHANTS_SUCCESS,
-    allMerchants: res.data,
-  }))
-  .catch(err => dispatch({
-    type: FETCH_ALL_MERCHANTS_FAILURE,
-    error: err,
-  }));
