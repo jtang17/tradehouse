@@ -3,12 +3,13 @@ import { reducer as formReducer } from 'redux-form';
 // reducers
 import { broadcastMessage, featuredProduct, video } from './broadcastReducers.jsx';
 import { cart } from './cartReducers.jsx';
-import { products, merchantProducts, singleProduct } from './productReducers.jsx';
+import { allProducts, products, merchantProducts, singleProduct } from './productReducers.jsx';
 import { customerInfo } from './customerReducers.jsx';
 import { merchantInfo, allMerchants } from './merchantReducers.jsx';
 
 const tradehouseApp = combineReducers({
   allMerchants,
+  allProducts,
   cart,
   products,
   merchantProducts,
