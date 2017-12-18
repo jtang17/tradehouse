@@ -2,16 +2,16 @@ import axios from 'axios';
 
 export const CHANGE_STREAM_SUCCESS = 'CHANGE_VIDEO_SUCCESS';
 export const CHANGE_STREAM_FAILURE = 'CHANGE_VIDEO_FAILURE';
-export const GET_STREAM_URL_SUCCESS = 'GET_STREAM_URL_SUCCESS';
-export const GET_STREAM_URL_FAILURE = 'GET_STREAM_URL_FAILURE';
+export const FETCH_STREAM_URL_SUCCESS = 'FETCH_STREAM_URL_SUCCESS';
+export const FETCH_STREAM_URL_FAILURE = 'FETCH_STREAM_URL_FAILURE';
 export const CHANGE_BROADCAST_MESSAGE_SUCCESS = 'CHANGE_BROADCAST_MESSAGE_SUCCESS';
 export const CHANGE_BROADCAST_MESSAGE_FAILURE = 'CHANGE_BROADCAST_MESSAGE_FAILURE';
-export const GET_BROADCAST_MESSAGE_SUCCESS = 'GET_BROADCAST_MESSAGE_SUCCESS';
-export const GET_BROADCAST_MESSAGE_FAILURE = 'GET_BROADCAST_MESSAGE_FAILURE';
+export const FETCH_BROADCAST_MESSAGE_SUCCESS = 'FETCH_BROADCAST_MESSAGE_SUCCESS';
+export const FETCH_BROADCAST_MESSAGE_FAILURE = 'FETCH_BROADCAST_MESSAGE_FAILURE';
 export const SELECT_FEATURED_PRODUCT_SUCCESS = 'SELECT_FEATURED_PRODUCT_SUCCESS';
 export const SELECT_FEATURED_PRODUCT_FAILURE = 'SELECT_FEATURED_PRODUCT_FAILURE';
-export const GET_FEATURED_PRODUCT_SUCCESS = 'GET_FEATURED_PRODUCT_SUCCESS';
-export const GET_FEATURED_PRODUCT_FAILURE = 'GET_FEATURED_PRODUCT_FAILURE';
+export const FETCH_FEATURED_PRODUCT_SUCCESS = 'FETCH_FEATURED_PRODUCT_SUCCESS';
+export const FETCH_FEATURED_PRODUCT_FAILURE = 'FETCH_FEATURED_PRODUCT_FAILURE';
 
 // TODO: PASS IN ID THROUGH FUNCTIONS AND REMOVE STATIC ID ASSIGNMENT ON NEXT LINE
 const id = 1;
@@ -29,14 +29,14 @@ export const changeStream = url => (dispatch) => {
     }));
 };
 
-export const getStreamUrl = (merchantId) => (dispatch) => {
-  axios.get(`api/merchants/${id}/featured`)
+export const fetchStreamUrl = (merchantId) => (dispatch) => {
+  axios.FETCH(`api/merchants/${id}/featured`)
     .then(res => dispatch({
-      type: GET_STREAM_URL_SUCCESS,
+      type: FETCH_STREAM_URL_SUCCESS,
       url: res.data,
     }))
     .catch(err => dispatch({
-      type: GET_STREAM_URL_FAILURE,
+      type: FETCH_STREAM_URL_FAILURE,
       error: err,
     }));
 };
@@ -54,14 +54,14 @@ export const changeBroadcastMessage = broadcastMessage => (dispatch) => {
     }));
 };
 
-export const getBroadcastMessage = (merchantId) => (dispatch) => {
-  axios.get(`api/merchants/${id}/featured`)
+export const fetchBroadcastMessage = (merchantId) => (dispatch) => {
+  axios.FETCH(`api/merchants/${id}/featured`)
     .then(res => dispatch({
-      type: GET_BROADCAST_MESSAGE_SUCCESS,
+      type: FETCH_BROADCAST_MESSAGE_SUCCESS,
       broadcastMessage: res.data,
     }))
     .catch(err => dispatch({
-      type: GET_BROADCAST_MESSAGE_FAILURE,
+      type: FETCH_BROADCAST_MESSAGE_FAILURE,
       error: err,
     }));
 };
@@ -79,14 +79,14 @@ export const selectFeaturedProduct = product => (dispatch) => {
     }));
 };
 
-export const getFeaturedProduct = (merchantId) => (dispatch) => {
-  axios.get(`api/merchants/${id}/featured`)
+export const fetchFeaturedProduct = (merchantId) => (dispatch) => {
+  axios.FETCH(`api/merchants/${id}/featured`)
     .then(res => dispatch({
-      type: GET_FEATURED_PRODUCT_SUCCESS,
+      type: FETCH_FEATURED_PRODUCT_SUCCESS,
       featuredProduct: res.data,
     }))
     .catch(err => dispatch({
-      type: GET_FEATURED_PRODUCT_FAILURE,
+      type: FETCH_FEATURED_PRODUCT_FAILURE,
       error: err,
     }));
 };
