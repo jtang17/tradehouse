@@ -3,6 +3,7 @@ import CustomerSidebar from '../components/customer/CustomerSidebar.jsx';
 import MerchantSidebar from '../components/merchant/MerchantSidebar.jsx';
 import { connect } from 'react-redux';
 import { fetchAllMerchants } from '../actions/merchantActions.jsx';
+import { fetchAllProducts } from '../actions/productActions.jsx';
 
 class Sidebar extends React.Component {
   constructor(props) {
