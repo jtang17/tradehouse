@@ -4,8 +4,8 @@ import { reducer as formReducer } from 'redux-form';
 import { broadcastMessage, featuredProduct, video } from './broadcastReducers.jsx';
 import { cart } from './cartReducers.jsx';
 import { products, merchantProducts, singleProduct } from './productReducers.jsx';
-import { customerInfo, allMerchants } from './customerReducers.jsx';
-import { merchantInfo } from './merchantReducers.jsx';
+import { customerInfo } from './customerReducers.jsx';
+import { merchantInfo, allMerchants } from './merchantReducers.jsx';
 
 const tradehouseApp = combineReducers({
   allMerchants,
