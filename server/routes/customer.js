@@ -34,7 +34,8 @@ router.get('/:customerId/cart', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.post('/:customerId/cart', asyncMiddleware(async (req, res, next) => {
-  const products = await controllers.saveNewShoppingCartedProduct(req.body, req.params.customerId).then(() => controllers.findShoppingCartedProducts(req.params.customerId));
+  const products = await controllers.saveNewShoppingCartedProduct(req.body, req.params.customerId)
+    .then(() => controllers.findShoppingCartedProducts(req.params.customerId));
   res.json(products);
 }));
 
@@ -45,7 +46,8 @@ router.delete('/:customerId/cart', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.put('/:customerId/cart', asyncMiddleware(async (req, res, next) => {
-  const products = await controllers.editShoppingCartedProduct(req.body, req.params.customerId).then(() => controllers.findShoppingCartedProducts(req.params.customerId));
+  const products = await controllers.editShoppingCartedProduct(req.body, req.params.customerId)
+    .then(() => controllers.findShoppingCartedProducts(req.params.customerId));
   res.json(products);
 }));
 
