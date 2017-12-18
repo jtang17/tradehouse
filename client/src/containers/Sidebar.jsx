@@ -17,6 +17,7 @@ class Sidebar extends React.Component {
   render() {
     const {
       allMerchants,
+      allProducts,
       fetchAllMerchants,
       fetchAllProducts,
     } = this.props;
@@ -27,6 +28,7 @@ class Sidebar extends React.Component {
           this.state.merchant ? <MerchantSidebar /> :
           <CustomerSidebar
             allMerchants={allMerchants}
+            allProducts={allProducts}
             fetchAllMerchants={fetchAllMerchants}
             fetchAllProducts={fetchAllProducts}
           />
