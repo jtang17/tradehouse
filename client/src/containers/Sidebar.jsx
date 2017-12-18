@@ -36,6 +36,7 @@ class Sidebar extends React.Component {
 
 const mapStateToProps = state => ({
   allMerchants: state.allMerchants,
+  allProducts: state.allProducts,
 });
 
 export default connect(mapStateToProps, { fetchAllMerchants })(Sidebar);
