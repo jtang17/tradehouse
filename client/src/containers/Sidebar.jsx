@@ -18,6 +18,7 @@ class Sidebar extends React.Component {
     const {
       allMerchants,
       fetchAllMerchants,
+      fetchAllProducts,
     } = this.props;
     console.log('sidebar container: ', this.props);
     return (
@@ -27,6 +28,7 @@ class Sidebar extends React.Component {
           <CustomerSidebar
             allMerchants={allMerchants}
             fetchAllMerchants={fetchAllMerchants}
+            fetchAllProducts={fetchAllProducts}
           />
         }
       </div>
@@ -39,4 +41,4 @@ const mapStateToProps = state => ({
   allProducts: state.allProducts,
 });
 
-export default connect(mapStateToProps, { fetchAllMerchants })(Sidebar);
+export default connect(mapStateToProps, { fetchAllMerchants, fetchAllProducts })(Sidebar);
