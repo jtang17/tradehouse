@@ -1,6 +1,8 @@
 import {
   FETCH_MERCHANT_SUCCESS,
   FETCH_MERCHANT_FAILURE,
+  FETCH_ALL_MERCHANTS_SUCCESS,
+  FETCH_ALL_MERCHANTS_FAILURE,
 } from '../actions/merchantActions.jsx';
 
 export function merchantInfo(state = {}, action) {
