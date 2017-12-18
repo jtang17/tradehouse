@@ -6,9 +6,8 @@ let SidebarSearchForm = (props) => {
   const handleSubmit = (values) => {
     values.preventDefault();
     console.log(values.target[0].defaultValue);
-    return;
   };
-  console.log('SidebarSearchForm: ',props);
+  console.log('SidebarSearchForm: ', props);
   const {
     allMerchants,
     fetchAllMerchants,
@@ -29,7 +28,7 @@ let SidebarSearchForm = (props) => {
 };
 
 SidebarSearchForm = reduxForm({
-  form: 'SidebarSearchForm'
+  form: 'SidebarSearchForm',
 })(SidebarSearchForm);
 
 export default SidebarSearchForm;

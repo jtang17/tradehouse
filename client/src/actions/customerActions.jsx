@@ -22,13 +22,11 @@ export const fetchCustomerInfo = ({ id }) => (dispatch) => {
     }));
 };
 
-export const fetchAllMerchants = () => (dispatch) => {
-  return axios.get(`/api/merchants`)
-    .then(res => dispatch({
-      type: FETCH_ALL_MERCHANTS_SUCCESS,
-      allMerchants: res.data,
-    }), err => dispatch({
-      type: FETCH_ALL_MERCHANTS_FAILURE,
-      error: err,
-    }));
-};
+export const fetchAllMerchants = () => dispatch => axios.get('/api/merchants')
+  .then(res => dispatch({
+    type: FETCH_ALL_MERCHANTS_SUCCESS,
+    allMerchants: res.data,
+  }), err => dispatch({
+    type: FETCH_ALL_MERCHANTS_FAILURE,
+    error: err,
+  }));

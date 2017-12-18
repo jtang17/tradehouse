@@ -25,7 +25,7 @@ class CustomerSidebar extends React.Component {
       allMerchants,
       fetchAllMerchants,
     } = this.props;
-    console.log('customer sidebar: ',this.props);
+    console.log('customer sidebar: ', this.props);
     return (
       <div className="CustomerSidebar">
         <div className="tabs">

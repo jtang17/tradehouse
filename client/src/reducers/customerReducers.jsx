@@ -2,7 +2,7 @@ import {
   FETCH_CUSTOMER_SUCCESS,
   FETCH_CUSTOMER_FAILURE,
   FETCH_ALL_MERCHANTS_SUCCESS,
-  FETCH_ALL_MERCHANTS_FAILURE
+  FETCH_ALL_MERCHANTS_FAILURE,
 } from '../actions/customerActions.jsx';
 
 export function customerInfo(state = {}, action) {

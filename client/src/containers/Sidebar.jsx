@@ -18,7 +18,7 @@ class Sidebar extends React.Component {
       allMerchants,
       fetchAllMerchants,
     } = this.props;
-    console.log('sidebar container: ',this.props);
+    console.log('sidebar container: ', this.props);
     return (
       <div className="sidebar__container">
         {
@@ -35,6 +35,6 @@ class Sidebar extends React.Component {
 
 const mapStateToProps = state => ({
   allMerchants: state.allMerchants,
-})
+});
 
 export default connect(mapStateToProps, { fetchAllMerchants })(Sidebar);
