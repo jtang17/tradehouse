@@ -13,7 +13,7 @@ import {
 
 export function allProducts(state = [], action) {
   switch(action.type) {
-    case FETCH_PRODUCTS_SUCCESS: {
+    case FETCH_ALL_PRODUCTS_SUCCESS: {
       return action.allProducts;
     }
     case FETCH_ALL_PRODUCTS_FAILURE: {
