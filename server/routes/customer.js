@@ -16,8 +16,9 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
   res.json(rows);
 }));
 
-router.post('/', jwtCheck, jwtAuthz(['batch: upload']), asyncMiddleware(async (req, res, next) => {
-// router.post('/', asyncMiddleware(async (req, res, next) => {
+// router.post('/', jwtCheck, jwtAuthz(['add:customers']), asyncMiddleware(async (req, res, next) => {
+// router.post('/', jwtCheck, asyncMiddleware(async (req, res, next) => {
+router.post('/', asyncMiddleware(async (req, res, next) => {
   const newCustomer = await controllers.saveNewCustomer(req.body);
   res.json(newCustomer);
 }));

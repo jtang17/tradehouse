@@ -1,14 +1,23 @@
 import auth0 from 'auth0-js';
 import axios from 'axios';
-import history from './history.js';
-import { AUTH_CONFIG } from './Auth0-variables.js';
 import Auth0Lock from 'auth0-lock';
+import history from './history';
+import { AUTH_CONFIG } from './Auth0-variables';
 
 const lock = new Auth0Lock(AUTH_CONFIG.clientId, AUTH_CONFIG.domain, AUTH_CONFIG.options);
 
 
 
 class Auth {
+  // auth0 = new auth0.WebAuth({
+  //   domain: AUTH_CONFIG.domain,
+  //   clientID: AUTH_CONFIG.clientId,
+  //   // redirectUri: 'http://localhost:5421/callback',
+  //   audience: 'tradehouse2-auth0.com/api',
+  //   responseType: 'token id_token',
+  //   scope: 'openid'
+  // });
+
   constructor() {
     this.userProfile = null;
     this.login = this.login.bind(this);
@@ -21,18 +30,33 @@ class Auth {
 
   login() {
     lock.show();
+    // this.auth0.authorize({
+    //   audience: 'tradehouse2-auth0.com/api',
+    //   scope: 'add:customers',
+    //   responseType: 'token',
+    // });
   }
 
   handleAuthentication() {
     lock.on('authenticated', this.setSession);
     lock.on('authorization_error', (err, profile) => {
-      console.log(err, "profile", profile);
+      console.log(err, 'profile', profile);
     });
     lock.on('signup submit', () => {
       console.log('singed up');
       var user = this.getProfile();
       console.log(user);
     });
+    // this.auth0.parseHash((err, authResult) => {
+    //   if (authResult && authResult.accessToken && authResult.idToken) {
+    //     this.setSession(authResult);
+    //     history.replace('/home');
+    //   } else if (err) {
+    //     history.replace('/home');
+    //     console.log(err);
+    //     alert(`Error: ${err.error}. Check the console for further details.`);
+    //   }
+    // });
   }
 
   getProfile(cb) {
@@ -44,13 +68,14 @@ class Auth {
       if (profile) {
         this.userProfile = profile;
       }
-      console.log("err",err, "profile", profile);
+      console.log('err', err, 'profile', profile);
     });
   }
 
   setSession(authResult) {
     if (authResult && authResult.accessToken && authResult.idToken) {
       lock.getUserInfo(authResult.accessToken, function(err, profile) {
+      // this.auth0.userInfo(authResult.accessToken, function(err, profile) {
         if (err) {
           return console.error(err);
         }
@@ -100,6 +125,24 @@ class Auth {
             }).catch(err => console.error(err));
           }
         }
+        // axios.post('/api/customers', {
+        //       accessToken: authResult.accessToken,
+        //       username: profile.username,
+        //       email: profile.email,
+        //       facebook,
+        //     }, {
+        //       headers: {
+        //         // 'Authorization': 'Bearer ' + authResult.accessToken,
+        //         Authorization: `Bearer ${authResult.accessToken}`,
+        //       },
+        //     }).then(res => {
+        //       console.log(res);
+        //     }).catch(err => {
+        //       console.error(err);
+        //     }).then(() => {
+        //       history.replace('CustomerHome');
+        //       window.location.reload();
+        //     }).catch(err => console.error(err));
       });
     }
     // history.replace('MerchantHome');
