@@ -1,17 +1,12 @@
 import React from 'react';
 
-const CustomerProfile = props => (
-  <div className="container">
-    <h4>Customer Overview</h4>
-    <div className="row">
-      <div className="col">
-        Username: {props.customerInfo.username}
-        <br />
-        Email: {props.customerInfo.email}
-        <br />
-      </div>
-    </div>
+const MerchantProfile = props => (
+  <div className="mercProfile__container">
+    <h4>Merchant Profile</h4>
+    <form>
+      <input type="text" placeholder="Merchant Name" />
+    </form>
   </div>
 );
 
-export default CustomerProfile;
+export default MerchantProfile;
