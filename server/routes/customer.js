@@ -16,6 +16,11 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
   res.json(rows);
 }));
 
+router.get('/bySub/:customerIdToken', asyncMiddleware(async (req, res, next) => {
+  const customer= await controllers.findOneCustomerBySub(req.params.customerIdToken);
+  res.json(customer);
+}));
+
 // router.post('/', jwtCheck, jwtAuthz(['add:customers']), asyncMiddleware(async (req, res, next) => {
 // router.post('/', jwtCheck, asyncMiddleware(async (req, res, next) => {
 router.post('/', asyncMiddleware(async (req, res, next) => {

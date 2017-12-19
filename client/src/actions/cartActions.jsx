@@ -14,7 +14,7 @@ export const DECREASE_QUANTITY_CART_FAILURE = 'DECREASE_QUANTITY_CART_FAILURE';
 // TODO: PASS IN CUSTOMER ID FROM FRONT END AND REMOVE STATIC CUSTOMERID ASSIGNMENT
 const customerId = 1;
 
-export const addToCart = product => (dispatch) => {
+export const addToCart = (product, customerId) => (dispatch) => {
   axios.post(`/api/customers/${customerId}/cart`, product)
     .then(res => dispatch({
       type: ADD_TO_CART_SUCCESS,
@@ -26,7 +26,7 @@ export const addToCart = product => (dispatch) => {
     }));
 };
 
-export const removeFromCart = product => (dispatch) => {
+export const removeFromCart = (product, customerId) => (dispatch) => {
   axios.delete(`/api/customers/${customerId}/cart`, { data: product })
     .then(res => dispatch({
       type: REMOVE_FROM_CART_SUCCESS,
@@ -38,7 +38,7 @@ export const removeFromCart = product => (dispatch) => {
     }));
 };
 
-export const fetchCart = () => (dispatch) => {
+export const fetchCart = (customerId) => (dispatch) => {
   axios.get(`/api/customers/${customerId}/cart`)
     .then(res => dispatch({
       type: FETCH_CART_SUCCESS,
@@ -50,7 +50,7 @@ export const fetchCart = () => (dispatch) => {
     }));
 };
 
-export const increaseQuantityInCart = product => (dispatch) => {
+export const increaseQuantityInCart = (product, customerId) => (dispatch) => {
   axios.put(`/api/customers/${customerId}/cart`, { ...product, type: 'increase' })
     .then(res => dispatch({
       type: INCREASE_QUANTITY_CART_SUCCESS,
@@ -62,7 +62,7 @@ export const increaseQuantityInCart = product => (dispatch) => {
     }));
 };
 
-export const decreaseQuantityInCart = product => (dispatch) => {
+export const decreaseQuantityInCart = (product, customerId) => (dispatch) => {
   axios.put(`/api/customers/${customerId}/cart`, { ...product, type: 'decrease' })
     .then(res => dispatch({
       type: DECREASE_QUANTITY_CART_SUCCESS,

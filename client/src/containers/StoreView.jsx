@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import SingleStore from './SingleStore.jsx';
 import Cart from './Cart.jsx';
 import { connect } from 'react-redux';
