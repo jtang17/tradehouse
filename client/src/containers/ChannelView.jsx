@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import StoreItem from '../components/customer/StoreItem.jsx';
+import { addToCart } from '../actions/cartActions.jsx';
 import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
-import { fetchFeaturedProduct } from '../actions/broadcastActions.jsx';
+import { fetchSingleProduct } from '../actions/productActions.jsx';
 
 class ChannelView extends React.Component {
   constructor(props) {
@@ -13,14 +14,14 @@ class ChannelView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMerchantInfo(this.props.match.params.merchantId);
-    // want to render the featured product on this page as well
+    this.props.fetchMerchantInfo(this.props.match.params.merchantId)
+      .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct))
   }
 
   render() {
     const { merchantInfo } = this.props;
-    console.log(merchantInfo);
-    // TODO: Need to render merchant information based on this.props.merchantInfo
+
+    // TODO: LINK TO CART/CHECKOUT OF LOGGED IN CUSTOMER
     return (
       <div>
           Viewing: {merchantInfo.username} - <Link to={`/store/${merchantInfo.id}`}>Store</Link>
@@ -34,6 +35,14 @@ class ChannelView extends React.Component {
           frameBorder="0"
           allowFullScreen
         />
+        <div className="channelFeaturedProduct">
+          {this.props.product &&
+            <StoreItem product={this.props.product}
+              addToCart={this.props.addToCart}
+            />
+          }
+          <Link to={`/checkout/${1}`}>View Cart</Link>
+        </div>
         <ul id="messages" />
         <form action="">
           <input id="m" autoComplete="off" /><button>Send</button>
@@ -49,7 +58,7 @@ class ChannelView extends React.Component {
 
 const mapStateToProps = state => ({
   merchantInfo: state.merchantInfo,
-  product: state.featuredProduct,
+  product: state.singleProduct,
 });
 
-export default connect(mapStateToProps, { fetchMerchantInfo, fetchFeaturedProduct })(ChannelView);
+export default connect(mapStateToProps, { addToCart, fetchMerchantInfo, fetchSingleProduct })(ChannelView);

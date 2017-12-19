@@ -16,7 +16,7 @@ class SidebarSearch extends React.Component {
     } = this.props;
     return (
       <div>
-        <Link to="browse"><h4>Browse Content</h4></Link>
+        <Link to="/browse"><h4>Browse Content</h4></Link>
         <SidebarSearchForm
           allMerchants={allMerchants}
           allProducts={allProducts}
