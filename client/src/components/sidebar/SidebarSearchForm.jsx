@@ -7,7 +7,6 @@ let SidebarSearchForm = (props) => {
     values.preventDefault();
     console.log(values.target[0].defaultValue);
   };
-  console.log('SidebarSearchForm: ', props);
   const {
     allMerchants,
     allProducts,

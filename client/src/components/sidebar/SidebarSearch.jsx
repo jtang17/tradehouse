@@ -14,7 +14,6 @@ class SidebarSearch extends React.Component {
       fetchAllMerchants,
       fetchAllProducts,
     } = this.props;
-    console.log('SidebarSearch: ', this.props);
     return (
       <div>
         <Link to="browse"><h4>Browse Content</h4></Link>

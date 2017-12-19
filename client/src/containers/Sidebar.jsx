@@ -21,7 +21,6 @@ class Sidebar extends React.Component {
       fetchAllMerchants,
       fetchAllProducts,
     } = this.props;
-    console.log('sidebar container: ', this.props);
     return (
       <div className="sidebar__container">
         {
