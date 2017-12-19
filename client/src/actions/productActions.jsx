@@ -35,9 +35,9 @@ export const deleteProduct = product => (dispatch) => {
     }));
 };
 
-export const fetchAllProducts = (url = '/api/products') => (dispatch) => {
+export const fetchAllProducts = () => (dispatch) => {
   dispatch(fetchProductsLoading(true));
-  axios.get(url)
+  axios.get('/api/products')
     .then(res => dispatch({
       type: FETCH_ALL_PRODUCTS_SUCCESS,
       allProducts: res.data,
