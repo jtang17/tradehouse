@@ -11,7 +11,7 @@ class StoreView extends React.Component {
   }
 
   render() {
-    // TODO: have SingleStore render products based on which merchant's store it is
+    // TODO: have Cart render based on logged in customer ID
     return (
       <div>
         <Cart />

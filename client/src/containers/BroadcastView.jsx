@@ -23,6 +23,7 @@ class BroadcastView extends React.Component {
   }
 
   componentDidMount() {
+    //TODO: fetch currently logged in merchant's products and info
     this.props.fetchMerchantProducts(1);
     this.props.fetchMerchantInfo(1);
   }
@@ -42,7 +43,7 @@ class BroadcastView extends React.Component {
           </div>
           <div className="col">
             <BroadcastViewVideo
-              stream={this.props.stream}
+              stream={this.props.merchantInfo.stream}
               broadcastMessage={this.props.broadcastMessage}
             />
           </div>
@@ -61,11 +62,9 @@ const mapStateToProps = state => ({
   broadcastMessage: state.broadcastMessage,
   featuredProduct: state.featuredProduct,
   products: state.merchantProducts,
-  stream: state.stream,
+  merchantInfo: state.merchantInfo,
 });
 
-const mapDispatchToProps = {
-  fetchMerchantProducts, changeStream, changeBroadcastMessage, selectFeaturedProduct, fetchMerchantInfo,
-};
+const mapDispatchToProps = { fetchMerchantProducts, changeStream, changeBroadcastMessage, selectFeaturedProduct, fetchMerchantInfo };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BroadcastView);

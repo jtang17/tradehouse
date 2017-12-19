@@ -3,8 +3,8 @@ import React from 'react';
 const BroadcastViewVideo = props => (
   <div>
     <iframe
-      width="204"
-      height="126"
+      width="400"
+      height="300"
       src={props.stream}
       frameBorder="0"
       allowFullScreen

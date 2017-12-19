@@ -30,7 +30,7 @@ export const changeStream = url => (dispatch) => {
 };
 
 export const fetchStreamUrl = merchantId => (dispatch) => {
-  axios.fetch(`api/merchants/${id}/featured`)
+  axios.get(`api/merchants/${id}/featured`)
     .then(res => dispatch({
       type: FETCH_STREAM_URL_SUCCESS,
       url: res.data,
@@ -55,7 +55,7 @@ export const changeBroadcastMessage = broadcastMessage => (dispatch) => {
 };
 
 export const fetchBroadcastMessage = merchantId => (dispatch) => {
-  axios.fetch(`api/merchants/${id}/featured`)
+  axios.get(`api/merchants/${id}/featured`)
     .then(res => dispatch({
       type: FETCH_BROADCAST_MESSAGE_SUCCESS,
       broadcastMessage: res.data,
@@ -80,7 +80,7 @@ export const selectFeaturedProduct = product => (dispatch) => {
 };
 
 export const fetchFeaturedProduct = merchantId => (dispatch) => {
-  axios.fetch(`api/merchants/${id}/featured`)
+  axios.get(`api/merchants/${id}/featured`)
     .then(res => dispatch({
       type: FETCH_FEATURED_PRODUCT_SUCCESS,
       featuredProduct: res.data,
