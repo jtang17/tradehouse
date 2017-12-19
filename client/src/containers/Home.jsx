@@ -19,7 +19,6 @@ class Home extends React.Component {
       <div>
         <Featured video={this.props.featuredVideo} />
         <br />
-        <Link to="browse"><h4>Browse Content</h4></Link>
       </div>
     );
   }
