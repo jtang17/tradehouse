@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
+import StoreItem from '../components/customer/StoreItem.jsx';
 import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
+import { fetchFeaturedProduct } from '../actions/broadcastActions.jsx';
 
 class ChannelView extends React.Component {
   constructor(props) {
@@ -12,6 +14,8 @@ class ChannelView extends React.Component {
 
   componentDidMount() {
     this.props.fetchMerchantInfo(1);
+    this.props.fetchFeaturedProduct(1);
+    //want to render the featured product on this page as well
   }
 
   render() {
@@ -44,6 +48,7 @@ class ChannelView extends React.Component {
 
 const mapStateToProps = state => ({
   merchantInfo: state.merchantInfo,
+  product: state.featuredProduct,
 });
 
-export default connect(mapStateToProps, { fetchMerchantInfo })(ChannelView);
+export default connect(mapStateToProps, { fetchMerchantInfo, fetchFeaturedProduct })(ChannelView);
