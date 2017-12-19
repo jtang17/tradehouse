@@ -15,7 +15,7 @@ class ChannelView extends React.Component {
 
   componentDidMount() {
     this.props.fetchMerchantInfo(this.props.match.params.merchantId)
-      .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct))
+      .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct));
   }
 
   render() {
@@ -37,7 +37,8 @@ class ChannelView extends React.Component {
         />
         <div className="channelFeaturedProduct">
           {this.props.product &&
-            <StoreItem product={this.props.product}
+            <StoreItem
+              product={this.props.product}
               addToCart={this.props.addToCart}
             />
           }

@@ -9,10 +9,10 @@ class BrowseStores extends React.Component {
 
   render() {
     return (
-        <div>
-          <h4>Store Browser</h4>
-        </div>
-      );
+      <div>
+        <h4>Store Browser</h4>
+      </div>
+    );
   }
 }
 

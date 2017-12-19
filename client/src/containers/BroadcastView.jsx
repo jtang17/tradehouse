@@ -23,7 +23,7 @@ class BroadcastView extends React.Component {
   }
 
   componentDidMount() {
-    //TODO: fetch currently logged in merchant's products and info
+    // TODO: fetch currently logged in merchant's products and info
     this.props.fetchMerchantProducts(1);
     this.props.fetchMerchantInfo(1);
   }
@@ -65,6 +65,8 @@ const mapStateToProps = state => ({
   merchantInfo: state.merchantInfo,
 });
 
-const mapDispatchToProps = { fetchMerchantProducts, changeStream, changeBroadcastMessage, selectFeaturedProduct, fetchMerchantInfo };
+const mapDispatchToProps = {
+  fetchMerchantProducts, changeStream, changeBroadcastMessage, selectFeaturedProduct, fetchMerchantInfo,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BroadcastView);
