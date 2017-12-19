@@ -28,13 +28,16 @@ class Header extends React.Component {
     auth.logout();
   }
 
+
+  // <Link to="browse"><h4>Browse Content</h4></Link>
+
   render() {
     if (!auth.isAuthenticated()) {
       return (
         <div className="header__container">
-          <a href="/">
+          <Link to={`/`}>
             <img src="https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif" />
-          </a>
+          </Link>
           <div className="header__social">
             <p>Tradehouse: buy and sell more effectively</p>
           </div>
@@ -46,9 +49,9 @@ class Header extends React.Component {
     }
     return (
       <div className="header__container">
-        <a href="/">
+        <Link to={`/`}>
           <img src="https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif" />
-        </a>
+        </Link>
         <div className="btn-group">
           <Link to={`/merchant_profile/${1}`} >
 							Merchant Profile
