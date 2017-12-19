@@ -5,8 +5,9 @@ import { Auth } from '../Auth/Auth.js';
 const auth = new Auth();
 
 import { connect } from 'react-redux';
-import { fetchAllProducts } from '../actions/productActions.jsx';
-import { changeVideo, changeBroadcastMessage, selectFeaturedProduct } from '../actions/broadcastActions.jsx';
+import { fetchMerchantProducts } from '../actions/productActions.jsx';
+import { changeStream, changeBroadcastMessage, selectFeaturedProduct } from '../actions/broadcastActions.jsx';
+import { fetchMerchantInfo } from '../actions/merchantActions.jsx'
 
 import BroadcastViewVideo from '../components/broadcast/BroadcastViewVideo.jsx';
 import VideoControl from '../components/broadcast/VideoControl.jsx';
@@ -22,7 +23,8 @@ class BroadcastView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllProducts();
+    this.props.fetchMerchantProducts(1);
+    this.props.fetchMerchantInfo(1);
   }
 
   render() {
@@ -34,13 +36,13 @@ class BroadcastView extends React.Component {
         <div className="row">
           <div className="col">
             <VideoControl
-              changeVideo={this.props.changeStream}
+              changeStream={this.props.changeStream}
               changeBroadcastMessage={this.props.changeBroadcastMessage}
             />
           </div>
           <div className="col">
             <BroadcastViewVideo
-              video={this.props.stream}
+              stream={this.props.stream}
               broadcastMessage={this.props.broadcastMessage}
             />
           </div>
@@ -58,10 +60,10 @@ class BroadcastView extends React.Component {
 const mapStateToProps = state => ({
   broadcastMessage: state.broadcastMessage,
   featuredProduct: state.featuredProduct,
-  products: state.products,
+  products: state.merchantProducts,
   stream: state.stream,
 });
 
-export default connect(mapStateToProps, {
-  fetchAllProducts, changeStream, changeBroadcastMessage, selectFeaturedProduct,
-})(BroadcastView);
+const mapDispatchToProps = { fetchMerchantProducts, changeStream, changeBroadcastMessage, selectFeaturedProduct, fetchMerchantInfo };
+
+export default connect(mapStateToProps, mapDispatchToProps)(BroadcastView);

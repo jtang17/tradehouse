@@ -202,13 +202,12 @@ const getAllProducts = () => db.Product.findAll({});
 
 const getAllCustomers = () => db.Customer.findAll({});
 
-const editMerchantStreamUrl = (entry, merchantId) =>
-  db.Merchant.findOne({
+const editMerchantStreamUrl = (entry, merchantId) => db.Merchant.findOne({
     where: {
       id: merchantId,
     },
   }).then(merchant => merchant.update({
-    stream: entry,
+    stream: entry.url,
   }));
 
 
@@ -217,7 +216,7 @@ const editMerchantBroadcastMessage = (entry, merchantId) => db.Merchant.findOne(
     id: merchantId,
   },
 }).then(merchant => merchant.update({
-  broadcastMessage: entry,
+  broadcastMessage: entry.broadcastMessage,
 }));
 
 
@@ -226,7 +225,7 @@ const editMerchantFeaturedProduct = (entry, merchantId) => db.Merchant.findOne({
     id: merchantId,
   },
 }).then(merchant => merchant.update({
-  currentProduct: entry,
+  currentProduct: entry.product.id,
 }));
 
 const changeToMerchant = customerId => db.Customer.findOne({ id: customerId })

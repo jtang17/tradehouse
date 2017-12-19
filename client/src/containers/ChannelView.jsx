@@ -11,19 +11,21 @@ class ChannelView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMerchantInfo({id: 1});
+    this.props.fetchMerchantInfo(1);
   }
 
   render() {
+    const { merchantInfo } = this.props;
+    console.log(merchantInfo);
     //TODO: Need to render merchant information based on this.props.merchantInfo
     return (
       <div>
-          Viewing: lofi hiphop radio - <Link to={`/store/${1}`}>Store</Link>
+          Viewing: {merchantInfo.username} - <Link to={`/store/${merchantInfo.id}`}>Store</Link>
         <br />
         <iframe
           width="560"
           height="315"
-          src={`https://www.youtube.com/embed/live_stream?channel=UCSJ4gkVC6NrvII8umztf0Ow&autoplay=1`}
+          src={merchantInfo.stream}
           frameBorder="0"
           allowFullScreen
         />
@@ -41,7 +43,6 @@ class ChannelView extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  stream: state.stream,
   merchantInfo: state.merchantInfo,
 });
 

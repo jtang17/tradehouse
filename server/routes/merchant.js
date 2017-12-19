@@ -52,16 +52,16 @@ router.get('/:merchantId/reviews', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.put('/:merchantId/stream', asyncMiddleware(async (req, res, next) => {
-  const url = await controllers.editMerchantStreamUrl(req.body, req.params.id);
+  const url = await controllers.editMerchantStreamUrl(req.body, req.params.merchantId);
   res.json(url);
 }));
 
 router.put('/:merchantId/broadcast_message', asyncMiddleware(async (req, res, next) => {
-  const message = await controllers.editMerchantBroadcastMessage(req.body, req.params.id);
+  const message = await controllers.editMerchantBroadcastMessage(req.body, req.params.merchantId);
   res.json(message);
 }));
 
 router.put('/:merchantId/featured', asyncMiddleware(async (req, res, next) => {
-  const featuredProduct = await controllers.editMerchantFeaturedProduct(req.body, req.params.id);
+  const featuredProduct = await controllers.editMerchantFeaturedProduct(req.body, req.params.merchantId);
   res.json(featuredProduct);
 }));

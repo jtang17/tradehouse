@@ -7,26 +7,26 @@ class VideoControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: '',
+      streamUrl: '',
       broadcastMessage: '',
     };
-    this.onIdSubmit = this.onIdSubmit.bind(this);
-    this.onIdChanged = this.onIdChanged.bind(this);
+    this.onUrlSubmit = this.onUrlSubmit.bind(this);
+    this.onUrlChanged = this.onUrlChanged.bind(this);
     this.onBroadcastMessageSubmit = this.onBroadcastMessageSubmit.bind(this);
     this.onBroadcastMessageChanged = this.onBroadcastMessageChanged.bind(this);
   }
 
-  onIdSubmit(e) {
+  onUrlSubmit(e) {
     e.preventDefault();
-    this.props.changeStream(this.state.id);
+    this.props.changeStream(this.state.streamUrl);
     this.setState({
-      id: '',
+      streamUrl: '',
     });
   }
 
-  onIdChanged(e) {
+  onUrlChanged(e) {
     this.setState({
-      id: e.target.value,
+      streamUrl: e.target.value,
     });
   }
 
@@ -47,13 +47,13 @@ class VideoControl extends React.Component {
   render() {
     return (
       <div className="container">
-        <form onSubmit={this.onIdSubmit}>
-          <label>Enter Youtube Channel ID</label>
+        <form onSubmit={this.onUrlSubmit}>
+          <label>Enter Stream Url</label>
           <input
             type="text"
-            placeholder="Youtube Channel ID..."
-            onChange={this.onIdChanged}
-            value={this.state.url}
+            placeholder="Stream URL..."
+            onChange={this.onUrlChanged}
+            value={this.state.streamUrl}
           />
           <input type="submit" value="Submit" />
         </form>
