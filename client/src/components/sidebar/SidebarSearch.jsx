@@ -1,5 +1,6 @@
 import React from 'react';
 import SidebarSearchForm from './SidebarSearchForm.jsx';
+import { Link } from 'react-router-dom';
 
 class SidebarSearch extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class SidebarSearch extends React.Component {
     console.log('SidebarSearch: ', this.props);
     return (
       <div>
+        <Link to="browse"><h4>Browse Content</h4></Link>
         <SidebarSearchForm
           allMerchants={allMerchants}
           allProducts={allProducts}
