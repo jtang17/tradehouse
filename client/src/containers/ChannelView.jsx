@@ -8,6 +8,7 @@ import { addToCart } from '../actions/cartActions.jsx';
 import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
 import { fetchSingleProduct } from '../actions/productActions.jsx';
 import { follow, unfollow, fetchSubscriptions } from '../actions/customerActions.jsx';
+import CustomerChat from '../chat/CustomerChat.jsx';
 
 class ChannelView extends React.Component {
   constructor(props) {
@@ -87,10 +88,7 @@ class ChannelView extends React.Component {
         <form action="">
           <input id="m" autoComplete="off" /><button>Send</button>
         </form>
-        <script src="/socket.io/socket.io.js" />
-        <script>
-            var socket = io();
-        </script>
+        <CustomerChat />
       </div>
     );
   }

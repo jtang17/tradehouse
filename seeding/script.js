@@ -9,7 +9,8 @@ async function seed() {
   const customerPromises = [];
   const productPromises = [];
   for (let i = 0; i < merchants.length; i += 1) {
-    merchantPromises.push(controllers.saveNewMerchant(merchants[i]));
+    merchantPromises.push(controllers.saveNewMerchant(merchants[i])
+      .then(merchant => controllers.editMerchantProfileAndFindByEmail(merchants[i])));
   }
   for (let i = 0; i < customers.length; i += 1) {
     customerPromises.push(controllers.saveNewCustomer(customers[i]));

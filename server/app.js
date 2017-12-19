@@ -46,6 +46,12 @@ io.on('connection', (socket) => {
   socket.on('chat message', (msg) => {
     io.emit('chat message', msg);
   });
+  socket.on('subscribeToTimer', (interval) => {
+    console.log('subscribing to timer with interval ', interval);
+    setInterval(() => {
+      socket.emit('timer', new Date());
+    }, interval);
+  });
 });
 
 // TODO: prevent sync from outputting so much to console

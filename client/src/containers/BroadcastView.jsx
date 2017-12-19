@@ -12,6 +12,7 @@ import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
 import BroadcastViewVideo from '../components/broadcast/BroadcastViewVideo.jsx';
 import VideoControl from '../components/broadcast/VideoControl.jsx';
 import ProductControl from '../components/broadcast/ProductControl.jsx';
+import MerchantChat from '../chat/MerchantChat.jsx';
 
 class BroadcastView extends React.Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class BroadcastView extends React.Component {
           products={this.props.products}
           selectFeaturedProduct={this.props.selectFeaturedProduct}
         />
+        <MerchantChat />
       </div>
     );
   }
