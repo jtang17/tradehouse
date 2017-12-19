@@ -35,7 +35,7 @@ class Header extends React.Component {
     if (!auth.isAuthenticated()) {
       return (
         <div className="header__container">
-          <Link to={`/`}>
+          <Link to="/">
             <img src="https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif" />
           </Link>
           <div className="header__social">
@@ -49,7 +49,7 @@ class Header extends React.Component {
     }
     return (
       <div className="header__container">
-        <Link to={`/`}>
+        <Link to="/">
           <img src="https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif" />
         </Link>
         <div className="btn-group">
