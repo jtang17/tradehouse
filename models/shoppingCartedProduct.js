@@ -5,3 +5,5 @@ module.exports = (sequelize, DataTypes) =>
     description: DataTypes.TEXT,
     unitPrice: DataTypes.DOUBLE(6, 2),
   });
+
+// TODO: refactor to have only shoppingCartedQuantity
