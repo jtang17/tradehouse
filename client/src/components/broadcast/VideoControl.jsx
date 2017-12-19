@@ -18,7 +18,7 @@ class VideoControl extends React.Component {
 
   onIdSubmit(e) {
     e.preventDefault();
-    this.props.changeVideo(this.state.id);
+    this.props.changeStream(this.state.id);
     this.setState({
       id: '',
     });

@@ -34,13 +34,13 @@ class BroadcastView extends React.Component {
         <div className="row">
           <div className="col">
             <VideoControl
-              changeVideo={this.props.changeVideo}
+              changeVideo={this.props.changeStream}
               changeBroadcastMessage={this.props.changeBroadcastMessage}
             />
           </div>
           <div className="col">
             <BroadcastViewVideo
-              video={this.props.video}
+              video={this.props.stream}
               broadcastMessage={this.props.broadcastMessage}
             />
           </div>
@@ -59,9 +59,9 @@ const mapStateToProps = state => ({
   broadcastMessage: state.broadcastMessage,
   featuredProduct: state.featuredProduct,
   products: state.products,
-  video: state.video,
+  stream: state.stream,
 });
 
 export default connect(mapStateToProps, {
-  fetchAllProducts, changeVideo, changeBroadcastMessage, selectFeaturedProduct,
+  fetchAllProducts, changeStream, changeBroadcastMessage, selectFeaturedProduct,
 })(BroadcastView);

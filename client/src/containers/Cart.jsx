@@ -24,12 +24,13 @@ class Cart extends React.Component {
       <div>
         <ol>
           Current Cart: {this.props.cart.map((product, index) => (<CartItem product={product} key={index} removeFromCart={this.props.removeFromCart} increaseQuantityInCart={this.props.increaseQuantityInCart} decreaseQuantityInCart={this.props.decreaseQuantityInCart} />))}
+            Total Price: ${parseFloat(totalCost).toFixed(2)}
+            <br />
+            <Link to={`/checkout/${1}`}>
+            <br />
+            <button>Checkout</button>
+            </Link>
         </ol>
-        <br />
-        Total Price: ${parseFloat(totalCost).toFixed(2)}
-        <Link to={`/checkout/${1}`}>
-          <button>Checkout</button>
-        </Link>
       </div>
     );
   }
