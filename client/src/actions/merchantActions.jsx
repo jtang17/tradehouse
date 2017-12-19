@@ -10,7 +10,7 @@ export const fetchMerchantLoading = bool => ({
   isLoading: bool,
 });
 
-export const fetchMerchantInfo = (id) => (dispatch) => {
+export const fetchMerchantInfo = id => (dispatch) => {
   dispatch(fetchMerchantLoading(true));
   return axios.get(`/api/merchants/${id}`)
     .then(res => dispatch({

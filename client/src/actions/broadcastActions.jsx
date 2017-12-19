@@ -29,7 +29,7 @@ export const changeStream = url => (dispatch) => {
     }));
 };
 
-export const fetchStreamUrl = (merchantId) => (dispatch) => {
+export const fetchStreamUrl = merchantId => (dispatch) => {
   axios.fetch(`api/merchants/${id}/featured`)
     .then(res => dispatch({
       type: FETCH_STREAM_URL_SUCCESS,
@@ -54,7 +54,7 @@ export const changeBroadcastMessage = broadcastMessage => (dispatch) => {
     }));
 };
 
-export const fetchBroadcastMessage = (merchantId) => (dispatch) => {
+export const fetchBroadcastMessage = merchantId => (dispatch) => {
   axios.fetch(`api/merchants/${id}/featured`)
     .then(res => dispatch({
       type: FETCH_BROADCAST_MESSAGE_SUCCESS,
@@ -79,7 +79,7 @@ export const selectFeaturedProduct = product => (dispatch) => {
     }));
 };
 
-export const fetchFeaturedProduct = (merchantId) => (dispatch) => {
+export const fetchFeaturedProduct = merchantId => (dispatch) => {
   axios.fetch(`api/merchants/${id}/featured`)
     .then(res => dispatch({
       type: FETCH_FEATURED_PRODUCT_SUCCESS,

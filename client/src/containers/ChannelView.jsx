@@ -15,13 +15,13 @@ class ChannelView extends React.Component {
   componentDidMount() {
     this.props.fetchMerchantInfo(1);
     this.props.fetchFeaturedProduct(1);
-    //want to render the featured product on this page as well
+    // want to render the featured product on this page as well
   }
 
   render() {
     const { merchantInfo } = this.props;
     console.log(merchantInfo);
-    //TODO: Need to render merchant information based on this.props.merchantInfo
+    // TODO: Need to render merchant information based on this.props.merchantInfo
     return (
       <div>
           Viewing: {merchantInfo.username} - <Link to={`/store/${merchantInfo.id}`}>Store</Link>
@@ -42,9 +42,9 @@ class ChannelView extends React.Component {
             var socket = io();
         </script>
       </div>
-    )
-  };
-};
+    );
+  }
+}
 
 const mapStateToProps = state => ({
   merchantInfo: state.merchantInfo,

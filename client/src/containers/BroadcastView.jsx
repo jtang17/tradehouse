@@ -7,7 +7,7 @@ const auth = new Auth();
 import { connect } from 'react-redux';
 import { fetchMerchantProducts } from '../actions/productActions.jsx';
 import { changeStream, changeBroadcastMessage, selectFeaturedProduct } from '../actions/broadcastActions.jsx';
-import { fetchMerchantInfo } from '../actions/merchantActions.jsx'
+import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
 
 import BroadcastViewVideo from '../components/broadcast/BroadcastViewVideo.jsx';
 import VideoControl from '../components/broadcast/VideoControl.jsx';
@@ -64,6 +64,8 @@ const mapStateToProps = state => ({
   stream: state.stream,
 });
 
-const mapDispatchToProps = { fetchMerchantProducts, changeStream, changeBroadcastMessage, selectFeaturedProduct, fetchMerchantInfo };
+const mapDispatchToProps = {
+  fetchMerchantProducts, changeStream, changeBroadcastMessage, selectFeaturedProduct, fetchMerchantInfo,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BroadcastView);

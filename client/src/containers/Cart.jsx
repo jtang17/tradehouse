@@ -25,11 +25,11 @@ class Cart extends React.Component {
         <ol>
           Current Cart: {this.props.cart.map((product, index) => (<CartItem product={product} key={index} removeFromCart={this.props.removeFromCart} increaseQuantityInCart={this.props.increaseQuantityInCart} decreaseQuantityInCart={this.props.decreaseQuantityInCart} />))}
             Total Price: ${parseFloat(totalCost).toFixed(2)}
-            <br />
-            <Link to={`/checkout/${1}`}>
+          <br />
+          <Link to={`/checkout/${1}`}>
             <br />
             <button>Checkout</button>
-            </Link>
+          </Link>
         </ol>
       </div>
     );
