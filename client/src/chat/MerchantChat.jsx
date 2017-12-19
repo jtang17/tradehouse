@@ -8,40 +8,38 @@ const socket = openSocket(`http://localhost:${port}`); // TODO: fix for deployme
 class MerchantChat extends React.Component {
   constructor(props) {
     super(props);
-    /* socket.on('timer', timestamp => cb(null, timestamp));*/
-    /* socket.emit('subscribeToTimer', 1000);*/
     this.state = {
-      timestamp: 'no timestamp yet',
       value: '',
+      messages: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.subscribeToTimer = this.subscribeToTimer.bind(this);
+    this.setState = this.setState.bind(this);
   }
 
   componentDidMount() {
-    this.subscribeToTimer(1000, (err, timestamp) => this.setState({
-      timestamp,
-    }));
+    const merchantChatContext = this;
+    socket.on('chat message', function (msg) {
+      merchantChatContext.setState({ messages: merchantChatContext.state.messages.concat(msg) });
+    });
   }
+
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    socket.emit('chat message', this.state.value);
     this.setState({ value: '' });
-  }
-
-  subscribeToTimer(interval, cb) {
-    socket.on('timer', timestamp => cb(null, timestamp));
-    socket.emit('subscribeToTimer', 1000);
   }
 
   render() {
     return (
       <div className="chatTest">
-        {this.state.timestamp}
+        {this.state.messages.map(msg => (
+          <div>{msg}</div>
+        ))}
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
