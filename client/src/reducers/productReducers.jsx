@@ -12,7 +12,7 @@ import {
 } from '../actions/productActions.jsx';
 
 export function allProducts(state = [], action) {
-  switch(action.type) {
+  switch (action.type) {
     case FETCH_ALL_PRODUCTS_SUCCESS: {
       return action.allProducts;
     }
