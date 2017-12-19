@@ -40,7 +40,7 @@ export const fetchAllProducts = (url = '/api/products') => (dispatch) => {
   axios.get(url)
     .then(res => dispatch({
       type: FETCH_ALL_PRODUCTS_SUCCESS,
-      products: res.data,
+      allProducts: res.data,
     }))
     .catch(err => dispatch({
       type: FETCH_ALL_PRODUCTS_FAILURE,

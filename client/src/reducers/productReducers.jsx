@@ -44,7 +44,7 @@ export function products(state = [], action) {
       // notify user of error?
     }
     case FETCH_ALL_PRODUCTS_SUCCESS: {
-      return action.products;
+      return action.allProducts;
     }
     case FETCH_ALL_PRODUCTS_FAILURE: {
       console.error(action.error);
