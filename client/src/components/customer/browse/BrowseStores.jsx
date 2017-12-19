@@ -2,11 +2,19 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-const BrowseStores = props => (
-  <div>
-    <h4>Store Browser</h4>
-  </div>
-);
+class BrowseStores extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+        <div>
+          <h4>Store Browser</h4>
+        </div>
+      );
+  }
+}
 
 export default BrowseStores;
 

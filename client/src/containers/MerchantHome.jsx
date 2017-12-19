@@ -15,7 +15,7 @@ class MerchantHome extends React.Component {
 
   componentDidMount() {
     /* TODO: use ID retrieved from DB upon login, instead of hardcoding */
-    this.props.fetchMerchantInfo({ id: 1 });
+    this.props.fetchMerchantInfo(this.props.match.params.merchantId);
   }
 
   render() {

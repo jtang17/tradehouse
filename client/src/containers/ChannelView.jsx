@@ -13,8 +13,7 @@ class ChannelView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMerchantInfo(1);
-    this.props.fetchFeaturedProduct(1);
+    this.props.fetchMerchantInfo(this.props.match.params.merchantId);
     // want to render the featured product on this page as well
   }
 
@@ -25,6 +24,8 @@ class ChannelView extends React.Component {
     return (
       <div>
           Viewing: {merchantInfo.username} - <Link to={`/store/${merchantInfo.id}`}>Store</Link>
+        <br />
+        {merchantInfo.broadcastMessage}
         <br />
         <iframe
           width="560"

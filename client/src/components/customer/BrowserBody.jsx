@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import BrowseStreams from './browse/BrowseStreams.jsx';
-import BrowseVideos from './browse/BrowseVideos.jsx';
+import BrowseStores from './browse/BrowseStores.jsx';
 import BrowseProducts from './browse/BrowseProducts.jsx';
 
 class BrowserBody extends React.Component {
@@ -12,7 +12,8 @@ class BrowserBody extends React.Component {
       type: 'streams',
     };
     this.toggleStreams = this.toggleStreams.bind(this);
-    this.toggleVideos = this.toggleVideos.bind(this);
+    // this.toggleStores = this.toggleStores.bind(this);
+    // this.toggleVideos = this.toggleVideos.bind(this);
     this.toggleProducts = this.toggleProducts.bind(this);
   }
 
@@ -20,6 +21,7 @@ class BrowserBody extends React.Component {
     // TODO:
     // fetchTopStreams
     // fetchTopVideos
+    // fetchTopStores
     // fetchTopProducts
   }
 
@@ -29,11 +31,17 @@ class BrowserBody extends React.Component {
     });
   }
 
-  toggleVideos() {
-    this.setState({
-      type: 'videos',
-    });
-  }
+  // toggleVideos() {
+  //   this.setState({
+  //     type: 'videos',
+  //   });
+  // }
+
+  // toggleStores() {
+  //   this.setState({
+  //     type: 'stores',
+  //   });
+  // }
 
   toggleProducts() {
     this.setState({
@@ -48,17 +56,17 @@ class BrowserBody extends React.Component {
       <div>
         <div>
           <button onClick={this.toggleStreams}>Streams</button>
-          <button onClick={this.toggleVideos}>Videos</button>
+          <button onClick={this.toggleStores}>Stores</button>
           <button onClick={this.toggleProducts}>Products</button>
         </div>
-        {this.state.type === 'streams' && <BrowseStreams />}
-        {this.state.type === 'videos' && <BrowseVideos />}
+        {this.state.type === 'streams' && <BrowseStreams merchants={this.props.merchants} />}
+
         {this.state.type === 'products' && <BrowseProducts products={this.props.products} />}
       </div>
     );
   }
 }
-// {this.state.type === 'streams' && <BrowseStreams />}
-// {this.state.type === 'videos' && <BrowseVideos />}
 
+        //{this.state.type === 'stores' && <BrowseStores merchants={this.props.merchants} />}
+        //{this.state.type === 'videos' && <BrowseVideos />}
 export default BrowserBody;

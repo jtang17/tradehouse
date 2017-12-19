@@ -14,12 +14,8 @@ class SingleStore extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchMerchantProducts(1);
-    // TODO: should fetchProducts of one particular merchant
-
-    this.props.fetchMerchantInfo({ id: 1 });
-    // this.props.fetchMerchantInfo(merchant);
-    // TODO: should fetchMerchantInfo of one particular merchant
+    this.props.fetchMerchantProducts(this.props.merchantId);
+    this.props.fetchMerchantInfo(this.props.merchantId);
   }
 
   render() {
