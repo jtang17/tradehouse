@@ -10,7 +10,9 @@ let SidebarSearchForm = (props) => {
   console.log('SidebarSearchForm: ', props);
   const {
     allMerchants,
+    allProducts,
     fetchAllMerchants,
+    fetchAllProducts,
   } = props;
   return (
     <div className="SidebarSearchForm">
@@ -23,6 +25,7 @@ let SidebarSearchForm = (props) => {
         />
       </form>
       <button onClick={fetchAllMerchants.bind(null)}>Get all Merchants</button>
+      <button onClick={fetchAllProducts.bind(null)}>Get all Products</button>
     </div>
   );
 };
