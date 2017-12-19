@@ -24,7 +24,7 @@ class Browser extends React.Component {
 
 // TODO: fetch streams, videos, and products to be displayed on browser from database
 const mapStateToProps = state => ({
-  products: state.products,
+  products: state.allProducts,
 });
 
 export default connect(mapStateToProps, { fetchAllProducts })(Browser);
