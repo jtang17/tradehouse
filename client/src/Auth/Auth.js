@@ -43,7 +43,7 @@ class Auth {
       console.log(err, 'profile', profile);
     });
     lock.on('signup submit', () => {
-      console.log('singed up');
+      console.log('signed up');
       var user = this.getProfile();
       console.log(user);
     });
@@ -91,9 +91,9 @@ class Auth {
               username: profile.username,
               email: profile.email,
               facebook,
+              currentIdToken: authResult.idToken,
             }, {
               headers: {
-                // 'Authorization': 'Bearer ' + authResult.accessToken,
                 Authorization: `Bearer ${authResult.accessToken}`,
               },
             }).then(res => {
@@ -106,10 +106,10 @@ class Auth {
             }).catch(err => console.error(err));
           } else {
             axios.post('/api/customers', {
-              accessToken: authResult.accessToken,
               username: profile.username,
               email: profile.email,
               facebook,
+              currentIdToken: authResult.idToken,
             }, {
               headers: {
                 // 'Authorization': 'Bearer ' + authResult.accessToken,

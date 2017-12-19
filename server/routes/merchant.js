@@ -21,6 +21,11 @@ router.get('/:merchantId', asyncMiddleware(async (req, res, next) => {
   res.json(merchant);
 }));
 
+router.get('/bySub/:merchantIdToken', asyncMiddleware(async (req, res, next) => {
+  const merchant = await controllers.findOneMerchantBySub(req.params.merchantIdToken);
+  res.json(merchant);
+}));
+
 router.put('/:merchantId', asyncMiddleware(async (req, res, next) => {
   const merchant = await controllers.editMerchantProfile(req.params.merchantId, req.body.profile);
   res.json(merchant);

@@ -13,4 +13,5 @@ module.exports = (sequelize, DataTypes) =>
     broadcastMessage: DataTypes.TEXT,
     currentProduct: DataTypes.TEXT,
     storeName: DataTypes.TEXT,
+    sub: { type: DataTypes.STRING, unique: true },
   });

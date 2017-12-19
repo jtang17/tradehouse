@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const db = require('../models/index.js');
 
 const saveNewProduct = entry => db.Product.create({
@@ -30,6 +31,7 @@ const saveNewMerchant = entry => db.Merchant.findOrCreate({
     // stream: entry.stream,
     // broadcastMessage: entry.broadcastMessage,
     // currentProduct: entry.currentProduct,
+    sub: jwt.decode(entry.currentIdToken).sub,
   },
 });
 
@@ -38,6 +40,7 @@ const saveNewCustomer = entry => db.Customer.findOrCreate({
     username: entry.username,
     // password: entry.password,
     email: entry.email,
+    sub: jwt.decode(entry.currentIdToken).sub,
   },
 });
 
@@ -200,6 +203,12 @@ const findOneMerchant = merchantId => db.Merchant.findOne({
   },
 });
 
+const findOneMerchantBySub = merchantIdToken => db.Merchant.findOne({
+  where: {
+    sub: jwt.decode(merchantIdToken).sub,
+  },
+});
+
 const findOneProduct = productId => db.Product.findOne({
   where: {
     id: productId,
@@ -290,4 +299,5 @@ module.exports = {
   editMerchantFeaturedProduct,
   changeToMerchant,
   editMerchantProfileAndFindByEmail,
+  findOneMerchantBySub,
 };
