@@ -18,8 +18,8 @@ class ChannelView extends React.Component {
 
   componentDidMount() {
     this.props.fetchSubscriptions(1);
-    //TODO: FETCH SUBSCRIPTIONS OF LOGGED IN CUSTOMER AND CHECK IF THEY ARE SUBSCRIBED
-    //THEN RENDER FOLLOW/UNFOLLOW BUTTON BASED ON SUBSCRIPTION STATUS
+    // TODO: FETCH SUBSCRIPTIONS OF LOGGED IN CUSTOMER AND CHECK IF THEY ARE SUBSCRIBED
+    // THEN RENDER FOLLOW/UNFOLLOW BUTTON BASED ON SUBSCRIPTION STATUS
     this.props.fetchMerchantInfo(this.props.match.params.merchantId)
       .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct));
   }
@@ -44,10 +44,10 @@ class ChannelView extends React.Component {
       <div>
           Viewing: {merchantInfo.storeName} - <Link to={`/store/${merchantInfo.id}`}>Store</Link>
         <br />
-        <span style={{fontStyle: 'italic'}}>{merchantInfo.broadcastMessage}</span>
+        <span style={{ fontStyle: 'italic' }}>{merchantInfo.broadcastMessage}</span>
         <br />
-          <button onClick={this.unfollowButtonClick}>Unfollow</button>
-          <button onClick={this.followButtonClick}>Follow</button>
+        <button onClick={this.unfollowButtonClick}>Unfollow</button>
+        <button onClick={this.followButtonClick}>Follow</button>
 
         <br />
         <iframe
@@ -85,6 +85,8 @@ const mapStateToProps = state => ({
   subscriptions: state.subscriptions,
 });
 
-const mapDispatchToProps = { addToCart, fetchMerchantInfo, fetchSingleProduct, follow, unfollow,fetchSubscriptions };
+const mapDispatchToProps = {
+  addToCart, fetchMerchantInfo, fetchSingleProduct, follow, unfollow, fetchSubscriptions,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelView);

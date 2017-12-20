@@ -27,7 +27,7 @@ export const fetchCustomerInfo = ({ id }) => (dispatch) => {
     }));
 };
 
-export const fetchSubscriptions = (customerId) => (dispatch) => {
+export const fetchSubscriptions = customerId => (dispatch) => {
   axios.get(`/api/customers/${customerId}/subscriptions`)
     .then(res => dispatch({
       type: FETCH_SUBSCRIPTIONS_SUCCESS,
@@ -52,7 +52,7 @@ export const follow = (customerId, merchantId) => (dispatch) => {
 };
 
 export const unfollow = (customerId, merchantId) => (dispatch) => {
-  axios.delete(`/api/customers/${customerId}/subscriptions`, { data: { merchantId }})
+  axios.delete(`/api/customers/${customerId}/subscriptions`, { data: { merchantId } })
     .then(res => dispatch({
       type: UNFOLLOW_SUCCESS,
       subscriptions: res.data,

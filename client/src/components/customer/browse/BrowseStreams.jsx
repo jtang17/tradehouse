@@ -9,9 +9,9 @@ const BrowseStreams = props => (
       {props.merchants.map((merchant, index) => (
         <div key={index} className="streamsEntry">
           <Link to={`/channel/${merchant.id}`}>
-            <img src={merchant.logo} style={{ width: '75px'}} />
+            <img src={merchant.logo} style={{ width: '75px' }} />
             <li>{merchant.storeName} <br />
-              <span style={{fontStyle: 'italic'}}>{merchant.broadcastMessage}</span>
+              <span style={{ fontStyle: 'italic' }}>{merchant.broadcastMessage}</span>
             </li>
           </Link>
           <Link to={`/store/${merchant.id}`}>Store</Link>
