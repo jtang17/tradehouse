@@ -172,4 +172,3 @@ class Auth {
 
 module.exports.lock = lock;
 module.exports.Auth = Auth;
-
