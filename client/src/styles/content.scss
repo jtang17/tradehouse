@@ -1,6 +1,6 @@
 .content__container {
-	width: 100%;
+	width: auto;
 	display: grid;
-	grid-template-columns: [sidebar] 200px [content] auto;
-	
+	grid-template-columns: [sidebar] 200px [content] fit-content(800px);
+	max-width: 1000px;
 }

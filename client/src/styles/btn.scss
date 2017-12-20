@@ -4,9 +4,9 @@
 	border: 1px solid $lightpurp;
 	font-weight: bold;
 	background: darken($tanYel, 20);
-	
+
 	&:hover {
-		transform: translate(5px);
+		transform: translateY(-5px);
 
 		border-bottom: 3px solid $babyblue;
 		background: darken($yellow, 10);
