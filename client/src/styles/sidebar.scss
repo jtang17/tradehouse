@@ -1,8 +1,11 @@
 .sidebar__container {
 	display: block;
-	background: lighten(#BAB7B3, 15);
+	filter: grayscale(30%);
+	background: url('assets/textures/pattern1.jpeg');
+	background-size: 50%;
 	padding: 15px;
 	box-shadow: 1px 1px 2px $pine;
+	overflow: hidden;
 	overflow-wrap: break-word;
 	z-index: 9999;
 }

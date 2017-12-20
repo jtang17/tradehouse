@@ -40,7 +40,7 @@ class Header extends React.Component {
             <p>Tradehouse: buy and sell more effectively</p>
           </div>
           <div className="header__account--register">
-            <button className="hvr-icon-pulse" onClick={this.registerFunc}>Register/Login</button>
+            <button className="hvr-icon-pulse btn--profile" onClick={this.registerFunc}>Register/Login</button>
           </div>
         </div>
       );
@@ -48,7 +48,7 @@ class Header extends React.Component {
     return (
       <div className="header__container">
         <Link className="header__logo" to="/"></Link>
-        <div className="btn-group">
+        <div className="nav__container--header">
           <Link className="btn--nav" to={`/merchant_profile/${1}`} >
 							Merchant Profile
           </Link>
@@ -60,7 +60,7 @@ class Header extends React.Component {
           </Link>
         </div>
         <div className="header__account--register">
-          <button className="hvr-icon-pulse" onClick={this.logout}>Logout</button>
+          <button className="hvr-icon-pulse btn--profile" onClick={this.logout}>Logout</button>
         </div>
       </div>
     );

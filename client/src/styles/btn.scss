@@ -1,0 +1,43 @@
+.btn--nav {
+	margin: 0 5px;
+	padding: 5px;
+	border: 1px solid $lightpurp;
+	font-weight: bold;
+	background: darken($tanYel, 20);
+	
+	&:hover {
+		transform: translate(5px);
+
+		border-bottom: 3px solid $babyblue;
+		background: darken($yellow, 10);
+		transition: 0.5s;
+	}
+
+	&:visited {
+		color: $text;
+	}
+}
+
+.btn--profile {
+	
+	background: $yellow;
+	display: inline-block;
+	padding:10px 2.2em 10px 10px;
+	border-radius: 5px;
+	&:hover {
+		background: lighten($lightpurp, 7);
+	}
+
+}
+.btn--profile:before {
+    content: "\f007";
+    position: absolute;
+    right: 1em;
+    padding: 0 1px;
+    font-family: FontAwesome;
+    transform: translateZ(0);
+    transition-duration: 0.1s;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+
+}

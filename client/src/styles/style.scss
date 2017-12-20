@@ -1,14 +1,15 @@
 @import 'libs/hover';
 @import 'libs/normalize';
 
+
 @import 'vars';
 
 @import 'header';
 @import 'footer';
-@import 'buttons';
 @import 'content';
 @import 'main';
 @import 'sidebar';
+@import 'btn';
 
 // Customer
 @import 'customer/featured';
@@ -16,17 +17,32 @@
 // Merchant
 @import 'merchant/mercHome';
 
+html {
+	font-size: 10px;
+
+	h1 {
+		font-size: 2em;
+	}
+
+	h1 {
+		font-size: 2em;
+	}
+}
+
+* {
+	box-sizing: border-box;
+
+}
+
 body {
 	background: $lmarble;
 	box-sizing: border-box;
 	font-family: comfortaa;
 	line-height: 1.25;
 	color: $text;
+
 }
 
-* {
-	box-sizing: border-box;
-}
 
 h1, h2, h3 {
 	font-family: Poppins;
@@ -34,10 +50,7 @@ h1, h2, h3 {
 
 a, h4, h5, h6 {
 	font-family: Poiret;
-
-	&:visited {
-		color: $lmarble;
-	}
+	text-decoration: none;
 }
 
 
