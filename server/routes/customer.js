@@ -23,9 +23,21 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
   res.json(newCustomer);
 }));
 
+router.get('/:customerId/subscriptions', asyncMiddleware(async (req, res, next) => {
+  const subscriptions = await controllers.findCustomerSubscriptions(req.params.customerId);
+  res.json(subscriptions);
+}));
+
 router.post('/:customerId/subscriptions', asyncMiddleware(async (req, res, next) => {
-  const subscription = await controllers.saveNewSubscription(req.body);
-  res.json(subscription);
+  const subscriptions = await controllers.saveNewSubscription(req.params.customerId, req.body.merchantId)
+    .then(() => controllers.findCustomerSubscriptions(req.params.customerId));
+  res.json(subscriptions);
+}));
+
+router.delete('/:customerId/subscriptions', asyncMiddleware(async (req, res, next) => {
+  const subscriptions = await controllers.deleteSubscription(req.params.customerId, req.body.merchantId)
+    .then(() => controllers.findCustomerSubscriptions(req.params.customerId));
+  res.json(subscriptions);
 }));
 
 router.get('/:customerId/cart', asyncMiddleware(async (req, res, next) => {

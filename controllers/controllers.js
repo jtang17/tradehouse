@@ -74,10 +74,22 @@ const saveNewMerchantReview = entry => db.MerchantReview.create({
   customerId: entry.customerId,
 });
 
-const saveNewSubscription = ({ customerId, merchantId }) => db.Subscription.create({
+const saveNewSubscription = (customerId, merchantId) => db.Subscription.create({
   customerId,
   merchantId,
 });
+
+const findCustomerSubscriptions = ( customerId ) => db.Subscription.findAll({
+  where: { customerId },
+});
+
+const deleteSubscription = (customerId, merchantId) => db.Subscription.destroy({
+  where: {
+    customerId: customerId,
+    merchantId: merchantId,
+  },
+});
+
 
 const findShoppingCartedProducts = customerId => db.ShoppingCartedProduct.findAll({
   where: { customerId },
@@ -233,6 +245,8 @@ module.exports = {
   saveNewMerchant,
   saveNewCustomer,
   saveNewSubscription,
+  findCustomerSubscriptions,
+  deleteSubscription,
   findOneCustomer,
   findOneMerchant,
   findOneProduct,

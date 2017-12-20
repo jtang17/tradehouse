@@ -38,6 +38,7 @@ const defaultState = {
   cart: [],
   stream: '',
   featuredProduct: {},
+  subscriptions: [],
 };
 
 const store = createStore(tradehouseApp, defaultState, composeWithDevTools(applyMiddleware(thunk)));

@@ -7,15 +7,19 @@ import StoreItem from '../components/customer/StoreItem.jsx';
 import { addToCart } from '../actions/cartActions.jsx';
 import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
 import { fetchSingleProduct } from '../actions/productActions.jsx';
-import { follow, unfollow } from '../actions/followActions.jsx';
+import { follow, unfollow, fetchSubscriptions } from '../actions/customerActions.jsx';
 
 class ChannelView extends React.Component {
   constructor(props) {
     super(props);
     this.followButtonClick = this.followButtonClick.bind(this);
+    this.unfollowButtonClick = this.unfollowButtonClick.bind(this);
   }
 
   componentDidMount() {
+    this.props.fetchSubscriptions(1);
+    //TODO: FETCH SUBSCRIPTIONS OF LOGGED IN CUSTOMER AND CHECK IF THEY ARE SUBSCRIBED
+    //THEN RENDER FOLLOW/UNFOLLOW BUTTON BASED ON SUBSCRIPTION STATUS
     this.props.fetchMerchantInfo(this.props.match.params.merchantId)
       .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct));
   }
@@ -25,13 +29,16 @@ class ChannelView extends React.Component {
     if (!loggedIn) {
       alert('Please register or log in.');
     } else {
-      this.props.addFollow(this.props.match.params.merchantId);
+      this.props.follow(1, this.props.match.params.merchantId);
     }
+  }
+
+  unfollowButtonClick() {
+    this.props.unfollow(1, this.props.match.params.merchantId);
   }
 
   render() {
     const { merchantInfo } = this.props;
-
     // TODO: LINK TO CART/CHECKOUT OF LOGGED IN CUSTOMER
     return (
       <div>
@@ -39,7 +46,9 @@ class ChannelView extends React.Component {
         <br />
         <span style={{fontStyle: 'italic'}}>{merchantInfo.broadcastMessage}</span>
         <br />
-        <button onClick={this.followButtonClick}>Follow</button>
+          <button onClick={this.unfollowButtonClick}>Unfollow</button>
+          <button onClick={this.followButtonClick}>Follow</button>
+
         <br />
         <iframe
           width="400"
@@ -73,6 +82,9 @@ class ChannelView extends React.Component {
 const mapStateToProps = state => ({
   merchantInfo: state.merchantInfo,
   product: state.singleProduct,
+  subscriptions: state.subscriptions,
 });
 
-export default connect(mapStateToProps, { addToCart, fetchMerchantInfo, fetchSingleProduct, follow, unfollow })(ChannelView);
+const mapDispatchToProps = { addToCart, fetchMerchantInfo, fetchSingleProduct, follow, unfollow,fetchSubscriptions };
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelView);

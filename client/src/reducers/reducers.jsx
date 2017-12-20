@@ -4,7 +4,7 @@ import { reducer as formReducer } from 'redux-form';
 import { broadcastMessage, featuredProduct, stream } from './broadcastReducers.jsx';
 import { cart } from './cartReducers.jsx';
 import { allProducts, products, merchantProducts, singleProduct } from './productReducers.jsx';
-import { customerInfo } from './customerReducers.jsx';
+import { customerInfo, subscriptions } from './customerReducers.jsx';
 import { merchantInfo, allMerchants } from './merchantReducers.jsx';
 
 const tradehouseApp = combineReducers({
@@ -18,6 +18,7 @@ const tradehouseApp = combineReducers({
   broadcastMessage,
   featuredProduct,
   form: formReducer,
+  subscriptions,
   customerInfo,
   merchantInfo,
 });
