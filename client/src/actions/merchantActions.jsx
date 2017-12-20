@@ -24,17 +24,15 @@ export const fetchMerchantInfo = id => (dispatch) => {
     }));
 };
 
-export const editMerchantProfile = (id, profile) => (dispatch) => {
-  return axios.put(`/api/merchants/${id}`, { profile })
-    .then(res => dispatch({
-      type: EDIT_MERCHANT_PROFILE_SUCCESS,
-      merchantInfo: res.data,
-    }))
-    .catch(err => dispatch({
-      type: EDIT_MERCHANT_PROFILE_FAILURE,
-      error: err,
-    }));
-};
+export const editMerchantProfile = (id, profile) => dispatch => axios.put(`/api/merchants/${id}`, { profile })
+  .then(res => dispatch({
+    type: EDIT_MERCHANT_PROFILE_SUCCESS,
+    merchantInfo: res.data,
+  }))
+  .catch(err => dispatch({
+    type: EDIT_MERCHANT_PROFILE_FAILURE,
+    error: err,
+  }));
 
 export const fetchAllMerchants = () => dispatch => axios.get('/api/merchants')
   .then(res => dispatch({

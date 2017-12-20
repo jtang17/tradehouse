@@ -68,7 +68,7 @@ class MerchantProfile extends React.Component {
       </div>
     );
   }
-};
+}
 
 const MerchantProfileForm = reduxForm({
   form: 'editMerchantProfile',

@@ -41,6 +41,7 @@ class BroadcastView extends React.Component {
               changeBroadcastMessage={this.props.changeBroadcastMessage}
             />
           </div>
+          {this.props.merchantInfo.storeName}
           <div className="col">
             <BroadcastViewVideo
               stream={this.props.merchantInfo.stream}
