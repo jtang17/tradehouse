@@ -35,9 +35,7 @@ class Header extends React.Component {
     if (!auth.isAuthenticated()) {
       return (
         <div className="header__container">
-          <Link to="/">
-            <img src="https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif" />
-          </Link>
+          <Link className="header__logo" to="/"></Link>
           <div className="header__social">
             <p>Tradehouse: buy and sell more effectively</p>
           </div>
@@ -49,17 +47,15 @@ class Header extends React.Component {
     }
     return (
       <div className="header__container">
-        <Link to="/">
-          <img src="https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif" />
-        </Link>
+        <Link className="header__logo" to="/"></Link>
         <div className="btn-group">
-          <Link to={`/merchant_profile/${1}`} >
+          <Link className="btn--nav" to={`/merchant_profile/${1}`} >
 							Merchant Profile
           </Link>
-          <Link to={`/manage_store/${1}`}>
+          <Link className="btn--nav" to={`/manage_store/${1}`}>
 							Manage Store
           </Link>
-          <Link to={`/broadcast/${1}`}>
+          <Link className="btn--nav" to={`/broadcast/${1}`}>
 							Broadcast
           </Link>
         </div>

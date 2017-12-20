@@ -1,7 +1,7 @@
 @import 'libs/hover';
+@import 'libs/normalize';
 
 @import 'vars';
-@import 'normalize';
 
 @import 'header';
 @import 'footer';
@@ -19,10 +19,30 @@
 body {
 	background: $lmarble;
 	box-sizing: border-box;
+	font-family: comfortaa;
 	line-height: 1.25;
 	color: $text;
 }
 
 * {
 	box-sizing: border-box;
+}
+
+h1, h2, h3 {
+	font-family: Poppins;
+}
+
+a, h4, h5, h6 {
+	font-family: Poiret;
+
+	&:visited {
+		color: $lmarble;
+	}
+}
+
+
+
+p {
+	font-family: comfortaa;
+	font-size: 12px;
 }

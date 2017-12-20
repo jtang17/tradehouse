@@ -5,4 +5,39 @@ $lmarble: #faf6f0;
 $gray: #dedddb;
 $text: #33383a;
 $pine: #34675C;
+$yellow: #fcee21;
 
+// Blue Monochromatic
+$dblue: #0D737F;
+$babyblue: #97F4FF;
+$skyblue: #1AE7FF;
+$medblue: #37787F;
+$throatblue: #15B9CC;
+
+
+
+// fonts
+@font-face {
+    font-family: Delhi;
+    src: url('assets/fonts/Delhi.ttf');
+}
+
+@font-face {
+    font-family: comfortaa;
+    src: url('assets/fonts/Comfortaa-Regular.ttf');
+}
+
+@font-face {
+    font-family: Forum;
+    src: url('assets/fonts/Forum-Regular.ttf');
+}
+
+@font-face {
+    font-family: Poiret;
+    src: url('assets/fonts/Poiret.ttf');
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('assets/fonts/Poppins-Regular.ttf');
+}
