@@ -139,24 +139,20 @@ const editShoppingCartedProduct = (entry, customerId) =>
   });
 
 
-const editMerchantProfile = entry =>
+const editMerchantProfile = (merchantId, entry) =>
   db.Merchant.findOne({
     where: {
-      id: entry.id,
+      id: merchantId,
     },
   }).then(merchant => merchant.update({
+    storeName: entry.storeName,
     logo: entry.logo,
-    username: entry.username,
     website: entry.website,
-    rating: entry.rating,
     location: entry.location,
-    email: entry.email,
     facebook: entry.facebook,
     twitter: entry.twitter,
     description: entry.description,
     stream: entry.stream,
-    broadcastMessage: entry.broadcastMessage,
-    currentProduct: entry.currentProduct,
   }));
 
 

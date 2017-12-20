@@ -22,7 +22,9 @@ router.get('/:merchantId', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.put('/:merchantId', asyncMiddleware(async (req, res, next) => {
-  const merchant = await controllers.editMerchantProfile(req.body);
+  console.log(req.params.merchantId);
+  console.log(req.body);
+  const merchant = await controllers.editMerchantProfile(req.params.merchantId, req.body.profile);
   res.json(merchant);
 }));
 

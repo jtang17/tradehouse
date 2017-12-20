@@ -10,7 +10,7 @@ const BrowseStreams = props => (
         <div key={index} className="streamsEntry">
           <Link to={`/channel/${merchant.id}`}>
             <img src={merchant.logo} />
-            <li>{merchant.username} - {merchant.broadcastMessage}</li>
+            <li>{merchant.storeName} - {merchant.broadcastMessage}</li>
           </Link>
           <Link to={`/store/${merchant.id}`}>Store</Link>
         </div>

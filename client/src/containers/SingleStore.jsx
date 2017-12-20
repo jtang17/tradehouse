@@ -23,7 +23,7 @@ class SingleStore extends React.Component {
     return (
       <div className="singleStore">
         <div className="storeHeader">
-          <h4>Store Page: {merchantInfo.username}</h4>
+          <h4>Store Page: {merchantInfo.storeName}</h4>
           Location:{merchantInfo.location}<br />
           <p>{merchantInfo.description}</p>
         </div>

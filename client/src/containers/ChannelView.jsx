@@ -24,7 +24,7 @@ class ChannelView extends React.Component {
     // TODO: LINK TO CART/CHECKOUT OF LOGGED IN CUSTOMER
     return (
       <div>
-          Viewing: {merchantInfo.username} - <Link to={`/store/${merchantInfo.id}`}>Store</Link>
+          Viewing: {merchantInfo.storeName} - <Link to={`/store/${merchantInfo.id}`}>Store</Link>
         <br />
         {merchantInfo.broadcastMessage}
         <br />

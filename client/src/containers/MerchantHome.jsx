@@ -3,7 +3,7 @@ import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import MerchantOverview from '../components/merchant/MerchantOverview.jsx';
 import MerchantStats from '../components/merchant/MerchantStats.jsx';
-import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
+import { fetchMerchantInfo, editMerchantProfile } from '../actions/merchantActions.jsx';
 import { Auth } from '../Auth/Auth';
 
 const auth = new Auth();
@@ -27,6 +27,7 @@ class MerchantHome extends React.Component {
       <div className="merchantHome__container">
         <MerchantOverview
           merchantInfo={this.props.merchantInfo}
+          editMerchantProfile={this.props.editMerchantProfile}
         />
         <MerchantStats />
       </div>
@@ -35,4 +36,4 @@ class MerchantHome extends React.Component {
 }
 
 const mapStateToProps = state => ({ merchantInfo: state.merchantInfo });
-export default connect(mapStateToProps, { fetchMerchantInfo })(MerchantHome);
+export default connect(mapStateToProps, { fetchMerchantInfo, editMerchantProfile })(MerchantHome);
