@@ -13,5 +13,6 @@ module.exports = (sequelize, DataTypes) =>
     broadcastMessage: DataTypes.TEXT,
     currentProduct: DataTypes.TEXT,
     storeName: DataTypes.TEXT,
-    sub: { type: DataTypes.STRING, unique: true },
+    // sub: { type: DataTypes.STRING, unique: true }, // this really should be unique, but removing the constraint for now makes seeding less annoying
+    sub: { type: DataTypes.STRING },
   });
