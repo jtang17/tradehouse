@@ -9,8 +9,10 @@ const BrowseStreams = props => (
       {props.merchants.map((merchant, index) => (
         <div key={index} className="streamsEntry">
           <Link to={`/channel/${merchant.id}`}>
-            <img src={merchant.logo} />
-            <li>{merchant.storeName} - {merchant.broadcastMessage}</li>
+            <img src={merchant.logo} style={{ width: '75px'}} />
+            <li>{merchant.storeName} <br />
+              <span style={{fontStyle: 'italic'}}>{merchant.broadcastMessage}</span>
+            </li>
           </Link>
           <Link to={`/store/${merchant.id}`}>Store</Link>
         </div>
@@ -19,7 +21,7 @@ const BrowseStreams = props => (
     TEMPLATE:
     <div className="streamsEntry">
       <Link to={`/channel/${1}`}>
-        <img src="https://i.ytimg.com/vi/D6dMyx3bpco/hqdefault_live.jpg" style={{ width: '25%', height: '25%' }} />
+        <img src="https://i.ytimg.com/vi/D6dMyx3bpco/hqdefault_live.jpg" style={{ width: '75px' }} />
         <li>Lofi hip hop radio - the chillest beats 24/7</li>
       </Link>
       <Link to={`/store/${1}`}>Store</Link>
