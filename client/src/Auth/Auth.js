@@ -101,7 +101,7 @@ class Auth {
             }).catch(err => {
               console.error(err);
             }).then(() => {
-              history.replace('MerchantHome');
+              history.replace('/');
               window.location.reload();
             }).catch(err => console.error(err));
           } else {
@@ -120,7 +120,7 @@ class Auth {
             }).catch(err => {
               console.error(err);
             }).then(() => {
-              history.replace('CustomerHome');
+              history.replace('/');
               window.location.reload();
             }).catch(err => console.error(err));
           }
