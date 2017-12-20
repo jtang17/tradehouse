@@ -8,6 +8,7 @@ import { addToCart } from '../actions/cartActions.jsx';
 import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
 import { fetchSingleProduct } from '../actions/productActions.jsx';
 import { follow, unfollow, fetchSubscriptions } from '../actions/customerActions.jsx';
+import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
 import CustomerChat from '../chat/CustomerChat.jsx';
 
 class ChannelView extends React.Component {
@@ -38,7 +39,8 @@ class ChannelView extends React.Component {
       });
 
     this.props.fetchMerchantInfo(this.props.match.params.merchantId)
-      .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct));
+      .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct))
+      .then(() => this.props.fetchCustomerInfoByToken());
   }
 
   followButtonClick() {
@@ -98,10 +100,11 @@ const mapStateToProps = state => ({
   merchantInfo: state.merchantInfo,
   product: state.singleProduct,
   subscriptions: state.subscriptions,
+  customerInfo: state.customerInfo,
 });
 
 const mapDispatchToProps = {
-  addToCart, fetchMerchantInfo, fetchSingleProduct, follow, unfollow, fetchSubscriptions,
+  addToCart, fetchMerchantInfo, fetchSingleProduct, follow, unfollow, fetchSubscriptions, fetchCustomerInfoByToken
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelView);

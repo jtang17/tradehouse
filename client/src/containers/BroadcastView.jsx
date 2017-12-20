@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { fetchMerchantProducts } from '../actions/productActions.jsx';
 import { changeStream, changeBroadcastMessage, selectFeaturedProduct } from '../actions/broadcastActions.jsx';
 import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
+import { fetchMerchantInfoByToken } from '../actions/merchantActions.jsx';
 
 import BroadcastViewVideo from '../components/broadcast/BroadcastViewVideo.jsx';
 import VideoControl from '../components/broadcast/VideoControl.jsx';
@@ -25,8 +26,10 @@ class BroadcastView extends React.Component {
 
   componentDidMount() {
     // TODO: fetch currently logged in merchant's products and info
-    this.props.fetchMerchantProducts(1);
-    this.props.fetchMerchantInfo(1);
+    /* this.props.fetchMerchantProducts(1);*/
+    /* this.props.fetchMerchantInfo(1);*/
+    this.props.fetchMerchantInfoByToken()
+    .then(this.props.fetchMerchantProducts(this.props.merchantInfo.id));
   }
 
   render() {
@@ -63,7 +66,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  fetchMerchantProducts, changeStream, changeBroadcastMessage, selectFeaturedProduct, fetchMerchantInfo,
+  fetchMerchantProducts, changeStream, changeBroadcastMessage, selectFeaturedProduct, fetchMerchantInfo, fetchMerchantInfoByToken,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BroadcastView);

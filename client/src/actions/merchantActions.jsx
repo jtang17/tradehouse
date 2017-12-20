@@ -43,3 +43,15 @@ export const fetchAllMerchants = () => dispatch => axios.get('/api/merchants')
     type: FETCH_ALL_MERCHANTS_FAILURE,
     error: err,
   }));
+
+export const fetchMerchantInfoByToken = () => (dispatch) => {
+  dispatch(fetchMerchantLoading(true));
+  return axios.get(`/api/merchants/bySub/${localStorage.idToken}`)
+    .then(res => dispatch({
+      type: FETCH_MERCHANT_SUCCESS,
+      merchantInfo: res.data,
+    }), err => dispatch({
+      type: FETCH_MERCHANT_FAILURE,
+      error: err,
+    }));
+};

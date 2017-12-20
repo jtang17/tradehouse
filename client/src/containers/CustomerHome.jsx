@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Auth } from '../Auth/Auth';
 import { fetchCustomerInfo } from '../actions/customerActions.jsx';
+import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
 import CustomerProfile from '../components/customer/CustomerProfile.jsx';
 
 const auth = new Auth();
@@ -34,4 +35,4 @@ class CustomerHome extends React.Component {
 }
 
 const mapStateToProps = state => ({ customerInfo: state.customerInfo });
-export default connect(mapStateToProps, { fetchCustomerInfo })(CustomerHome);
+export default connect(mapStateToProps, { fetchCustomerInfo, fetchCustomerInfoByToken })(CustomerHome);
