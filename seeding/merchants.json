@@ -11,7 +11,9 @@
     "description":"chill hip hop beats",
     "stream":"https://www.youtube.com/embed/live_stream?channel=UCSJ4gkVC6NrvII8umztf0Ow&autoplay=1",
     "broadcastMessage":"playing some beats",
-    "currentProduct":"Mooncake"
+    "currentProduct":"Mooncake",
+    "storeName":"store name",
+    "currentIdToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qa3lNVEkyUkRnM05UazRNalE1UWprd1JVWXdSVEZGUkVaRFFqTTVNakV5TTBRNFFqQTVNUSJ9.eyJpc3MiOiJodHRwczovL2FudG9udnMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVhMzllY2ZjYjg2ZGQxMTgwODQyMmQyMCIsImF1ZCI6Imw1SGhWUmJ3bHZtcnlJUVFsanpEYUhvTU1BeEY4ODczIiwiaWF0IjoxNTEzNzQ1NjYxLCJleHAiOjE1MTM3ODE2NjF9.f69U54kLdog_EkQo7DnOvNa3UJFeTv384NV6Z8hsO5vXD-9exMokN7iBlfe4m4zj7j9bHPz3K3Pk5xZeHA6AlCbRt4NCbd4TX-z9q6-fS5mdzLrSLZMPhr8u4kdKzA81y6ZoW6rN2TAkafV-L2KhycGWt-W85SvhiaVLf3HZDKsic15WtjeJQDwqFuqI5lD3FXQ6vr8L4lbmpd-j5QW5KmFBP3qcONZJZBzpe6IAw_jrqQifKLQLK2pgACHbK_OJeGLrYcH0MvV1lL-DF6gaRi7CHHbnArP4wUFLZpyuWDXXlaUFFdZ34JLRw0e7lMZxmAFVs5kHgUfpbm7VxaJddw"
   },
   {
     "logo":"aoeu.com",
@@ -25,7 +27,9 @@
     "description":"used-car salesperson",
     "stream":"twitch.tv/briony",
     "broadcastMessage":"hi",
-    "currentProduct":"van"
+    "currentProduct":"van",
+    "storeName":"store name",
+    "currentIdToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qa3lNVEkyUkRnM05UazRNalE1UWprd1JVWXdSVEZGUkVaRFFqTTVNakV5TTBRNFFqQTVNUSJ9.eyJpc3MiOiJodHRwczovL2FudG9udnMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVhMzllY2ZjYjg2ZGQxMTgwODQyMmQyMCIsImF1ZCI6Imw1SGhWUmJ3bHZtcnlJUVFsanpEYUhvTU1BeEY4ODczIiwiaWF0IjoxNTEzNzQ1NjYxLCJleHAiOjE1MTM3ODE2NjF9.f69U54kLdog_EkQo7DnOvNa3UJFeTv384NV6Z8hsO5vXD-9exMokN7iBlfe4m4zj7j9bHPz3K3Pk5xZeHA6AlCbRt4NCbd4TX-z9q6-fS5mdzLrSLZMPhr8u4kdKzA81y6ZoW6rN2TAkafV-L2KhycGWt-W85SvhiaVLf3HZDKsic15WtjeJQDwqFuqI5lD3FXQ6vr8L4lbmpd-j5QW5KmFBP3qcONZJZBzpe6IAw_jrqQifKLQLK2pgACHbK_OJeGLrYcH0MvV1lL-DF6gaRi7CHHbnArP4wUFLZpyuWDXXlaUFFdZ34JLRw0e7lMZxmAFVs5kHgUfpbm7VxaJddw"
   },
   {
     "logo":"aoeu.com",
@@ -39,7 +43,9 @@
     "description":"used-car salesperson",
     "stream":"twitch.tv/christine",
     "broadcastMessage":"hi",
-    "currentProduct":"van"
+    "currentProduct":"van",
+    "storeName":"store name",
+    "currentIdToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qa3lNVEkyUkRnM05UazRNalE1UWprd1JVWXdSVEZGUkVaRFFqTTVNakV5TTBRNFFqQTVNUSJ9.eyJpc3MiOiJodHRwczovL2FudG9udnMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVhMzllY2ZjYjg2ZGQxMTgwODQyMmQyMCIsImF1ZCI6Imw1SGhWUmJ3bHZtcnlJUVFsanpEYUhvTU1BeEY4ODczIiwiaWF0IjoxNTEzNzQ1NjYxLCJleHAiOjE1MTM3ODE2NjF9.f69U54kLdog_EkQo7DnOvNa3UJFeTv384NV6Z8hsO5vXD-9exMokN7iBlfe4m4zj7j9bHPz3K3Pk5xZeHA6AlCbRt4NCbd4TX-z9q6-fS5mdzLrSLZMPhr8u4kdKzA81y6ZoW6rN2TAkafV-L2KhycGWt-W85SvhiaVLf3HZDKsic15WtjeJQDwqFuqI5lD3FXQ6vr8L4lbmpd-j5QW5KmFBP3qcONZJZBzpe6IAw_jrqQifKLQLK2pgACHbK_OJeGLrYcH0MvV1lL-DF6gaRi7CHHbnArP4wUFLZpyuWDXXlaUFFdZ34JLRw0e7lMZxmAFVs5kHgUfpbm7VxaJddw"
   },
   {
     "logo":"aoeu.com",
@@ -53,6 +59,8 @@
     "description":"used-car salesperson",
     "stream":"twitch.tv/jane",
     "broadcastMessage":"hi",
-    "currentProduct":"van"
+    "currentProduct":"van",
+    "storeName":"store name",
+    "currentIdToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1qa3lNVEkyUkRnM05UazRNalE1UWprd1JVWXdSVEZGUkVaRFFqTTVNakV5TTBRNFFqQTVNUSJ9.eyJpc3MiOiJodHRwczovL2FudG9udnMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVhMzllY2ZjYjg2ZGQxMTgwODQyMmQyMCIsImF1ZCI6Imw1SGhWUmJ3bHZtcnlJUVFsanpEYUhvTU1BeEY4ODczIiwiaWF0IjoxNTEzNzQ1NjYxLCJleHAiOjE1MTM3ODE2NjF9.f69U54kLdog_EkQo7DnOvNa3UJFeTv384NV6Z8hsO5vXD-9exMokN7iBlfe4m4zj7j9bHPz3K3Pk5xZeHA6AlCbRt4NCbd4TX-z9q6-fS5mdzLrSLZMPhr8u4kdKzA81y6ZoW6rN2TAkafV-L2KhycGWt-W85SvhiaVLf3HZDKsic15WtjeJQDwqFuqI5lD3FXQ6vr8L4lbmpd-j5QW5KmFBP3qcONZJZBzpe6IAw_jrqQifKLQLK2pgACHbK_OJeGLrYcH0MvV1lL-DF6gaRi7CHHbnArP4wUFLZpyuWDXXlaUFFdZ34JLRw0e7lMZxmAFVs5kHgUfpbm7VxaJddw"
   }
 ]
