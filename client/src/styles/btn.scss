@@ -1,15 +1,15 @@
 .btn--nav {
 	margin: 0 5px;
 	padding: 5px;
-	border: 1px solid $dblue;
+	border: 1px solid #777;
 	font-weight: bold;
-	background: $yellow;
+	background: $ortan;
 
 	&:hover {
 		transform: translateY(-5px);
 
-		border-bottom: 3px solid $babyblue;
-		background: darken($yellow, 10);
+
+		background: lighten($ortan, 10);
 		transition: 0.5s;
 	}
 
@@ -20,7 +20,7 @@
 
 .btn--profile {
 	
-	background: $yellow;
+	background: $lblue;
 	display: inline-block;
 	padding:10px 2.2em 10px 10px;
 	border-radius: 5px;

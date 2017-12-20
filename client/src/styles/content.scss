@@ -3,4 +3,5 @@
 	display: grid;
 	grid-template-columns: [sidebar] 200px [content] fit-content(800px);
 	max-width: 1000px;
+	color: $finaldblue;
 }

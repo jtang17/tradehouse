@@ -1,0 +1,8 @@
+// Container card border/shadow
+
+@mixin cardShadow() {
+	border-top: 5px solid $gray;
+	border-bottom: 1px solid $gray;
+	border-right: 1px solid $gray;	
+	border-left: 1px solid $gray;	
+}

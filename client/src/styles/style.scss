@@ -1,8 +1,8 @@
 @import 'libs/hover';
 @import 'libs/normalize';
 
-
 @import 'vars';
+@import 'mixins/mixins';
 
 @import 'header';
 @import 'footer';
@@ -63,8 +63,12 @@ h1, h2, h3 {
 }
 
 a, h4, h5, h6 {
-	font-family: Poiret;
+	font-family: Delhi;
 	text-decoration: none;
+
+	&:visited {
+		color: #777;
+	}
 }
 
 

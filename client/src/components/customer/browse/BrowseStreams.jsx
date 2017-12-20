@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const BrowseStreams = props => (
-  <div>
+  <div className="browseStreams__container">
     <h4>Stream Browser</h4>
     <ul>
       {props.merchants.map((merchant, index) => (
