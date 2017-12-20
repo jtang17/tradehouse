@@ -1,9 +1,9 @@
 .btn--nav {
 	margin: 0 5px;
 	padding: 5px;
-	border: 1px solid $lightpurp;
+	border: 1px solid $dblue;
 	font-weight: bold;
-	background: darken($tanYel, 20);
+	background: $yellow;
 
 	&:hover {
 		transform: translateY(-5px);

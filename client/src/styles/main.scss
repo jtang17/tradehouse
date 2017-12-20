@@ -1,6 +1,9 @@
-.mainContent__container {
-	display:grid;
-	grid-template-columns: [sidebar] 200px [content] fit-content(800px);
-	grid-gap: 10px;
-	margin: 15px 0;
+@media only screen and (min-width: 400px) {
+	.mainContent__container {
+		display:grid;
+		grid-template-columns: [sidebar] 200px [content] fit-content(800px);
+		grid-gap: 10px;
+		margin: 15px 0;
+		margin-right: 15px;
+	}
 }
