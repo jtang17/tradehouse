@@ -29,8 +29,8 @@ class ChannelView extends React.Component {
         {merchantInfo.broadcastMessage}
         <br />
         <iframe
-          width="560"
-          height="315"
+          width="400"
+          height="300"
           src={merchantInfo.stream}
           frameBorder="0"
           allowFullScreen

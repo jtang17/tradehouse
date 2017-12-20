@@ -5,9 +5,10 @@
 ## Table of Contents
 
 1. [Requirements](#requirements)
-1. [Installing Dependencies](#installing-dependencies)
-1. [Team](#team)
-1. [Contributing](#contributing)
+2. [Installing Dependencies](#installing-dependencies)
+3. [Team](#team)
+4. [Contributing](#contributing)
+5. [Additional Info](#additional-info)
 
 ## Requirements / Recommended
 
@@ -33,3 +34,7 @@ npm run be-start
 ## Contributing
 
 This project uses the Airbnb style guide. See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+
+## Additional Info
+
+Merchants can submit their embedded stream URLs through YouTube, Twitch or other services. e.g. https://www.youtube.com/embed/live_stream?channel=UCSJ4gkVC6NrvII8umztf0Ow or http://player.twitch.tv/?channel=datjoncat&muted=true
