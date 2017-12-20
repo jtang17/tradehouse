@@ -9,9 +9,11 @@
 1. [Team](#team)
 1. [Contributing](#contributing)
 
-## Requirements
+## Requirements / Recommended
 
 - Node 8.9.3
+- Java 8
+- Elastic Search 6.1.0
 
 ### Installing Dependencies
 

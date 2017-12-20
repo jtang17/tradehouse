@@ -11,17 +11,29 @@ class Featured extends React.Component {
     return (
       <div className="featuredBroadcast__container">
         <Link to={`/channel/${1}`} className="channelViewLink">
-          <h2>Featured Broadcast: QVC Live Stream</h2>
+          <h2>Featured Broadcast: Core Koans</h2>
         </Link>
         <iframe
-          width="448"
-          height="252"
-          src="https://www.youtube.com/embed/live_stream?channel=UCW4gXUEypFeI3xgoQ27LFBA&autoplay=1"
+          src="http://player.twitch.tv/?channel=datjoncat&muted=true"
+          height="300"
+          width="400"
           frameBorder="0"
-          allowFullScreen
-        />
+          scrolling="no"
+          allowFullScreen="true"
+        >
+        </iframe>
+        <iframe
+          style={{float: 'right'}}
+          frameBorder="0"
+          scrolling="no"
+          id="chat_embed"
+          src="http://www.twitch.tv/embed/datjoncat/chat"
+          height="400"
+          width="200"
+        >
+        </iframe>
         <div className="featured__description">
-          Description: Subscribe to QVC for the inside scoop and helpful how-to videos from the who's who in the shopping and entertainment world!
+          Description: Subscribe to Core Koans for the inside scoop on all the best deals!
         </div>
       </div>
     );
