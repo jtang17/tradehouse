@@ -14,7 +14,8 @@ class CustomerHome extends React.Component {
 
   componentDidMount() {
     /* TODO: use customer ID retrieved from DB upon login, instead of hardcoding */
-    this.props.fetchCustomerInfo({ id: 1 });
+    /* this.props.fetchCustomerInfo({ id: 1 });*/
+    this.props.fetchCustomerInfoByToken();
   }
 
   render() {

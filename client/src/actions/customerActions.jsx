@@ -60,3 +60,15 @@ export const unfollow = (customerId, merchantId) => (dispatch) => {
       error: err,
     }));
 };
+
+export const fetchCustomerInfoByToken = () => (dispatch) => {
+  dispatch(fetchCustomerLoading(true));
+  return axios.get(`/api/customers/bySub/${localStorage.idToken}`)
+    .then(res => dispatch({
+      type: FETCH_CUSTOMER_SUCCESS,
+      customerInfo: res.data,
+    }), err => dispatch({
+      type: FETCH_CUSTOMER_FAILURE,
+      error: err,
+    }));
+};
