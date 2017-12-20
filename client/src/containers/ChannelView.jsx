@@ -7,15 +7,26 @@ import StoreItem from '../components/customer/StoreItem.jsx';
 import { addToCart } from '../actions/cartActions.jsx';
 import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
 import { fetchSingleProduct } from '../actions/productActions.jsx';
+import { follow, unfollow } from '../actions/followActions.jsx';
 
 class ChannelView extends React.Component {
   constructor(props) {
     super(props);
+    this.followButtonClick = this.followButtonClick.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchMerchantInfo(this.props.match.params.merchantId)
       .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct));
+  }
+
+  followButtonClick() {
+    const loggedIn = true;
+    if (!loggedIn) {
+      alert('Please register or log in.');
+    } else {
+      this.props.addFollow(this.props.match.params.merchantId);
+    }
   }
 
   render() {
@@ -26,7 +37,9 @@ class ChannelView extends React.Component {
       <div>
           Viewing: {merchantInfo.storeName} - <Link to={`/store/${merchantInfo.id}`}>Store</Link>
         <br />
-        {merchantInfo.broadcastMessage}
+        <span style={{fontStyle: 'italic'}}>{merchantInfo.broadcastMessage}</span>
+        <br />
+        <button onClick={this.followButtonClick}>Follow</button>
         <br />
         <iframe
           width="400"
@@ -62,4 +75,4 @@ const mapStateToProps = state => ({
   product: state.singleProduct,
 });
 
-export default connect(mapStateToProps, { addToCart, fetchMerchantInfo, fetchSingleProduct })(ChannelView);
+export default connect(mapStateToProps, { addToCart, fetchMerchantInfo, fetchSingleProduct, follow, unfollow })(ChannelView);
