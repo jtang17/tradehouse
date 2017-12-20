@@ -29,7 +29,7 @@ class SingleStore extends React.Component {
         </div>
         <div className="storeProductList">
           <h4>Products:</h4>
-          {this.props.merchantProducts.map((product, index) => <StoreItem key={index} product={product} addToCart={this.props.addToCart} />)}
+          {this.props.merchantProducts.map((product, index) => <StoreItem key={index} product={product} addToCart={this.props.addToCart} customerId={this.props.customerId} />)}
         </div>
       </div>
     );

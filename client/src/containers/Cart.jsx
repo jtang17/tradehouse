@@ -10,24 +10,6 @@ import { connect } from 'react-redux';
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      /* id: 1*/
-    };
-    this.setState = this.setState.bind(this);
-  }
-
-  componentDidMount() {
-    axios.get(`/api/customers/bySub/${localStorage.idToken}`)
-    /* .then(res => this.setState({ id: res.data.id }, (err, newState) => {console.log(err);
-     *   console.log(newState);
-     *   this.props.fetchCart(newState.id)}));*/
-    /* .then(res => this.setState({ id: res.data.id }))
-     * .then(() => this.props.fetchCart(this.state.id));*/
-         .then(res => this.setState((prevState) => {
-           this.props.fetchCart(res.data.id);
-           return { id: res.data.id };
-         }))
-    /* this.props.fetchCart();*/
   }
 
   render() {
@@ -38,10 +20,10 @@ class Cart extends React.Component {
     return (
       <div>
         <ol>
-          Current Cart: {this.props.cart.map((product, index) => (<CartItem product={product} key={index} removeFromCart={this.props.removeFromCart} increaseQuantityInCart={this.props.increaseQuantityInCart} decreaseQuantityInCart={this.props.decreaseQuantityInCart} customerId={this.state.id} />))}
+          Current Cart: {this.props.cart.map((product, index) => (<CartItem product={product} key={index} removeFromCart={this.props.removeFromCart} increaseQuantityInCart={this.props.increaseQuantityInCart} decreaseQuantityInCart={this.props.decreaseQuantityInCart} customerId={this.props.customerId} />))}
           Total Price: ${parseFloat(totalCost).toFixed(2)}
           <br />
-          <Link to={`/checkout/${this.state.id}`}>
+          <Link to={`/checkout/${this.props.customerId}`}>
             <br />
             <button>Checkout</button>
           </Link>
