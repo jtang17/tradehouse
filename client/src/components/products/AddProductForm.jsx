@@ -9,6 +9,7 @@ let AddProductForm = (props) => {
       quantity: parseInt(values.target[1].defaultValue, 10),
       unitPrice: parseFloat(values.target[2].defaultValue),
       description: values.target[3].defaultValue,
+      imageUrl: values.target[4].defaultValue,
       merchantId: 1,
     };
     return props.addProduct(product);
@@ -30,6 +31,9 @@ let AddProductForm = (props) => {
         </div>
         <div className="col">
           <Field type="text" component="input" name="description" placeholder="Description" />
+        </div>
+        <div className="col">
+          <Field type="text" component="input" name="imageUrl" placeholder="Image Url" />
         </div>
       </div>
       <input className="btn btn-primary" type="submit" value="Add Product" />
