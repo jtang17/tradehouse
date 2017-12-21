@@ -105,26 +105,26 @@ class Auth {
               history.replace('/');
               window.location.reload();
             }).catch(err => console.error(err));
-          } else {
-            axios.post('/api/customers', {
-              username: profile.username,
-              email: profile.email,
-              facebook,
-              currentIdToken: authResult.idToken,
-            }, {
-              headers: {
-                // 'Authorization': 'Bearer ' + authResult.accessToken,
-                Authorization: `Bearer ${authResult.accessToken}`,
-              },
-            }).then(res => {
-              console.log(res);
-            }).catch(err => {
-              console.error(err);
-            }).then(() => {
-              history.replace('/');
-              window.location.reload();
-            }).catch(err => console.error(err));
           }
+
+          axios.post('/api/customers', {
+            username: profile.username,
+            email: profile.email,
+            facebook,
+            currentIdToken: authResult.idToken,
+          }, {
+            headers: {
+              // 'Authorization': 'Bearer ' + authResult.accessToken,
+              Authorization: `Bearer ${authResult.accessToken}`,
+            },
+          }).then(res => {
+            console.log(res);
+          }).catch(err => {
+            console.error(err);
+          }).then(() => {
+            history.replace('/');
+            window.location.reload();
+          }).catch(err => console.error(err));
         }
         // axios.post('/api/customers', {
         //       accessToken: authResult.accessToken,
