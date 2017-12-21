@@ -16,7 +16,7 @@ class ChannelView extends React.Component {
     this.unfollowButtonClick = this.unfollowButtonClick.bind(this);
     this.state = {
       subscribed: false,
-    }
+    };
   }
 
   componentDidMount() {
@@ -24,8 +24,8 @@ class ChannelView extends React.Component {
       .then(() => {
         this.props.subscriptions.forEach((subscription) => {
           if (subscription.merchantId.toString() === this.props.match.params.merchantId) {
-            //customer is subscribed to this merchant.
-            //show unfollow button instead of follow.
+            // customer is subscribed to this merchant.
+            // show unfollow button instead of follow.
             console.log('hello');
             console.log(this.state.subscribed);
             this.setState({
@@ -33,7 +33,7 @@ class ChannelView extends React.Component {
             });
             console.log(this.state.subscribed);
           }
-        })
+        });
       });
 
     this.props.fetchMerchantInfo(this.props.match.params.merchantId)

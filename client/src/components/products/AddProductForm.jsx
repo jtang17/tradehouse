@@ -38,7 +38,7 @@ let AddProductForm = (props) => {
       </div>
       <input className="btn btn-primary" type="submit" value="Add Product" />
     </form>
-    </div>
+  </div>
   );
 };
 

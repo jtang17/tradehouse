@@ -13,9 +13,9 @@ class ProductsView extends React.Component {
     super(props);
     this.state = {
       addProduct: false,
-    }
+    };
 
-    this.showAddProduct = this.showAddProduct.bind(this)
+    this.showAddProduct = this.showAddProduct.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +27,7 @@ class ProductsView extends React.Component {
   showAddProduct() {
     this.setState({
       addProduct: !this.state.addProduct,
-    })
+    });
   }
 
   render() {

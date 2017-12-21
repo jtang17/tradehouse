@@ -27,17 +27,15 @@ export const fetchCustomerInfo = ({ id }) => (dispatch) => {
     }));
 };
 
-export const fetchSubscriptions = customerId => (dispatch) => {
-  return axios.get(`/api/customers/${customerId}/subscriptions`)
-    .then(res => dispatch({
-      type: FETCH_SUBSCRIPTIONS_SUCCESS,
-      subscriptions: res.data,
-    }))
-    .catch(err => dispatch({
-      type: FETCH_SUBSCRIPTIONS_FAILURE,
-      error: err,
-    }));
-};
+export const fetchSubscriptions = customerId => dispatch => axios.get(`/api/customers/${customerId}/subscriptions`)
+  .then(res => dispatch({
+    type: FETCH_SUBSCRIPTIONS_SUCCESS,
+    subscriptions: res.data,
+  }))
+  .catch(err => dispatch({
+    type: FETCH_SUBSCRIPTIONS_FAILURE,
+    error: err,
+  }));
 
 export const follow = (customerId, merchantId) => (dispatch) => {
   axios.post(`/api/customers/${customerId}/subscriptions`, { merchantId })

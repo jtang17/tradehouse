@@ -35,7 +35,7 @@ class Header extends React.Component {
     if (!auth.isAuthenticated()) {
       return (
         <div className="header__container">
-          <Link className="header__logo" to="/"></Link>
+          <Link className="header__logo" to="/" />
           <div className="header__social">
             <p>Tradehouse: buy and sell more effectively</p>
           </div>
@@ -47,7 +47,7 @@ class Header extends React.Component {
     }
     return (
       <div className="header__container">
-        <Link className="header__logo" to="/"></Link>
+        <Link className="header__logo" to="/" />
         <div className="nav__container--header">
           <Link className="btn--nav" to={`/merchant_profile/${1}`} >
 							Merchant Profile
