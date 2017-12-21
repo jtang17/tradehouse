@@ -36,6 +36,7 @@ class Featured extends React.Component {
       </div>
     );
   }
+  // comment
 }
 
 export default Featured;
