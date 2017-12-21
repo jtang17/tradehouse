@@ -10,10 +10,10 @@ class SidebarCustomerDashboard extends React.Component {
     return (
       <div>
         <Link to="browse"><a>Browse Content</a></Link>
-        <h1>Dashboard Test</h1>
       </div>
     );
   }
 }
 
 export default SidebarCustomerDashboard;
+        // <h1>Dashboard Test</h1>
