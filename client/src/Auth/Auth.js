@@ -74,6 +74,7 @@ class Auth {
 
   setSession(authResult) {
     if (authResult && authResult.accessToken && authResult.idToken) {
+    // if (authResult && authResult.accessToken) {
       lock.getUserInfo(authResult.accessToken, function(err, profile) {
       // this.auth0.userInfo(authResult.accessToken, function(err, profile) {
         if (err) {
@@ -140,7 +141,7 @@ class Auth {
         //     }).catch(err => {
         //       console.error(err);
         //     }).then(() => {
-        //       history.replace('CustomerHome');
+        //       history.replace('/');
         //       window.location.reload();
         //     }).catch(err => console.error(err));
       });
