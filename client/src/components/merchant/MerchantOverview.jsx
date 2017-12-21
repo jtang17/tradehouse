@@ -26,8 +26,6 @@ class MerchantOverview extends React.Component {
         </a>
         {this.state.edit ? <MerchantProfileForm merchantInfo={merchantInfo} editMerchantProfile={this.props.editMerchantProfile} /> :
         <div>
-
-
           <span className="mercOverview__profile">
             <section className="mercOverview__profile--part1">
               Store Name: {merchantInfo.storeName} <br />
