@@ -21,8 +21,7 @@ class ProductList extends React.Component {
     }
 
     return (
-      <span>
-        <table className="table">
+        <table className="products__table">
           <thead>
             <tr>
               <th>#</th>
@@ -34,7 +33,6 @@ class ProductList extends React.Component {
           </thead>
           <tbody>{ items }</tbody>
         </table>
-      </span>
     );
   }
 }

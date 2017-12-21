@@ -13,7 +13,8 @@ let AddProductForm = (props) => {
     };
     return props.addProduct(product);
   };
-  return (
+
+  return (<div className="product__form">
     <form onSubmit={handleSubmit}>
       <div className="row">
         <div className="col">
@@ -33,6 +34,7 @@ let AddProductForm = (props) => {
       </div>
       <input className="btn btn-primary" type="submit" value="Add Product" />
     </form>
+    </div>
   );
 };
 

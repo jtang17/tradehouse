@@ -17,6 +17,12 @@
 // Merchant
 @import 'merchant/mercHome';
 @import 'merchant/broadcastView';
+@import 'merchant/merchant';
+
+// Product
+@import 'products/productTable';
+@import 'products/products';
+@import 'products/addProductForm';
 
 html {
 	font-size: 10px;
@@ -71,9 +77,14 @@ a, h4, h5, h6 {
 	}
 }
 
-
-
 p {
 	font-family: comfortaa;
 	font-size: 12px;
+}
+
+
+// Conditional Styles
+
+.hidden {
+	display: none;
 }

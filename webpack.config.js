@@ -20,7 +20,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(gif|png|jpe?g|svg)$/i,
+        test: /\.(ttf|eot|woff|gif|png|jpe?g|svg)$/i,
         loaders: [
           'file-loader', {
             loader: 'image-webpack-loader',
@@ -46,13 +46,6 @@ module.exports = {
             },
           },
         ],
-      },
-      {
-        test: /\.(ttf|eot|woff|woff2)$/,
-        loader: "file-loader",
-        options: {
-          name: "fonts/[name].[ext]",
-        },
       },
       {
         test: /\.scss$/,

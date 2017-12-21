@@ -1,0 +1,11 @@
+.product__form {
+	@include darkShadow();
+	position: absolute;
+	width: 150px;
+	height: 250px;
+	background: $ortan;
+	left: 50%; 
+	transform: translate(-50%,0); 
+	z-index: 99999;
+
+}
