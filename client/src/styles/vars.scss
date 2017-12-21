@@ -1,16 +1,11 @@
 // Final Color Scheme
-$lightpurp: #c6bad1;
-$lmarble: #faf6f0;
-$gray: #dedddb;
-$text: #33383a;
-
-
-// Logo colors #3E3E4E;
 $finaldblue: #3E3E4E;
 $ortan: #fbbe83;
 $lblue: #59ADDC;
-
-
+$hilight: complement($ortan);
+$lmarble: #faf6f0;
+$gray: #dedddb;
+$text: #33383a;
 
 // fonts
 @font-face {

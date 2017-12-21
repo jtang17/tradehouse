@@ -1,16 +1,15 @@
 .btn--nav {
 	margin: 0 5px;
 	padding: 5px;
-	border: 1px solid #777;
+	border: 1px solid $gray;
 	font-weight: bold;
 	background: $ortan;
 
 	&:hover {
-		transform: translateY(-5px);
-
-
 		background: lighten($ortan, 10);
 		transition: 0.5s;
+		border: 1px solid $text;
+		padding: 5px 10px;
 	}
 
 	&:visited {
@@ -20,12 +19,11 @@
 
 .btn--profile {
 	
-	background: $lblue;
-	display: inline-block;
+	background: $hilight;
 	padding:10px 2.2em 10px 10px;
 	border-radius: 5px;
 	&:hover {
-		background: lighten($lightpurp, 7);
+		background: $lblue;
 	}
 
 }
@@ -40,4 +38,22 @@
     transition-property: transform;
     transition-timing-function: ease-out;
 
+}
+
+
+.btn--action {
+	margin: 0 5px;
+	padding: 5px;
+	border: 1px solid #777;
+	font-weight: bold;
+	background: $hilight;
+
+	&:hover {
+		background: lighten($ortan, 10);
+		transition: 0.5s;
+	}
+
+	&:visited {
+		color: $text;
+	}
 }

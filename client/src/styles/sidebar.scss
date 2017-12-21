@@ -1,7 +1,7 @@
 .sidebar__container {
 	display: block;
 	filter: grayscale(30%);
-	color: $lmarble;
+	color: $ortan;
 	background: #3E3E4E;
 	background-size: 100%;
 	padding: 15px;
@@ -9,5 +9,13 @@
 	overflow: hidden;
 	overflow-wrap: break-word;
 	z-index: 9999;
+
+
+	a {
+		&:visited {
+			color: $ortan;
+			text-decoration: overline; // Todo, make link styles for sidebar links
+		}
+	}
 }
 

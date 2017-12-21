@@ -1,11 +1,32 @@
-.product__form {
+.productForm__container {
 	@include darkShadow();
 	position: absolute;
-	width: 150px;
+	width: 250px;
 	height: 250px;
 	background: $ortan;
 	left: 50%; 
 	transform: translate(-50%,0); 
 	z-index: 99999;
 
+	h5 {
+		text-align: center;
+	}
+
+	.productForm {
+		input[type="text"] {
+			display: block;
+			margin: 8px auto;
+			width: 80%;
+			border: 2px solid $finaldblue;
+
+
+		}
+	}
+
+	.btn--action {
+		display: block;
+		margin: 0 auto;
+		margin-top: 25px;
+		text-align: center;
+	}
 }

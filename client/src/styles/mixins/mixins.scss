@@ -11,7 +11,7 @@
 @mixin darkShadow() {
 	padding: 10px;
 	border-top: 5px solid $text;
-	border-bottom: 5px solid $text;
-	border-right: 5px solid $text;	
-	border-left: 5px solid $text;	
+	border-bottom: 1px solid $text;
+	border-right: 1px solid $text;	
+	border-left: 1px solid $text;	
 }

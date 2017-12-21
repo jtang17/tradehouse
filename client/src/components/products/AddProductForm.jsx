@@ -15,28 +15,21 @@ let AddProductForm = (props) => {
     return props.addProduct(product);
   };
 
-  return (<div className="product__form">
-    <form onSubmit={handleSubmit}>
-      <div className="row">
-        <div className="col">
-          <Field type="text" component="input" name="title" placeholder="Title" />
-        </div>
-        <div className="col">
-          <Field type="text" component="input" name="productQuantity" placeholder="Quantity" />
-        </div>
-      </div>
-      <div className="row">
-        <div className="col">
-          <Field type="text" component="input" name="price" placeholder="Price" />
-        </div>
-        <div className="col">
-          <Field type="text" component="input" name="description" placeholder="Description" />
-        </div>
-        <div className="col">
-          <Field type="text" component="input" name="imageUrl" placeholder="Image Url" />
-        </div>
-      </div>
-      <input className="btn btn-primary" type="submit" value="Add Product" />
+  return (<div className="productForm__container">
+    <h5>Add a New Product</h5>
+    <form className="productForm" onSubmit={handleSubmit}>
+
+      <Field type="text" component="input" name="title" placeholder="Title" />
+
+
+      <Field type="text" component="input" name="productQuantity" placeholder="Quantity" />
+
+
+      <Field type="text" component="input" name="price" placeholder="Price" />
+
+      <Field type="text" component="input" name="description" placeholder="Description" />
+
+      <input className="btn--action" type="submit" value="Add Product" />
     </form>
   </div>
   );
