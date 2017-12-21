@@ -54,8 +54,6 @@ class Header extends React.Component {
     return (
       <div className="header__container">
         <Link className="header__logo" to="/" />
-          <img src="https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif" />
-        </Link>
         <div className="nav__container--header">
           <Link to={`/merchant_profile/${this.state.id}`} >
 							Merchant Profile
