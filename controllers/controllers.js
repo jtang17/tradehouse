@@ -6,6 +6,7 @@ const saveNewProduct = entry => db.Product.create({
   quantity: entry.quantity,
   unitPrice: entry.unitPrice,
   merchantId: entry.merchantId,
+  imageUrl: entry.imageUrl,
 });
 
 const deleteProduct = entry => db.Product.destroy({

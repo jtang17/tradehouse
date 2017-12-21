@@ -4,4 +4,5 @@ module.exports = (sequelize, DataTypes) =>
     description: DataTypes.TEXT,
     quantity: DataTypes.INTEGER,
     unitPrice: DataTypes.DOUBLE(6, 2),
+    imageUrl: DataTypes.TEXT,
   });

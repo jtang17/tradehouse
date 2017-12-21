@@ -3,24 +3,28 @@
       "title":"Mooncake",
       "description":"Yummy.",
       "quantity":5,
-      "unitPrice":1.99
+      "unitPrice":1.99,
+      "imageUrl":"https://images.chinahighlights.com/allpicture/2014/09/1dcedccef3a84be28b73c188_300x200.jpg"
    },
    {
       "title":"Piano",
       "description":"Untuned.",
       "quantity":1,
-      "unitPrice":4999.99
+      "unitPrice":4999.99,
+      "imageUrl":"https://lh3.googleusercontent.com/BvvW_zxOFJpLSZaGDjE17kjPiSfBsqjsB6euTPGWABNT5Oyt7vMdrAuJzIf4acTFeYQ=w300"
    },
    {
       "title":"Boba milk tea",
       "description":"Refreshing.",
       "quantity":10,
-      "unitPrice":2.99
+      "unitPrice":2.99,
+      "imageUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Bubble_Tea.png/150px-Bubble_Tea.png"
    },
    {
       "title":"Sublime license",
       "description":"If you cannot tolerate any more ads.",
       "quantity":9999,
-      "unitPrice":80
+      "unitPrice":80,
+      "imageUrl":"https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_1489703426/sublime-text.png"
    }
 ]
