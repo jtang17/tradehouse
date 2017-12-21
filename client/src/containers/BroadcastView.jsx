@@ -34,19 +34,19 @@ class BroadcastView extends React.Component {
     }
     return (
       <div className="broadcastView__container">
-          <h3 className="broadcast-header">{this.props.merchantInfo.storeName || 'Alex\'s Store.'}</h3>
-     
-    
-            <BroadcastViewVideo
-              stream={this.props.merchantInfo.stream}
-            />
- 
-          <VideoControl
-            changeStream={this.props.changeStream}
-            changeBroadcastMessage={this.props.changeBroadcastMessage}
-            broadcastMessage={this.props.broadcastMessage}
-          />
-  
+        <h3 className="broadcast-header">{this.props.merchantInfo.storeName || 'Alex\'s Store.'}</h3>
+
+
+        <BroadcastViewVideo
+          stream={this.props.merchantInfo.stream}
+        />
+
+        <VideoControl
+          changeStream={this.props.changeStream}
+          changeBroadcastMessage={this.props.changeBroadcastMessage}
+          broadcastMessage={this.props.broadcastMessage}
+        />
+
         <ProductControl
           featuredProduct={this.props.featuredProduct}
           products={this.props.products}

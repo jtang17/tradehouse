@@ -14,13 +14,13 @@ class ProductControl extends React.Component {
   render() {
     return (
       <div className="featuredProduct__container">
-            <h4 className="sub-heading">Currently Featured Product:</h4>
-            <ProductControlItem product={this.props.featuredProduct} />
-            <h5 className="sub-heading">Product List</h5>
-            {this.props.products.map((product, index) => (
-              <div key={index} onClick={this.selectFeaturedProduct.bind(null, index)}>
-                <ProductControlItem product={product} />
-              </div>
+        <h4 className="sub-heading">Currently Featured Product:</h4>
+        <ProductControlItem product={this.props.featuredProduct} />
+        <h5 className="sub-heading">Product List</h5>
+        {this.props.products.map((product, index) => (
+          <div key={index} onClick={this.selectFeaturedProduct.bind(null, index)}>
+            <ProductControlItem product={product} />
+          </div>
             ))}
       </div>
     );

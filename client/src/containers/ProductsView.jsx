@@ -59,4 +59,6 @@ const mapStateToProps = state => ({
   merchantInfo: state.merchantInfo,
 });
 
-export default connect(mapStateToProps, { addProduct, deleteProduct, fetchAllProducts, fetchMerchantInfo })(ProductsView);
+export default connect(mapStateToProps, {
+  addProduct, deleteProduct, fetchAllProducts, fetchMerchantInfo,
+})(ProductsView);

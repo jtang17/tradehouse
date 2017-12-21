@@ -12,7 +12,8 @@ const MerchantStats = props => (
         Customers Avg Spend: $76.00<br />
         Customers Age Group: 29-48<br />
         Customers Browser: Firefox<br />
-      </section></span>
+      </section>
+      </span>
       <section className="mercStats__content--part2">
         <img src="http://filsingergames.com/wp-content/uploads/2017/01/sales-graph.png" />
       </section>
