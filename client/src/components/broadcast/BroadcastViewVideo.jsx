@@ -1,15 +1,14 @@
 import React from 'react';
 
 const BroadcastViewVideo = props => (
-  <div>
+  <div className="broadcast__video">
     <iframe
-      width="400"
-      height="300"
+      width="300px"
+      height="200px"
       src={props.stream}
       frameBorder="0"
       allowFullScreen
     />
-    <p>Broadcast Message: {props.broadcastMessage}</p>
   </div>
 );
 

@@ -21,7 +21,6 @@
 
 // Product
 @import 'products/productTable';
-@import 'products/products';
 @import 'products/addProductForm';
 
 html {
@@ -33,10 +32,12 @@ html {
 
 	h2 {
 		font-size: 1.8em;
+		margin: 0;
 	}
 
 	h3 {
 		font-size: 1.6em;
+
 	}
 
 	h4 {
@@ -47,6 +48,9 @@ html {
 		font-size: 1.2em;
 	}
 
+	h6 {
+		font-size: 1em;
+	}
 }
 
 * {
@@ -68,8 +72,8 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: Poppins;
 }
 
-a, span, input[type="submit"] {
-	font-family: Delhi;
+a, span, input[type="submit"], label {
+	font-family: Poiret;
 	text-decoration: none;
 
 	&:visited {
@@ -79,7 +83,7 @@ a, span, input[type="submit"] {
 
 p {
 	font-family: comfortaa;
-	font-size: 12px;
+	font-size: 1em;
 }
 
 
@@ -87,4 +91,9 @@ p {
 
 .hidden {
 	display: none;
+}
+.clear { clear: both; }
+
+.sub-heading {
+	@include subheading();
 }

@@ -6,7 +6,7 @@
 	background: $ortan;
 
 	&:hover {
-		background: lighten($ortan, 10);
+		background: lighten($ortan, 15);
 		transition: 0.5s;
 		border: 1px solid $text;
 		padding: 5px 10px;
@@ -18,7 +18,6 @@
 }
 
 .btn--profile {
-	
 	background: $hilight;
 	padding:10px 2.2em 10px 10px;
 	border-radius: 5px;
@@ -47,7 +46,7 @@
 	border: 1px solid #777;
 	font-weight: bold;
 	background: $hilight;
-
+	text-align: center;
 	&:hover {
 		background: lighten($ortan, 10);
 		transition: 0.5s;

@@ -15,3 +15,30 @@
 	border-right: 1px solid $text;	
 	border-left: 1px solid $text;	
 }
+
+@mixin actionShadow() {
+	padding: 10px;
+	border-top: 5px solid $hilight;
+	border-bottom: 1px solid $hilight;
+	border-right: 1px solid $hilight;	
+	border-left: 1px solid $hilight;	
+}
+
+@mixin containerHeader() {
+	position: relative;
+	top: -25px;
+	left: -10px;
+	padding: 2px;
+	color: $finaldblue;
+
+	border-bottom: 4px solid $finaldblue;
+	display: inline-block;
+}
+
+@mixin subheading() {
+	padding: 1px;
+	border-bottom: 2px solid $ortan;
+
+	display: inline-block;
+	color: darken($ortan, 15);
+}

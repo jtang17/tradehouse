@@ -1,43 +1,32 @@
 .merchantHome__container {
 	max-width: 800px;
-	display: grid;
-	grid-template-rows: [overview] auto [stats] auto;
-	grid-gap: 20px;
+
 } 
 
 .mercOverview__container {
 	@include cardShadow();
-	grid-row: overview;
+	margin-bottom: 25px;
 	padding: 10px;
+	
+
+	.mercOverview__title {
+		@include containerHeader();
+		display: inline-block;
+	}
+
+	.edit-profile {
+		float: right;
+	}
 
 
 	.mercOverview__profile {
 		display: grid;
 		grid-template-columns: [col1] 50% [col2] 50%;
-		line-height: 1.5;
+		line-height: 2;
 
 		.mercOverview__profile--part1 {
 			grid-column: col1;
 		}	
-	}
-
-	h4 {
-	text-align: center;
-	color: $text;
-	}
-	h4 span {
-		position: relative;
-		padding-bottom: 1px;
-
-		&:after {
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			width: 100%;
-			height: 1px;
-
-			content: "";
-		}
 	}
 }
 
@@ -45,7 +34,7 @@
 // Merchant Statistics
 .mercStats__container {
 	@include cardShadow();
-	grid-row: stats;
+
 	padding: 10px;
 
 
@@ -53,9 +42,10 @@
 		display: grid;
 		grid-template-columns: [col1] 50% [col2] auto;
 		grid-column-gap: 15px;
-		line-height: 1.5;
+		line-height: 2;
 
 		.mercStats__content--part1 {
+			display: block;
 			grid-column: col1;
 		}	
 
@@ -69,22 +59,12 @@
 		}	
 	}
 
-	h4 {
-	text-align: center;
-	color: $text;
-	}
-	h4 span {
-		position: relative;
-		padding-bottom: 1px;
 
-		&:after {
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			width: 100%;
-			height: 1px;
 
-			content: "";
-		}
+
+	h3 {
+		@include containerHeader();
+		display: inline-block;
+
 	}
 }

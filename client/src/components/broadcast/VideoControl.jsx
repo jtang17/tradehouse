@@ -46,17 +46,8 @@ class VideoControl extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <form onSubmit={this.onUrlSubmit}>
-          <label>Enter Stream Url</label>
-          <input
-            type="text"
-            placeholder="Stream URL..."
-            onChange={this.onUrlChanged}
-            value={this.state.streamUrl}
-          />
-          <input type="submit" value="Submit" />
-        </form>
+      <div className="videoControls__container">
+        <h5>Broadcast Message:<span>{this.props.broadcastMessage}</span></h5>
         <form onSubmit={this.onBroadcastMessageSubmit}>
           <label>Enter Broadcast Message</label>
           <input
@@ -65,8 +56,19 @@ class VideoControl extends React.Component {
             onChange={this.onBroadcastMessageChanged}
             value={this.state.broadcastMessage}
           />
-          <input type="submit" value="Submit" />
+          <input className="btn--action" type="submit" value="Submit" />
         </form>
+        <form onSubmit={this.onUrlSubmit}>
+          <label>Enter Stream Url</label>
+          <input
+            type="text"
+            placeholder="Stream URL..."
+            onChange={this.onUrlChanged}
+            value={this.state.streamUrl}
+          />
+          <input className="btn--action" type="submit" value="Submit" />
+        </form>
+
       </div>
     );
   }

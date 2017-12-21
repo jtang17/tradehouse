@@ -1,3 +1,11 @@
 .mercStore__container {
 	@include cardShadow();
+
+	.btn--action {
+		float: right;
+	}
+
+	h3 {
+		@include containerHeader();
+	}
 }

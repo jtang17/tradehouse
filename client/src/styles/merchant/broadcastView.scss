@@ -1,3 +1,59 @@
 .broadcastView__container {
 	@include cardShadow();
+	display: grid;
+	grid-gap: 0 25px;
+	grid-template-columns: [header] 100px [video] fit-content(400px) [products] auto;
+	grid-template-rows: [header] 50px [video] 200px [products] fit-content(1000px) [end] auto;
+
+	.broadcast-header {
+		@include containerHeader();
+		margin-bottom: 0;
+		grid-column: header;
+
+
+	}
+
+	.broadcast__video {
+		grid-column: header / products;
+		grid-row: video / video;
+	}
+
+	.videoControls__container {
+
+		grid-column: header / products;
+		grid-row: products / products;
+
+		h5 {
+			@include subheading();
+			display: inline-block;
+		}
+
+		label {
+			display: block;
+			color: $finaldblue;
+			font-weight: bold;
+		}
+
+		form {
+			margin: 10px 5px;
+		}
+
+		form input[type="text"] {
+			width: 75%;
+		}
+	}
+
+
+
+	.featuredProduct__container {
+		grid-column: products;
+		grid-row: header / end;
+		background: lighten($ortan, 15);
+		@include darkShadow();
+
+
+		.sub-heading {
+			border-bottom: 2px solid $lmarble;
+		}
+	}
 }

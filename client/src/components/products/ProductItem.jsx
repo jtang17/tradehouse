@@ -15,7 +15,7 @@ class ProductItem extends React.Component {
   render() {
     return (
       <tr>
-        <th>{this.props.index + 1}</th>
+        <td>{this.props.index + 1}</td>
         <td>{this.props.product.title.trim()}
           <a href="#" onClick={this.onDeleteClick} style={{ textDecoration: 'none', color: 'red' }}>[x]</a>
         </td>

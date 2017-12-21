@@ -3,6 +3,7 @@ import AddProductForm from '../components/products/AddProductForm.jsx';
 import ProductList from '../components/products/ProductList.jsx';
 import { connect } from 'react-redux';
 import { addProduct, deleteProduct, fetchAllProducts } from '../actions/productActions.jsx';
+import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
 import { Redirect } from 'react-router';
 import { Auth } from '../Auth/Auth.js';
 
@@ -37,9 +38,9 @@ class ProductsView extends React.Component {
     }
 
     return (
-      <div className="mercStore__container">
-        <h3>Merchant Store</h3>
-        <button onClick={this.showAddProduct}>Add New Product</button>
+      <div className="mercStore__container clear">
+        <h3>{this.props.merchantInfo.storeName || 'Alex\'s Inventory' }</h3>
+        <a className="btn--action" onClick={this.showAddProduct}>Add New Product</a>
         {this.state.addProduct && <AddProductForm
           addProduct={this.props.addProduct}
         />}
@@ -55,6 +56,7 @@ class ProductsView extends React.Component {
 
 const mapStateToProps = state => ({
   products: state.products,
+  merchantInfo: state.merchantInfo,
 });
 
-export default connect(mapStateToProps, { addProduct, deleteProduct, fetchAllProducts })(ProductsView);
+export default connect(mapStateToProps, { addProduct, deleteProduct, fetchAllProducts, fetchMerchantInfo })(ProductsView);

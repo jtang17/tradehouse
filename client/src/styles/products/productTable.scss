@@ -1,0 +1,24 @@
+.productsTable__container {
+	
+	.productsTable {
+		@include cardShadow();
+		margin: 0 auto;
+		margin-top: 25px;
+		width: 90%;
+		text-align: center;
+
+		th, td {
+			padding: 5px;
+			border-bottom: 1px solid $finaldblue;
+			background: lighten($ortan, 15);
+			color: $text;
+		}
+
+		th {
+			background: $ortan;
+			font-size: 1.5rem;
+			font-family: Poppins;
+			color: $text;
+		}
+	}
+}
