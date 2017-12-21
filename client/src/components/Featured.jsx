@@ -14,7 +14,7 @@ class Featured extends React.Component {
           <h2>Featured Broadcast: Core Koans</h2>
         </Link>
         <iframe
-          src="http://player.twitch.tv/?channel=datjoncat&muted=true"
+          src="https://player.twitch.tv/?channel=datjoncat&muted=true"
           height="300"
           width="400"
           frameBorder="0"
@@ -26,7 +26,7 @@ class Featured extends React.Component {
           frameBorder="0"
           scrolling="no"
           id="chat_embed"
-          src="http://www.twitch.tv/embed/datjoncat/chat"
+          src="https://www.twitch.tv/embed/datjoncat/chat"
           height="400"
           width="200"
         />
