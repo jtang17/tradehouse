@@ -4,7 +4,7 @@ This project uses a linear history workflow, i.e., /rebase/ instead of /merge/.
 ** Style Guide
 This project uses the Airbnb style guide. Refer to: https://github.com/airbnb/javascript.
 
-* Definitions
+**  Definitions
 Upstream: corekoans/tradehouse
 Origin: your github/tradehouse
 Local: Local files in git.
