@@ -11,25 +11,29 @@ class Featured extends React.Component {
     return (
       <div className="featuredBroadcast__container">
         <Link to={`/channel/${1}`} className="channelViewLink">
-          <h2>Featured Broadcast: Core Koans</h2>
+          <h3 className="container-header">Featured Broadcast: Core Koans</h3>
         </Link>
-        <iframe
-          src="https://player.twitch.tv/?channel=datjoncat&muted=true"
-          height="300"
-          width="400"
-          frameBorder="0"
-          scrolling="no"
-          allowFullScreen="true"
-        />
-        <iframe
-          style={{ float: 'right' }}
-          frameBorder="0"
-          scrolling="no"
-          id="chat_embed"
-          src="https://www.twitch.tv/embed/datjoncat/chat"
-          height="400"
-          width="200"
-        />
+        <div className="featuredVid__container">
+          <iframe
+            src="https://player.twitch.tv/?channel=datjoncat&muted=true"
+            height="300"
+            width="400"
+            frameBorder="0"
+            scrolling="no"
+            allowFullScreen="true"
+          />
+        </div>
+        <div className="featuredChat__container">
+          <iframe
+            className="featured__chat"
+            frameBorder="0"
+            scrolling="no"
+            id="chat_embed"
+            src="https://www.twitch.tv/embed/datjoncat/chat"
+            height="400"
+            width="200"
+          />
+        </div>
         <div className="featured__description">
           Description: Subscribe to Core Koans for the inside scoop on all the best deals!
         </div>

@@ -1,15 +1,36 @@
 .featuredBroadcast__container {
-	grid-column: content;
-	border-top: 5px solid $gray;
-	border-bottom: 1px solid $gray;
-	border-right: 1px solid $gray;	
-	border-left: 1px solid $gray;	
-	padding: 10px;
-
+	@include cardShadow();
+	@include cardShadow();
+	display: grid;
+	grid-gap: 0 25px;
+	grid-template-columns: [header] 200px [video] fit-content(400px) [products] auto;
+	grid-template-rows: [header] 50px [video] 300px [products] fit-content(1000px) [end] auto;
 
 	.featured__description {
+		grid-column: header / products;
+		grid-row: products / products;
 		margin-top: 10px;
-		width: 448px;
+		width: 400px;
+		background: $finaldblue;
+		color: $ortan;
+		padding: 15px;
+	}
+
+	.container-header {
+		@include containerHeader();
+		margin-bottom: 0;
+		grid-column: header;
+
+	}
+
+	.featuredVid__container {
+		grid-column: header / products;
+		grid-row: video / video;
+	}
+
+	.featuredChat__container {
+		grid-column: products;
+		grid-row: header / end;
 	}
 }
 

@@ -8,7 +8,7 @@ const BrowseProducts = props => (
     <div className="productBrowserEntry">
       {props.products.map((product, index) => (
         <div key={index}>
-          <img src={product.imageUrl} style={{height: '55px', width: '55px'}}/>
+          <img src={product.imageUrl} style={{ height: '55px', width: '55px' }} />
           <Link to={`/product/${product.id}`}>
             {product.title} - ${parseFloat(product.unitPrice).toFixed(2)}
           </Link>
