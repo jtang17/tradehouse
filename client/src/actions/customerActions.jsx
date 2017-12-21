@@ -28,7 +28,7 @@ export const fetchCustomerInfo = ({ id }) => (dispatch) => {
 };
 
 export const fetchSubscriptions = customerId => (dispatch) => {
-  axios.get(`/api/customers/${customerId}/subscriptions`)
+  return axios.get(`/api/customers/${customerId}/subscriptions`)
     .then(res => dispatch({
       type: FETCH_SUBSCRIPTIONS_SUCCESS,
       subscriptions: res.data,

@@ -14,10 +14,27 @@ class ChannelView extends React.Component {
     super(props);
     this.followButtonClick = this.followButtonClick.bind(this);
     this.unfollowButtonClick = this.unfollowButtonClick.bind(this);
+    this.state = {
+      subscribed: false,
+    }
   }
 
   componentDidMount() {
-    this.props.fetchSubscriptions(1);
+    this.props.fetchSubscriptions(1)
+      .then(() => {
+        this.props.subscriptions.forEach((subscription) => {
+          if (subscription.merchantId.toString() === this.props.match.params.merchantId) {
+            //customer is subscribed to this merchant.
+            //show unfollow button instead of follow.
+            console.log('hello');
+            console.log(this.state.subscribed);
+            this.setState({
+              subscribed: true,
+            });
+            console.log(this.state.subscribed);
+          }
+        })
+      });
     // TODO: FETCH SUBSCRIPTIONS OF LOGGED IN CUSTOMER AND CHECK IF THEY ARE SUBSCRIBED
     // THEN RENDER FOLLOW/UNFOLLOW BUTTON BASED ON SUBSCRIPTION STATUS
     this.props.fetchMerchantInfo(this.props.match.params.merchantId)
@@ -46,9 +63,10 @@ class ChannelView extends React.Component {
         <br />
         <span style={{ fontStyle: 'italic' }}>{merchantInfo.broadcastMessage}</span>
         <br />
-        <button onClick={this.unfollowButtonClick}>Unfollow</button>
-        <button onClick={this.followButtonClick}>Follow</button>
-
+        {this.state.subscribed ?
+          <button onClick={this.unfollowButtonClick}>Unfollow</button> :
+          <button onClick={this.followButtonClick}>Follow</button>
+        }
         <br />
         <iframe
           width="400"
