@@ -35,8 +35,7 @@ class ChannelView extends React.Component {
           }
         })
       });
-    // TODO: FETCH SUBSCRIPTIONS OF LOGGED IN CUSTOMER AND CHECK IF THEY ARE SUBSCRIBED
-    // THEN RENDER FOLLOW/UNFOLLOW BUTTON BASED ON SUBSCRIPTION STATUS
+
     this.props.fetchMerchantInfo(this.props.match.params.merchantId)
       .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct));
   }
