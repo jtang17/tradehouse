@@ -55,13 +55,13 @@ class Header extends React.Component {
       <div className="header__container">
         <Link className="header__logo" to="/" />
         <div className="nav__container--header">
-          <Link to={`/merchant_profile/${this.state.id}`} >
+          <Link to={className="btn--nav" to={`/merchant_profile/${this.state.id}`}}>
 							Merchant Profile
           </Link>
-          <Link to={`/manage_store/${this.state.id}`}>
+          <Link to={className="btn--nav" to={`/manage_store/${this.state.id}`}}>
 							Manage Store
           </Link>
-          <Link to={`/broadcast/${this.state.id}`}>
+          <Link to={className="btn--nav" to={`/broadcast/${this.state.id}`}}>
 							Broadcast
           </Link>
         </div>
