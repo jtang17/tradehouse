@@ -1,6 +1,12 @@
 import {
   FETCH_CUSTOMER_SUCCESS,
   FETCH_CUSTOMER_FAILURE,
+  FETCH_WISHLIST_SUCCESS,
+  FETCH_WISHLIST_FAILURE,
+  ADD_WISHLISTED_PRODUCT_SUCCESS,
+  ADD_WISHLISTED_PRODUCT_FAILURE,
+  REMOVE_WISHLISTED_PRODUCT_SUCCESS,
+  REMOVE_WISHLISTED_PRODUCT_FAILURE,
   FETCH_SUBSCRIPTIONS_SUCCESS,
   FETCH_SUBSCRIPTIONS_FAILURE,
   FOLLOW_SUCCESS,
@@ -15,6 +21,35 @@ export function customerInfo(state = {}, action) {
       return action.customerInfo;
     }
     case FETCH_CUSTOMER_FAILURE: {
+      console.error(action.error);
+      return state;
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
+export function wishlist(state = [], action) {
+  switch (action.type) {
+    case FETCH_WISHLIST_SUCCESS: {
+      return action.wishlist;
+    }
+    case FETCH_WISHLIST_FAILURE: {
+      console.error(action.error);
+      return state;
+    }
+    case ADD_WISHLISTED_PRODUCT_SUCCESS: {
+      return action.wishlist;
+    }
+    case ADD_WISHLISTED_PRODUCT_FAILURE: {
+      console.error(action.error);
+      return state;
+    }
+    case REMOVE_WISHLISTED_PRODUCT_SUCCESS: {
+      return action.wishlist;
+    }
+    case REMOVE_WISHLISTED_PRODUCT_FAILURE: {
       console.error(action.error);
       return state;
     }

@@ -2,6 +2,12 @@ import axios from 'axios';
 
 export const FETCH_CUSTOMER_SUCCESS = 'FETCH_CUSTOMER_SUCCESS';
 export const FETCH_CUSTOMER_FAILURE = 'FETCH_CUSTOMER_FAILURE';
+export const FETCH_WISHLIST_SUCCESS = 'FETCH_WISHLIST_SUCCESS';
+export const FETCH_WISHLIST_FAILURE = 'FETCH_WISHLIST_FAILURE';
+export const ADD_WISHLISTED_PRODUCT_SUCCESS = 'ADD_WISHLISTED_PRODUCT_SUCCESS';
+export const ADD_WISHLISTED_PRODUCT_FAILURE = 'ADD_WISHLISTED_PRODUCT_FAILURE';
+export const REMOVE_WISHLISTED_PRODUCT_SUCCESS = 'REMOVE_WISHLISTED_PRODUCT_SUCCESS';
+export const REMOVE_WISHLISTED_PRODUCT_FAILURE = 'REMOVE_WISHLISTED_PRODUCT_FAILURE';
 export const FETCH_SUBSCRIPTIONS_SUCCESS = 'FETCH_SUBSCRIPTIONS_SUCCESS';
 export const FETCH_SUBSCRIPTIONS_FAILURE = 'FETCH_SUBSCRIPTIONS_FAILURE';
 export const FOLLOW_SUCCESS = 'FOLLOW_SUCCESS';
@@ -26,6 +32,43 @@ export const fetchCustomerInfo = ({ id }) => (dispatch) => {
       error: err,
     }));
 };
+
+export const fetchWishlist = (customerId) => (dispatch) => {
+  return axios.get(`/api/customers/${customerId}/wishlist`)
+    .then(res => dispatch({
+      type: FETCH_WISHLIST_SUCCESS,
+      wishlist: res.data,
+    }))
+    .catch(err => dispatch({
+      type: FETCH_WISHLIST_FAILURE,
+      error: err,
+    }));
+}
+
+export const addWishlistedProduct = (customerId, productId) => (dispatch) => {
+  axios.post(`/api/customers/${customerId}/wishlist`, { productId })
+    .then(res => dispatch({
+      type: ADD_WISHLISTED_PRODUCT_SUCCESS,
+      wishlist: res.data,
+    }))
+    .catch(err => dispatch({
+      type: ADD_WISHLISTED_PRODUCT_FAILURE,
+      error: err,
+    }));
+}
+
+export const removeWishlistedProduct = (customerId, productId) => (dispatch) => {
+  axios.delete(`/api/customers/${customerId}/wishlist`, { data: { productId } })
+    .then(res => dispatch({
+      type: REMOVE_WISHLISTED_PRODUCT_SUCCESS,
+      wishlist: res.data,
+    }))
+    .catch(err => dispatch({
+      type: REMOVE_WISHLISTED_PRODUCT_FAILURE,
+      error: err,
+    }));
+};
+
 
 export const fetchSubscriptions = customerId => dispatch => axios.get(`/api/customers/${customerId}/subscriptions`)
   .then(res => dispatch({
