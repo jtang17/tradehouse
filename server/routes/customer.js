@@ -28,6 +28,23 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
   res.json(newCustomer);
 }));
 
+router.get('/:customerId/wishlist', asyncMiddleware(async (req, res, next) => {
+  const wishlist = await controllers.findCustomerWishlistedProducts(req.params.customerId);
+  res.json(wishlist);
+}));
+
+router.post('/:customerId/wishlist', asyncMiddleware(async (req, res, next) => {
+  const wishlist = await controllers.saveNewWishlistedProduct(req.params.customerId, req.body.productId)
+    .then(() => controllers.findCustomerWishlistedProducts(req.params.customerId));
+  res.json(wishlist);
+}));
+
+router.delete('/:customerId/wishlist', asyncMiddleware(async (req, res, next) => {
+  const wishlist = await controllers.deleteWishlistedProduct(req.params.customerId, req.body.productId)
+    .then(() => controllers.findCustomerWishlistedProducts(req.params.customerId));
+  res.json(wishlist);
+}));
+
 router.get('/:customerId/subscriptions', asyncMiddleware(async (req, res, next) => {
   const subscriptions = await controllers.findCustomerSubscriptions(req.params.customerId);
   res.json(subscriptions);

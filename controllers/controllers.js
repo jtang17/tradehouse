@@ -78,6 +78,22 @@ const saveNewMerchantReview = entry => db.MerchantReview.create({
   customerId: entry.customerId,
 });
 
+const saveNewWishlistedProduct = (customerId, productId) => db.WishlistedProduct.create({
+  customerId,
+  productId,
+});
+
+const findCustomerWishlistedProducts = (customerId) => db.WishlistedProduct.findAll({
+  where: { customerId },
+});
+
+const deleteWishlistedProduct = (customerId, productId) => db.WishlistedProduct.destroy({
+  where: {
+    customerId: customerId,
+    productId: productId,
+  }
+});
+
 const saveNewSubscription = (customerId, merchantId) => db.Subscription.create({
   customerId,
   merchantId,
@@ -279,6 +295,9 @@ module.exports = {
   deleteProduct,
   saveNewMerchant,
   saveNewCustomer,
+  saveNewWishlistedProduct,
+  findCustomerWishlistedProducts,
+  deleteWishlistedProduct,
   saveNewSubscription,
   findCustomerSubscriptions,
   deleteSubscription,
