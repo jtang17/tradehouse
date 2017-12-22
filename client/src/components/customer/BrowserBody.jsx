@@ -9,7 +9,7 @@ class BrowserBody extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: 'streams',
+      type: 'products',
     };
     this.toggleStreams = this.toggleStreams.bind(this);
     // this.toggleStores = this.toggleStores.bind(this);

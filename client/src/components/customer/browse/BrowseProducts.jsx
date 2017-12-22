@@ -1,19 +1,31 @@
-import React from 'react';
+import React from "react";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const BrowseProducts = props => (
-  <div>
-    <h4>Product Browser</h4>
+  <div className="browseProducts__container">
     <div className="productBrowserEntry">
       {props.products.map((product, index) => (
-        <div key={index}>
-          <img src={product.imageUrl} style={{ height: '55px', width: '55px' }} />
-          <Link to={`/product/${product.id}`}>
-            {product.title} - ${parseFloat(product.unitPrice).toFixed(2)}
-          </Link>
-        </div>
-        ))}
+        <Link to={`/product/${product.id}`}>
+          <div key={index} className="productsEntry__card">
+            <div className="productImg__card">
+            <img src={product.imageUrl} />
+            </div>
+            <div className="productTitle__card">
+              <h5>{product.title}</h5>
+              <p>Product Rating: [insert me]</p>
+              <p>Left in Stock: {product.quantity}</p>
+            </div>
+            <div className="productDescription__card">
+              <p>Description: {product.description}</p>
+            <div className="productCTA__card">
+              <span>Cost: ${parseFloat(product.unitPrice).toFixed(2)}</span>
+              <a className="btn--action">Add to Cart</a>
+            </div>
+            </div>
+          </div>
+        </Link>
+      ))}
     </div>
   </div>
 );

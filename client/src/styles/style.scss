@@ -13,8 +13,9 @@
 
 // Customer
 @import 'customer/featured';
-@import 'customer/browseStreams.scss';
 @import 'customer/browse';
+@import 'customer/browseStreams.scss';
+@import 'customer/browseProducts.scss';
 
 // Merchant
 @import 'merchant/mercHome';
