@@ -1,0 +1,26 @@
+.browseStreams__container {
+	min-width: calc(100vw - 250px);
+	
+	ul {
+	@include cardShadow();
+	display: grid;
+	grid-template-columns: [r1] 50% [r2] 50%;
+	grid-gap: 15px;
+		list-style: none;
+
+		&:nth-child(even) {
+			grid-column: r2;
+		}
+
+		&:nth-child(odd) {
+			grid-column: r2;
+		}
+	}
+
+
+
+	.streamsEntry {
+		@include actionShadow();
+		width: 300px;
+	}
+}

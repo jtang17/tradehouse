@@ -16,11 +16,11 @@ class StoreView extends React.Component {
 
   componentDidMount() {
     axios.get(`/api/customers/bySub/${localStorage.idToken}`)
-         .then(res => this.setState((prevState) => {
-           this.props.fetchCart(res.data.id);
-           return { customerId: res.data.id };
-         }))
-         .catch(err => console.error(err));
+      .then(res => this.setState((prevState) => {
+        this.props.fetchCart(res.data.id);
+        return { customerId: res.data.id };
+      }))
+      .catch(err => console.error(err));
   }
 
   render() {

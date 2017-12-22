@@ -55,9 +55,12 @@ class BrowserBody extends React.Component {
     return (
       <div>
         <div className="browseNavigation__container">
-          <a className="btn--nav" onClick={this.toggleStreams}>Streams</a>
-          <a className="btn--nav" onClick={this.toggleStores}>Stores</a>
-          <a className="btn--nav" onClick={this.toggleProducts}>Products</a>
+          <h3 className="container-header">Browse Contents</h3>
+          <div className="filter__container">
+            <a className="btn--filter hvr-icon-down" onClick={this.toggleStreams}>Streams</a>
+            <a className="btn--filter hvr-icon-down" onClick={this.toggleStores}>Stores</a>
+            <a className="btn--filter hvr-icon-down" onClick={this.toggleProducts}>Products</a>
+          </div>
         </div>
         {this.state.type === 'streams' && <BrowseStreams merchants={this.props.merchants} />}
 

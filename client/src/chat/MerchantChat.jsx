@@ -1,6 +1,6 @@
 import React from 'react';
 import openSocket from 'socket.io-client';
-/* import { subscribeToTimer } from './merchantAPI';*/
+/* import { subscribeToTimer } from './merchantAPI'; */
 
 const port = process.env.PORT || 5421;
 const socket = openSocket(`http://localhost:${port}`); // TODO: fix for deployment?
@@ -19,7 +19,7 @@ class MerchantChat extends React.Component {
 
   componentDidMount() {
     const merchantChatContext = this;
-    socket.on('chat message', function (msg) {
+    socket.on('chat message', (msg) => {
       merchantChatContext.setState({ messages: merchantChatContext.state.messages.concat(msg) });
     });
   }

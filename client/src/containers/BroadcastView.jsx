@@ -26,10 +26,10 @@ class BroadcastView extends React.Component {
 
   componentDidMount() {
     // TODO: fetch currently logged in merchant's products and info
-    /* this.props.fetchMerchantProducts(1);*/
-    /* this.props.fetchMerchantInfo(1);*/
+    /* this.props.fetchMerchantProducts(1); */
+    /* this.props.fetchMerchantInfo(1); */
     this.props.fetchMerchantInfoByToken()
-    .then(this.props.fetchMerchantProducts(this.props.merchantInfo.id));
+      .then(this.props.fetchMerchantProducts(this.props.merchantInfo.id));
   }
 
   render() {

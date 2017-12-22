@@ -13,6 +13,8 @@
 
 // Customer
 @import 'customer/featured';
+@import 'customer/browseStreams.scss';
+@import 'customer/browse';
 
 // Merchant
 @import 'merchant/mercHome';
@@ -27,29 +29,29 @@ html {
 	font-size: 12px;
 
 	h1 {
-		font-size: 2.4em;
+		font-size: 2.2rem;
 	}
 
 	h2 {
-		font-size: 2.2em;
-		margin: 0;
+		font-size: 2rem;
+
 	}
 
 	h3 {
-		font-size: 2em;
+		font-size: 1.8rem;
 
 	}
 
 	h4 {
-		font-size: 1.8em;
+		font-size: 1.6rem;
 	}
 
 	h5 { 
-		font-size: 1.6em;
+		font-size: 1.4rem;
 	}
 
 	h6 {
-		font-size: 1.4em;
+		font-size: 1.2rem;
 	}
 }
 
@@ -71,15 +73,22 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-family: Poppins;
 }
+a {
+	font-family: Poiret;
+	text-decoration: none;
+	font-weight: bold;
 
-a, span, input[type="submit"], label {
+	&:visited {
+		color: #777;
+	}
+}
+
+span, input[type="submit"], label {
 	font-family: Poiret;
 	text-decoration: none;
 	font-size: 1.5em;
 	font-weight: bold;
-	&:visited {
-		color: #777;
-	}
+
 }
 
 p {
@@ -87,6 +96,14 @@ p {
 	font-size: 1em;
 }
 
+input {
+	padding: 6px;
+
+	&:focus {
+		background: lighten($ortan, 15);
+		transition: 0.25s;
+	}
+}
 
 // Conditional Styles
 

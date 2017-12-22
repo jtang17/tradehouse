@@ -1,14 +1,14 @@
 .productForm__container {
 	@include darkShadow();
 	position: absolute;
-	width: 250px;
-	height: 250px;
+	width: 300px;
+	height: 400px;
 	background: $ortan;
 	left: 50%; 
 	transform: translate(-50%,0); 
 	z-index: 99999;
 
-	h5 {
+	.addProductSubmit {
 		text-align: center;
 	}
 

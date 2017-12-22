@@ -105,7 +105,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  addToCart, fetchMerchantInfo, fetchSingleProduct, follow, unfollow, fetchSubscriptions, fetchCustomerInfoByToken
+  addToCart, fetchMerchantInfo, fetchSingleProduct, follow, unfollow, fetchSubscriptions, fetchCustomerInfoByToken,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelView);

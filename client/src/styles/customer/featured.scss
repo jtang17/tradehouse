@@ -4,24 +4,30 @@
 	display: grid;
 	grid-gap: 0 25px;
 	grid-template-columns: [header] 200px [video] fit-content(600px) [products] auto;
-	grid-template-rows: [header] 50px [video] 450px [products] fit-content(1000px) [end] auto;
+	grid-template-rows: [header] auto [video] 450px [products] fit-content(1000px) [end] auto;
+
+	.container-header {
+		@include containerHeader();
+		grid-column: header / products;
+		margin-bottom: 0;
+		font-family: Poppins;
+
+		a {
+			font-family: Poppins;
+			color: $finaldblue;
+		}
+	}
 
 	.featured__description {
 		grid-column: header / products;
 		grid-row: products / products;
 		margin-top: 10px;
-		width: 400px;
+		@include actionShadow();
 		background: $finaldblue;
-		color: $ortan;
+		color: white;
 		padding: 15px;
 	}
 
-	.container-header {
-		@include containerHeader();
-		margin-bottom: 0;
-		grid-column: header / products;
-
-	}
 
 	.featuredVid__container {
 		grid-column: header / products;

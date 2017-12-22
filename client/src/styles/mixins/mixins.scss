@@ -28,17 +28,16 @@
 	position: relative;
 	top: -25px;
 	left: -10px;
-	padding: 2px;
 	color: $finaldblue;
-
-	border-bottom: 4px solid $finaldblue;
+	width: max-content;
+	border-bottom: 4px solid $hilight;
 	display: inline-block;
 }
 
 @mixin subheading() {
 	padding: 1px;
-	border-bottom: 2px solid $ortan;
+	border-bottom: 2px solid $gray;
 
 	display: inline-block;
-	color: darken($ortan, 15);
+	color: $text;
 }

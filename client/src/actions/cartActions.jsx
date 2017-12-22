@@ -38,7 +38,7 @@ export const removeFromCart = (product, customerId) => (dispatch) => {
     }));
 };
 
-export const fetchCart = (customerId) => (dispatch) => {
+export const fetchCart = customerId => (dispatch) => {
   axios.get(`/api/customers/${customerId}/cart`)
     .then(res => dispatch({
       type: FETCH_CART_SUCCESS,
