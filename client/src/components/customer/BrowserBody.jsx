@@ -54,10 +54,10 @@ class BrowserBody extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <button className="btn--nav" onClick={this.toggleStreams}>Streams</button>
-          <button className="btn--nav" onClick={this.toggleStores}>Stores</button>
-          <button className="btn--nav" onClick={this.toggleProducts}>Products</button>
+        <div className="browseNavigation__container">
+          <a className="btn--nav" onClick={this.toggleStreams}>Streams</a>
+          <a className="btn--nav" onClick={this.toggleStores}>Stores</a>
+          <a className="btn--nav" onClick={this.toggleProducts}>Products</a>
         </div>
         {this.state.type === 'streams' && <BrowseStreams merchants={this.props.merchants} />}
 

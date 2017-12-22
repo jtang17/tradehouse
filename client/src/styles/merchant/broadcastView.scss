@@ -2,8 +2,8 @@
 	@include cardShadow();
 	display: grid;
 	grid-gap: 0 25px;
-	grid-template-columns: [header] 100px [video] fit-content(400px) [products] auto;
-	grid-template-rows: [header] 50px [video] 300px [products] fit-content(1000px) [end] auto;
+	grid-template-columns: [header] 250px [video] fit-content(600px) [products] auto;
+	grid-template-rows: [header] 50px [video] 450px [products] fit-content(1000px) [end] auto;
 
 	.broadcast-header {
 		@include containerHeader();
@@ -55,5 +55,14 @@
 		.sub-heading {
 			border-bottom: 2px solid $lmarble;
 		}
+	}
+}
+
+
+// Smaller Screens
+@media only screen and (max-width: 1000px) {
+	.broadcastView__container {
+		width: 100%;
+		margin: 0 auto;
 	}
 }

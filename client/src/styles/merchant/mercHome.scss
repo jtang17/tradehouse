@@ -7,7 +7,7 @@
 	@include cardShadow();
 	margin-bottom: 25px;
 	padding: 10px;
-	
+	color: $text;
 
 	.mercOverview__title {
 		@include containerHeader();
@@ -34,7 +34,7 @@
 // Merchant Statistics
 .mercStats__container {
 	@include cardShadow();
-
+	color: $text;
 	padding: 10px;
 
 

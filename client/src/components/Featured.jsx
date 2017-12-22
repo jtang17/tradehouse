@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class Featured extends React.Component {
   constructor(props) {
@@ -10,14 +10,17 @@ class Featured extends React.Component {
   render() {
     return (
       <div className="featuredBroadcast__container">
-        <Link to={`/channel/${1}`} className="channelViewLink">
-          <h3 className="container-header">Featured Broadcast: Core Koans</h3>
-        </Link>
+        <h3 className="container-header">
+          {" "}
+          <Link to={`/channel/${1}`} className="channelViewLink">
+            Featured Broadcast: Core Koans
+          </Link>
+        </h3>
         <div className="featuredVid__container">
           <iframe
             src="https://player.twitch.tv/?channel=datjoncat&muted=true"
-            height="300"
-            width="400"
+            height="600"
+            width="450"
             frameBorder="0"
             scrolling="no"
             allowFullScreen="true"
@@ -35,7 +38,8 @@ class Featured extends React.Component {
           />
         </div>
         <div className="featured__description">
-          Description: Subscribe to Core Koans for the inside scoop on all the best deals!
+          Description: Subscribe to Core Koans for the inside scoop on all the
+          best deals!
         </div>
       </div>
     );

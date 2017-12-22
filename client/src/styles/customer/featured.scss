@@ -3,8 +3,8 @@
 	@include cardShadow();
 	display: grid;
 	grid-gap: 0 25px;
-	grid-template-columns: [header] 200px [video] fit-content(400px) [products] auto;
-	grid-template-rows: [header] 50px [video] 300px [products] fit-content(1000px) [end] auto;
+	grid-template-columns: [header] 200px [video] fit-content(600px) [products] auto;
+	grid-template-rows: [header] 50px [video] 450px [products] fit-content(1000px) [end] auto;
 
 	.featured__description {
 		grid-column: header / products;
@@ -19,7 +19,7 @@
 	.container-header {
 		@include containerHeader();
 		margin-bottom: 0;
-		grid-column: header;
+		grid-column: header / products;
 
 	}
 
