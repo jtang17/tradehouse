@@ -23,20 +23,13 @@ class ChannelView extends React.Component {
 
   componentDidMount() {
     this.props.fetchSubscriptions(1)
-      .then(() => {
-        this.props.subscriptions.forEach((subscription) => {
-          if (subscription.merchantId.toString() === this.props.match.params.merchantId) {
-            // customer is subscribed to this merchant.
-            // show unfollow button instead of follow.
-            console.log('hello');
-            console.log(this.state.subscribed);
-            this.setState({
-              subscribed: true,
-            });
-            console.log(this.state.subscribed);
-          }
-        });
-      });
+      .then(() => this.props.subscriptions.forEach((subscription) => {
+        if (subscription.merchantId.toString() === this.props.match.params.merchantId) {
+          this.setState({
+            subscribed: true,
+          });
+        }
+      }));
 
     this.props.fetchMerchantInfo(this.props.match.params.merchantId)
       .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct))
@@ -48,12 +41,20 @@ class ChannelView extends React.Component {
     if (!loggedIn) {
       alert('Please register or log in.');
     } else {
-      this.props.follow(1, this.props.match.params.merchantId);
+      this.props.follow(1, this.props.match.params.merchantId)
+      this.setState({
+        subscribed: true,
+      });
+    //THIS SETSTATE NEEDS TO BE REMOVED WHEN FETCH SUBSCRIPTIONS AND PROMISE ARE WORKING PROPERLY
     }
   }
 
   unfollowButtonClick() {
     this.props.unfollow(1, this.props.match.params.merchantId);
+    this.setState({
+      subscribed: false,
+    });
+    //THIS SETSTATE NEEDS TO BE REMOVED WHEN FETCH SUBSCRIPTIONS AND PROMISE ARE WORKING PROPERLY
   }
 
   render() {
