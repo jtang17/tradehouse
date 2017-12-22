@@ -16,6 +16,22 @@
 	border-left: 1px solid $text;	
 }
 
+@mixin mainShadow() {
+	padding: 10px;
+	border-top: 5px solid $ortan;
+	border-bottom: 1px solid $ortan;
+	border-right: 1px solid $ortan;	
+	border-left: 1px solid $ortan;	
+}
+
+@mixin lmainShadow() {
+	padding: 10px;
+	border-top: 5px solid $lortan;
+	border-bottom: 1px solid $lortan;
+	border-right: 1px solid $lortan;	
+	border-left: 1px solid $lortan;	
+}
+
 @mixin actionShadow() {
 	padding: 10px;
 	border-top: 5px solid $hilight;

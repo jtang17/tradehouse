@@ -7,15 +7,21 @@ const BrowseStreams = props => (
 
     <ul>
       {props.merchants.map((merchant, index) => (
-        <div key={index} className="streamsEntry">
-          <Link to={`/channel/${merchant.id || 'Merchant id'}`}>
-            <img src={merchant.logo || 'http://clipartandscrap.com/wp-content/uploads/2017/07/Teddy-bear-clip-art-on-teddy-bears-and-clipartwiz-4.png'} style={{ width: '75px' }} />
-          </Link>
-            <li>{merchant.storeName} <br />
-              <span>{merchant.broadcastMessage}</span>
-            </li>
-          <Link to={`/store/${merchant.id}`}>{merchant.currentProduct}</Link>
-        </div>
+        <Link to={`/channel/${merchant.id || 'Merchant id'}`}>
+          <div key={index} className="streamsEntry">
+            <div className="streamsTitle__card">
+              <Link to={`/store/${merchant.id}`}><h5>{merchant.storeName}</h5></Link>
+              <p>Rating: {merchant.rating}</p>
+              <p>Website: {merchant.website}</p>
+            </div>
+            <img className="mercLogo__browser" src={merchant.logo || 'http://clipartandscrap.com/wp-content/uploads/2017/07/Teddy-bear-clip-art-on-teddy-bears-and-clipartwiz-4.png'} style={{ width: '75px' }} />
+            <div className="streamsDescription__card">
+              <p>Broadcast Message: {merchant.broadcastMessage}</p>
+            </div>
+
+
+          </div>
+        </Link>
       ))}
     </ul>
 
