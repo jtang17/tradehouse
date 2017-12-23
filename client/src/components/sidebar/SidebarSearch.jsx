@@ -23,12 +23,6 @@ class SidebarSearch extends React.Component {
           fetchAllMerchants={fetchAllMerchants}
           fetchAllProducts={fetchAllProducts}
         />
-        <br />
-        <br />
-        <button className="btn--nav" onClick={fetchAllMerchants.bind(null)}>Get all Merchants</button>
-        <br />
-        <br />
-        <button className="btn--nav" onClick={fetchAllProducts.bind(null)}>Get all Products</button>
       </div>
     );
   }
