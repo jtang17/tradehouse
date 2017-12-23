@@ -37,8 +37,8 @@ class Auth {
     // });
   }
 
-  handleAuthentication() {
-    lock.on('authenticated', this.setSession);
+  handleAuthentication(cb) {
+    lock.on('authenticated', authResult => this.setSession(authResult, cb));
     lock.on('authorization_error', (err, profile) => {
       console.log(err, 'profile', profile);
     });
@@ -72,7 +72,7 @@ class Auth {
     });
   }
 
-  setSession(authResult) {
+  setSession(authResult, cb) {
     if (authResult && authResult.accessToken && authResult.idToken) {
     // if (authResult && authResult.accessToken) {
       lock.getUserInfo(authResult.accessToken, function(err, profile) {
@@ -104,7 +104,8 @@ class Auth {
             }).then(() => {
               history.replace('/');
               window.location.reload();
-            }).catch(err => console.error(err));
+            }).catch(err => console.error(err))
+              .then(() => cb());
           }
 
           axios.post('/api/customers', {
@@ -124,7 +125,8 @@ class Auth {
           }).then(() => {
             history.replace('/');
             window.location.reload();
-          }).catch(err => console.error(err));
+          }).catch(err => console.error(err))
+            .then(() => cb());
         }
         // axios.post('/api/customers', {
         //       accessToken: authResult.accessToken,

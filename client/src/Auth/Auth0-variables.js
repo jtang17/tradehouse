@@ -15,6 +15,9 @@ export const AUTH_CONFIG = {
     allowSignUp: true,
     // auth: {
     //   audience: 'tradehouse2-auth0.com/api',
+    //   params: {
+    //     scope: 'openid email add:customers'
+    //   },
     // },
     allowLogin: true,
     allowForgotPassword: true,

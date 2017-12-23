@@ -19,11 +19,8 @@ class Header extends React.Component {
     this.setState = this.setState.bind(this);
   }
 
-  componentWillMount() {
-    auth.handleAuthentication();
-    axios.get(`/api/merchants/bySub/${localStorage.idToken}`)
-      .then(res => this.setState({ id: res.data.id }))
-      .catch(err => this.setState({ id: 1 }));
+  componentDidMount() {
+    auth.handleAuthentication(() => axios.get(`/api/merchants/bySub/${localStorage.idToken}`).then(res => this.setState({ id: res.data.id })).catch(err => this.setState({ id: 1 })));
   }
 
   registerFunc() {
@@ -56,13 +53,13 @@ class Header extends React.Component {
         <Link className="header__logo" to="/" />
         <div className="nav__container--header">
           <Link className="btn--nav" to={`/merchant_profile/${this.state.id}`}>
-							Merchant Profile
+            Merchant Profile
           </Link>
           <Link className="btn--nav" to={`/manage_store/${this.state.id}`}>
-							Manage Store
+            Manage Store
           </Link>
           <Link className="btn--nav" to={`/broadcast/${this.state.id}`}>
-							Broadcast
+            Broadcast
           </Link>
         </div>
         <div className="header__account--register">
