@@ -20,9 +20,8 @@ class ProductsView extends React.Component {
   }
 
   componentDidMount() {
-     this.props.fetchMerchantInfoByToken()
+    this.props.fetchMerchantInfoByToken()
       .then(() => this.props.fetchMerchantProducts(this.props.merchantInfo.id));
-
   }
 
   showAddProduct() {
@@ -60,6 +59,8 @@ const mapStateToProps = state => ({
   merchantInfo: state.merchantInfo,
 });
 
-const mapDispatchToProps = { addProduct, deleteProduct, fetchMerchantInfoByToken, fetchMerchantProducts };
+const mapDispatchToProps = {
+  addProduct, deleteProduct, fetchMerchantInfoByToken, fetchMerchantProducts,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsView);

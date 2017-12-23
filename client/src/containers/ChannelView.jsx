@@ -33,7 +33,6 @@ class ChannelView extends React.Component {
           });
         }
       }));
-
   }
 
   followButtonClick() {
@@ -41,11 +40,11 @@ class ChannelView extends React.Component {
     if (!loggedIn) {
       alert('Please register or log in.');
     } else {
-      this.props.follow(this.props.customerInfo.id, this.props.match.params.merchantId)
+      this.props.follow(this.props.customerInfo.id, this.props.match.params.merchantId);
       this.setState({
         subscribed: true,
       });
-    //THIS SETSTATE NEEDS TO BE REMOVED WHEN FETCH SUBSCRIPTIONS AND PROMISE ARE WORKING PROPERLY
+    // THIS SETSTATE NEEDS TO BE REMOVED WHEN FETCH SUBSCRIPTIONS AND PROMISE ARE WORKING PROPERLY
     }
   }
 
@@ -54,7 +53,7 @@ class ChannelView extends React.Component {
     this.setState({
       subscribed: false,
     });
-    //THIS SETSTATE NEEDS TO BE REMOVED WHEN FETCH SUBSCRIPTIONS AND PROMISE ARE WORKING PROPERLY
+    // THIS SETSTATE NEEDS TO BE REMOVED WHEN FETCH SUBSCRIPTIONS AND PROMISE ARE WORKING PROPERLY
   }
 
   render() {

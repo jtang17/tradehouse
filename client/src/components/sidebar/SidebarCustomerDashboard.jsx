@@ -16,4 +16,4 @@ class SidebarCustomerDashboard extends React.Component {
 }
 
 export default SidebarCustomerDashboard;
-        // <h1>Dashboard Test</h1>
+// <h1>Dashboard Test</h1>

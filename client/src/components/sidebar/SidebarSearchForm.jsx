@@ -32,3 +32,7 @@ SidebarSearchForm = reduxForm({
 })(SidebarSearchForm);
 
 export default SidebarSearchForm;
+
+// <button className="btn--nav" onClick={fetchAllMerchants.bind(null)}>Get all Merchants</button>
+// <button className="btn--nav" onClick={fetchAllProducts.bind(null)}>Get all Products</button>
+

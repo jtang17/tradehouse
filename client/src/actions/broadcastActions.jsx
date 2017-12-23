@@ -27,7 +27,7 @@ export const changeStream = (url, merchantId) => (dispatch) => {
     }));
 };
 
-export const fetchStreamUrl = (merchantId) => (dispatch) => {
+export const fetchStreamUrl = merchantId => (dispatch) => {
   axios.get(`api/merchants/${merchantId}/featured`)
     .then(res => dispatch({
       type: FETCH_STREAM_URL_SUCCESS,
@@ -52,7 +52,7 @@ export const changeBroadcastMessage = (broadcastMessage, merchantId) => (dispatc
     }));
 };
 
-export const fetchBroadcastMessage = (merchantId) => (dispatch) => {
+export const fetchBroadcastMessage = merchantId => (dispatch) => {
   axios.get(`api/merchants/${merchantId}/featured`)
     .then(res => dispatch({
       type: FETCH_BROADCAST_MESSAGE_SUCCESS,
@@ -77,7 +77,7 @@ export const selectFeaturedProduct = (product, merchantId) => (dispatch) => {
     }));
 };
 
-export const fetchFeaturedProduct = (merchantId) => (dispatch) => {
+export const fetchFeaturedProduct = merchantId => (dispatch) => {
   axios.get(`api/merchants/${merchantId}/featured`)
     .then(res => dispatch({
       type: FETCH_FEATURED_PRODUCT_SUCCESS,

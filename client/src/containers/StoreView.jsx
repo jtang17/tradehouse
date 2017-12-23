@@ -10,13 +10,11 @@ import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
 class StoreView extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   componentDidMount() {
     this.props.fetchCustomerInfoByToken()
-      .then(() => this.props.fetchCart(this.props.customerInfo.id))
-
+      .then(() => this.props.fetchCart(this.props.customerInfo.id));
   }
 
   render() {

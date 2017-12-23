@@ -34,8 +34,8 @@ class MerchantHome extends React.Component {
     );
   }
 }
-  //ADD MERCHANT STATS IN FUTURE - VIEWS, SUBSCRIBERS, ETC.
-        //<MerchantStats />
+// ADD MERCHANT STATS IN FUTURE - VIEWS, SUBSCRIBERS, ETC.
+// <MerchantStats />
 const mapStateToProps = state => ({ merchantInfo: state.merchantInfo });
 
 export default connect(mapStateToProps, { fetchMerchantInfoByToken, editMerchantProfile })(MerchantHome);
