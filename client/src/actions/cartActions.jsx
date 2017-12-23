@@ -11,9 +11,6 @@ export const INCREASE_QUANTITY_CART_FAILURE = 'INCREASE_QUANTITY_CART_FAILURE';
 export const DECREASE_QUANTITY_CART_SUCCESS = 'DECREASE_QUANTITY_CART_SUCCESS';
 export const DECREASE_QUANTITY_CART_FAILURE = 'DECREASE_QUANTITY_CART_FAILURE';
 
-// TODO: PASS IN CUSTOMER ID FROM FRONT END AND REMOVE STATIC CUSTOMERID ASSIGNMENT
-const customerId = 1;
-
 export const addToCart = (product, customerId) => (dispatch) => {
   axios.post(`/api/customers/${customerId}/cart`, product)
     .then(res => dispatch({

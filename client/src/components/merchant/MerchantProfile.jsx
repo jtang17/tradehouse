@@ -38,7 +38,7 @@ class MerchantProfile extends React.Component {
       stream: values.stream,
     };
     // TODO: PASS IN LOGGED IN MERCHANT ID FOR FIRST PARAMETER
-    this.props.editMerchantProfile(1, profile);
+    this.props.editMerchantProfile(this.props.merchantInfo.id, profile);
   }
 
   render() {

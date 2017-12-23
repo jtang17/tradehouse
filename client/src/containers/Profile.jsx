@@ -4,7 +4,7 @@ import { Auth } from '../Auth/Auth.js';
 
 const auth = new Auth();
 import { connect } from 'react-redux';
-
+//COMPONENT NOT CURRENTLY USED
 
 class Profile extends React.Component {
   constructor(props) {

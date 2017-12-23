@@ -21,8 +21,11 @@ class ChannelView extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.props.fetchSubscriptions(1)
+  componentWillMount() {
+    this.props.fetchMerchantInfo(this.props.match.params.merchantId)
+      .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct));
+    this.props.fetchCustomerInfoByToken()
+      .then(() => this.props.fetchSubscriptions(this.props.customerInfo.id))
       .then(() => this.props.subscriptions.forEach((subscription) => {
         if (subscription.merchantId.toString() === this.props.match.params.merchantId) {
           this.setState({
@@ -31,9 +34,6 @@ class ChannelView extends React.Component {
         }
       }));
 
-    this.props.fetchMerchantInfo(this.props.match.params.merchantId)
-      .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct))
-      .then(() => this.props.fetchCustomerInfoByToken());
   }
 
   followButtonClick() {
@@ -41,7 +41,7 @@ class ChannelView extends React.Component {
     if (!loggedIn) {
       alert('Please register or log in.');
     } else {
-      this.props.follow(1, this.props.match.params.merchantId)
+      this.props.follow(this.props.customerInfo.id, this.props.match.params.merchantId)
       this.setState({
         subscribed: true,
       });
@@ -50,7 +50,7 @@ class ChannelView extends React.Component {
   }
 
   unfollowButtonClick() {
-    this.props.unfollow(1, this.props.match.params.merchantId);
+    this.props.unfollow(this.props.customerInfo.id, this.props.match.params.merchantId);
     this.setState({
       subscribed: false,
     });
@@ -58,13 +58,11 @@ class ChannelView extends React.Component {
   }
 
   render() {
-    const { merchantInfo } = this.props;
-    // TODO: LINK TO CART/CHECKOUT OF LOGGED IN CUSTOMER
     return (
       <div>
-          Viewing: {merchantInfo.storeName} - <Link to={`/store/${merchantInfo.id}`}>Store</Link>
+          Viewing: {this.props.merchantInfo.storeName || 'Your Store'} - <Link to={`/store/${this.props.merchantInfo.id}`}>Store</Link>
         <br />
-        <span style={{ fontStyle: 'italic' }}>{merchantInfo.broadcastMessage}</span>
+        <span style={{ fontStyle: 'italic' }}>{this.props.merchantInfo.broadcastMessage}</span>
         <br />
         {this.state.subscribed ?
           <button onClick={this.unfollowButtonClick}>Unfollow</button> :
@@ -74,7 +72,7 @@ class ChannelView extends React.Component {
         <iframe
           width="400"
           height="300"
-          src={merchantInfo.stream}
+          src={this.props.merchantInfo.stream}
           frameBorder="0"
           allowFullScreen
         />
@@ -85,7 +83,7 @@ class ChannelView extends React.Component {
               addToCart={this.props.addToCart}
             />
           }
-          <Link to={`/checkout/${1}`}>View Cart</Link>
+          <Link to={`/checkout/${this.props.customerInfo.id}`}>View Cart</Link>
         </div>
         <ul id="messages" />
         <form action="">

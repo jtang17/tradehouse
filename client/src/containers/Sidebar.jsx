@@ -2,8 +2,8 @@ import React from 'react';
 import CustomerSidebar from '../components/customer/CustomerSidebar.jsx';
 import MerchantSidebar from '../components/merchant/MerchantSidebar.jsx';
 import { connect } from 'react-redux';
-import { fetchAllMerchants } from '../actions/merchantActions.jsx';
-import { fetchAllProducts } from '../actions/productActions.jsx';
+
+import { fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist } from '../actions/customerActions.jsx';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -12,6 +12,12 @@ class Sidebar extends React.Component {
     this.state = {
       merchant: false,
     };
+  }
+
+  componentDidMount() {
+    this.props.fetchCustomerInfoByToken()
+      .then(() => this.props.fetchSubscriptions(this.props.customerInfo.id))
+      .then(() => this.props.fetchWishlist(this.props.customerInfo.id));
   }
 
   render() {
@@ -26,10 +32,8 @@ class Sidebar extends React.Component {
         {
           this.state.merchant ? <MerchantSidebar /> :
           <CustomerSidebar
-            allMerchants={allMerchants}
-            allProducts={allProducts}
-            fetchAllMerchants={fetchAllMerchants}
-            fetchAllProducts={fetchAllProducts}
+            wishlist={this.props.wishlist}
+            subscriptions={this.props.subscriptions}
           />
         }
       </div>
@@ -38,8 +42,11 @@ class Sidebar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  allMerchants: state.allMerchants,
-  allProducts: state.allProducts,
+  customerInfo: state.customerInfo,
+  wishlist: state.wishlist,
+  subscriptions: state.subscriptions,
 });
 
-export default connect(mapStateToProps, { fetchAllMerchants, fetchAllProducts })(Sidebar);
+const mapDispatchToProps = { fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

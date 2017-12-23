@@ -7,8 +7,7 @@ const auth = new Auth();
 import { connect } from 'react-redux';
 import { fetchMerchantProducts } from '../actions/productActions.jsx';
 import { changeStream, changeBroadcastMessage, selectFeaturedProduct } from '../actions/broadcastActions.jsx';
-import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
-import { fetchMerchantInfoByToken } from '../actions/merchantActions.jsx';
+import { fetchMerchantInfoByToken, fetchMerchantInfo } from '../actions/merchantActions.jsx';
 
 import BroadcastViewVideo from '../components/broadcast/BroadcastViewVideo.jsx';
 import VideoControl from '../components/broadcast/VideoControl.jsx';
@@ -38,16 +37,18 @@ class BroadcastView extends React.Component {
     }
     return (
       <div className="broadcastView__container">
-        <h3 className="broadcast-header">{this.props.merchantInfo.storeName || 'Alex\'s Store.'}</h3>
+        <h3 className="broadcast-header">{this.props.merchantInfo.storeName || 'Your Store.'}</h3>
         <BroadcastViewVideo
           stream={this.props.merchantInfo.stream}
         />
         <VideoControl
+          merchantId={this.props.merchantInfo.id}
           changeStream={this.props.changeStream}
           changeBroadcastMessage={this.props.changeBroadcastMessage}
           broadcastMessage={this.props.broadcastMessage}
         />
         <ProductControl
+          merchantId={this.props.merchantInfo.id}
           featuredProduct={this.props.featuredProduct}
           products={this.props.products}
           selectFeaturedProduct={this.props.selectFeaturedProduct}

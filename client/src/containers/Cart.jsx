@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import CartItem from '../components/customer/CartItem.jsx';
 import { removeFromCart, fetchCart, decreaseQuantityInCart, increaseQuantityInCart } from '../actions/cartActions.jsx';
+import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
 
 import { connect } from 'react-redux';
 
@@ -10,6 +11,10 @@ import { connect } from 'react-redux';
 class Cart extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchCustomerInfoByToken();
   }
 
   render() {
@@ -23,7 +28,7 @@ class Cart extends React.Component {
           Current Cart: {this.props.cart.map((product, index) => (<CartItem product={product} key={index} removeFromCart={this.props.removeFromCart} increaseQuantityInCart={this.props.increaseQuantityInCart} decreaseQuantityInCart={this.props.decreaseQuantityInCart} customerId={this.props.customerId} />))}
           Total Price: ${parseFloat(totalCost).toFixed(2)}
           <br />
-          <Link to={`/checkout/${this.props.customerId}`}>
+          <Link to={`/checkout/${this.props.customerInfo.id}`}>
             <br />
             <button>Checkout</button>
           </Link>
@@ -35,10 +40,11 @@ class Cart extends React.Component {
 
 const mapStateToProps = state => ({
   cart: state.cart,
+  customerInfo: state.customerInfo,
 });
 
 const mapDispatchToProps = {
-  removeFromCart, fetchCart, decreaseQuantityInCart, increaseQuantityInCart,
+  removeFromCart, fetchCart, decreaseQuantityInCart, increaseQuantityInCart, fetchCustomerInfoByToken,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

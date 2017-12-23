@@ -8,7 +8,7 @@ class ProductControl extends React.Component {
   }
 
   selectFeaturedProduct(index) {
-    this.props.selectFeaturedProduct(this.props.products[index]);
+    this.props.selectFeaturedProduct(this.props.products[index], this.props.merchantId);
   }
 
   render() {

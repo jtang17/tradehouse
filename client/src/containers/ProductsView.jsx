@@ -2,8 +2,8 @@ import React from 'react';
 import AddProductForm from '../components/products/AddProductForm.jsx';
 import ProductList from '../components/products/ProductList.jsx';
 import { connect } from 'react-redux';
-import { addProduct, deleteProduct, fetchAllProducts } from '../actions/productActions.jsx';
-import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
+import { addProduct, deleteProduct, fetchMerchantProducts } from '../actions/productActions.jsx';
+import { fetchMerchantInfoByToken } from '../actions/merchantActions.jsx';
 import { Redirect } from 'react-router';
 import { Auth } from '../Auth/Auth.js';
 
@@ -20,9 +20,9 @@ class ProductsView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllProducts();
-    // Should fetch this merchant's products only
-    // this.props.fetchProducts(id);
+     this.props.fetchMerchantInfoByToken()
+      .then(() => this.props.fetchMerchantProducts(this.props.merchantInfo.id));
+
   }
 
   showAddProduct() {
@@ -39,10 +39,11 @@ class ProductsView extends React.Component {
 
     return (
       <div className="mercStore__container clear">
-        <h3>{this.props.merchantInfo.storeName || 'Alex\'s Inventory' }</h3>
+        <h3>{this.props.merchantInfo.storeName}</h3>
         <a className="btn--action" onClick={this.showAddProduct}>Add New Product</a>
         {this.state.addProduct && <AddProductForm
           addProduct={this.props.addProduct}
+          merchantId={this.props.merchantInfo.id}
         />}
         <ProductList
           className="products__table"
@@ -55,10 +56,10 @@ class ProductsView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  products: state.products,
+  products: state.merchantProducts,
   merchantInfo: state.merchantInfo,
 });
 
-export default connect(mapStateToProps, {
-  addProduct, deleteProduct, fetchAllProducts, fetchMerchantInfo,
-})(ProductsView);
+const mapDispatchToProps = { addProduct, deleteProduct, fetchMerchantInfoByToken, fetchMerchantProducts };
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsView);

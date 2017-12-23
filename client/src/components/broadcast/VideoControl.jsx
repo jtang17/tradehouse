@@ -18,7 +18,7 @@ class VideoControl extends React.Component {
 
   onUrlSubmit(e) {
     e.preventDefault();
-    this.props.changeStream(this.state.streamUrl);
+    this.props.changeStream(this.state.streamUrl, this.props.merchantId);
     this.setState({
       streamUrl: '',
     });
@@ -32,7 +32,7 @@ class VideoControl extends React.Component {
 
   onBroadcastMessageSubmit(e) {
     e.preventDefault();
-    this.props.changeBroadcastMessage(this.state.broadcastMessage);
+    this.props.changeBroadcastMessage(this.state.broadcastMessage, this.props.merchantId);
     this.setState({
       broadcastMessage: '',
     });

@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist } from '../actions/customerActions.jsx';
+
 import Featured from '../components/Featured.jsx';
 
 class Home extends React.Component {
@@ -10,8 +12,10 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.getFeaturedVideo()
-    // need to store featured video on server/db
+    this.props.fetchCustomerInfoByToken()
+      .then(() => this.props.fetchSubscriptions(this.props.customerInfo.id))
+      .then(() => this.props.fetchWishlist(this.props.customerInfo.id));
+
   }
 
   render() {
@@ -26,6 +30,8 @@ class Home extends React.Component {
 
 const mapStateToProps = state => ({
   featuredVideo: state.featuredVideo,
+  customerInfo: state.customerInfo,
+  wishlist: state.wishlist,
 });
 
-export default connect(null, null)(Home);
+export default connect(mapStateToProps, { fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist })(Home);

@@ -7,8 +7,8 @@ const BrowseStreams = props => (
 
     <ul>
       {props.merchants.map((merchant, index) => (
-        <Link to={`/channel/${merchant.id || 'Merchant id'}`}>
-          <div key={index} className="streamsEntry__card">
+        <Link key={index} to={`/channel/${merchant.id || 1}`}>
+          <div className="streamsEntry__card">
             <div className="streamsTitle__card">
               <Link to={`/store/${merchant.id}`}><h5>{merchant.storeName}</h5></Link>
               <p>Rating: {merchant.rating}</p>

@@ -6,8 +6,8 @@ const BrowseProducts = props => (
   <div className="browseProducts__container">
     <div className="productBrowserEntry">
       {props.products.map((product, index) => (
-        <Link to={`/product/${product.id}`}>
-          <div key={index} className="productsEntry__card">
+        <Link key={index} to={`/product/${product.id}`}>
+          <div className="productsEntry__card">
             <div className="productImg__card">
             <img src={product.imageUrl} />
             </div>
