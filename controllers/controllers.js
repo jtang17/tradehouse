@@ -31,10 +31,7 @@ const saveNewMerchant = entry => db.Merchant.findOrCreate({
     stream: entry.stream,
     broadcastMessage: entry.broadcastMessage,
     currentProduct: entry.currentProduct,
-<<<<<<< HEAD
     storeName: entry.storeName,
-=======
->>>>>>> Test an axios callback with handleAuth (not yet working).
     sub: jwt.decode(entry.currentIdToken).sub,
   },
 });
