@@ -115,7 +115,6 @@ class Auth {
             currentIdToken: authResult.idToken,
           }, {
             headers: {
-              // 'Authorization': 'Bearer ' + authResult.accessToken,
               Authorization: `Bearer ${authResult.accessToken}`,
             },
           }).then(res => {
@@ -129,27 +128,24 @@ class Auth {
             .then(() => cb());
         }
         // axios.post('/api/customers', {
-        //       accessToken: authResult.accessToken,
-        //       username: profile.username,
-        //       email: profile.email,
-        //       facebook,
-        //     }, {
-        //       headers: {
-        //         // 'Authorization': 'Bearer ' + authResult.accessToken,
-        //         Authorization: `Bearer ${authResult.accessToken}`,
-        //       },
-        //     }).then(res => {
-        //       console.log(res);
-        //     }).catch(err => {
-        //       console.error(err);
-        //     }).then(() => {
-        //       history.replace('/');
-        //       window.location.reload();
-        //     }).catch(err => console.error(err));
+        //   accessToken: authResult.accessToken,
+        //   username: profile.username,
+        //   email: profile.email,
+        //   facebook,
+        // }, {
+        //   headers: {
+        //     Authorization: `Bearer ${authResult.accessToken}`,
+        //   },
+        // }).then(res => {
+        //   console.log(res);
+        // }).catch(err => {
+        //   console.error(err);
+        // }).then(() => {
+        //   history.replace('/');
+        //   window.location.reload();
+        // }).catch(err => console.error(err));
       });
     }
-    // history.replace('MerchantHome');
-    // window.location.reload();
   }
 
   logout() {
