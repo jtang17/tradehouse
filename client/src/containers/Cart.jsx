@@ -25,7 +25,7 @@ class Cart extends React.Component {
     return (
       <div>
         <ol>
-          Current Cart: {this.props.cart.map((product, index) => (<CartItem product={product} key={index} removeFromCart={this.props.removeFromCart} increaseQuantityInCart={this.props.increaseQuantityInCart} decreaseQuantityInCart={this.props.decreaseQuantityInCart} customerId={this.props.customerId} />))}
+          Current Cart: {this.props.cart.map((product, index) => (<CartItem product={product} key={index} removeFromCart={this.props.removeFromCart} increaseQuantityInCart={this.props.increaseQuantityInCart} decreaseQuantityInCart={this.props.decreaseQuantityInCart} customerId={this.props.customerInfo.id} />))}
           Total Price: ${parseFloat(totalCost).toFixed(2)}
           <br />
           <Link to={`/checkout/${this.props.customerInfo.id}`}>
