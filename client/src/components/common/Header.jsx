@@ -40,8 +40,8 @@ class Header extends React.Component {
   }
 
   render() {
-    console.log(this.props.merchantInfo)
-    console.log(this.props.customerInfo)
+    console.log(this.props.merchantInfo);
+    console.log(this.props.customerInfo);
     if (!auth.isAuthenticated()) {
       return (
         <div className="header__container">
