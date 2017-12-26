@@ -68,6 +68,6 @@ class BrowserBody extends React.Component {
     );
   }
 }
-            //<a className="btn--filter hvr-icon-down" onClick={this.toggleStores}>Stores</a>
+// <a className="btn--filter hvr-icon-down" onClick={this.toggleStores}>Stores</a>
 
 export default BrowserBody;
