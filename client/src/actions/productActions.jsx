@@ -16,8 +16,7 @@ export const addProduct = product => (dispatch) => {
     .then(res => dispatch({
       type: ADD_PRODUCT_SUCCESS,
       product: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: ADD_PRODUCT_FAILURE,
       error: err,
     }));
@@ -28,8 +27,7 @@ export const deleteProduct = product => (dispatch) => {
     .then(res => dispatch({
       type: DELETE_PRODUCT_SUCCESS,
       products: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: DELETE_PRODUCT_FAILURE,
       error: err,
     }));
@@ -41,8 +39,7 @@ export const fetchAllProducts = () => (dispatch) => {
     .then(res => dispatch({
       type: FETCH_ALL_PRODUCTS_SUCCESS,
       allProducts: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: FETCH_ALL_PRODUCTS_FAILURE,
       error: err,
     }));
@@ -54,8 +51,7 @@ export const fetchMerchantProducts = id => (dispatch) => {
     .then(res => dispatch({
       type: FETCH_MERCHANT_PRODUCTS_SUCCESS,
       products: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: FETCH_MERCHANT_PRODUCTS_FAILURE,
       error: err,
     }));
@@ -67,8 +63,7 @@ export const fetchSingleProduct = productId => (dispatch) => {
     .then(res => dispatch({
       type: FETCH_SINGLE_PRODUCT_SUCCESS,
       product: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: FETCH_SINGLE_PRODUCT_FAILURE,
       error: err,
     }));

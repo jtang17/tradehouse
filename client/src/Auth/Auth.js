@@ -65,10 +65,13 @@ class Auth {
       throw new Error('Access token required for fetching profile');
     }
     lock.getUserInfo(accessToken, (err, profile) => {
+      if (err) {
+        return console.error(err);
+      }
       if (profile) {
         this.userProfile = profile;
       }
-      console.log('err', err, 'profile', profile);
+      cb(profile);
     });
   }
 
@@ -99,13 +102,14 @@ class Auth {
               },
             }).then(res => {
               console.log(res);
+              cb(res.data.id);
             }).catch(err => {
               console.error(err);
             }).then(() => {
               history.replace('/');
               window.location.reload();
             }).catch(err => console.error(err))
-              .then(() => cb());
+              // .then(() => cb());
           }
 
           axios.post('/api/customers', {
@@ -125,7 +129,7 @@ class Auth {
             history.replace('/');
             window.location.reload();
           }).catch(err => console.error(err))
-            .then(() => cb());
+            // .then(() => cb());
         }
         // axios.post('/api/customers', {
         //   accessToken: authResult.accessToken,

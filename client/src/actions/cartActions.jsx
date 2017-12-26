@@ -16,8 +16,7 @@ export const addToCart = (product, customerId) => (dispatch) => {
     .then(res => dispatch({
       type: ADD_TO_CART_SUCCESS,
       cart: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: ADD_TO_CART_FAILURE,
       error: err,
     }));
@@ -28,8 +27,7 @@ export const removeFromCart = (product, customerId) => (dispatch) => {
     .then(res => dispatch({
       type: REMOVE_FROM_CART_SUCCESS,
       cart: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: REMOVE_FROM_CART_FAILURE,
       error: err,
     }));
@@ -40,8 +38,7 @@ export const fetchCart = customerId => (dispatch) => {
     .then(res => dispatch({
       type: FETCH_CART_SUCCESS,
       cart: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: FETCH_CART_FAILURE,
       error: err,
     }));
@@ -52,8 +49,7 @@ export const increaseQuantityInCart = (product, customerId) => (dispatch) => {
     .then(res => dispatch({
       type: INCREASE_QUANTITY_CART_SUCCESS,
       cart: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: INCREASE_QUANTITY_CART_FAILURE,
       error: err,
     }));
@@ -64,8 +60,7 @@ export const decreaseQuantityInCart = (product, customerId) => (dispatch) => {
     .then(res => dispatch({
       type: DECREASE_QUANTITY_CART_SUCCESS,
       cart: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: DECREASE_QUANTITY_CART_FAILURE,
       error: err,
     }));

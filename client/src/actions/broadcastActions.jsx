@@ -19,8 +19,7 @@ export const changeStream = (url, merchantId) => (dispatch) => {
     .then(res => dispatch({
       type: CHANGE_STREAM_SUCCESS,
       url,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: CHANGE_STREAM_FAILURE,
       url, // TODO: take this out when routes set up
       error: err,
@@ -32,8 +31,7 @@ export const fetchStreamUrl = merchantId => (dispatch) => {
     .then(res => dispatch({
       type: FETCH_STREAM_URL_SUCCESS,
       url: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: FETCH_STREAM_URL_FAILURE,
       error: err,
     }));
@@ -44,8 +42,7 @@ export const changeBroadcastMessage = (broadcastMessage, merchantId) => (dispatc
     .then(res => dispatch({
       type: CHANGE_BROADCAST_MESSAGE_SUCCESS,
       broadcastMessage,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: CHANGE_BROADCAST_MESSAGE_FAILURE,
       broadcastMessage, // TODO: take this out when routes set up
       error: err,
@@ -57,8 +54,7 @@ export const fetchBroadcastMessage = merchantId => (dispatch) => {
     .then(res => dispatch({
       type: FETCH_BROADCAST_MESSAGE_SUCCESS,
       broadcastMessage: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: FETCH_BROADCAST_MESSAGE_FAILURE,
       error: err,
     }));
@@ -69,8 +65,7 @@ export const selectFeaturedProduct = (product, merchantId) => (dispatch) => {
     .then(res => dispatch({
       type: SELECT_FEATURED_PRODUCT_SUCCESS,
       product,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: SELECT_FEATURED_PRODUCT_FAILURE,
       product, // TODO: take this out when routes set up
       error: err,
@@ -82,8 +77,7 @@ export const fetchFeaturedProduct = merchantId => (dispatch) => {
     .then(res => dispatch({
       type: FETCH_FEATURED_PRODUCT_SUCCESS,
       featuredProduct: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: FETCH_FEATURED_PRODUCT_FAILURE,
       error: err,
     }));

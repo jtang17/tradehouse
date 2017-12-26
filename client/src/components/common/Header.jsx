@@ -19,8 +19,10 @@ class Header extends React.Component {
     this.setState = this.setState.bind(this);
   }
 
-  componentDidMount() {
-    auth.handleAuthentication(() => axios.get(`/api/merchants/bySub/${localStorage.idToken}`).then(res => this.setState({ id: res.data.id })).catch(err => this.setState({ id: 1 })));
+  componentWillMount() {
+    /* auth.handleAuthentication(() => axios.get(`/api/merchants/bySub/${localStorage.idToken}`).then(res => this.setState({ id: res.data.id })).catch(err => this.setState({ id: 1 })));*/
+    auth.handleAuthentication(id => this.setState({ id }));
+    /* auth.getProfile*/
   }
 
   registerFunc() {

@@ -28,8 +28,7 @@ export const editMerchantProfile = (id, profile) => dispatch => axios.put(`/api/
   .then(res => dispatch({
     type: EDIT_MERCHANT_PROFILE_SUCCESS,
     merchantInfo: res.data,
-  }))
-  .catch(err => dispatch({
+  }), err => dispatch({
     type: EDIT_MERCHANT_PROFILE_FAILURE,
     error: err,
   }));
@@ -38,8 +37,7 @@ export const fetchAllMerchants = () => dispatch => axios.get('/api/merchants')
   .then(res => dispatch({
     type: FETCH_ALL_MERCHANTS_SUCCESS,
     allMerchants: res.data,
-  }))
-  .catch(err => dispatch({
+  }), err => dispatch({
     type: FETCH_ALL_MERCHANTS_FAILURE,
     error: err,
   }));

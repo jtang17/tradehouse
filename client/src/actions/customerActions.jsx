@@ -26,9 +26,8 @@ export const fetchCustomerInfo = ({ id }) => (dispatch) => {
     .then(res => dispatch({
       type: FETCH_CUSTOMER_SUCCESS,
       customerInfo: res.data,
-    }))
-    .catch(err => dispatch({
-      type: FETCH_CUSTOMER_FAILURE,
+    }), err => dispatch({
+      type: FETCH_WISHLIST_FAILURE,
       error: err,
     }));
 };
@@ -37,8 +36,7 @@ export const fetchWishlist = customerId => dispatch => axios.get(`/api/customers
   .then(res => dispatch({
     type: FETCH_WISHLIST_SUCCESS,
     wishlist: res.data,
-  }))
-  .catch(err => dispatch({
+  }), err => dispatch({
     type: FETCH_WISHLIST_FAILURE,
     error: err,
   }));
@@ -48,8 +46,7 @@ export const addWishlistedProduct = (customerId, productId) => (dispatch) => {
     .then(res => dispatch({
       type: ADD_WISHLISTED_PRODUCT_SUCCESS,
       wishlist: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: ADD_WISHLISTED_PRODUCT_FAILURE,
       error: err,
     }));
@@ -60,8 +57,7 @@ export const removeWishlistedProduct = (customerId, productId) => (dispatch) => 
     .then(res => dispatch({
       type: REMOVE_WISHLISTED_PRODUCT_SUCCESS,
       wishlist: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: REMOVE_WISHLISTED_PRODUCT_FAILURE,
       error: err,
     }));
@@ -72,8 +68,7 @@ export const fetchSubscriptions = customerId => dispatch => axios.get(`/api/cust
   .then(res => dispatch({
     type: FETCH_SUBSCRIPTIONS_SUCCESS,
     subscriptions: res.data,
-  }))
-  .catch(err => dispatch({
+  }), err => dispatch({
     type: FETCH_SUBSCRIPTIONS_FAILURE,
     error: err,
   }));
@@ -83,8 +78,7 @@ export const follow = (customerId, merchantId) => (dispatch) => {
     .then(res => dispatch({
       type: FOLLOW_SUCCESS,
       subscriptions: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: FOLLOW_FAILURE,
       error: err,
     }));
@@ -95,8 +89,7 @@ export const unfollow = (customerId, merchantId) => (dispatch) => {
     .then(res => dispatch({
       type: UNFOLLOW_SUCCESS,
       subscriptions: res.data,
-    }))
-    .catch(err => dispatch({
+    }), err => dispatch({
       type: UNFOLLOW_FAILURE,
       error: err,
     }));
