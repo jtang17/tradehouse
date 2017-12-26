@@ -40,6 +40,8 @@ class Header extends React.Component {
   }
 
   render() {
+    console.log(this.props.merchantInfo)
+    console.log(this.props.customerInfo)
     if (!auth.isAuthenticated()) {
       return (
         <div className="header__container">
@@ -53,20 +55,7 @@ class Header extends React.Component {
         </div>
       );
     }
-    if (auth.isAuthenticated() && this.props.customerInfo.id !== null) {
-      return (
-        <div className="header__container">
-          <Link className="header__logo" to="/" />
-          <div className="header__social">
-            <p>Best Global Market: Immersive experience!</p>
-          </div>
-          <div className="header__account--register">
-            <button className="hvr-icon-pulse btn--profile" onClick={this.logout}>Logout</button>
-          </div>
-        </div>
-      );
-    }
-    if (auth.isAuthenticated() && this.props.merchantInfo.id !== null) {
+    if (auth.isAuthenticated() && this.props.merchantInfo !== null) {
       return (
         <div className="header__container">
           <Link className="header__logo" to="/" />
@@ -80,6 +69,19 @@ class Header extends React.Component {
             <Link className="btn--nav" to={`/broadcast/${this.props.merchantInfo.id}`}>
               Broadcast
             </Link>
+          </div>
+          <div className="header__account--register">
+            <button className="hvr-icon-pulse btn--profile" onClick={this.logout}>Logout</button>
+          </div>
+        </div>
+      );
+    }
+    if (auth.isAuthenticated() && this.props.customerInfo.id !== null) {
+      return (
+        <div className="header__container">
+          <Link className="header__logo" to="/" />
+          <div className="header__social">
+            <p>Best Global Market: Immersive experience!</p>
           </div>
           <div className="header__account--register">
             <button className="hvr-icon-pulse btn--profile" onClick={this.logout}>Logout</button>
