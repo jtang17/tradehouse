@@ -2,6 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { lock, Auth } from '../../Auth/Auth.js';
+import { connect } from 'react-redux';
+
+import { fetchMerchantInfoByToken } from '../../actions/merchantActions.jsx';
+import { fetchCustomerInfoByToken } from '../../actions/customerActions.jsx';
 
 const auth = new Auth();
 
@@ -21,7 +25,9 @@ class Header extends React.Component {
 
   componentWillMount() {
     /* auth.handleAuthentication(() => axios.get(`/api/merchants/bySub/${localStorage.idToken}`).then(res => this.setState({ id: res.data.id })).catch(err => this.setState({ id: 1 })));*/
-    auth.handleAuthentication(id => this.setState({ id }));
+    auth.handleAuthentication()
+    this.props.fetchMerchantInfoByToken();
+    this.props.fetchCustomerInfoByToken();
     /* auth.getProfile*/
   }
 
@@ -32,9 +38,6 @@ class Header extends React.Component {
   logout() {
     auth.logout();
   }
-
-
-  // <Link to="browse"><h4>Browse Content</h4></Link>
 
   render() {
     if (!auth.isAuthenticated()) {
@@ -50,26 +53,46 @@ class Header extends React.Component {
         </div>
       );
     }
-    return (
-      <div className="header__container">
-        <Link className="header__logo" to="/" />
-        <div className="nav__container--header">
-          <Link className="btn--nav" to={`/merchant_profile/${this.state.id}`}>
-            Merchant Profile
-          </Link>
-          <Link className="btn--nav" to={`/manage_store/${this.state.id}`}>
-            Manage Store
-          </Link>
-          <Link className="btn--nav" to={`/broadcast/${this.state.id}`}>
-            Broadcast
-          </Link>
+    if (auth.isAuthenticated() && this.props.customerInfo.id !== null) {
+      return (
+        <div className="header__container">
+          <Link className="header__logo" to="/" />
+          <div className="header__social">
+            <p>Best Global Market: Immersive experience!</p>
+          </div>
+          <div className="header__account--register">
+            <button className="hvr-icon-pulse btn--profile" onClick={this.logout}>Logout</button>
+          </div>
         </div>
-        <div className="header__account--register">
-          <button className="hvr-icon-pulse btn--profile" onClick={this.logout}>Logout</button>
+      );
+    }
+    if (auth.isAuthenticated() && this.props.merchantInfo.id !== null) {
+      return (
+        <div className="header__container">
+          <Link className="header__logo" to="/" />
+          <div className="nav__container--header">
+            <Link className="btn--nav" to={`/merchant_profile/${this.props.merchantInfo.id}`}>
+              Merchant Profile
+            </Link>
+            <Link className="btn--nav" to={`/manage_store/${this.props.merchantInfo.id}`}>
+              Manage Store
+            </Link>
+            <Link className="btn--nav" to={`/broadcast/${this.props.merchantInfo.id}`}>
+              Broadcast
+            </Link>
+          </div>
+          <div className="header__account--register">
+            <button className="hvr-icon-pulse btn--profile" onClick={this.logout}>Logout</button>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  merchantInfo: state.merchantInfo,
+  customerInfo: state.customerInfo,
+});
+
+export default connect(mapStateToProps, { fetchCustomerInfoByToken, fetchMerchantInfoByToken })(Header);

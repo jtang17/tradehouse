@@ -58,7 +58,6 @@ class BrowserBody extends React.Component {
           <h3 className="container-header">Browse Contents</h3>
           <div className="filter__container">
             <a className="btn--filter hvr-icon-down" onClick={this.toggleStreams}>Streams</a>
-            <a className="btn--filter hvr-icon-down" onClick={this.toggleStores}>Stores</a>
             <a className="btn--filter hvr-icon-down" onClick={this.toggleProducts}>Products</a>
           </div>
         </div>
@@ -69,7 +68,6 @@ class BrowserBody extends React.Component {
     );
   }
 }
+            //<a className="btn--filter hvr-icon-down" onClick={this.toggleStores}>Stores</a>
 
-// {this.state.type === 'stores' && <BrowseStores merchants={this.props.merchants} />}
-// {this.state.type === 'videos' && <BrowseVideos />}
 export default BrowserBody;

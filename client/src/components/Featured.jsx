@@ -15,7 +15,7 @@ class Featured extends React.Component {
 
         <div className="featuredVid__container">
           <iframe
-            src="https://player.twitch.tv/?channel=datjoncat&muted=true"
+            src="https://www.youtube.com/embed/live_stream?channel=UCSJ4gkVC6NrvII8umztf0Ow"
             height="450"
             width="600"
             frameBorder="0"
@@ -23,17 +23,7 @@ class Featured extends React.Component {
             allowFullScreen="true"
           />
         </div>
-        <div className="featuredChat__container">
-          <iframe
-            className="featured__chat"
-            frameBorder="0"
-            scrolling="no"
-            id="chat_embed"
-            src="https://www.twitch.tv/embed/datjoncat/chat"
-            height="100%"
-            width="300"
-          />
-        </div>
+
         <div className="featured__description">
           <h3>Description:</h3>
           <p>Subscribe to Core Koans for the inside scoop on all the
@@ -46,4 +36,17 @@ class Featured extends React.Component {
   // comment
 }
 
+/*
+        <div className="featuredChat__container">
+          <iframe
+            className="featured__chat"
+            frameBorder="0"
+            scrolling="no"
+            id="chat_embed"
+            src="https://www.twitch.tv/embed/datjoncat/chat"
+            height="100%"
+            width="300"
+          />
+        </div>
+*/
 export default Featured;
