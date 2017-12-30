@@ -28,8 +28,8 @@ const saveNewMerchant = entry => db.Merchant.findOrCreate({
     facebook: entry.facebook,
     twitter: entry.twitter,
     description: entry.description,
-    stream: entry.stream,
-    broadcastMessage: entry.broadcastMessage,
+    // stream: entry.stream,
+    // broadcastMessage: entry.broadcastMessage,
     currentProduct: entry.currentProduct,
     storeName: entry.storeName,
     sub: jwt.decode(entry.currentIdToken).sub,
@@ -185,7 +185,7 @@ const editMerchantProfile = (merchantId, entry) =>
     facebook: entry.facebook,
     twitter: entry.twitter,
     description: entry.description,
-    stream: entry.stream,
+    // stream: entry.stream,
   }));
 
 const editMerchantProfileAndFindByEmail = entry =>
@@ -203,7 +203,7 @@ const editMerchantProfileAndFindByEmail = entry =>
     facebook: entry.facebook,
     twitter: entry.twitter,
     description: entry.description,
-    stream: entry.stream,
+    // stream: entry.stream,
     broadcastMessage: entry.broadcastMessage,
     currentProduct: entry.currentProduct,
   }));
@@ -262,20 +262,20 @@ const getAllProducts = () => db.Product.findAll({});
 
 const getAllCustomers = () => db.Customer.findAll({});
 
-const editMerchantStreamUrl = (entry, merchantId) => db.Merchant.findOne({
+const editMerchantStreamUrl = (entry, merchantId) => db.Stream.findOne({
   where: {
-    id: merchantId,
+    merchantId,
   },
-}).then(merchant => merchant.update({
-  stream: entry.url,
+}).then(stream => stream.update({
+  url: entry.url,
 }));
 
 
-const editMerchantBroadcastMessage = (entry, merchantId) => db.Merchant.findOne({
+const editMerchantBroadcastMessage = (entry, merchantId) => db.Stream.findOne({
   where: {
-    id: merchantId,
+    merchantId,
   },
-}).then(merchant => merchant.update({
+}).then(stream => stream.update({
   broadcastMessage: entry.broadcastMessage,
 }));
 

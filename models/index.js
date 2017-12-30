@@ -48,6 +48,7 @@ if (!global.hasOwnProperty('db')) {
     WishlistedProduct: sequelize.import(`${__dirname}/wishlistedProduct`),
     PurchasedProduct: sequelize.import(`${__dirname}/purchasedProduct`),
     ShoppingCartedProduct: sequelize.import(`${__dirname}/shoppingCartedProduct`),
+    Stream: sequelize.import(`${__dirname}/stream`),
   };
 
   global.db.Customer.belongsToMany(global.db.Merchant, {
@@ -113,6 +114,7 @@ if (!global.hasOwnProperty('db')) {
     unique: 'customer_product_shopping_carted',
   });
 
+  global.db.Stream.belongsTo(global.db.Merchant);
   global.db.Product.belongsTo(global.db.Merchant);
 }
 

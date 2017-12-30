@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) =>
     twitter: DataTypes.STRING,
     description: DataTypes.TEXT,
     // stream: { type: DataTypes.STRING, unique: true },
-    stream: { type: DataTypes.STRING },
-    broadcastMessage: DataTypes.TEXT,
+    // stream: { type: DataTypes.STRING },
+    // broadcastMessage: DataTypes.TEXT,
     currentProduct: DataTypes.TEXT,
     storeName: DataTypes.TEXT,
     // sub: { type: DataTypes.STRING, unique: true }, // this really should be unique, but removing the constraint for now makes seeding less annoying
