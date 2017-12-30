@@ -57,17 +57,17 @@ router.get('/:merchantId/reviews', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.get('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
-  const stream = await controllers.getOneMerchantStream(req.params.merchantId);
+  const stream = await controllers.getOneStream(req.params.merchantId);
   res.json(stream);
 }));
 
 router.post('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
-  const newReview = await controllers.saveNewMerchantStream(req.body);
+  const newReview = await controllers.saveNewStream(req.body);
   res.json(newReview);
 }));
 
 router.put('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
-  const url = await controllers.editMerchantStreamUrl(req.body, req.params.merchantId);
+  const url = await controllers.editStream(req.body, req.params.merchantId);
   res.json(url);
 }));
 

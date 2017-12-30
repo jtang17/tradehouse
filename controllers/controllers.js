@@ -36,7 +36,7 @@ const saveNewMerchant = entry => db.Merchant.findOrCreate({
   },
 });
 
-const saveNewMerchantStream = entry => db.Stream.create({
+const saveNewStream = entry => db.Stream.create({
   merchantId: entry.merchantId,
   url: entry.url,
   broadcastMessage: entry.broadcastMessage,
@@ -268,9 +268,9 @@ const getAllProducts = () => db.Product.findAll({});
 
 const getAllCustomers = () => db.Customer.findAll({});
 
-const getOneMerchantStream = merchantId => db.Stream.findOne({ where: { merchantId } });
+const getOneStream = merchantId => db.Stream.findOne({ where: { merchantId } });
 
-const editMerchantStream = (entry, merchantId) => db.Stream.findOne({
+const editStream = (entry, merchantId) => db.Stream.findOne({
   where: {
     merchantId,
   },
@@ -319,12 +319,12 @@ module.exports = {
   saveNewShoppingCartedProduct,
   editShoppingCartedProduct,
   deleteShoppingCartedProduct,
-  editMerchantStream,
+  editStream,
   editMerchantFeaturedProduct,
   changeToMerchant,
   editMerchantProfileAndFindByEmail,
   findOneMerchantBySub,
   findOneCustomerBySub,
-  saveNewMerchantStream,
-  getOneMerchantStream,
+  saveNewStream,
+  getOneStream,
 };
