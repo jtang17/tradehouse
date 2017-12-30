@@ -10,12 +10,12 @@ import {
   changeStream,
   changeBroadcastMessage,
   selectFeaturedProduct,
+  fetchStreamInfo,
+  editStreamInfo,
 } from '../actions/broadcastActions.jsx';
 import {
   fetchMerchantInfoByToken,
   fetchMerchantInfo,
-  fetchStreamInfo,
-  editStreamInfo,
 } from '../actions/merchantActions.jsx';
 
 import BroadcastViewVideo from '../components/broadcast/BroadcastViewVideo.jsx';
@@ -51,12 +51,11 @@ class BroadcastView extends React.Component {
       <div className="broadcastView__container">
         <h3 className="broadcast-header">{this.props.merchantInfo.storeName || 'Your Store.'}</h3>
         <BroadcastViewVideo
-          streamInfo={this.props.streamInfo}
+          streamUrl={this.props.streamInfo.url}
         />
         <VideoControl
           merchantId={this.props.merchantInfo.id}
           changeStream={this.props.changeStream}
-          changeBroadcastMessage={this.props.changeBroadcastMessage}
           broadcastMessage={this.props.streamInfo.broadcastMessage}
         />
         <ProductControl

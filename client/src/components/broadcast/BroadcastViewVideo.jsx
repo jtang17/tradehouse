@@ -5,7 +5,7 @@ const BroadcastViewVideo = props => (
     <iframe
       width="600px"
       height="450px"
-      src={props.stream}
+      src={props.streamUrl}
       frameBorder="0"
       allowFullScreen
     />
