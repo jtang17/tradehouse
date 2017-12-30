@@ -12,6 +12,10 @@ export const SELECT_FEATURED_PRODUCT_SUCCESS = 'SELECT_FEATURED_PRODUCT_SUCCESS'
 export const SELECT_FEATURED_PRODUCT_FAILURE = 'SELECT_FEATURED_PRODUCT_FAILURE';
 export const FETCH_FEATURED_PRODUCT_SUCCESS = 'FETCH_FEATURED_PRODUCT_SUCCESS';
 export const FETCH_FEATURED_PRODUCT_FAILURE = 'FETCH_FEATURED_PRODUCT_FAILURE';
+export const FETCH_STREAM_SUCCESS = 'FETCH_STREAM_SUCCESS';
+export const FETCH_STREAM_FAILURE = 'FETCH_STREAM_FAILURE';
+export const EDIT_STREAM_SUCCESS = 'EDIT_STREAM_SUCCESS';
+export const EDIT_STREAM_FAILURE = 'EDIT_STREAM_FAILURE';
 
 // TODO: PASS IN ID THROUGH FUNCTIONS AND REMOVE STATIC ID ASSIGNMENT ON NEXT LINE
 export const changeStream = (url, merchantId) => (dispatch) => {
@@ -83,3 +87,24 @@ export const fetchFeaturedProduct = merchantId => (dispatch) => {
     }));
 };
 
+export const fetchStreamInfo = id => (dispatch) => {
+  dispatch(fetchStreamLoading(true));
+  return axios.get(`/api/merchants/${id}/streams`)
+    .then(res => dispatch({
+      type: FETCH_STREAM_SUCCESS,
+      streamInfo: res.data,
+    }), err => dispatch({
+      type: FETCH_STREAM_FAILURE,
+      error: err,
+    }));
+};
+
+export const editStreamInfo = (id, streamInfo) => dispatch =>
+  axios.put(`/api/merchants/${id}/streams`, { streamInfo })
+    .then(res => dispatch({
+      type: EDIT_STREAM_SUCCESS,
+      streamInfo: res.data,
+    }), err => dispatch({
+      type: EDIT_STREAM_FAILURE,
+      error: err,
+    }));

@@ -31,12 +31,12 @@ import RouteNotFound from './components/common/RouteNotFound.jsx';
 const defaultState = {
   allMerchants: [],
   allProducts: [],
-  broadcastMessage: '',
+  /* broadcastMessage: '',*/
   singleProduct: {},
   merchantProducts: [],
   products: [],
   cart: [],
-  stream: '',
+  /* stream: '',*/
   featuredProduct: {},
   subscriptions: [],
   wishlist: [],

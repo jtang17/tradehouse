@@ -5,7 +5,7 @@ import { broadcastMessage, featuredProduct, stream } from './broadcastReducers.j
 import { cart } from './cartReducers.jsx';
 import { allProducts, products, merchantProducts, singleProduct } from './productReducers.jsx';
 import { customerInfo, subscriptions, wishlist } from './customerReducers.jsx';
-import { merchantInfo, allMerchants } from './merchantReducers.jsx';
+import { merchantInfo, allMerchants, streamInfo } from './merchantReducers.jsx';
 
 const tradehouseApp = combineReducers({
   allMerchants,
@@ -22,6 +22,7 @@ const tradehouseApp = combineReducers({
   subscriptions,
   customerInfo,
   merchantInfo,
+  streamInfo,
 });
 
 export default tradehouseApp;

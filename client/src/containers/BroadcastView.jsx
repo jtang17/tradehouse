@@ -6,8 +6,17 @@ const auth = new Auth();
 
 import { connect } from 'react-redux';
 import { fetchMerchantProducts } from '../actions/productActions.jsx';
-import { changeStream, changeBroadcastMessage, selectFeaturedProduct } from '../actions/broadcastActions.jsx';
-import { fetchMerchantInfoByToken, fetchMerchantInfo } from '../actions/merchantActions.jsx';
+import {
+  changeStream,
+  changeBroadcastMessage,
+  selectFeaturedProduct,
+} from '../actions/broadcastActions.jsx';
+import {
+  fetchMerchantInfoByToken,
+  fetchMerchantInfo,
+  fetchStreamInfo,
+  editStreamInfo,
+} from '../actions/merchantActions.jsx';
 
 import BroadcastViewVideo from '../components/broadcast/BroadcastViewVideo.jsx';
 import VideoControl from '../components/broadcast/VideoControl.jsx';
@@ -28,7 +37,10 @@ class BroadcastView extends React.Component {
     /* this.props.fetchMerchantProducts(1); */
     /* this.props.fetchMerchantInfo(1); */
     this.props.fetchMerchantInfoByToken()
-      .then(() => this.props.fetchMerchantProducts(this.props.merchantInfo.id));
+      .then(() => this.props.fetchMerchantProducts(this.props.merchantInfo.id))
+      .catch(err => console.error(err))
+      .then(() => this.props.fetchStreamInfo(this.props.merchantInfo.id))
+      .catch(err => console.error(err));
   }
 
   render() {
@@ -39,13 +51,13 @@ class BroadcastView extends React.Component {
       <div className="broadcastView__container">
         <h3 className="broadcast-header">{this.props.merchantInfo.storeName || 'Your Store.'}</h3>
         <BroadcastViewVideo
-          stream={this.props.merchantInfo.stream}
+          streamInfo={this.props.streamInfo}
         />
         <VideoControl
           merchantId={this.props.merchantInfo.id}
           changeStream={this.props.changeStream}
           changeBroadcastMessage={this.props.changeBroadcastMessage}
-          broadcastMessage={this.props.broadcastMessage}
+          broadcastMessage={this.props.streamInfo.broadcastMessage}
         />
         <ProductControl
           merchantId={this.props.merchantInfo.id}
@@ -67,7 +79,14 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  fetchMerchantProducts, changeStream, changeBroadcastMessage, selectFeaturedProduct, fetchMerchantInfo, fetchMerchantInfoByToken,
+  fetchMerchantProducts,
+  changeStream,
+  changeBroadcastMessage,
+  selectFeaturedProduct,
+  fetchMerchantInfo,
+  fetchMerchantInfoByToken,
+  fetchStreamInfo,
+  editStreamInfo,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BroadcastView);
