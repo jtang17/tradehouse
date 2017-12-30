@@ -40,6 +40,7 @@ const defaultState = {
   featuredProduct: {},
   subscriptions: [],
   wishlist: [],
+  streamInfo: {},
 };
 
 const store = createStore(tradehouseApp, defaultState, composeWithDevTools(applyMiddleware(thunk)));
