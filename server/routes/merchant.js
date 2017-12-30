@@ -56,15 +56,25 @@ router.get('/:merchantId/reviews', asyncMiddleware(async (req, res, next) => {
   res.json(reviews);
 }));
 
-router.put('/:merchantId/stream', asyncMiddleware(async (req, res, next) => {
+router.get('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
+  const stream = await controllers.getOneMerchantStream(req.params.merchantId);
+  res.json(stream);
+}));
+
+router.post('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
+  const newReview = await controllers.saveNewMerchantStream(req.body);
+  res.json(newReview);
+}));
+
+router.put('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
   const url = await controllers.editMerchantStreamUrl(req.body, req.params.merchantId);
   res.json(url);
 }));
 
-router.put('/:merchantId/broadcast_message', asyncMiddleware(async (req, res, next) => {
-  const message = await controllers.editMerchantBroadcastMessage(req.body, req.params.merchantId);
-  res.json(message);
-}));
+// router.put('/:merchantId/broadcast_message', asyncMiddleware(async (req, res, next) => {
+//   const message = await controllers.editMerchantBroadcastMessage(req.body, req.params.merchantId);
+//   res.json(message);
+// }));
 
 router.put('/:merchantId/featured', asyncMiddleware(async (req, res, next) => {
   const featuredProduct = await controllers.editMerchantFeaturedProduct(req.body, req.params.merchantId);

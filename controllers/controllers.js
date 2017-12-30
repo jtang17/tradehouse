@@ -36,6 +36,12 @@ const saveNewMerchant = entry => db.Merchant.findOrCreate({
   },
 });
 
+const saveNewMerchantStream = entry => db.Stream.create({
+  merchantId: entry.merchantId,
+  url: entry.url,
+  broadcastMessage: entry.broadcastMessage,
+});
+
 const saveNewCustomer = entry => db.Customer.findOrCreate({
   where: {
     username: entry.username,
@@ -84,15 +90,15 @@ const saveNewWishlistedProduct = (customerId, productId) => db.WishlistedProduct
   productId,
 });
 
-const findCustomerWishlistedProducts = (customerId) => db.WishlistedProduct.findAll({
+const findCustomerWishlistedProducts = customerId => db.WishlistedProduct.findAll({
   where: { customerId },
 });
 
 const deleteWishlistedProduct = (customerId, productId) => db.WishlistedProduct.destroy({
   where: {
-    customerId: customerId,
-    productId: productId,
-  }
+    customerId,
+    productId,
+  },
 });
 
 const saveNewSubscription = (customerId, merchantId) => db.Subscription.create({
@@ -100,14 +106,14 @@ const saveNewSubscription = (customerId, merchantId) => db.Subscription.create({
   merchantId,
 });
 
-const findCustomerSubscriptions = ( customerId ) => db.Subscription.findAll({
+const findCustomerSubscriptions = customerId => db.Subscription.findAll({
   where: { customerId },
 });
 
 const deleteSubscription = (customerId, merchantId) => db.Subscription.destroy({
   where: {
-    customerId: customerId,
-    merchantId: merchantId,
+    customerId,
+    merchantId,
   },
 });
 
@@ -204,7 +210,7 @@ const editMerchantProfileAndFindByEmail = entry =>
     twitter: entry.twitter,
     description: entry.description,
     // stream: entry.stream,
-    broadcastMessage: entry.broadcastMessage,
+    // broadcastMessage: entry.broadcastMessage,
     currentProduct: entry.currentProduct,
   }));
 
@@ -262,23 +268,16 @@ const getAllProducts = () => db.Product.findAll({});
 
 const getAllCustomers = () => db.Customer.findAll({});
 
-const editMerchantStreamUrl = (entry, merchantId) => db.Stream.findOne({
+const getOneMerchantStream = merchantId => db.Stream.findOne({ where: { merchantId } });
+
+const editMerchantStream = (entry, merchantId) => db.Stream.findOne({
   where: {
     merchantId,
   },
 }).then(stream => stream.update({
   url: entry.url,
-}));
-
-
-const editMerchantBroadcastMessage = (entry, merchantId) => db.Stream.findOne({
-  where: {
-    merchantId,
-  },
-}).then(stream => stream.update({
   broadcastMessage: entry.broadcastMessage,
 }));
-
 
 const editMerchantFeaturedProduct = (entry, merchantId) => db.Merchant.findOne({
   where: {
@@ -320,11 +319,12 @@ module.exports = {
   saveNewShoppingCartedProduct,
   editShoppingCartedProduct,
   deleteShoppingCartedProduct,
-  editMerchantStreamUrl,
-  editMerchantBroadcastMessage,
+  editMerchantStream,
   editMerchantFeaturedProduct,
   changeToMerchant,
   editMerchantProfileAndFindByEmail,
   findOneMerchantBySub,
   findOneCustomerBySub,
+  saveNewMerchantStream,
+  getOneMerchantStream,
 };

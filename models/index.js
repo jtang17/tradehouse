@@ -114,6 +114,7 @@ if (!global.hasOwnProperty('db')) {
     unique: 'customer_product_shopping_carted',
   });
 
+  // TODO: require streams to be unique; we eschew uniqueness for now to facilitate testing
   global.db.Stream.belongsTo(global.db.Merchant);
   global.db.Product.belongsTo(global.db.Merchant);
 }
