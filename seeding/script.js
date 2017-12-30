@@ -1,6 +1,7 @@
 const db = require('../models/index.js');
 const controllers = require('../controllers/controllers');
 const products = require('./products.json');
+const streams = require('./streams.json');
 const merchants = require('./merchants.json');
 const customers = require('./customers.json');
 
@@ -8,6 +9,7 @@ async function seed() {
   const merchantPromises = [];
   const customerPromises = [];
   const productPromises = [];
+  const streamPromises = [];
   for (let i = 0; i < merchants.length; i += 1) {
     merchantPromises.push(controllers.saveNewMerchant(merchants[i])
       .then(merchant => controllers.editMerchantProfileAndFindByEmail(merchants[i])));
@@ -25,6 +27,17 @@ async function seed() {
       merchantId: 1,
     })));
   }
+
+  for (let i = 0; i < streams.length; i += 1) {
+    const index = Math.floor(Math.random() * (Math.floor(savedMerchants.length)));
+    streamPromises.push(controllers.saveNewStream(Object.assign(streams[i], {
+      // merchantId: savedMerchants[index].id,
+      merchantId: 1,
+    })));
+  }
+
+  const savedStreams = await Promise.all(streamPromises);
+
   return Promise.all(productPromises);
 }
 
