@@ -105,7 +105,7 @@ export const fetchStreamInfo = id => (dispatch) => {
 };
 
 export const editStreamInfo = (id, streamInfo) => dispatch =>
-  axios.put(`/api/merchants/${id}/streams`, { streamInfo })
+  axios.put(`/api/merchants/${id}/streams`, streamInfo)
     .then(res => dispatch({
       type: EDIT_STREAM_SUCCESS,
       streamInfo: res.data,

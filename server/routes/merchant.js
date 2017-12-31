@@ -8,7 +8,7 @@ module.exports = router;
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
   const newMerchant = await controllers.saveNewMerchant(req.body);
-  controllers.saveNewStream(newMerchant);
+  controllers.saveNewStream(newMerchant[0].dataValues);
   res.json(newMerchant);
 }));
 
