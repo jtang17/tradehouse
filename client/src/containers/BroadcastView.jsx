@@ -55,7 +55,7 @@ class BroadcastView extends React.Component {
         />
         <VideoControl
           merchantId={this.props.merchantInfo.id}
-          changeStream={this.props.changeStream}
+          editStreamInfo={this.props.editStreamInfo}
           broadcastMessage={this.props.streamInfo.broadcastMessage}
         />
         <ProductControl

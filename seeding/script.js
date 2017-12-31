@@ -12,8 +12,9 @@ async function seed() {
   const streamPromises = [];
   for (let i = 0; i < merchants.length; i += 1) {
     merchantPromises.push(controllers.saveNewMerchant(merchants[i])
-      .then(merchant => controllers.saveNewCustomer(merchants[i]))
-      .then(merchant => controllers.editMerchantProfileAndFindByEmail(merchants[i])));
+      .then(merchant => controllers.saveNewStream(merchant[0].dataValues))
+      .then(() => controllers.saveNewCustomer(merchants[i]))
+      .then(() => controllers.editMerchantProfileAndFindByEmail(merchants[i])));
   }
   for (let i = 0; i < customers.length; i += 1) {
     customerPromises.push(controllers.saveNewCustomer(customers[i]));
@@ -31,10 +32,7 @@ async function seed() {
 
   for (let i = 0; i < streams.length; i += 1) {
     let index = Math.floor(Math.random() * (Math.floor(savedMerchants.length)));
-    streamPromises.push(controllers.saveNewStream(Object.assign(streams[i], {
-      // merchantId: savedMerchants[index].id,
-      merchantId: 1,
-    })));
+    streamPromises.push(controllers.editStream(streams[i], 1));
   }
 
   const savedStreams = await Promise.all(streamPromises);

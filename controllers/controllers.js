@@ -37,9 +37,7 @@ const saveNewMerchant = entry => db.Merchant.findOrCreate({
 });
 
 const saveNewStream = entry => db.Stream.create({
-  merchantId: entry.merchantId,
-  url: entry.url,
-  broadcastMessage: entry.broadcastMessage,
+  merchantId: entry.id,
 });
 
 const saveNewCustomer = entry => db.Customer.findOrCreate({
