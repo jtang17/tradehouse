@@ -12,6 +12,7 @@ async function seed() {
   const streamPromises = [];
   for (let i = 0; i < merchants.length; i += 1) {
     merchantPromises.push(controllers.saveNewMerchant(merchants[i])
+      .then(merchant => controllers.saveNewCustomer(merchants[i]))
       .then(merchant => controllers.editMerchantProfileAndFindByEmail(merchants[i])));
   }
   for (let i = 0; i < customers.length; i += 1) {
@@ -21,7 +22,7 @@ async function seed() {
   const savedCustomers = await Promise.all(customerPromises);
 
   for (let i = 0; i < products.length; i += 1) {
-    const index = Math.floor(Math.random() * (Math.floor(savedMerchants.length)));
+    let index = Math.floor(Math.random() * (Math.floor(savedMerchants.length)));
     productPromises.push(controllers.saveNewProduct(Object.assign(products[i], {
       // merchantId: savedMerchants[index].id,
       merchantId: 1,
@@ -29,7 +30,7 @@ async function seed() {
   }
 
   for (let i = 0; i < streams.length; i += 1) {
-    const index = Math.floor(Math.random() * (Math.floor(savedMerchants.length)));
+    let index = Math.floor(Math.random() * (Math.floor(savedMerchants.length)));
     streamPromises.push(controllers.saveNewStream(Object.assign(streams[i], {
       // merchantId: savedMerchants[index].id,
       merchantId: 1,
@@ -38,7 +39,7 @@ async function seed() {
 
   const savedStreams = await Promise.all(streamPromises);
 
-  return Promise.all(productPromises);
+  return Promise.all(productPromises).then(() => console.log('done seeding, hit Ctrl-C to exit'));
 }
 
 db.sequelize
