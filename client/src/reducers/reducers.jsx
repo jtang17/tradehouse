@@ -14,8 +14,6 @@ const tradehouseApp = combineReducers({
   products,
   merchantProducts,
   singleProduct,
-  /* stream,*/
-  /* broadcastMessage,*/
   featuredProduct,
   form: formReducer,
   wishlist,

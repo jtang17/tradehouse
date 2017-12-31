@@ -28,8 +28,6 @@ const saveNewMerchant = entry => db.Merchant.findOrCreate({
     facebook: entry.facebook,
     twitter: entry.twitter,
     description: entry.description,
-    // stream: entry.stream,
-    // broadcastMessage: entry.broadcastMessage,
     currentProduct: entry.currentProduct,
     storeName: entry.storeName,
     sub: jwt.decode(entry.currentIdToken).sub,
@@ -189,7 +187,6 @@ const editMerchantProfile = (merchantId, entry) =>
     facebook: entry.facebook,
     twitter: entry.twitter,
     description: entry.description,
-    // stream: entry.stream,
   }));
 
 const editMerchantProfileAndFindByEmail = entry =>
@@ -207,8 +204,6 @@ const editMerchantProfileAndFindByEmail = entry =>
     facebook: entry.facebook,
     twitter: entry.twitter,
     description: entry.description,
-    // stream: entry.stream,
-    // broadcastMessage: entry.broadcastMessage,
     currentProduct: entry.currentProduct,
   }));
 
