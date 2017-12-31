@@ -71,10 +71,10 @@ class BroadcastView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  broadcastMessage: state.broadcastMessage,
   featuredProduct: state.featuredProduct,
   products: state.merchantProducts,
   merchantInfo: state.merchantInfo,
+  streamInfo: state.streamInfo,
 });
 
 const mapDispatchToProps = {
