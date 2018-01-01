@@ -32,7 +32,7 @@ async function seed() {
 
   for (let i = 0; i < streams.length; i += 1) {
     let index = Math.floor(Math.random() * (Math.floor(savedMerchants.length)));
-    streamPromises.push(controllers.editStream(streams[i], 1));
+    streamPromises.push(controllers.editStream(streams[i], i+1));
   }
 
   const savedStreams = await Promise.all(streamPromises);

@@ -96,7 +96,7 @@ if (!global.hasOwnProperty('db')) {
     unique: 'customer_product_review',
   });
 
-  global.db.Customer.belongsToMany(global.db.Product, {
+  global.db.Customer.belongsToMany(global.db.Merchant, {
     through: 'merchant_review',
     unique: 'customer_merchant_review',
   });

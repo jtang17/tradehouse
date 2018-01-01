@@ -13,12 +13,12 @@ export const fetchMerchantLoading = bool => ({
 });
 
 export const fetchMerchantInfo = id => dispatch => {
-  console.log('fetching merchants');
+  let accessToken = localStorage.getItem('accessToken');
   dispatch(fetchMerchantLoading(true));
   return axios
     .get(`/api/merchants/${id}`, {
       headers: {
-        Authorization: `Bearer ${authResult.accessToken}`
+        Authorization: `Bearer ${accessToken}`
       }
     })
     .then(

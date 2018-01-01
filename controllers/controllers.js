@@ -270,6 +270,8 @@ const editStream = (entry, merchantId) => db.Stream.findOne({
 }).then(stream => stream.update({
   url: entry.streamUrl,
   broadcastMessage: entry.broadcastMessage,
+  currentProduct: entry.currentProduct,
+  live: entry.live
 }));
 
 const editMerchantFeaturedProduct = (entry, merchantId) => db.Merchant.findOne({
