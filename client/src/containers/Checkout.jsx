@@ -17,12 +17,17 @@ class CheckoutView extends React.Component {
 
   render() {
     let totalCost = 0;
+    let totalQuantity = 0;
     this.props.cart.forEach((item) => {
       totalCost += item.quantity * item.unitPrice;
+      totalQuantity += item.quantity;
     });
     return (
       <div>
-        Current Cart: {this.props.cart.map((product, index) => (<CartItem product={product} key={index} removeFromCart={this.props.removeFromCart} increaseQuantityInCart={this.props.increaseQuantityInCart} decreaseQuantityInCart={this.props.decreaseQuantityInCart} customerId={this.props.customerInfo.id} />))}
+        Cart: {this.props.cart.map((product, index) => (<CartItem product={product} key={index} removeFromCart={this.props.removeFromCart} increaseQuantityInCart={this.props.increaseQuantityInCart} decreaseQuantityInCart={this.props.decreaseQuantityInCart} customerId={this.props.customerInfo.id} />))}
+        <br />
+        Total Items: {totalQuantity}
+        <br />
         Total Price: ${parseFloat(totalCost).toFixed(2)}
       </div>
     );

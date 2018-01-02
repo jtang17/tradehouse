@@ -17,7 +17,7 @@ class StoreItem extends React.Component {
         Price: ${parseFloat(this.props.product.unitPrice).toFixed(2)}<br />
         Only {this.props.product.quantity} left!<br />
         Description: {this.props.product.description}<br />
-        <button onClick={this.props.addToCart.bind(null, this.props.product, this.props.customerId)} >Add to cart</button>
+        <button onClick={this.props.addToCart.bind(null, this.props.product, this.props.customerInfo.id)} >Add to cart</button>
       </div>
     );
   }

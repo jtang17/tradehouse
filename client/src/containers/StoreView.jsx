@@ -4,7 +4,6 @@ import SingleStore from './SingleStore.jsx';
 import Cart from './Cart.jsx';
 import { connect } from 'react-redux';
 
-import { fetchCart } from '../actions/cartActions.jsx';
 import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
 
 class StoreView extends React.Component {
@@ -13,8 +12,7 @@ class StoreView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchCustomerInfoByToken()
-      .then(() => this.props.fetchCart(this.props.customerInfo.id));
+    this.props.fetchCustomerInfoByToken();
   }
 
   render() {
@@ -27,8 +25,7 @@ class StoreView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  cart: state.cart,
   customerInfo: state.customerInfo,
 });
 
-export default connect(mapStateToProps, { fetchCart, fetchCustomerInfoByToken })(StoreView);
+export default connect(mapStateToProps, { fetchCustomerInfoByToken })(StoreView);

@@ -84,9 +84,9 @@ class ChannelView extends React.Component {
             <StoreItem
               product={this.props.product}
               addToCart={this.props.addToCart}
+              customerInfo={this.props.customerInfo}
             />
           }
-          <Link to={`/checkout/${this.props.customerInfo.id}`}>View Cart</Link>
         </div>
 
       {/*Socket.io */}

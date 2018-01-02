@@ -27,16 +27,9 @@ import MerchantChat from '../chat/MerchantChat.jsx';
 class BroadcastView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currentUrl: '',
-      test: 'test',
-    };
   }
 
   componentDidMount() {
-    // TODO: fetch currently logged in merchant's products and info
-    /* this.props.fetchMerchantProducts(1); */
-    /* this.props.fetchMerchantInfo(1); */
     this.props.fetchMerchantInfoByToken()
       .then(() => this.props.fetchMerchantProducts(this.props.merchantInfo.id))
       .catch(err => console.error(err))
