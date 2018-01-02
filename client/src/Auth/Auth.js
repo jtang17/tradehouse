@@ -109,7 +109,7 @@ class Auth {
               history.replace('/');
               window.location.reload();
             }).catch(err => console.error(err))
-              // .then(() => cb());
+              .then(() => cb());
           }
 
           axios.post('/api/customers', {
@@ -129,7 +129,7 @@ class Auth {
             history.replace('/');
             window.location.reload();
           }).catch(err => console.error(err))
-            // .then(() => cb());
+            .then(() => cb());
         }
         // axios.post('/api/customers', {
         //   accessToken: authResult.accessToken,
