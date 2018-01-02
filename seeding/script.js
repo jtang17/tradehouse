@@ -1,8 +1,8 @@
 const db = require('../models/index.js');
 const controllers = require('../controllers/controllers');
-const products = require('./products.json');
-const streams = require('./streams.json');
-const merchants = require('./merchants.json');
+const products = require('./mock_products--cars.json');
+const streams = require('./mock_streams.json');
+const merchants = require('./mock_merchants.json');
 const customers = require('./customers.json');
 
 async function seed() {

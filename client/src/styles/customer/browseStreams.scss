@@ -37,19 +37,23 @@
 		display: grid;
 		padding: 10px 0 0 0;
 		grid-template-columns: [leftcol] 62% [rightcol] 38%;
-		grid-template-rows: [r1] 100px [r2] fit-content(200px);
-
+		grid-template-rows: [r1] fit-content(100px) [r2] fit-content(200px);
+		
+		* {
+		overflow: hidden;
+		word-wrap: break-word;
+		}
 		&:hover {
 			@include actionShadow();
 			padding: 10px 0 0 0;
-			transition: 0.5s;
+			transition: 0.25s;
 			border-bottom: 0;
 		
 			.streamsDescription__card {
 				background: $hilight;
 				color: $lmarble;
 		
-				transition: 0.5s;
+				transition: 0.25s;
 				border: 4px inset $lmarble;
 			}
 		}

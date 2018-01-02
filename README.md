@@ -37,4 +37,4 @@ This project uses the Airbnb style guide. See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Additional Info
 
-Merchants can submit their embedded stream URLs through YouTube, Twitch or other services. e.g. https://www.youtube.com/embed/live_stream?channel=UCSJ4gkVC6NrvII8umztf0Ow or https://player.twitch.tv/?channel=datjoncat&muted=true
+Merchants can submit their embedded stream URLs through YouTube, Twitch or other services. e.g. https://www.youtube.com/embed/live_stream?channel=UCu3pDheBV5chOddcuOSqTnw or https://player.twitch.tv/?channel=datjoncat&muted=true

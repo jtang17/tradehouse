@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const db = require('../models/index.js');
 const mountRoutes = require('./routes');
+const ES = require('../models/elasticSearch.js');
 
 const app = express();
 /* Webpack Hot Reloads */
@@ -57,3 +58,7 @@ db.sequelize
       console.log(`Tradehouse server listening on port ${port}`);
     });
   });
+
+
+
+// ElasticSearch

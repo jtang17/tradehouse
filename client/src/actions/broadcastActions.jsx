@@ -81,16 +81,6 @@ export const selectFeaturedProduct = (product, merchantId) => (dispatch) => {
     }));
 };
 
-export const fetchFeaturedProduct = merchantId => (dispatch) => {
-  axios.get(`api/merchants/${merchantId}/featured`)
-    .then(res => dispatch({
-      type: FETCH_FEATURED_PRODUCT_SUCCESS,
-      featuredProduct: res.data,
-    }), err => dispatch({
-      type: FETCH_FEATURED_PRODUCT_FAILURE,
-      error: err,
-    }));
-};
 
 export const fetchStreamInfo = id => (dispatch) => {
   dispatch(fetchStreamLoading(true));
