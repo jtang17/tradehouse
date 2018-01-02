@@ -26,7 +26,7 @@ class Header extends React.Component {
   componentWillMount() {
     /* auth.handleAuthentication(() => axios.get(`/api/merchants/bySub/${localStorage.idToken}`).then(res => this.setState({ id: res.data.id })).catch(err => this.setState({ id: 1 }))); */
     auth.handleAuthentication(() => this.props.fetchMerchantInfoByToken());
-    /* this.props.fetchCustomerInfoByToken();*/
+    /* this.props.fetchCustomerInfoByToken(); */
     /* auth.getProfile */
   }
 
@@ -80,7 +80,9 @@ class Header extends React.Component {
         <div className="header__container">
           <Link className="header__logo" to="/" />
           <div className="header__social">
-            <p>Best Global Market: Immersive experience!</p>
+            <Link className="btn--nav" to={`/customer_profile/${this.props.customerInfo.id}`}>
+                Customer Profile
+            </Link>
           </div>
           <div className="header__account--register">
             <button className="hvr-icon-pulse btn--profile" onClick={this.logout}>Logout</button>

@@ -1,15 +1,15 @@
+// React, Redux, React Router
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { Link } from 'react-router-dom';
-
+// Components
 import StoreItem from '../components/customer/StoreItem.jsx';
+import CustomerChat from '../chat/CustomerChat.jsx';
+// Actions
 import { addToCart } from '../actions/cartActions.jsx';
 import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
 import { fetchSingleProduct } from '../actions/productActions.jsx';
-import { follow, unfollow, fetchSubscriptions } from '../actions/customerActions.jsx';
-import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
-import CustomerChat from '../chat/CustomerChat.jsx';
+import { follow, unfollow, fetchSubscriptions, fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
 
 class ChannelView extends React.Component {
   constructor(props) {
@@ -22,6 +22,7 @@ class ChannelView extends React.Component {
   }
 
   componentWillMount() {
+    console.log('props', this.props);
     this.props.fetchMerchantInfo(this.props.match.params.merchantId)
       .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct));
     this.props.fetchCustomerInfoByToken()

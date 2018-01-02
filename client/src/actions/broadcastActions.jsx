@@ -25,7 +25,7 @@ export const fetchStreamLoading = bool => ({
 // TODO: PASS IN ID THROUGH FUNCTIONS AND REMOVE STATIC ID ASSIGNMENT ON NEXT LINE
 export const changeStream = (url, merchantId) => (dispatch) => {
   axios.put(`/api/merchants/${merchantId}/streams`, { url }) // TODO: FIX ROUTE
-       .then(res => dispatch({
+    .then(res => dispatch({
       type: CHANGE_STREAM_SUCCESS,
       url,
     }), err => dispatch({
