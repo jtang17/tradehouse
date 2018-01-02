@@ -7,25 +7,24 @@ import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
 
 import { connect } from 'react-redux';
 
-// TODO: pass in customer Id for Link route
+// TODO: Refactor to use a cart icon with total quantity number next to it
 class Cart extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchCustomerInfoByToken();
-  }
-
   render() {
     let totalCost = 0;
+    let totalQuantity = 0;
     this.props.cart.forEach((item) => {
       totalCost += item.quantity * item.unitPrice;
+      totalQuantity += item.quantity;
     });
     return (
       <div>
         <ol>
-          Current Cart: {this.props.cart.map((product, index) => (<CartItem product={product} key={index} removeFromCart={this.props.removeFromCart} increaseQuantityInCart={this.props.increaseQuantityInCart} decreaseQuantityInCart={this.props.decreaseQuantityInCart} customerId={this.props.customerInfo.id} />))}
+          Items in Cart: {totalQuantity}
+          <br />
           Total Price: ${parseFloat(totalCost).toFixed(2)}
           <br />
           <Link to={`/checkout/${this.props.customerInfo.id}`}>
@@ -38,13 +37,8 @@ class Cart extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  cart: state.cart,
-  customerInfo: state.customerInfo,
-});
-
 const mapDispatchToProps = {
   removeFromCart, fetchCart, decreaseQuantityInCart, increaseQuantityInCart, fetchCustomerInfoByToken,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(null, mapDispatchToProps)(Cart);

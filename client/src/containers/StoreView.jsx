@@ -18,10 +18,8 @@ class StoreView extends React.Component {
   }
 
   render() {
-    // TODO: have Cart render based on logged in customer ID
     return (
       <div>
-        <Cart customerId={this.props.customerInfo.id} />
         <SingleStore customerId={this.props.customerInfo.id} merchantId={this.props.match.params.merchantId} />
       </div>
     );
