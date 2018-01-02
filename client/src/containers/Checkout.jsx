@@ -14,7 +14,7 @@ class CheckoutView extends React.Component {
   render() {
     return (
       <div>
-        <div>Checkout View</div>
+        <h3>Checkout View</h3>
         <Cart />
       </div>
     );

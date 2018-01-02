@@ -23,10 +23,12 @@ class SingleStore extends React.Component {
     return (
       <div className="singleStore">
         <div className="storeHeader">
+        <img src={merchantInfo.logo} />
           <h4>Store Page: {merchantInfo.storeName}</h4>
           Location:{merchantInfo.location}<br />
           <p>{merchantInfo.description}</p>
         </div>
+        <hr/>
         <div className="storeProductList">
           <h4>Products:</h4>
           {this.props.merchantProducts.map((product, index) => <StoreItem key={index} product={product} addToCart={this.props.addToCart} customerId={this.props.customerId} />)}
