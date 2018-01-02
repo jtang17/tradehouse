@@ -10,12 +10,6 @@ class Home extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchCustomerInfoByToken()
-      .then(() => this.props.fetchSubscriptions(this.props.customerInfo.id))
-      .then(() => this.props.fetchWishlist(this.props.customerInfo.id));
-  }
-
   render() {
     return (
       <div>
@@ -28,8 +22,6 @@ class Home extends React.Component {
 
 const mapStateToProps = state => ({
   featuredVideo: state.featuredVideo,
-  customerInfo: state.customerInfo,
-  wishlist: state.wishlist,
 });
 
 export default connect(mapStateToProps, { fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist })(Home);

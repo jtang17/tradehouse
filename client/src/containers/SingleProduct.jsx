@@ -20,6 +20,7 @@ class SingleProduct extends React.Component {
 
   render() {
     const { product } = this.props;
+
     return (
       <div>
         {product.title} - {product.quantity} remaining<br />
