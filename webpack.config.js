@@ -88,5 +88,5 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   ],
-  devtool: 'cheap-eval-source-map',
+  devtool: 'inline-source-map',
 };
