@@ -15,7 +15,6 @@ class SingleProduct extends React.Component {
   componentDidMount() {
     this.props.fetchCustomerInfoByToken();
     this.props.fetchSingleProduct(this.props.match.params.productId);
-    // fetch information of specific product
   }
 
   render() {
@@ -26,9 +25,9 @@ class SingleProduct extends React.Component {
         {product.title} - {product.quantity} remaining<br />
         ${parseFloat(product.unitPrice).toFixed(2)}<br />
         {product.description}<br />
-        <button onClick={this.props.addToCart.bind(null, this.props.product, this.props.customerInfo.id)}>
+        {this.props.customerInfo && <button onClick={this.props.addToCart.bind(null, this.props.product, this.props.customerInfo.id)}>
           Add to Cart
-        </button>
+        </button>}
         <button>Add to Wish List</button>
         <button>Review</button>
         <h3>Shipping Details:</h3>
