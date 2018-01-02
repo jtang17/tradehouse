@@ -12,7 +12,7 @@ class CheckoutView extends React.Component {
 
   componentDidMount() {
     this.props.fetchCustomerInfoByToken()
-      .then(() => this.props.fetchCart(this.props.customerInfo.id))
+      .then(() => this.props.fetchCart(this.props.customerInfo.id));
   }
 
   render() {

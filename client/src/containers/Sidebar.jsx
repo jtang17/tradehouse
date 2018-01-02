@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomerSidebar from '../components/customer/CustomerSidebar.jsx';
 import MerchantSidebar from '../components/merchant/MerchantSidebar.jsx';
-import Cart from './Cart.jsx'
+import Cart from './Cart.jsx';
 import { connect } from 'react-redux';
 
 import { fetchCart } from '../actions/cartActions.jsx';
@@ -57,6 +57,8 @@ const mapStateToProps = state => ({
   subscriptions: state.subscriptions,
 });
 
-const mapDispatchToProps = { fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist, fetchCart };
+const mapDispatchToProps = {
+  fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist, fetchCart,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
