@@ -2,13 +2,13 @@
   {
     "url":"https://www.youtube.com/embed/live_stream?channel=UCSJ4gkVC6NrvII8umztf0Ow&autoplay=0",
     "broadcastMessage":"playing some beats",
-    "currentProduct": "Animal Skin",
+    "currentProduct": 22,
     "live": true
   },
   {
     "url":"https://www.youtube.com/embed/live_stream?channel=UCSJ4gkVC6NrvII8umztf0Ow&autoplay=0",
     "broadcastMessage":"Vacuum Hoover cleanrs",
-    "currentProduct": "Hoover Vacuum",
+    "currentProduct": 128,
     "live": false
   }
 ]

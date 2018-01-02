@@ -10,6 +10,7 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
   const newMerchant = await controllers.saveNewMerchant(req.body);
   controllers.saveNewStream(newMerchant[0].dataValues);
   res.json(newMerchant);
+
 }));
 
 router.get('/', asyncMiddleware(async (req, res, next) => {
@@ -19,6 +20,7 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
 
 router.get('/:merchantId', asyncMiddleware(async (req, res, next) => {
   const merchant = await controllers.findOneMerchant(req.params.merchantId);
+  console.log('request parameters', req.params);
   res.json(merchant);
 }));
 
