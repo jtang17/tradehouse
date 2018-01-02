@@ -60,15 +60,17 @@ class ChannelView extends React.Component {
   render() {
     return (
       <div>
-          Viewing: {this.props.merchantInfo.storeName || 'Your Store'} - <Link to={`/store/${this.props.merchantInfo.id}`}>Store</Link>
+          Viewing: {this.props.merchantInfo.storeName || 'Your Store'} - <Link to={`/store/${this.props.merchantInfo.id}`}>Visit {this.props.merchantInfo.storeName} Store</Link>
         <br />
         <span style={{ fontStyle: 'italic' }}>{this.props.merchantInfo.broadcastMessage}</span>
         <br />
+
         {this.state.subscribed ?
           <button onClick={this.unfollowButtonClick}>Unfollow</button> :
           <button onClick={this.followButtonClick}>Follow</button>
         }
         <br />
+
         <iframe
           width="400"
           height="300"
@@ -76,6 +78,7 @@ class ChannelView extends React.Component {
           frameBorder="0"
           allowFullScreen
         />
+
         <div className="channelFeaturedProduct">
           {this.props.product &&
             <StoreItem
@@ -85,6 +88,8 @@ class ChannelView extends React.Component {
           }
           <Link to={`/checkout/${this.props.customerInfo.id}`}>View Cart</Link>
         </div>
+
+      {/*Socket.io */}
         <ul id="messages" />
         <form action="">
           <input id="m" autoComplete="off" /><button>Send</button>

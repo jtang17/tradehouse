@@ -43,14 +43,6 @@ export function products(state = [], action) {
       return state;
       // notify user of error?
     }
-    case FETCH_ALL_PRODUCTS_SUCCESS: {
-      return action.allProducts;
-    }
-    case FETCH_ALL_PRODUCTS_FAILURE: {
-      console.error(action.error);
-      return state;
-      // notify user of error?
-    }
     default: {
       return state;
     }

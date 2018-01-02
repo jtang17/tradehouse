@@ -5,6 +5,7 @@ import { Auth } from '../Auth/Auth.js';
 const auth = new Auth();
 
 import { connect } from 'react-redux';
+// Actions
 import { fetchMerchantProducts } from '../actions/productActions.jsx';
 import {
   changeStream,
@@ -17,7 +18,7 @@ import {
   fetchMerchantInfoByToken,
   fetchMerchantInfo,
 } from '../actions/merchantActions.jsx';
-
+// Components
 import BroadcastViewVideo from '../components/broadcast/BroadcastViewVideo.jsx';
 import VideoControl from '../components/broadcast/VideoControl.jsx';
 import ProductControl from '../components/broadcast/ProductControl.jsx';

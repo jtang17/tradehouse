@@ -1,6 +1,7 @@
 .browseProducts__container {
 	min-width: calc(100vw - 250px);
-
+	grid-column: content;
+	
 	.productBrowserEntry {
 		@include cardShadow();
 		display: grid;
