@@ -1,15 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 
-export const FETCH_MERCHANT_SUCCESS = "FETCH_MERCHANT_SUCCESS";
-export const FETCH_MERCHANT_FAILURE = "FETCH_MERCHANT_FAILURE";
-export const EDIT_MERCHANT_PROFILE_SUCCESS = "EDIT_MERCHANT_PROFILE_SUCCESS";
-export const EDIT_MERCHANT_PROFILE_FAILURE = "EDIT_MERCHANT_PROFILE_FAILURE";
-export const FETCH_ALL_MERCHANTS_SUCCESS = "FETCH_ALL_MERCHANTS_SUCCESS";
-export const FETCH_ALL_MERCHANTS_FAILURE = "FETCH_ALL_MERCHANTS_FAILURE";
+export const FETCH_MERCHANT_SUCCESS = 'FETCH_MERCHANT_SUCCESS';
+export const FETCH_MERCHANT_FAILURE = 'FETCH_MERCHANT_FAILURE';
+export const EDIT_MERCHANT_PROFILE_SUCCESS = 'EDIT_MERCHANT_PROFILE_SUCCESS';
+export const EDIT_MERCHANT_PROFILE_FAILURE = 'EDIT_MERCHANT_PROFILE_FAILURE';
+export const FETCH_ALL_MERCHANTS_SUCCESS = 'FETCH_ALL_MERCHANTS_SUCCESS';
+export const FETCH_ALL_MERCHANTS_FAILURE = 'FETCH_ALL_MERCHANTS_FAILURE';
 
 export const fetchMerchantLoading = bool => ({
-  type: "MERCHANT_LOADING",
-  isLoading: bool
+  type: 'MERCHANT_LOADING',
+  isLoading: bool,
 });
 
 export const fetchMerchantInfo = id => (dispatch) => {
@@ -63,7 +63,7 @@ export const fetchAllMerchants = () => dispatch =>
       }),
   );
 
-export const fetchMerchantInfoByToken = () => dispatch => {
+export const fetchMerchantInfoByToken = () => (dispatch) => {
   dispatch(fetchMerchantLoading(true));
   return axios.get(`/api/merchants/bySub/${localStorage.idToken}`).then(
     res =>
