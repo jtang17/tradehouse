@@ -308,11 +308,12 @@ const editStream = (entry, merchantId) =>
     },
   }).then(stream =>
     stream.update({
-      url: entry.url,
-      broadcastMessage: entry.broadcastMessage,
-      currentProduct: entry.currentProduct,
-      live: entry.live,
-    }));
+      url: entry.url || stream[0].dataValues.url,
+      broadcastMessage: entry.broadcastMessage || stream[0].dataValues.broadcastMessage,
+      currentProduct: entry.currentProduct || stream[0].dataValues.currentProduct,
+      live: entry.live || stream[0].dataValues.live,
+    })
+  );
 
 const editMerchantFeaturedProduct = (entry, merchantId) =>
   db.Merchant.findOne({

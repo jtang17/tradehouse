@@ -165,7 +165,6 @@ class Auth {
     history.replace('/');
     window.location.reload();
     // navigate to the home route
-
   }
 
   isAuthenticated() {
