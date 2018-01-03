@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 import { fetchCart } from '../actions/cartActions.jsx';
 import { fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist } from '../actions/customerActions.jsx';
+import { fetchMerchantInfoByToken } from '../actions/merchantActions.jsx';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Sidebar extends React.Component {
       .then(() => this.props.fetchCart(this.props.customerInfo.id))
       .then(() => this.props.fetchSubscriptions(this.props.customerInfo.id))
       .then(() => this.props.fetchWishlist(this.props.customerInfo.id));
+    this.props.fetchMerchantInfoByToken();
   }
 
   render() {
@@ -68,10 +70,11 @@ const mapStateToProps = state => ({
   customerInfo: state.customerInfo,
   wishlist: state.wishlist,
   subscriptions: state.subscriptions,
+  merchantInfo: state.merchantInfo,
 });
 
 const mapDispatchToProps = {
-  fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist, fetchCart,
+  fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist, fetchCart, fetchMerchantInfoByToken,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

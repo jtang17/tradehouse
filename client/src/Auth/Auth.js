@@ -89,9 +89,31 @@ class Auth {
         let facebook;
         if (profile.link) facebook = profile.link;
 
-        if (Object.prototype.hasOwnProperty.call(profile.user_metadata, 'MerchantAccount')) {
-          if (profile.user_metadata.MerchantAccount === 'true') {
-            axios.post('/api/merchants', {
+        if (profile.user_metadata) {
+          if (Object.prototype.hasOwnProperty.call(profile.user_metadata, 'MerchantAccount')) {
+            if (profile.user_metadata.MerchantAccount === 'true') {
+              axios.post('/api/merchants', {
+                username: profile.username,
+                email: profile.email,
+                facebook,
+                currentIdToken: authResult.idToken,
+              }, {
+                headers: {
+                  Authorization: `Bearer ${authResult.accessToken}`,
+                },
+              }).then(res => {
+                console.log(res);
+                cb(res.data.id);
+              }).catch(err => {
+                console.error(err);
+              }).then(() => {
+                history.replace('/');
+                window.location.reload();
+              }).catch(err => console.error(err))
+                .then(() => cb());
+            }
+
+            axios.post('/api/customers', {
               username: profile.username,
               email: profile.email,
               facebook,
@@ -102,7 +124,6 @@ class Auth {
               },
             }).then(res => {
               console.log(res);
-              cb(res.data.id);
             }).catch(err => {
               console.error(err);
             }).then(() => {
@@ -111,8 +132,9 @@ class Auth {
             }).catch(err => console.error(err))
               .then(() => cb());
           }
-
+        } else {
           axios.post('/api/customers', {
+            // accessToken: authResult.accessToken,
             username: profile.username,
             email: profile.email,
             facebook,
@@ -128,26 +150,8 @@ class Auth {
           }).then(() => {
             history.replace('/');
             window.location.reload();
-          }).catch(err => console.error(err))
-            .then(() => cb());
+          }).catch(err => console.error(err));
         }
-        // axios.post('/api/customers', {
-        //   accessToken: authResult.accessToken,
-        //   username: profile.username,
-        //   email: profile.email,
-        //   facebook,
-        // }, {
-        //   headers: {
-        //     Authorization: `Bearer ${authResult.accessToken}`,
-        //   },
-        // }).then(res => {
-        //   console.log(res);
-        // }).catch(err => {
-        //   console.error(err);
-        // }).then(() => {
-        //   history.replace('/');
-        //   window.location.reload();
-        // }).catch(err => console.error(err));
       });
     }
   }
