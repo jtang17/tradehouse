@@ -38,7 +38,6 @@ const saveNewMerchant = entry =>
   });
 
 
-
 const saveNewStream = entry =>
   db.Stream.create({
     merchantId: entry.id,
