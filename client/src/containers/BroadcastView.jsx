@@ -59,7 +59,6 @@ class BroadcastView extends React.Component {
           editStreamInfo={this.props.editStreamInfo}
           selectFeaturedProduct={this.props.selectFeaturedProduct}
         />
-        <MerchantChat />
       </div>
     );
   }

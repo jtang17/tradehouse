@@ -88,13 +88,6 @@ class ChannelView extends React.Component {
             />
           }
         </div>
-
-        {/* Socket.io */}
-        <ul id="messages" />
-        <form action="">
-          <input id="m" autoComplete="off" /><button>Send</button>
-        </form>
-        <CustomerChat />
       </div>
     );
   }
@@ -108,7 +101,13 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  addToCart, fetchMerchantInfo, fetchSingleProduct, follow, unfollow, fetchSubscriptions, fetchCustomerInfoByToken,
+  addToCart,
+  fetchMerchantInfo,
+  fetchSingleProduct,
+  follow,
+  unfollow,
+  fetchSubscriptions,
+  fetchCustomerInfoByToken,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelView);
