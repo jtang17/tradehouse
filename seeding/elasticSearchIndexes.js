@@ -107,7 +107,7 @@ elastic.indices.create({
 			number_of_replicas: 1
 		},
 		mappings: {
-			stream: {
+			merchant: {
 				properties: {
 					id: {
 						type: "integer"

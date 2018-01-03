@@ -1,18 +1,49 @@
 const Router = require('express-promise-router');
 const controllers = require('../../controllers/controllers');
 const asyncMiddleware = require('./utils/asyncMiddleware');
-
+const elastic = require('../../models/elasticSearch.js');
 const router = new Router();
 
 module.exports = router;
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
+  console.log('THIS 1 HAPPENED');
   const newMerchant = await controllers.saveNewMerchant(req.body);
   controllers.saveNewStream(newMerchant[0].dataValues);
-  // id:  controllers.saveNewStream(newMerchant[0].dataValues.id);
-  res.json(newMerchant);
+  console.log('THIS 2 HAPPENED', newMerchant);
+  // Duplicate the edited merchant to Elastic Search
+  elastic.index({
+   index: 'bgm_merchants',
+   type: 'merchant',
+   id: newMerchant[0].dataValues.id || 'Missing ID',
+   body: {
+    logo: newMerchant[0].dataValues.logo || 'Missing Logo',
+    username: newMerchant[0].dataValues.username || 'Missing Username',
+    website: newMerchant[0].dataValues.website || 'Missing Website',
+    rating: newMerchant[0].dataValues.rating || 0,
+    location: newMerchant[0].dataValues.location || 'Missing Location',
+    email: newMerchant[0].dataValues.email || 'Missing Email',
+    facebook: newMerchant[0].dataValues.facebook || 'Missing Facebook',
+    twitter: newMerchant[0].dataValues.twitter || 'Missing Twitter',
+    description: newMerchant[0].dataValues.description || 'Missing Description',
+    currentProduct: newMerchant[0].dataValues.currentProduct || 0,
+    storeName: newMerchant[0].dataValues.storeName || 'Missing StoreName',
+    sub: newMerchant[0].dataValues.sub || 1,
+    facebook: newMerchant[0].dataValues.facebook || 'Missing Facebook',
+    createdAt: newMerchant[0].dataValues.createdAt || null,
+    updatedAt: newMerchant[0].dataValues.updatedAt || null
+   }
+  }, (err, res) => {
+    if (err) { console.error(err) } 
+    else {
+      console.log(`Added brand new registered Merchant to Elastic! ${res}`);
+    }
+  }); 
 
+  res.json(newMerchant);
 }));
+
+
 
 router.get('/', asyncMiddleware(async (req, res, next) => {
   const rows = await controllers.getAllMerchants();
@@ -32,6 +63,36 @@ router.get('/bySub/:merchantIdToken', asyncMiddleware(async (req, res, next) => 
 
 router.put('/:merchantId', asyncMiddleware(async (req, res, next) => {
   const merchant = await controllers.editMerchantProfile(req.params.merchantId, req.body.profile);
+
+  // Duplicate the edited merchant to Elastic Search
+  elastic.index({
+   index: 'bgm_merchants',
+   type: 'merchant',
+   id: merchant.dataValues.id || 'Missing ID',
+   body: {
+    logo: merchant.dataValues.logo || 'Missing Logo',
+    username: merchant.dataValues.username || 'Missing Username',
+    website: merchant.dataValues.website || 'Missing Website',
+    rating: merchant.dataValues.rating || 0,
+    location: merchant.dataValues.location || 'Missing Location',
+    email: merchant.dataValues.email || 'Missing Email',
+    facebook: merchant.dataValues.facebook || 'Missing Facebook',
+    twitter: merchant.dataValues.twitter || 'Missing Twitter',
+    description: merchant.dataValues.description || 'Missing Description',
+    currentProduct: merchant.dataValues.currentProduct || 0,
+    storeName: merchant.dataValues.storeName || 'Missing StoreName',
+    sub: merchant.dataValues.sub || 1,
+    facebook: merchant.dataValues.facebook || 'Missing Facebook',
+    createdAt: merchant.dataValues.createdAt || null,
+    updatedAt: merchant.dataValues.updatedAt || null
+   }
+  }, (err, res) => {
+    if (err) { console.error(err) } 
+    else {
+      console.log(`Added new item to Elastic! ${res}`);
+    }
+  }); 
+
   res.json(merchant);
 }));
 
