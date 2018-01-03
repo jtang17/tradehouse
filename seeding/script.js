@@ -92,7 +92,7 @@ async function seed() {
 
   const savedStreams = await Promise.all(streamPromises);
 
-  for (var stream of savedStreams) {
+  for (const stream of savedStreams) {
     // Duplicate the edited merchant to Elastic Search
     elastic.index({
       index: 'bgm_streams',

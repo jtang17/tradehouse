@@ -2,6 +2,7 @@ const Router = require('express-promise-router');
 const controllers = require('../../controllers/controllers');
 const asyncMiddleware = require('./utils/asyncMiddleware');
 const elastic = require('../../models/elasticSearch.js');
+
 const router = new Router();
 
 // All Streams
@@ -28,14 +29,12 @@ const router = new Router();
 //   		})
 //   		.catch(console.error)
 //   }
-	  
+
 // });
 
 
 router.get('/:searchTerm', (req, res) => {
-  
-
-  res.end('response')
+  res.end('response');
 });
 
 module.exports = router;
