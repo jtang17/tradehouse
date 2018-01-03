@@ -23,7 +23,7 @@ async function seed() {
   const savedMerchants = await Promise.all(merchantPromises);
   const savedCustomers = await Promise.all(customerPromises);
 
-  for (var merchant of savedMerchants) {
+  for (const merchant of savedMerchants) {
     elastic.index({
       index: 'bgm_merchants',
       type: 'merchant',
@@ -62,7 +62,7 @@ async function seed() {
 
   const savedProducts = await Promise.all(productPromises);
 
-  for (var product of savedProducts) {
+  for (const product of savedProducts) {
     elastic.index({
       index: 'bgm_products',
       type: 'product',
@@ -91,6 +91,30 @@ async function seed() {
   }
 
   const savedStreams = await Promise.all(streamPromises);
+
+  for (var stream of savedStreams) {
+    // Duplicate the edited merchant to Elastic Search
+    elastic.index({
+      index: 'bgm_streams',
+      type: 'stream',
+      id: stream.dataValues.id || 'Missing ID',
+      body: {
+        id: stream.dataValues.id || 0,
+        url: stream.dataValues.url || 'Missing Username',
+        currentProduct: stream.dataValues.currentProduct || 0,
+        broadcastMessage: stream.dataValues.broadcastMessage || 0,
+        live: stream.dataValues.live || false,
+        merchantId: stream.dataValues.merchantId || 'Missing Merchant',
+        createdAt: stream.dataValues.createdAt || 'Missing CreatedAt',
+        updatedAt: stream.dataValues.updatedAt || 'Missing EditedAt',
+      },
+    }, (err, res) => {
+      if (err) { console.error(err); } else {
+        console.log(`Created a new stream! ${res}`);
+      }
+    });
+  }
+
 
   return Promise.all(productPromises).then(() => console.log('done seeding, hit Ctrl-C to exit'));
 }
