@@ -21,18 +21,18 @@ class Cart extends React.Component {
     });
     return (
       <div>
-      <Link to={`/checkout/${this.props.customerInfo.id}`}>
-        <i className="fa fa-shopping-cart" aria-hidden="true" style={{fontSize: '24px'}}></i>
-      </Link>
-      <br />
+        <Link to={`/checkout/${this.props.customerInfo.id}`}>
+          <i className="fa fa-shopping-cart" aria-hidden="true" style={{ fontSize: '24px' }} />
+        </Link>
+        <br />
           Items in Cart: {totalQuantity}
-          <br />
+        <br />
           Total Price: ${parseFloat(totalCost).toFixed(2)}
+        <br />
+        <Link to={`/checkout/${this.props.customerInfo.id}`}>
           <br />
-          <Link to={`/checkout/${this.props.customerInfo.id}`}>
-            <br />
-            <button>Checkout</button>
-          </Link>
+          <button>Checkout</button>
+        </Link>
       </div>
     );
   }
