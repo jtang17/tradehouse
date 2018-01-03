@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PaymentForm from '../components/customer/PaymentForm.jsx';
 
 import CartItem from '../components/customer/CartItem.jsx';
 import { removeFromCart, fetchCart, decreaseQuantityInCart, increaseQuantityInCart } from '../actions/cartActions.jsx';
@@ -29,6 +30,8 @@ class CheckoutView extends React.Component {
         Total Items: {totalQuantity}
         <br />
         Total Price: ${parseFloat(totalCost).toFixed(2)}
+        <br />
+        <PaymentForm />
       </div>
     );
   }
