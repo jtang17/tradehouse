@@ -53,7 +53,6 @@ export const addWishlistedProduct = (customerId, product) => (dispatch) => {
 };
 
 export const removeWishlistedProduct = (customerId, product) => (dispatch) => {
-  console.log(product);
   axios.delete(`/api/customers/${customerId}/wishlist`, { data: { product } })
     .then(res => dispatch({
       type: REMOVE_WISHLISTED_PRODUCT_SUCCESS,
