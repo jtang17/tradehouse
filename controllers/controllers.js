@@ -312,8 +312,7 @@ const editStream = (entry, merchantId) =>
       broadcastMessage: entry.broadcastMessage || stream[0].dataValues.broadcastMessage,
       currentProduct: entry.currentProduct || stream[0].dataValues.currentProduct,
       live: entry.live || stream[0].dataValues.live,
-    })
-  );
+    }));
 
 const editMerchantFeaturedProduct = (entry, merchantId) =>
   db.Merchant.findOne({
@@ -329,18 +328,18 @@ const editMerchantFeaturedProduct = (entry, merchantId) =>
       where: {
         merchantId,
       },
-    }).then((merchantStream) => {
+    }).then(merchantStream =>
       merchantStream.update({
         currentProduct: entry.product.id,
-      });
-    });
-  }).catch((err) => {
-    console.log(err);
-  });
+      })
+    )});
 
 const changeToMerchant = customerId =>
-  db.Customer.findOne({ id: customerId }).then(customer =>
-    saveNewMerchant({ email: customer.email }));
+  db.Customer.findOne({
+    where: {
+      id: customerId,
+    },
+  }).then(customer => saveNewMerchant({ email: customer.email }));
 
 module.exports = {
   saveNewProduct,

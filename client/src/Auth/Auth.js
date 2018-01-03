@@ -77,9 +77,9 @@ class Auth {
 
   setSession(authResult, cb) {
     if (authResult && authResult.accessToken && authResult.idToken) {
-    // if (authResult && authResult.accessToken) {
+      // if (authResult && authResult.accessToken) {
       lock.getUserInfo(authResult.accessToken, function(err, profile) {
-      // this.auth0.userInfo(authResult.accessToken, function(err, profile) {
+        // this.auth0.userInfo(authResult.accessToken, function(err, profile) {
         if (err) {
           return console.error(err);
         }
