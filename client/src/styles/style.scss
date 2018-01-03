@@ -64,7 +64,7 @@ html {
 body {
 	background: $lmarble;
 	box-sizing: border-box;
-	font-family: comfortaa;
+	font-family: Armata;
 	line-height: 1.25;
 	color: $text;
 
@@ -75,9 +75,9 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: Poppins;
 }
 a {
-	font-family: Poiret;
+	font-family: DroidSans;
 	text-decoration: none;
-	font-weight: bold;
+
 	color: #777;
 	&:visited {
 		color: #777;
@@ -85,15 +85,14 @@ a {
 }
 
 span, input[type="submit"], label {
-	font-family: Poiret;
+	font-family: DroidSans;
 	text-decoration: none;
-	font-size: 1.5em;
-	font-weight: bold;
+	font-size: 1.25rem;
 
 }
 
 p {
-	font-family: comfortaa;
+	font-family: Armata;
 	font-size: 1em;
 }
 

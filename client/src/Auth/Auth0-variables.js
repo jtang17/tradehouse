@@ -5,7 +5,7 @@ export const AUTH_CONFIG = {
   // clientId: 'wqEnTUSCU67QGxKiZnKOX4Ge5IIfI9sj',
   options: {
     languageDictionary: {
-      title: 'TradeHouse',
+      title: 'Best Global Market',
     },
     theme: {
       logo: 'https://otove.files.wordpress.com/2012/12/tumblr_menq9ehdxq1rj9sw5o1_400.gif',
@@ -32,7 +32,7 @@ export const AUTH_CONFIG = {
         type: 'checkbox',
         name: 'MerchantAccount',
         prefill: 'false',
-        placeholder: 'I would like to sell my goods on TradeHouse using a merchant account.',
+        placeholder: 'I would like to sell my goods on Best Global Market using a merchant account.',
       },
     ],
   },

@@ -3,7 +3,7 @@
 	margin: 0 5px;
 	padding: 5px;
 	border: 2px solid $gray;
-	font-weight: bold;
+
 	background: $ortan;
 	font-size: 1.5em;
 
@@ -23,6 +23,8 @@
 .btn--profile {
 	background: $hilight;
 	color: $lmarble;
+	font-family: DroidSans;
+	font-size: 1.25rem;
 	padding:10px 2.2em 10px 10px;
 	&:hover {
 		background: $hilight;
@@ -48,8 +50,8 @@
 	margin: 0 5px;
 	padding: 5px;
 	border: 1px solid #777;
-	font-weight: bold;
-	font-size: 1.75em;
+
+	font-size: 1.5rem;
 	background: $hilight;
 	color: $lmarble;
 	text-align: center;
@@ -72,7 +74,7 @@
 	color: $lmarble;
 	text-align: center;
 	vertical-align: middle;
-	font-size: 1.5em;
+	font-size: 1.5rem;
 
 	&:hover {
 		background: $hilight;

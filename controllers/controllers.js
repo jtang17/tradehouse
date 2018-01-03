@@ -19,7 +19,8 @@ const deleteProduct = entry =>
       merchantId: entry.merchantId,
       title: entry.title
     }
-  });
+  })
+  .then;
 
 const saveNewMerchant = entry =>
   db.Merchant.findOrCreate({
