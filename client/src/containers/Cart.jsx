@@ -7,7 +7,6 @@ import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
 
 import { connect } from 'react-redux';
 
-// TODO: Refactor to use a cart icon with total quantity number next to it
 class Cart extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +21,10 @@ class Cart extends React.Component {
     });
     return (
       <div>
-        <ol>
+      <Link to={`/checkout/${this.props.customerInfo.id}`}>
+        <i className="fa fa-shopping-cart" aria-hidden="true" style={{fontSize: '24px'}}></i>
+      </Link>
+      <br />
           Items in Cart: {totalQuantity}
           <br />
           Total Price: ${parseFloat(totalCost).toFixed(2)}
@@ -31,7 +33,6 @@ class Cart extends React.Component {
             <br />
             <button>Checkout</button>
           </Link>
-        </ol>
       </div>
     );
   }
