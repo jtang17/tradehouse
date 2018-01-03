@@ -3,6 +3,7 @@ import CustomerSidebar from '../components/customer/CustomerSidebar.jsx';
 import MerchantSidebar from '../components/merchant/MerchantSidebar.jsx';
 import Cart from './Cart.jsx';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { fetchCart } from '../actions/cartActions.jsx';
 import { fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist } from '../actions/customerActions.jsx';
@@ -37,6 +38,7 @@ class Sidebar extends React.Component {
           <CustomerSidebar
             wishlist={this.props.wishlist}
             subscriptions={this.props.subscriptions}
+            wishlist={this.props.wishlist}
           />
         }
         {(this.props.customerInfo && this.props.customerInfo.id) &&
@@ -45,6 +47,17 @@ class Sidebar extends React.Component {
             cart={this.props.cart}
           />
         }
+        Follows
+        <br />
+        {this.props.subscriptions.map((merchant, index) => (
+          <Link to={`/store/${merchant.id}`}><div key={index}>{merchant.storeName}</div></Link>
+        ))}
+        <br />
+        Wishlist
+        <br />
+        {this.props.wishlist.map((product, index) => (
+          <Link to={`/product/${product.id}`}><div key={index}>{product.title}</div></Link>
+        ))}
       </div>
     );
   }

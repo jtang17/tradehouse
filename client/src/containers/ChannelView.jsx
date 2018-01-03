@@ -22,7 +22,6 @@ class ChannelView extends React.Component {
   }
 
   componentWillMount() {
-    console.log('props', this.props);
     this.props.fetchMerchantInfo(this.props.match.params.merchantId)
       .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct));
     this.props.fetchCustomerInfoByToken()

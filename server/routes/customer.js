@@ -30,7 +30,12 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
 
 router.get('/:customerId/wishlist', asyncMiddleware(async (req, res, next) => {
   const wishlist = await controllers.findCustomerWishlistedProducts(req.params.customerId);
-  res.json(wishlist);
+  let products = [];
+  for (let item of wishlist) {
+    products.push(controllers.findOneProduct(item.productId));
+  }
+  const wishlistedProducts = await Promise.all(products);
+  res.json(wishlistedProducts);
 }));
 
 router.post('/:customerId/wishlist', asyncMiddleware(async (req, res, next) => {
@@ -47,7 +52,12 @@ router.delete('/:customerId/wishlist', asyncMiddleware(async (req, res, next) =>
 
 router.get('/:customerId/subscriptions', asyncMiddleware(async (req, res, next) => {
   const subscriptions = await controllers.findCustomerSubscriptions(req.params.customerId);
-  res.json(subscriptions);
+  let merchants = [];
+  for (let entry of subscriptions) {
+    merchants.push(controllers.findOneMerchant(entry.merchantId));
+  }
+  const follows = await Promise.all(merchants);
+  res.json(follows);
 }));
 
 router.post('/:customerId/subscriptions', asyncMiddleware(async (req, res, next) => {

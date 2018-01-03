@@ -5,8 +5,6 @@ import { addToCart, removeFromCart, increaseQuantityInCart, decreaseQuantityInCa
 import { fetchSingleProduct } from '../actions/productActions.jsx';
 import { fetchCustomerInfoByToken, fetchWishlist, addWishlistedProduct, removeWishlistedProduct } from '../actions/customerActions.jsx';
 
-import Cart from './Cart.jsx';
-
 class SingleProduct extends React.Component {
   constructor(props) {
     super(props);
@@ -46,7 +44,6 @@ class SingleProduct extends React.Component {
 const mapStateToProps = state => ({
   wishlist: state.wishlist,
   customerInfo: state.customerInfo,
-  cart: state.cart,
   product: state.singleProduct,
 });
 
