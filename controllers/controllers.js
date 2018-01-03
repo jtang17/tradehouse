@@ -308,10 +308,10 @@ const editStream = (entry, merchantId) =>
     },
   }).then(stream =>
     stream.update({
-      url: entry.url || stream[0].dataValues.url,
-      broadcastMessage: entry.broadcastMessage || stream[0].dataValues.broadcastMessage,
-      currentProduct: entry.currentProduct || stream[0].dataValues.currentProduct,
-      live: entry.live || stream[0].dataValues.live,
+      url: entry.streamUrl || stream.dataValues.url,
+      broadcastMessage: entry.broadcastMessage || stream.dataValues.broadcastMessage,
+      currentProduct: entry.currentProduct || stream.dataValues.currentProduct,
+      live: entry.live || stream.dataValues.live,
     }));
 
 const editMerchantFeaturedProduct = (entry, merchantId) =>
