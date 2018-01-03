@@ -7,10 +7,7 @@ const router = new Router();
 module.exports = router;
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
-  console.log('THIS 1 HAPPENED');
   const newMerchant = await controllers.saveNewMerchant(req.body);
-  controllers.saveNewStream(newMerchant[0].dataValues);
-  console.log('THIS 2 HAPPENED', newMerchant);
   // Duplicate the edited merchant to Elastic Search
   elastic.index({
    index: 'bgm_merchants',
@@ -37,6 +34,30 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
     if (err) { console.error(err) } 
     else {
       console.log(`Added brand new registered Merchant to Elastic! ${res}`);
+    }
+  }); 
+
+  const newStream = await controllers.saveNewStream(newMerchant[0].dataValues); 
+
+  // Duplicate the edited merchant to Elastic Search
+  elastic.index({
+   index: 'bgm_streams',
+   type: 'stream',
+   id: newStream.dataValues.id || 'Missing ID',
+   body: {
+    id: newStream.dataValues.id || 0,
+    url: newStream.dataValues.url || 'Missing Username',
+    currentProduct: newStream.dataValues.currentProduct || 0,
+    broadcastMessage: newStream.dataValues.broadcastMessage || 0,
+    live: newStream.dataValues.live || false,
+    merchantId: newStream.dataValues.merchantId || 'Missing Merchant',
+    createdAt: newStream.dataValues.createdAt || 'Missing CreatedAt',
+    updatedAt: newStream.dataValues.updatedAt || 'Missing EditedAt',
+   }
+  }, (err, res) => {
+    if (err) { console.error(err) } 
+    else {
+      console.log(`Created a new stream for ${newMerchant[0].dataValues.username} ${res}`);
     }
   }); 
 
@@ -132,8 +153,33 @@ router.post('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.put('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
-  const url = await controllers.editStream(req.body, req.params.merchantId);
-  res.json(url);
+  const streamInfo = await controllers.editStream(req.body, req.params.merchantId);
+  console.log('stream Info', streamInfo);
+  // Duplicate the edited merchant to Elastic Search
+  elastic.index({
+   index: 'bgm_streams',
+   type: 'stream',
+   id: streamInfo.dataValues.id || 'Missing ID',
+   body: {
+    id: streamInfo.dataValues.id || 0,
+    url: streamInfo.dataValues.url || 'Missing Username',
+    currentProduct: streamInfo.dataValues.currentProduct || 0,
+    broadcastMessage: streamInfo.dataValues.broadcastMessage || 0,
+    live: streamInfo.dataValues.live || false,
+    merchantId: streamInfo.dataValues.merchantId || 'Missing Merchant',
+    createdAt: streamInfo.dataValues.createdAt || 'Missing CreatedAt',
+    updatedAt: streamInfo.dataValues.updatedAt || 'Missing EditedAt',
+   }
+  }, (err, res) => {
+    if (err) { console.error(err) } 
+    else {
+      console.log(`Updated Stream info for ${streamInfo.dataValues.merchantId} ${res}`);
+    }
+  }); 
+  // Add Elastic Search Edit Stream functionality
+
+
+  res.json(streamInfo);
 }));
 
 router.put('/:merchantId/featured', asyncMiddleware(async (req, res, next) => {

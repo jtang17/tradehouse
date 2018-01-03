@@ -8,6 +8,10 @@ class ProductControl extends React.Component {
   }
 
   selectFeaturedProduct(index) {
+
+    this.props.editStreamInfo(this.props.merchantId, {
+      currentProduct: this.props.products[index].id
+    });
     this.props.selectFeaturedProduct(this.props.products[index], this.props.merchantId);
   }
 

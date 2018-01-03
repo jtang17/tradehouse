@@ -14,7 +14,8 @@ class VideoControl extends React.Component {
     this.onUrlChanged = this.onUrlChanged.bind(this);
     this.onBroadcastMessageSubmit = this.onBroadcastMessageSubmit.bind(this);
     this.onBroadcastMessageChanged = this.onBroadcastMessageChanged.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitStreamURL = this.handleSubmitStreamURL.bind(this);
+    this.handleSubmitBroadcastMessage = this.handleSubmitBroadcastMessage.bind(this);
   }
 
   onUrlSubmit(e) {
@@ -45,15 +46,24 @@ class VideoControl extends React.Component {
     });
   }
 
-  handleSubmit(e) {
+  handleSubmitBroadcastMessage(e) {
     e.preventDefault();
     this.props.editStreamInfo(this.props.merchantId, {
-      streamUrl: this.state.streamUrl,
       broadcastMessage: this.state.broadcastMessage,
     });
     this.setState({
-      streamUrl: '',
       broadcastMessage: '',
+    });
+  }
+
+
+  handleSubmitStreamURL(e) {
+    e.preventDefault();
+    this.props.editStreamInfo(this.props.merchantId, {
+      url: this.state.streamUrl,
+    });
+    this.setState({
+      streamUrl: '',
     });
   }
 
@@ -61,7 +71,7 @@ class VideoControl extends React.Component {
     return (
       <div className="videoControls__container">
         <h5>Broadcast Message:<span>{this.props.broadcastMessage}</span></h5>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmitBroadcastMessage}>
           <label>Enter Broadcast Message</label>
           <input
             type="text"
@@ -71,7 +81,7 @@ class VideoControl extends React.Component {
           />
           <input className="btn--action" type="submit" value="Submit" />
         </form>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmitStreamURL}>
           <label>Enter Stream Url</label>
           <input
             type="text"
