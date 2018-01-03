@@ -27,7 +27,7 @@ class ChannelView extends React.Component {
     this.props.fetchCustomerInfoByToken()
       .then(() => this.props.fetchSubscriptions(this.props.customerInfo.id))
       .then(() => this.props.subscriptions.forEach((subscription) => {
-        if (subscription.merchantId.toString() === this.props.match.params.merchantId) {
+        if (subscription.id.toString() === this.props.match.params.merchantId) {
           this.setState({
             subscribed: true,
           });
@@ -57,6 +57,7 @@ class ChannelView extends React.Component {
   }
 
   render() {
+    console.log(this.props.subscriptions);
     return (
       <div>
           Viewing: {this.props.merchantInfo.storeName || 'Your Store'} - <Link to={`/store/${this.props.merchantInfo.id}`}>Visit {this.props.merchantInfo.storeName} Store</Link>

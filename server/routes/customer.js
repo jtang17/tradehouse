@@ -41,13 +41,23 @@ router.get('/:customerId/wishlist', asyncMiddleware(async (req, res, next) => {
 router.post('/:customerId/wishlist', asyncMiddleware(async (req, res, next) => {
   const wishlist = await controllers.saveNewWishlistedProduct(req.params.customerId, req.body.id)
     .then(() => controllers.findCustomerWishlistedProducts(req.params.customerId));
-  res.json(wishlist);
+  const products = [];
+  for (const item of wishlist) {
+    products.push(controllers.findOneProduct(item.productId));
+  }
+  const wishlistedProducts = await Promise.all(products);
+  res.json(wishlistedProducts);
 }));
 
 router.delete('/:customerId/wishlist', asyncMiddleware(async (req, res, next) => {
   const wishlist = await controllers.deleteWishlistedProduct(req.params.customerId, req.body.product.id)
     .then(() => controllers.findCustomerWishlistedProducts(req.params.customerId));
-  res.json(wishlist);
+  const products = [];
+  for (const item of wishlist) {
+    products.push(controllers.findOneProduct(item.productId));
+  }
+  const wishlistedProducts = await Promise.all(products);
+  res.json(wishlistedProducts);
 }));
 
 router.get('/:customerId/subscriptions', asyncMiddleware(async (req, res, next) => {
@@ -63,13 +73,23 @@ router.get('/:customerId/subscriptions', asyncMiddleware(async (req, res, next) 
 router.post('/:customerId/subscriptions', asyncMiddleware(async (req, res, next) => {
   const subscriptions = await controllers.saveNewSubscription(req.params.customerId, req.body.merchantId)
     .then(() => controllers.findCustomerSubscriptions(req.params.customerId));
-  res.json(subscriptions);
+  const merchants = [];
+  for (const entry of subscriptions) {
+    merchants.push(controllers.findOneMerchant(entry.merchantId));
+  }
+  const follows = await Promise.all(merchants);
+  res.json(follows);
 }));
 
 router.delete('/:customerId/subscriptions', asyncMiddleware(async (req, res, next) => {
   const subscriptions = await controllers.deleteSubscription(req.params.customerId, req.body.merchantId)
     .then(() => controllers.findCustomerSubscriptions(req.params.customerId));
-  res.json(subscriptions);
+  const merchants = [];
+  for (const entry of subscriptions) {
+    merchants.push(controllers.findOneMerchant(entry.merchantId));
+  }
+  const follows = await Promise.all(merchants);
+  res.json(follows);
 }));
 
 router.get('/:customerId/cart', asyncMiddleware(async (req, res, next) => {

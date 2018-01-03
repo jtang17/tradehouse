@@ -50,13 +50,13 @@ class Sidebar extends React.Component {
         Follows
         <br />
         {this.props.subscriptions.map((merchant, index) => (
-          <Link to={`/store/${merchant.id}`}><div key={index}>{merchant.storeName}</div></Link>
+          <div key={index}><Link to={`/store/${merchant.id}`}>{merchant.storeName}</Link></div>
         ))}
         <br />
         Wishlist
         <br />
         {this.props.wishlist.map((product, index) => (
-          <Link to={`/product/${product.id}`}><div key={index}>{product.title}</div></Link>
+          <div key={index}><Link to={`/product/${product.id}`}>{product.title}</Link></div>
         ))}
       </div>
     );
