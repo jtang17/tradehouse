@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Cart from './Cart.jsx';
 import StoreItem from '../components/customer/StoreItem.jsx';
 
+import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
 import { fetchMerchantProducts } from '../actions/productActions.jsx';
 import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
 import { addToCart, removeFromCart } from '../actions/cartActions.jsx';
@@ -16,6 +17,7 @@ class SingleStore extends React.Component {
   componentDidMount() {
     this.props.fetchMerchantProducts(this.props.merchantId);
     this.props.fetchMerchantInfo(this.props.merchantId);
+    this.props.fetchCustomerInfoByToken();
   }
 
   render() {
@@ -31,7 +33,7 @@ class SingleStore extends React.Component {
         <hr />
         <div className="storeProductList">
           <h4>Products:</h4>
-          {this.props.merchantProducts.map((product, index) => <StoreItem key={index} product={product} addToCart={this.props.addToCart} customerId={this.props.customerId} />)}
+          {this.props.merchantProducts.map((product, index) => <StoreItem key={index} product={product} addToCart={this.props.addToCart} customerInfo={this.props.customerInfo} />)}
         </div>
       </div>
     );
@@ -42,10 +44,11 @@ class SingleStore extends React.Component {
 const mapStateToProps = state => ({
   merchantProducts: state.merchantProducts,
   merchantInfo: state.merchantInfo,
+  customerInfo: state.customerInfo,
 });
 
 const mapDispatchToProps = {
-  addToCart, removeFromCart, fetchMerchantProducts, fetchMerchantInfo,
+  addToCart, removeFromCart, fetchMerchantProducts, fetchMerchantInfo, fetchCustomerInfoByToken,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleStore);
