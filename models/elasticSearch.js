@@ -4,7 +4,6 @@ const client = new elasticsearch.Client({
   host: '127.0.0.1:9200',
   log: 'error',
   apiVersion: '6.0',
-
 });
 
 client.ping({
@@ -17,6 +16,14 @@ client.ping({
   }
 });
 
-module.exports = {
-	client
+const indices = () => {
+  return client.cat.indices({v: true})
+  .then(result => console.log('INDICES RESULT', result))
+  .catch((err) => {
+    console.error(`Error connecting to indices information`)
+  })
 }
+
+indices();
+
+module.exports = client

@@ -19,6 +19,7 @@ if (!global.hasOwnProperty('db')) {
     sequelize = new Sequelize('tradehouse_streams', 'root', '', {
       host: 'localhost',
       dialect: 'mysql',
+      logging: false,
       pool: {
         max: 5,
         min: 0,

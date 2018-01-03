@@ -1,8 +1,9 @@
 const jwt = require("jsonwebtoken");
 const db = require("../models/index.js");
+const elastic = require('../models/elasticSearch.js');
 
-const saveNewProduct = entry =>
-  db.Product.create({
+const saveNewProduct = (entry) => {  
+ return db.Product.create({
     title: entry.title,
     description: entry.description,
     quantity: entry.quantity,
@@ -10,6 +11,7 @@ const saveNewProduct = entry =>
     merchantId: entry.merchantId,
     imageUrl: entry.imageUrl
   });
+}
 
 const deleteProduct = entry =>
   db.Product.destroy({
@@ -36,6 +38,8 @@ const saveNewMerchant = entry =>
       sub: jwt.decode(entry.currentIdToken).sub
     }
   });
+
+
 
 const saveNewStream = entry =>
   db.Stream.create({
