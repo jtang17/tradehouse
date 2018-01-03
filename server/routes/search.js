@@ -55,7 +55,7 @@ router.get('/streams/:streamsQuery', (req, res) => {
 
     search('bgm_streams', body)
       .then((results) => {
-        console.log('took milliseconds', results.took, 'timed out?:' results.timed_out, 'result.hits', results.hits.total);
+        console.log('took milliseconds', results.took, 'timed out?:', results.timed_out, 'result.hits', results.hits.total);
         if (results.timed_out == false && results.hits.total > 0) {
 		        res.json(results.hits.hits);
 		      } else {
@@ -202,3 +202,5 @@ router.get('/products/:productsQuery', (req, res) => {
 });
 
 module.exports = router;
+
+// rebase comments
