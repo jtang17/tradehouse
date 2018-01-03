@@ -34,13 +34,13 @@ router.get('/:customerId/wishlist', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.post('/:customerId/wishlist', asyncMiddleware(async (req, res, next) => {
-  const wishlist = await controllers.saveNewWishlistedProduct(req.params.customerId, req.body.productId)
+  const wishlist = await controllers.saveNewWishlistedProduct(req.params.customerId, req.body.id)
     .then(() => controllers.findCustomerWishlistedProducts(req.params.customerId));
   res.json(wishlist);
 }));
 
 router.delete('/:customerId/wishlist', asyncMiddleware(async (req, res, next) => {
-  const wishlist = await controllers.deleteWishlistedProduct(req.params.customerId, req.body.productId)
+  const wishlist = await controllers.deleteWishlistedProduct(req.params.customerId, req.body.product.id)
     .then(() => controllers.findCustomerWishlistedProducts(req.params.customerId));
   res.json(wishlist);
 }));

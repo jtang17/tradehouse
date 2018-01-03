@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { addToCart, removeFromCart, increaseQuantityInCart, decreaseQuantityInCart } from '../actions/cartActions.jsx';
 import { fetchSingleProduct } from '../actions/productActions.jsx';
-import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
+import { fetchCustomerInfoByToken, fetchWishlist, addWishlistedProduct, removeWishlistedProduct } from '../actions/customerActions.jsx';
 
 import Cart from './Cart.jsx';
 
@@ -13,7 +13,8 @@ class SingleProduct extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchCustomerInfoByToken();
+    this.props.fetchCustomerInfoByToken()
+      .then(() => this.props.fetchWishlist(this.props.customerInfo.id));
     this.props.fetchSingleProduct(this.props.match.params.productId);
   }
 
@@ -27,7 +28,9 @@ class SingleProduct extends React.Component {
         {(this.props.customerInfo && this.props.customerInfo.id) ? (
           <div>
             <button onClick={this.props.addToCart.bind(null, this.props.product, this.props.customerInfo.id)}>Add to Cart</button>
-            <button>Add to Wish List</button>
+            <br />
+            <button onClick={this.props.addWishlistedProduct.bind(null, this.props.customerInfo.id, this.props.product)}>Add to Wish List</button>
+            <button onClick={this.props.removeWishlistedProduct.bind(null, this.props.customerInfo.id, this.props.product)}>Remove from Wishlist</button>
             <button>Review</button>
           </div>
           ) : (
@@ -41,13 +44,14 @@ class SingleProduct extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  wishlist: state.wishlist,
   customerInfo: state.customerInfo,
   cart: state.cart,
   product: state.singleProduct,
 });
 
 const mapDispatchToProps = {
-  fetchSingleProduct, addToCart, removeFromCart, increaseQuantityInCart, decreaseQuantityInCart, fetchCustomerInfoByToken,
+  fetchSingleProduct, addToCart, removeFromCart, increaseQuantityInCart, decreaseQuantityInCart, fetchCustomerInfoByToken, fetchWishlist, addWishlistedProduct, removeWishlistedProduct,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleProduct);

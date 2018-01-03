@@ -41,8 +41,8 @@ export const fetchWishlist = customerId => dispatch => axios.get(`/api/customers
     error: err,
   }));
 
-export const addWishlistedProduct = (customerId, productId) => (dispatch) => {
-  axios.post(`/api/customers/${customerId}/wishlist`, { productId })
+export const addWishlistedProduct = (customerId, product) => (dispatch) => {
+  axios.post(`/api/customers/${customerId}/wishlist`, product)
     .then(res => dispatch({
       type: ADD_WISHLISTED_PRODUCT_SUCCESS,
       wishlist: res.data,
@@ -52,8 +52,9 @@ export const addWishlistedProduct = (customerId, productId) => (dispatch) => {
     }));
 };
 
-export const removeWishlistedProduct = (customerId, productId) => (dispatch) => {
-  axios.delete(`/api/customers/${customerId}/wishlist`, { data: { productId } })
+export const removeWishlistedProduct = (customerId, product) => (dispatch) => {
+  console.log(product);
+  axios.delete(`/api/customers/${customerId}/wishlist`, { data: { product } })
     .then(res => dispatch({
       type: REMOVE_WISHLISTED_PRODUCT_SUCCESS,
       wishlist: res.data,
