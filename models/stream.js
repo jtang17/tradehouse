@@ -3,5 +3,5 @@ module.exports = (sequelize, DataTypes) =>
     url: DataTypes.STRING,
     broadcastMessage: DataTypes.TEXT,
     currentProduct: DataTypes.TEXT,
-    live: DataTypes.BOOLEAN
+    live: DataTypes.BOOLEAN,
   });

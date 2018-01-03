@@ -23,11 +23,11 @@ module.exports = {
         test: /\.(eot|otf|webp|ttf|woff|woff2)(\?.*)?$/,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "[name].[hash].[ext]",
-              publicPath: "/",
-              outputPath: "assets/font/",
+              name: '[name].[hash].[ext]',
+              publicPath: '/',
+              outputPath: 'assets/font/',
             },
           },
         ],
@@ -36,13 +36,13 @@ module.exports = {
         test: /\.(gif|png|jpe?g|svg)$/i,
         loaders: [
           {
-             loader: "file-loader",
-             options: {
-               name: "[name].[hash].[ext]",
-               publicPath: "/",
-               outputPath: "assets/font/",
-             },
-           }, {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+              publicPath: '/',
+              outputPath: 'assets/font/',
+            },
+          }, {
             loader: 'image-webpack-loader',
             options: {
               gifsicle: {
@@ -88,5 +88,5 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   ],
-  devtool: 'cheap-eval-source-map'
+  devtool: 'cheap-eval-source-map',
 };

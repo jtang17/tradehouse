@@ -61,5 +61,4 @@ db.sequelize
   });
 
 
-
 // ElasticSearch

@@ -8,7 +8,7 @@ const client = new elasticsearch.Client({
 
 client.ping({
   requestTimeout: 30000,
-}, function (error) {
+}, (error) => {
   if (error) {
     console.error('elasticsearch cluster is down!');
   } else {
@@ -16,14 +16,12 @@ client.ping({
   }
 });
 
-const indices = () => {
-  return client.cat.indices({v: true})
+const indices = () => client.cat.indices({ v: true })
   .then(result => console.log('INDICES RESULT', result))
   .catch((err) => {
-    console.error(`Error connecting to indices information`)
-  })
-}
+    console.error('Error connecting to indices information');
+  });
 
 indices();
 
-module.exports = client
+module.exports = client;

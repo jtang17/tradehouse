@@ -5,7 +5,7 @@ const asyncMiddleware = require('./utils/asyncMiddleware');
 const router = new Router();
 
 router.get('/', (req, res) => {
-	console.log(req.body);
-})
+  console.log(req.body);
+});
 
 module.exports = router;

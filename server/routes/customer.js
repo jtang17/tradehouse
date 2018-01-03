@@ -17,7 +17,7 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.get('/bySub/:customerIdToken', asyncMiddleware(async (req, res, next) => {
-  const customer= await controllers.findOneCustomerBySub(req.params.customerIdToken);
+  const customer = await controllers.findOneCustomerBySub(req.params.customerIdToken);
   res.json(customer);
 }));
 

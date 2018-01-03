@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "be-start": "nodemon --inspect ./server/app.js",
-    "lint": "eslint --fix . --ext .jsx --ext .js.",
+    "lint": "eslint --fix . --ext .jsx --ext .js",
     "push": "npm run lint; git push origin master --force"
   },
   "repository": {
