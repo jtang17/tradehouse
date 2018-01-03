@@ -4,3 +4,4 @@
 * Product = Product
 * Price = Price
 * Broadcast = Broadcast
+* Stream = Stream
