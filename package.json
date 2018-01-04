@@ -33,6 +33,7 @@
     "jsonwebtoken": "^8.1.0",
     "jwks-rsa": "^1.2.1",
     "mysql2": "^1.5.1",
+    "nodemon": "^1.14.7",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dnd": "^2.5.4",
