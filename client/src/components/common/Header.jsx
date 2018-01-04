@@ -53,7 +53,7 @@ class Header extends React.Component {
         </div>
       );
     }
-    if (auth.isAuthenticated() && this.props.merchantInfo.id !== null) {
+    if (auth.isAuthenticated() && this.props.merchantInfo !== null) {
       return (
         <div className="header__container">
           <Link className="header__logo" to="/" />
