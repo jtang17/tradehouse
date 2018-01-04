@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const BrowseVideos = props => (
   <div>
     <h4>Video Browser</h4>
-      ye
+      Videos
   </div>
 );
 

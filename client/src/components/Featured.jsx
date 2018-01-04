@@ -33,7 +33,6 @@ class Featured extends React.Component {
       </div>
     );
   }
-  // comment
 }
 
 /*

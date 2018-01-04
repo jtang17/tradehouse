@@ -7,8 +7,8 @@ const MerchantStats = props => (
       <span><section className="mercStats__content--part1">
         Broadcast Statistics: 1000000 views<br />
         Sales Statistics: $1023123098 of sales<br />
-        Customers from Afghanistan: 23<br />
-        Customers from South Korean: 2,400<br />
+        Customers from USA: 23<br />
+        Customers outside of USA: 2,400<br />
         Customers Avg Spend: $76.00<br />
         Customers Age Group: 29-48<br />
         Customers Browser: Firefox<br />

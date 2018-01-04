@@ -18,7 +18,10 @@ class StoreView extends React.Component {
   render() {
     return (
       <div>
-        <SingleStore customerId={this.props.customerInfo.id} merchantId={this.props.match.params.merchantId} />
+        <SingleStore
+          customerId={this.props.customerInfo.id}
+          merchantId={this.props.match.params.merchantId}
+        />
       </div>
     );
   }

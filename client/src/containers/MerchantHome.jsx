@@ -14,7 +14,6 @@ class MerchantHome extends React.Component {
   }
 
   componentDidMount() {
-    /* TODO: use ID retrieved from DB upon login, instead of hardcoding */
     this.props.fetchMerchantInfoByToken();
   }
 
@@ -29,7 +28,6 @@ class MerchantHome extends React.Component {
           merchantInfo={this.props.merchantInfo}
           editMerchantProfile={this.props.editMerchantProfile}
         />
-
       </div>
     );
   }

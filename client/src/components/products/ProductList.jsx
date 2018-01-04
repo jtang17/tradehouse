@@ -11,7 +11,6 @@ class ProductList extends React.Component {
   render() {
     const items =
       this.props.products.map((product, index) => <ProductItem key={index} index={index} product={product} deleteProduct={this.props.deleteProduct} />);
-
     if (!items.length) {
       return (
         <p>
@@ -19,7 +18,6 @@ class ProductList extends React.Component {
         </p>
       );
     }
-
     return (
       <div className="productsTable__container">
         <table className="productsTable">

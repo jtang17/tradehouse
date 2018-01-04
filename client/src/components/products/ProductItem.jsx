@@ -8,7 +8,6 @@ class ProductItem extends React.Component {
   }
 
   onDeleteClick() {
-    console.log(`deleting ${this.props.product}`);
     this.props.deleteProduct(this.props.product);
   }
 

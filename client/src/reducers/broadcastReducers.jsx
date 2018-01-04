@@ -17,8 +17,6 @@ import {
   EDIT_STREAM_FAILURE,
 } from '../actions/broadcastActions.jsx';
 
-// TODO: failure cases should return state when api routes are properly set up
-
 export function featuredProduct(state = false, action) {
   switch (action.type) {
     case SELECT_FEATURED_PRODUCT_SUCCESS: {
