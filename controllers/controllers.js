@@ -295,6 +295,8 @@ const getAllProducts = () => db.Product.findAll({});
 
 const getAllCustomers = () => db.Customer.findAll({});
 
+const getAllStreams = () => db.Stream.findAll({});
+
 const getOneStream = merchantId => db.Stream.findOne({ where: { merchantId } });
 
 // Do we need a get all active streams?
@@ -378,4 +380,5 @@ module.exports = {
   findOneCustomerBySub,
   saveNewStream,
   getOneStream,
+  getAllStreams,
 };

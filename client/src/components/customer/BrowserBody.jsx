@@ -63,7 +63,7 @@ class BrowserBody extends React.Component {
         </div>
         {this.state.type === 'streams' && <BrowseStreams merchants={this.props.merchants} />}
 
-        {this.state.type === 'products' && <BrowseProducts products={this.props.products} />}
+        {this.state.type === 'products' && <BrowseProducts products={this.props.products} addToCart={this.props.addToCart} customerInfo={this.props.customerInfo} />}
       </div>
     );
   }

@@ -44,6 +44,7 @@ const defaultState = {
   subscriptions: [],
   wishlist: [],
   streamInfo: {},
+  streams: [],
 };
 const store = createStore(
   tradehouseApp,
