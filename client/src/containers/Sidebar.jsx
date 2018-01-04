@@ -50,7 +50,7 @@ class Sidebar extends React.Component {
     return (
 
       <div className="sidebar__container">
-        { (this.state.merchant || this.props.customerInfo.id) ?
+        { (this.state.merchant || this.props.customerInfo) ?
           <div className="tabs">
             <h4 className="rightTab" onClick={this.handleRightTabClick}>Dashboard</h4>
             <h4 className="searchTab" onClick={this.handlesearchTabClick}>Search</h4>
@@ -77,8 +77,6 @@ class Sidebar extends React.Component {
             wishlist={this.props.wishlist}
           />
         }
-
-
       </div>
     );
   }

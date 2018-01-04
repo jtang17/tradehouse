@@ -13,6 +13,7 @@ export const AUTH_CONFIG = {
       socialButtonStyle: 'big',
     },
     allowSignUp: true,
+    allowedConnections: ['TradeHouse'],
     // auth: {
     //   audience: 'tradehouse2-auth0.com/api',
     //   params: {
@@ -32,7 +33,7 @@ export const AUTH_CONFIG = {
         type: 'checkbox',
         name: 'MerchantAccount',
         prefill: 'false',
-        placeholder: 'I would like to sell my goods on Best Global Market using a merchant account.',
+        placeholder: 'I want to sell my goods using a merchant account.',
       },
     ],
   },
