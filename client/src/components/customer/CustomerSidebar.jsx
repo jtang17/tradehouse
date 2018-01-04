@@ -1,24 +1,23 @@
+// React, Redux, React-Router-DOM
 import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+// Components
 import SidebarSearch from '../sidebar/SidebarSearch.jsx';
-import SidebarCustomerDashboard from '../sidebar/SidebarCustomerDashboard.jsx';
+import Cart from '../../containers/Cart.jsx';
+// Actions
+import { fetchCart } from '../../actions/cartActions.jsx';
+import { fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist } from '../../actions/customerActions.jsx';
+import { fetchMerchantInfoByToken } from '../../actions/merchantActions.jsx';
 
 class CustomerSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      leftTab: false,
+
     };
-    this.handleLeftTabClick = this.handleLeftTabClick.bind(this);
-    this.handleRightTabClick = this.handleRightTabClick.bind(this);
   }
 
-  handleLeftTabClick() {
-    this.setState({ leftTab: true });
-  }
-
-  handleRightTabClick() {
-    this.setState({ leftTab: false });
-  }
 
   render() {
     const {
@@ -29,22 +28,35 @@ class CustomerSidebar extends React.Component {
     } = this.props;
     return (
       <div className="CustomerSidebar">
-        <div className="tabs">
-          <h3 className="leftTab" onClick={this.handleLeftTabClick}>Dashboard</h3>
-          <h3 className="rightTab" onClick={this.handleRightTabClick}>Search</h3>
-        </div>
-        {
-          this.state.leftTab ? <SidebarCustomerDashboard /> :
-          <SidebarSearch
-            allMerchants={allMerchants}
-            allProducts={allProducts}
-            fetchAllMerchants={fetchAllMerchants}
-            fetchAllProducts={fetchAllProducts}
-          />
-        }
+        <Cart
+          customerInfo={this.props.customerInfo}
+          cart={this.props.cart}
+        />
+        <h5>Follows</h5>
+        {this.props.subscriptions.map((merchant, index) => (
+          <div key={index}><Link to={`/store/${merchant.id}`}>{merchant.storeName}</Link></div>
+          ))}
+
+        <h5>Wishlist</h5>
+        {this.props.wishlist.map((product, index) => (
+          <div key={index}><Link to={`/product/${product.id}`}>{product.title}</Link></div>
+          ))}
       </div>
+
     );
   }
 }
 
-export default CustomerSidebar;
+const mapStateToProps = state => ({
+  cart: state.cart,
+  customerInfo: state.customerInfo,
+  wishlist: state.wishlist,
+  subscriptions: state.subscriptions,
+  merchantInfo: state.merchantInfo,
+});
+
+const mapDispatchToProps = {
+  fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist, fetchCart, fetchMerchantInfoByToken,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerSidebar);

@@ -87,7 +87,6 @@ const Root = ({ store }) => (
           </Switch>
         </div>
         {/* Main Content */}
-
         <Footer />
       </div>
     </Router>
