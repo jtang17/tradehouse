@@ -31,27 +31,27 @@ class Featured extends React.Component {
           <h4>Featured Products</h4>
           <div className="browseProducts__container">
             <div className="productBrowserEntry">
-            {this.props.products.slice(0, 2).map((product, index) => (
-              <div key={index} className="productsEntry__card">
-                <div className="productImg__card">
+              {this.props.products.slice(0, 2).map((product, index) => (
+                <div key={index} className="productsEntry__card">
+                  <div className="productImg__card">
+                    <Link to={`/product/${product.id}`}>
+                      <img src={product.imageUrl} />
+                    </Link>
+                  </div>
                   <Link to={`/product/${product.id}`}>
-                    <img src={product.imageUrl} />
+                    <div className="productTitle__card">
+                      <h5>{product.title}</h5>
+                      <p>Product Rating: [insert me]</p>
+                      <p>Left in Stock: {product.quantity}</p>
+                    </div>
                   </Link>
-                </div>
-                <Link to={`/product/${product.id}`}>
-                  <div className="productTitle__card">
-                    <h5>{product.title}</h5>
-                    <p>Product Rating: [insert me]</p>
-                    <p>Left in Stock: {product.quantity}</p>
-                  </div>
-                </Link>
-                <div className="productDescription__card">
-                  <p>Description: {product.description}</p>
-                  <div className="productCTA__card">
-                    <span>Cost: ${parseFloat(product.unitPrice).toFixed(2)}</span>
+                  <div className="productDescription__card">
+                    <p>Description: {product.description}</p>
+                    <div className="productCTA__card">
+                      <span>Cost: ${parseFloat(product.unitPrice).toFixed(2)}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
             ))}
             </div>
           </div>

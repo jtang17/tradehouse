@@ -25,7 +25,7 @@ class SingleStore extends React.Component {
     return (
       <div className="singleStore">
         <div className="storeHeader">
-          <img src={merchantInfo.logo} style={{width: '200px'}}/>
+          <img src={merchantInfo.logo} style={{ width: '200px' }} />
           <h4>Store Page: {merchantInfo.storeName}</h4>
           Location:{merchantInfo.location}<br />
           <p>{merchantInfo.description}</p>
