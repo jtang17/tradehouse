@@ -29,7 +29,6 @@ class SingleProduct extends React.Component {
             <br />
             <button onClick={this.props.addWishlistedProduct.bind(null, this.props.customerInfo.id, this.props.product)}>Add to Wish List</button>
             <button onClick={this.props.removeWishlistedProduct.bind(null, this.props.customerInfo.id, this.props.product)}>Remove from Wishlist</button>
-            <button>Review</button>
           </div>
           ) : (
             <div> Please log in to shop </div>
