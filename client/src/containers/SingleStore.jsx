@@ -47,7 +47,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  addToCart, removeFromCart, fetchMerchantProducts, fetchMerchantInfo, fetchCustomerInfoByToken,
+  addToCart,
+  removeFromCart,
+  fetchMerchantProducts,
+  fetchMerchantInfo,
+  fetchCustomerInfoByToken,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleStore);
