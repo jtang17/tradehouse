@@ -247,19 +247,27 @@ const findOneMerchant = merchantId =>
     },
   });
 
-const findOneMerchantBySub = merchantIdToken =>
-  db.Merchant.findOne({
-    where: {
-      sub: jwt.decode(merchantIdToken).sub,
-    },
-  });
+const findOneMerchantBySub = (merchantIdToken) => {
+  const decoded = jwt.decode(merchantIdToken);
+  if (decoded) {
+    db.Merchant.findOne({
+      where: {
+        sub: decoded.sub,
+      },
+    });
+  }
+};
 
-const findOneCustomerBySub = customerIdToken =>
-  db.Customer.findOne({
-    where: {
-      sub: jwt.decode(customerIdToken).sub,
-    },
-  });
+const findOneCustomerBySub = (customerIdToken) => {
+  const decoded = jwt.decode(customerIdToken);
+  if (decoded) {
+    db.Customer.findOne({
+      where: {
+        sub: decoded.sub,
+      },
+    });
+  }
+};
 
 const findOneProduct = productId =>
   db.Product.findOne({
