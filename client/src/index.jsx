@@ -38,7 +38,6 @@ const defaultState = {
   allProducts: [],
   singleProduct: {},
   merchantProducts: [],
-  products: [],
   cart: [],
   featuredProduct: {},
   subscriptions: [],

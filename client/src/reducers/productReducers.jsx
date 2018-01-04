@@ -1,8 +1,8 @@
 import {
-  ADD_PRODUCT_SUCCESS,
-  ADD_PRODUCT_FAILURE,
-  DELETE_PRODUCT_SUCCESS,
-  DELETE_PRODUCT_FAILURE,
+  ADD_MERCHANT_PRODUCT_SUCCESS,
+  ADD_MERCHANT_PRODUCT_FAILURE,
+  DELETE_MERCHANT_PRODUCT_SUCCESS,
+  DELETE_MERCHANT_PRODUCT_FAILURE,
   FETCH_ALL_PRODUCTS_SUCCESS,
   FETCH_ALL_PRODUCTS_FAILURE,
   FETCH_MERCHANT_PRODUCTS_SUCCESS,
@@ -25,32 +25,24 @@ export function allProducts(state = [], action) {
   }
 }
 
-export function products(state = [], action) {
-  switch (action.type) {
-    case ADD_PRODUCT_SUCCESS: {
-      return [...state, action.product];
-    }
-    case ADD_PRODUCT_FAILURE: {
-      console.error(action.error);
-      return state;
-      // notify user of error?
-    }
-    case DELETE_PRODUCT_SUCCESS: {
-      return action.products;
-    }
-    case DELETE_PRODUCT_FAILURE: {
-      console.error(action.error);
-      return state;
-      // notify user of error?
-    }
-    default: {
-      return state;
-    }
-  }
-}
-
 export function merchantProducts(state = [], action) {
   switch (action.type) {
+    case ADD_MERCHANT_PRODUCT_SUCCESS: {
+      return [...state, action.product];
+    }
+    case ADD_MERCHANT_PRODUCT_FAILURE: {
+      console.error(action.error);
+      return state;
+      // notify user of error?
+    }
+    case DELETE_MERCHANT_PRODUCT_SUCCESS: {
+      return action.products;
+    }
+    case DELETE_MERCHANT_PRODUCT_FAILURE: {
+      console.error(action.error);
+      return state;
+      // notify user of error?
+    }
     case FETCH_MERCHANT_PRODUCTS_SUCCESS: {
       return action.products;
     }
