@@ -11,6 +11,11 @@ export const FETCH_MERCHANT_PRODUCTS_FAILURE = 'FETCH_MERCHANT_PRODUCTS_FAILURE'
 export const FETCH_SINGLE_PRODUCT_SUCCESS = 'FETCH_SINGLE_PRODUCT_SUCCESS';
 export const FETCH_SINGLE_PRODUCT_FAILURE = 'FETCH_SINGLE_PRODUCT_FAILURE';
 
+export const fetchProductsLoading = bool => ({
+  type: 'PRODUCTS_LOADING',
+  isLoading: bool,
+});
+
 export const addProduct = product => (dispatch) => {
   axios.post('/api/products', product)
     .then(res => dispatch({
@@ -68,8 +73,3 @@ export const fetchSingleProduct = productId => (dispatch) => {
       error: err,
     }));
 };
-
-export const fetchProductsLoading = bool => ({
-  type: 'PRODUCTS_LOADING',
-  isLoading: bool,
-});
