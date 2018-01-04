@@ -16,25 +16,25 @@ const errorPayment = (data) => {
   alert('Payment Error');
 };
 
-const onToken = (amount, description) => token =>
+const onToken = (amount, description, id) => token =>
   axios.post(
-    STRIPE_CONSTS.PAYMENT_SERVER_URL,
+    `/api/customers/${id}/chargeCard`,
     {
       description,
       source: token.id,
       currency: CURRENCY,
       amount: fromDollarToCent(amount),
-    },
+    }
   )
     .then(successPayment)
     .catch(errorPayment);
 
-const PaymentForm = ({ name, description, amount }) =>
+const PaymentForm = ({ name, description, amount, id }) =>
   (<StripeCheckout
     name={name}
     description={description}
     amount={fromDollarToCent(amount)}
-    token={onToken(amount, description)}
+    token={onToken(amount, description, id)}
     currency={CURRENCY}
     stripeKey={STRIPE_CONSTS.STRIPE_PUBLISHABLE}
   />);
