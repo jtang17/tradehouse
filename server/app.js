@@ -12,7 +12,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('../webpack.config');
 const http = require('http').Server(app);
-const io = require('socket.io')(http);
+// const io = require('socket.io')(http);
 
 const port = process.env.PORT || 5421;
 app.use(bodyParser.json());
@@ -40,16 +40,16 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/public/index.html'));
 });
 
-io.on('connection', (socket) => {
-  console.log('a user connected');
-  socket.on('disconnect', () => {
-    console.log('user disconnected');
-  });
-  socket.on('chat message', (msg) => {
-    console.log(msg);
-    io.emit('chat message', msg);
-  });
-});
+// io.on('connection', (socket) => {
+//   console.log('a user connected');
+//   socket.on('disconnect', () => {
+//     console.log('user disconnected');
+//   });
+//   socket.on('chat message', (msg) => {
+//     console.log(msg);
+//     io.emit('chat message', msg);
+//   });
+// });
 
 // TODO: prevent sync from outputting so much to console
 db.sequelize
