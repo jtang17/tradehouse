@@ -31,7 +31,11 @@ class CheckoutView extends React.Component {
         <br />
         Total Price: ${parseFloat(totalCost).toFixed(2)}
         <br />
-        <PaymentForm />
+        <PaymentForm
+          name={this.props.customerInfo.email}
+          description={'Best Global Market'}
+          amount={parseFloat(totalCost).toFixed(2)}
+        />
       </div>
     );
   }
