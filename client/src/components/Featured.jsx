@@ -10,18 +10,18 @@ class Featured extends React.Component {
   render() {
     return (
       <div className="featuredBroadcast__container">
-
-        <Link to={`/channel/${1}`}> <h1 className="container-header">Featured Broadcast: Core Koans</h1></Link>
+        <h1 className="container-header">Best Global Market</h1>
 
         <div className="featuredVid__container">
-          <iframe
-            src="https://www.youtube.com/embed/live_stream?channel=UCSJ4gkVC6NrvII8umztf0Ow"
-            height="450"
-            width="600"
-            frameBorder="0"
-            scrolling="no"
-            allowFullScreen="true"
-          />
+          <p>
+            <h5>Merchants</h5>
+            Best Global market is an interactive platform that allows merchants to broadcast and sell products to their customers.  If you're interested in selling you products, register as a merchant!
+            <br />
+          </p>
+          <p>
+            <h5>Customers</h5>
+            Customers can watch live streams of products and merchants they are interested in and make instant purchases.  If you're interested in shopping on Best Global Market or following your favorite channels, register as a customer!
+          </p>
         </div>
 
         <div className="featured__description">

@@ -45,7 +45,7 @@ class Header extends React.Component {
         <div className="header__container">
           <Link className="header__logo" to="/" />
           <div className="header__social">
-            <p>Best Global Market: Immersive experience!</p>
+            <p>Best Global Market: An immersive broadcasting & shopping platform</p>
           </div>
           <div className="header__account--register">
             <button className="hvr-icon-pulse btn--profile" onClick={this.registerFunc}>Register/Login</button>
