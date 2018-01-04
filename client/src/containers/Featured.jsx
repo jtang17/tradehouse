@@ -19,15 +19,15 @@ class Featured extends React.Component {
       <div className="featuredBroadcast__container">
         <h1 className="container-header">Best Global Market</h1>
         <div className="featuredVid__container">
-          <p>
+          <span>
             <h5>Merchants</h5>
-            Best Global market is an interactive platform that allows merchants to broadcast and sell products to their customers.  If you're interested in selling you products, register as a merchant!
+            <p>Best Global market is an interactive platform that allows merchants to broadcast and sell products to their customers.  If you're interested in selling you products, register as a merchant!</p>
             <br />
-          </p>
-          <p>
+          </span>
+          <span>
             <h5>Customers</h5>
-            Customers can watch live streams of products and merchants they are interested in and make instant purchases.  If you're interested in shopping on Best Global Market or following your favorite channels, register as a customer!
-          </p>
+            <p>Customers can watch live streams of products and merchants they are interested in and make instant purchases.  If you're interested in shopping on Best Global Market or following your favorite channels, register as a customer!</p>
+          </span>
           <h4>Featured Products</h4>
           <div className="browseProducts__container">
             <div className="productBrowserEntry">
