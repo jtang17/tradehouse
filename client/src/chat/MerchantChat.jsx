@@ -3,7 +3,7 @@ import openSocket from 'socket.io-client';
 /* import { subscribeToTimer } from './merchantAPI'; */
 
 const port = process.env.PORT || 5421;
-const socket = openSocket(`http://localhost:${port}`); // TODO: fix for deployment?
+/* const socket = openSocket(`http://localhost:${port}`); // TODO: fix for deployment?*/
 
 class MerchantChat extends React.Component {
   constructor(props) {
@@ -19,9 +19,9 @@ class MerchantChat extends React.Component {
 
   componentDidMount() {
     const merchantChatContext = this;
-    socket.on('chat message', (msg) => {
-      merchantChatContext.setState({ messages: merchantChatContext.state.messages.concat(msg) });
-    });
+    /* socket.on('chat message', (msg) => {*/
+    /* merchantChatContext.setState({ messages: merchantChatContext.state.messages.concat(msg) });*/
+    /* });*/
   }
 
   handleChange(event) {
@@ -30,7 +30,7 @@ class MerchantChat extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    socket.emit('chat message', this.state.value);
+    /* socket.emit('chat message', this.state.value);*/
     this.setState({ value: '' });
   }
 
