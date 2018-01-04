@@ -3,6 +3,8 @@ const jwtAuthz = require('express-jwt-authz');
 const controllers = require('../../controllers/controllers');
 const asyncMiddleware = require('./utils/asyncMiddleware');
 const jwtCheck = require('./utils/authMiddleware');
+const stripeKey = require('../../config.js').STRIPE_SECRET;
+const stripe = require('stripe')(stripeKey);
 
 const router = new Router();
 
@@ -11,10 +13,25 @@ router.get('/:customerId', asyncMiddleware(async (req, res, next) => {
   res.json(customer);
 }));
 
-router.post('/:customerId/chargeCard', asyncMiddleware(async (req, res, next) => {
-  const customer = await controllers.findOneCustomer(req.params.customerId);
-  res.json(customer);
-}));
+router.post('/:customerId/chargeCard', (req, res, next) => {
+  var amount = req.body.amount;
+  var currency = req.body.currency;
+  var description = req.body.description;
+  var token = req.body.source;
+  stripe.charges.create({
+    amount: amount,
+    currency: currency,
+    description: description,
+    source: token,
+  }, (err, charge) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('Charge: ',charge);
+      res.send('Payment Successful');
+    }
+  });
+});
 
 router.get('/', asyncMiddleware(async (req, res, next) => {
   const rows = await controllers.getAllCustomers();
