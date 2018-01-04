@@ -6,13 +6,13 @@ const BrowseProducts = props => (
   <div className="browseProducts__container">
     <div className="productBrowserEntry">
       {props.products.map((product, index) => (
-        <div className="productsEntry__card">
+        <div key ={index} className="productsEntry__card">
           <div className="productImg__card">
-            <Link key={index} to={`/product/${product.id}`}>
+            <Link to={`/product/${product.id}`}>
               <img src={product.imageUrl} />
             </Link>
           </div>
-          <Link key={index} to={`/product/${product.id}`}>
+          <Link to={`/product/${product.id}`}>
             <div className="productTitle__card">
               <h5>{product.title}</h5>
               <p>Product Rating: [insert me]</p>
