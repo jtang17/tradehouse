@@ -310,7 +310,7 @@ const editStream = (entry, merchantId) =>
     },
   }).then(stream =>
     stream.update({
-      url: entry.streamUrl || stream.dataValues.url,
+      url: entry.url || stream.dataValues.url,
       broadcastMessage: entry.broadcastMessage || stream.dataValues.broadcastMessage,
       currentProduct: entry.currentProduct || stream.dataValues.currentProduct,
       live: entry.live || stream.dataValues.live,
