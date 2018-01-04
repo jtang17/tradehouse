@@ -79,4 +79,3 @@ export const fetchMerchantInfoByToken = () => (dispatch) => {
   );
 };
 
-// try again

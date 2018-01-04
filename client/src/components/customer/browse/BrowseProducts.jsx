@@ -20,7 +20,7 @@ const BrowseProducts = props => (
               <p>Description: {product.description}</p>
               <div className="productCTA__card">
                 <span>Cost: ${parseFloat(product.unitPrice).toFixed(2)}</span>
-                <a className="btn--action">Add to Cart</a>
+                <span className="btn--action">Add to Cart</span>
               </div>
             </div>
           </div>

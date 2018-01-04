@@ -18,8 +18,6 @@ const BrowseStreams = props => (
             <div className="streamsDescription__card">
               <p>Broadcast Message: {merchant.broadcastMessage}</p>
             </div>
-
-
           </div>
         </Link>
       ))}
