@@ -53,7 +53,7 @@ async function seed() {
   }
 
   for (let i = 0; i < products.length; i += 1) {
-    let index = Math.floor(Math.random() * (Math.floor(savedMerchants.length)));
+    const index = Math.floor(Math.random() * (Math.floor(savedMerchants.length)));
     productPromises.push(controllers.saveNewProduct(Object.assign(products[i], {
       // merchantId: savedMerchants[index].id,
       merchantId: 1,
@@ -86,7 +86,7 @@ async function seed() {
   }
 
   for (let i = 0; i < streams.length; i += 1) {
-    let index = Math.floor(Math.random() * (Math.floor(savedMerchants.length)));
+    const index = Math.floor(Math.random() * (Math.floor(savedMerchants.length)));
     streamPromises.push(controllers.editStream(streams[i], index + 1));
   }
 

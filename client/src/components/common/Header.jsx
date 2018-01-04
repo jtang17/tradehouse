@@ -26,7 +26,7 @@ class Header extends React.Component {
   componentWillMount() {
     /* auth.handleAuthentication(() => axios.get(`/api/merchants/bySub/${localStorage.idToken}`).then(res => this.setState({ id: res.data.id })).catch(err => this.setState({ id: 1 }))); */
     auth.handleAuthentication(() => this.props.fetchMerchantInfoByToken());
-    /* auth.handleAuthentication();*/
+    /* auth.handleAuthentication(); */
     /* this.props.fetchCustomerInfoByToken(); */
     /* auth.getProfile */
   }

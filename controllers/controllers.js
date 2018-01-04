@@ -331,8 +331,8 @@ const editMerchantFeaturedProduct = (entry, merchantId) =>
     }).then(merchantStream =>
       merchantStream.update({
         currentProduct: entry.product.id,
-      })
-    )});
+      }));
+  });
 
 const changeToMerchant = customerId =>
   db.Customer.findOne({

@@ -39,7 +39,7 @@ router.get('/streams/:streamsQuery', (req, res) => {
     index,
     body,
   });
-  
+
   const searchStreams = () => {
     const body = {
       size: 20,
@@ -103,7 +103,7 @@ router.get('/merchants/:merchantsQuery', (req, res) => {
     index,
     body,
   });
-  
+
   const searchMerchants = () => {
     const body = {
       size: 20,
@@ -111,7 +111,7 @@ router.get('/merchants/:merchantsQuery', (req, res) => {
       query: {
         multi_match: {
         	query: `${req.params.merchantsQuery}`,
-        	fields: ['storeName', 'description', 'username']
+        	fields: ['storeName', 'description', 'username'],
         },
       },
     };
