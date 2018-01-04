@@ -45,6 +45,12 @@ const defaultState = {
   wishlist: [],
   streamInfo: {},
   streams: [],
+  allStreamsSearch: [],
+  streamsSearch: [],
+  allMerchantsSearch: [],
+  merchantsSearch: [],
+  allProductsSearch: [],
+  productsSearch: [],
 };
 const store = createStore(
   tradehouseApp,

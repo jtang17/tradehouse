@@ -26,7 +26,7 @@ export function allStreamsSearch(state = [], action) {
     }
   }
 }
-export function streamSearch(state = [], action) {
+export function streamsSearch(state = [], action) {
   switch (action.type) {
     case FETCH_STREAM_SEARCH_SUCCESS: {
       return action.streamsSearch;
