@@ -11,6 +11,11 @@ router.get('/:customerId', asyncMiddleware(async (req, res, next) => {
   res.json(customer);
 }));
 
+router.post('/:customerId/chargeCard', asyncMiddleware(async (req, res, next) => {
+  const customer = await controllers.findOneCustomer(req.params.customerId);
+  res.json(customer);
+}));
+
 router.get('/', asyncMiddleware(async (req, res, next) => {
   const rows = await controllers.getAllCustomers();
   res.json(rows);
