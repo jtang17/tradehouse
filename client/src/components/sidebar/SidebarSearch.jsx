@@ -16,19 +16,17 @@ class SidebarSearch extends React.Component {
     } = this.props;
     return (
       <div>
-        <Link to="/browse"><h4>Browse Content</h4></Link>
+        <h4>Search</h4>
         <SidebarSearchForm
           allMerchants={allMerchants}
           allProducts={allProducts}
           fetchAllMerchants={fetchAllMerchants}
           fetchAllProducts={fetchAllProducts}
         />
+        <Link to="/browse"><h6>Browse All Content</h6></Link>
       </div>
     );
   }
 }
-
-// <button className="btn--nav" onClick={fetchAllMerchants.bind(null)}>Get all Merchants</button>
-// <button className="btn--nav" onClick={fetchAllProducts.bind(null)}>Get all Products</button>
 
 export default SidebarSearch;
