@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import Featured from '../components/Featured.jsx';
+import Featured from './Featured.jsx';
 import { fetchCustomerInfoByToken, fetchSubscriptions, fetchWishlist } from '../actions/customerActions.jsx';
 
 class Home extends React.Component {
