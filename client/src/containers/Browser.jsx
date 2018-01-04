@@ -43,4 +43,6 @@ const mapStateToProps = state => ({
   streams: state.streams,
 });
 
-export default connect(mapStateToProps, { fetchAllProducts, fetchAllMerchants, fetchAllStreams, addToCart, fetchCustomerInfoByToken, })(Browser);
+export default connect(mapStateToProps, {
+  fetchAllProducts, fetchAllMerchants, fetchAllStreams, addToCart, fetchCustomerInfoByToken,
+})(Browser);

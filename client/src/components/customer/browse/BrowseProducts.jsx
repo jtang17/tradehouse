@@ -6,7 +6,7 @@ const BrowseProducts = props => (
   <div className="browseProducts__container">
     <div className="productBrowserEntry">
       {props.products.map((product, index) => (
-        <div key ={index} className="productsEntry__card">
+        <div key={index} className="productsEntry__card">
           <div className="productImg__card">
             <Link to={`/product/${product.id}`}>
               <img src={product.imageUrl} />
@@ -24,9 +24,9 @@ const BrowseProducts = props => (
             <div className="productCTA__card">
               <span>Cost: ${parseFloat(product.unitPrice).toFixed(2)}</span>
               {(props.customerInfo && props.customerInfo.id) ? (
-                <button className="btn--action" onClick={props.addToCart.bind(null, product,props.customerInfo.id)}>Add to Cart</button>
+                <button className="btn--action" onClick={props.addToCart.bind(null, product, props.customerInfo.id)}>Add to Cart</button>
                 ) : (
-                <div>Please log in to shop</div>
+                  <div>Please log in to shop</div>
                 )
               }
             </div>
