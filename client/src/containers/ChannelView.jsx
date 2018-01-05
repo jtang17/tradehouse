@@ -57,7 +57,6 @@ class ChannelView extends React.Component {
   }
 
   render() {
-    console.log(this.props.channelInfo);
     return (
       <div>
           Viewing: {this.props.channelInfo.storeName || 'Your Store'} - <Link to={`/store/${this.props.channelInfo.id}`}>Visit {this.props.channelInfo.storeName} Store</Link>
