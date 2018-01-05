@@ -138,3 +138,6 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelView);
+
+
+// rebase comment
