@@ -27,7 +27,7 @@ let AddProductForm = (props) => {
         <Field type="text" component="input" name="imageUrl" placeholder="Image URL" />
         <input className="btn--action" type="submit" value="Add Product" />
       </form>
-  </div>
+    </div>
   );
 };
 
