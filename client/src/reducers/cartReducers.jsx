@@ -1,6 +1,7 @@
 import {
   ADD_TO_CART_SUCCESS,
   ADD_TO_CART_FAILURE,
+  EMPTY_CART,
   REMOVE_FROM_CART_SUCCESS,
   REMOVE_FROM_CART_FAILURE,
   FETCH_CART_SUCCESS,
@@ -52,6 +53,9 @@ export function cart(state = [], action) {
       console.error(action.error);
       return state;
       // notify user of error?
+    }
+    case EMPTY_CART: {
+      return [];
     }
     default: {
       return state;

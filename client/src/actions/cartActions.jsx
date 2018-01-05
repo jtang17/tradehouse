@@ -10,6 +10,7 @@ export const INCREASE_QUANTITY_CART_SUCCESS = 'INCREASE_QUANTITY_CART_SUCCESS';
 export const INCREASE_QUANTITY_CART_FAILURE = 'INCREASE_QUANTITY_CART_FAILURE';
 export const DECREASE_QUANTITY_CART_SUCCESS = 'DECREASE_QUANTITY_CART_SUCCESS';
 export const DECREASE_QUANTITY_CART_FAILURE = 'DECREASE_QUANTITY_CART_FAILURE';
+export const EMPTY_CART = 'EMPTY_CART';
 
 export const addToCart = (product, customerId) => (dispatch) => {
   axios.post(`/api/customers/${customerId}/cart`, product)
@@ -65,3 +66,9 @@ export const decreaseQuantityInCart = (product, customerId) => (dispatch) => {
       error: err,
     }));
 };
+
+export const emptyCart = () => {
+  return {
+    type: EMPTY_CART,
+  };
+}

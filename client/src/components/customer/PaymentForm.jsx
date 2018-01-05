@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
+import { emptyCart } from '../../actions/cartActions.jsx';
 
 import STRIPE_CONSTS from '../../../../config.js';
 
@@ -16,7 +18,7 @@ const errorPayment = (data) => {
   alert('Payment Error');
 };
 
-const onToken = (amount, description, id) => token =>
+const onToken = (amount, description, id, cb) => token =>
   axios.post(
     `/api/customers/${id}/chargeCard`,
     {
@@ -27,18 +29,23 @@ const onToken = (amount, description, id) => token =>
     },
   )
     .then(successPayment)
-    .catch(errorPayment);
+    .catch(errorPayment)
+    .then(res => {
+      window.location.reload();
+    });
 
-const PaymentForm = ({
-  name, description, amount, id,
-}) =>
+const PaymentForm = ({ name, description, amount, id, emptyCart }) =>
   (<StripeCheckout
     name={name}
     description={description}
     amount={fromDollarToCent(amount)}
-    token={onToken(amount, description, id)}
+    token={onToken(amount, description, id, emptyCart)}
     currency={CURRENCY}
     stripeKey={STRIPE_CONSTS.STRIPE_PUBLISHABLE}
   />);
 
-export default PaymentForm;
+const mapDispatchToProps = {
+  emptyCart,
+};
+
+export default connect(null, mapDispatchToProps)(PaymentForm);

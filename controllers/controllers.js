@@ -169,6 +169,13 @@ const deleteShoppingCartedProduct = (entry, customerId) =>
     },
   });
 
+const emptyCart = (customerId) =>
+  db.ShoppingCartedProduct.destroy({
+    where: {
+      customerId,
+    },
+});
+
 const editShoppingCartedProduct = (entry, customerId) =>
   db.ShoppingCartedProduct.findOne({
     where: {
@@ -372,6 +379,7 @@ module.exports = {
   findCustomerWishlistedProducts,
   deleteWishlistedProduct,
   saveNewSubscription,
+  emptyCart,
   findCustomerSubscriptions,
   deleteSubscription,
   findOneCustomer,
