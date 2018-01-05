@@ -22,7 +22,6 @@ export const fetchStreamLoading = bool => ({
   isLoading: bool,
 });
 
-// TODO: PASS IN ID THROUGH FUNCTIONS AND REMOVE STATIC ID ASSIGNMENT ON NEXT LINE
 export const changeStream = (url, merchantId) => (dispatch) => {
   axios.put(`/api/merchants/${merchantId}/streams`, { url }) // TODO: FIX ROUTE
     .then(res => dispatch({
@@ -30,7 +29,6 @@ export const changeStream = (url, merchantId) => (dispatch) => {
       url,
     }), err => dispatch({
       type: CHANGE_STREAM_FAILURE,
-      url, // TODO: take this out when routes set up
       error: err,
     }));
 };
@@ -47,13 +45,12 @@ export const fetchStreamUrl = merchantId => (dispatch) => {
 };
 
 export const changeBroadcastMessage = (broadcastMessage, merchantId) => (dispatch) => {
-  axios.put(`/api/merchants/${merchantId}/broadcast_message`, { broadcastMessage }) // TODO: FIX ROUTE
+  axios.put(`/api/merchants/${merchantId}/broadcast_message`, { broadcastMessage })
     .then(res => dispatch({
       type: CHANGE_BROADCAST_MESSAGE_SUCCESS,
       broadcastMessage,
     }), err => dispatch({
       type: CHANGE_BROADCAST_MESSAGE_FAILURE,
-      broadcastMessage, // TODO: take this out when routes set up
       error: err,
     }));
 };
@@ -70,13 +67,12 @@ export const fetchBroadcastMessage = merchantId => (dispatch) => {
 };
 
 export const selectFeaturedProduct = (product, merchantId) => (dispatch) => {
-  axios.put(`/api/merchants/${merchantId}/featured`, { product }) // TODO: FIX ROUTE
+  axios.put(`/api/merchants/${merchantId}/featured`, { product })
     .then(res => dispatch({
       type: SELECT_FEATURED_PRODUCT_SUCCESS,
       product,
     }), err => dispatch({
       type: SELECT_FEATURED_PRODUCT_FAILURE,
-      product, // TODO: take this out when routes set up
       error: err,
     }));
 };
