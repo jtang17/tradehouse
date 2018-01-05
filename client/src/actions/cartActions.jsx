@@ -67,8 +67,6 @@ export const decreaseQuantityInCart = (product, customerId) => (dispatch) => {
     }));
 };
 
-export const emptyCart = () => {
-  return {
-    type: EMPTY_CART,
-  };
-}
+export const emptyCart = () => ({
+  type: EMPTY_CART,
+});

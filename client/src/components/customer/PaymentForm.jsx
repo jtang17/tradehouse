@@ -30,11 +30,13 @@ const onToken = (amount, description, id, cb) => token =>
   )
     .then(successPayment)
     .catch(errorPayment)
-    .then(res => {
+    .then((res) => {
       window.location.reload();
     });
 
-const PaymentForm = ({ name, description, amount, id, emptyCart }) =>
+const PaymentForm = ({
+  name, description, amount, id, emptyCart,
+}) =>
   (<StripeCheckout
     name={name}
     description={description}
