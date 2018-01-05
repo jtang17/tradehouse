@@ -1,20 +1,29 @@
 // React, Redux, React-Router-DOM
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 // Components
-import CustomerSidebar from "../components/customer/CustomerSidebar.jsx";
-import MerchantSidebar from "../components/merchant/MerchantSidebar.jsx";
-import SidebarSearch from "../components/sidebar/SidebarSearch.jsx";
-import Cart from "./Cart.jsx";
+import CustomerSidebar from '../components/customer/CustomerSidebar.jsx';
+import MerchantSidebar from '../components/merchant/MerchantSidebar.jsx';
+import SidebarSearch from '../components/sidebar/SidebarSearch.jsx';
+import Cart from './Cart.jsx';
 // Actions
-import { fetchCart } from "../actions/cartActions.jsx";
+import { fetchCart } from '../actions/cartActions.jsx';
 import {
   fetchCustomerInfoByToken,
   fetchSubscriptions,
-  fetchWishlist
-} from "../actions/customerActions.jsx";
-import { fetchMerchantInfoByToken } from "../actions/merchantActions.jsx";
+  fetchWishlist,
+} from '../actions/customerActions.jsx';
+import { fetchMerchantInfoByToken } from '../actions/merchantActions.jsx';
+import {
+  fetchAllStreams,
+  fetchStreamSearch,
+  searchAllMerchants,
+  fetchMerchantSearch,
+  searchAllProducts,
+  fetchProductSearch,
+  searchMixed,
+} from '../actions/searchActions.jsx';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -22,7 +31,7 @@ class Sidebar extends React.Component {
     // extrapolate to redux store
     this.state = {
       merchant: false,
-      searchTab: true
+      searchTab: true,
     };
     this.handlesearchTabClick = this.handlesearchTabClick.bind(this);
     this.handleRightTabClick = this.handleRightTabClick.bind(this);
@@ -49,8 +58,8 @@ class Sidebar extends React.Component {
     const {
       allMerchants,
       allProducts,
-      fetchAllMerchants,
-      fetchAllProducts
+      searchAllMerchants,
+      searchAllProducts,
     } = this.props;
     return (
       <div className="sidebar__container">
@@ -64,15 +73,18 @@ class Sidebar extends React.Component {
             </h4>
           </div>
         ) : (
-          <span />
+          <h3>Search</h3>
         )}
 
         {this.state.searchTab ? (
           <SidebarSearch
-            allMerchants={allMerchants}
-            allProducts={allProducts}
-            fetchAllMerchants={fetchAllMerchants}
-            fetchAllProducts={fetchAllProducts}
+            fetchAllStreams={this.props.fetchAllStreams}
+            fetchStreamSearch={this.props.fetchStreamSearch}
+            searchAllMerchants={this.props.searchAllMerchants}
+            fetchMerchantSearch={this.props.fetchMerchantSearch}
+            searchAllProducts={this.props.searchAllProducts}
+            fetchProductSearch={this.props.fetchProductSearch}
+            searchMixed={this.props.searchMixed}
           />
         ) : null}
 
@@ -99,7 +111,7 @@ const mapStateToProps = state => ({
   customerInfo: state.customerInfo,
   wishlist: state.wishlist,
   subscriptions: state.subscriptions,
-  merchantInfo: state.merchantInfo
+  merchantInfo: state.merchantInfo,
 });
 
 const mapDispatchToProps = {
@@ -107,7 +119,14 @@ const mapDispatchToProps = {
   fetchSubscriptions,
   fetchWishlist,
   fetchCart,
-  fetchMerchantInfoByToken
+  fetchMerchantInfoByToken,
+  fetchAllStreams,
+  fetchStreamSearch,
+  searchAllMerchants,
+  fetchMerchantSearch,
+  searchAllProducts,
+  fetchProductSearch,
+  searchMixed,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

@@ -78,7 +78,7 @@ class Header extends React.Component {
       return (
         <div className="header__container">
           <Link className="header__logo" to="/" />
-          <div className="header__social">
+          <div className="nav__container--header">
             <Link className="btn--nav" to={`/customer_profile/${this.props.customerInfo.id}`}>
                 Customer Profile
             </Link>

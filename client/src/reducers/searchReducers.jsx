@@ -11,6 +11,8 @@ import {
   FETCH_ALLPRODUCTS_FAILURE,
   FETCH_PRODUCT_SEARCH_SUCCESS,
   FETCH_PRODUCT_SEARCH_FAILURE,
+  SEARCH_MIXED_SUCCESS,
+  SEARCH_MIXED_FAILURE,
 } from '../actions/searchActions.jsx';
 
 export function allStreamsSearch(state = [], action) {
@@ -86,6 +88,20 @@ export function productsSearch(state = [], action) {
       return action.productsSearch;
     }
     case FETCH_PRODUCT_SEARCH_FAILURE: {
+      return state;
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
+export function searchMixed(state = [], action) {
+  switch (action.type) {
+    case SEARCH_MIXED_SUCCESS: {
+      return action.productsSearch;
+    }
+    case SEARCH_MIXED_FAILURE: {
       return state;
     }
     default: {

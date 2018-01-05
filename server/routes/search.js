@@ -229,6 +229,48 @@ router.get('/products/:productsQuery', (req, res) => {
   searchProducts();
 });
 
+// MixedSearchResults
+router.get('/:query', (req, res) => {
+  const search = (index, body) =>
+    elastic.search({
+      index,
+      body,
+    });
+
+  const searchMixed = () => {
+    const body = {
+      size: 20,
+      from: 0,
+      query: {
+        multi_match: {
+          query: `${req.params.query}`,
+          fields: ['title', 'description', 'broadcastMessage', 'url', 'storeName', 'email', 'location'],
+          fuzziness: 'AUTO',
+        },
+      },
+    };
+
+    search(['bgm_products', 'bgm_merchants', 'bgm_streams'], body)
+      .then((results) => {
+        console.log(
+          'timed out',
+          results.timed_out,
+          'result.hits',
+          results.hits.total,
+        );
+        if (results.timed_out == false && results.hits.total > 0) {
+          res.json(results.hits.hits);
+        } else {
+          res.end('no results');
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+  searchMixed();
+});
+
+
 module.exports = router;
 
-// rebase comments

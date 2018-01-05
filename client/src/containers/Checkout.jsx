@@ -33,7 +33,7 @@ class CheckoutView extends React.Component {
         <br />
         <PaymentForm
           name={this.props.customerInfo.email}
-          description={'Best Global Market'}
+          description="Best Global Market"
           amount={parseFloat(totalCost).toFixed(2)}
           id={this.props.customerInfo.id}
         />

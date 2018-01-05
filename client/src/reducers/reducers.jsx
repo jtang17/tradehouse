@@ -28,6 +28,7 @@ import {
   merchantsSearch,
   allProductsSearch,
   productsSearch,
+  searchMixed,
 } from './searchReducers.jsx';
 
 const tradehouseApp = combineReducers({
@@ -50,6 +51,7 @@ const tradehouseApp = combineReducers({
   merchantsSearch,
   allProductsSearch,
   productsSearch,
+  searchMixed,
 });
 
 export default tradehouseApp;

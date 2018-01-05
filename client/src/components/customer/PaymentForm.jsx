@@ -24,12 +24,14 @@ const onToken = (amount, description, id) => token =>
       source: token.id,
       currency: CURRENCY,
       amount: fromDollarToCent(amount),
-    }
+    },
   )
     .then(successPayment)
     .catch(errorPayment);
 
-const PaymentForm = ({ name, description, amount, id }) =>
+const PaymentForm = ({
+  name, description, amount, id,
+}) =>
   (<StripeCheckout
     name={name}
     description={description}

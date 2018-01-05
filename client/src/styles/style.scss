@@ -116,6 +116,10 @@ input {
 	@include subheading();
 }
 
+.heading {
+	@include containerHeader();
+}
+
 .container-header {
 	@include containerHeader();
 }

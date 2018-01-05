@@ -14,20 +14,20 @@ router.get('/:customerId', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.post('/:customerId/chargeCard', (req, res, next) => {
-  var amount = req.body.amount;
-  var currency = req.body.currency;
-  var description = req.body.description;
-  var token = req.body.source;
+  const amount = req.body.amount;
+  const currency = req.body.currency;
+  const description = req.body.description;
+  const token = req.body.source;
   stripe.charges.create({
-    amount: amount,
-    currency: currency,
-    description: description,
+    amount,
+    currency,
+    description,
     source: token,
   }, (err, charge) => {
     if (err) {
       console.error(err);
     } else {
-      console.log('Charge: ',charge);
+      console.log('Charge: ', charge);
       res.send('Payment Successful');
     }
   });

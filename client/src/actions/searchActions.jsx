@@ -14,6 +14,8 @@ export const FETCH_ALLPRODUCTS_SUCCESS = 'FETCH_ALLPRODUCTS_SUCCESS';
 export const FETCH_ALLPRODUCTS_FAILURE = 'FETCH_ALLPRODUCTS_FAILURE';
 export const FETCH_PRODUCT_SEARCH_SUCCESS = 'FETCH_PRODUCT_SEARCH_SUCCESS';
 export const FETCH_PRODUCT_SEARCH_FAILURE = 'FETCH_PRODUCT_SEARCH_FAILURE';
+export const SEARCH_MIXED_SUCCESS = 'SEARCH_MIXED_SUCCESS';
+export const SEARCH_MIXED_FAILURE = 'SEARCH_MIXED_FAILURE';
 
 // STREAM SEARCH ACTIONS CREATORS
 export const fetchAllStreams = () => (dispatch) => {
@@ -39,7 +41,7 @@ export const fetchStreamSearch = term => (dispatch) => {
 };
 
 // MERCHANT SEARCH ACTIONS CREATORS
-export const fetchAllMerchants = () => (dispatch) => {
+export const searchAllMerchants = () => (dispatch) => {
   axios.get('/api/search/allMerchants')
     .then(res => dispatch({
       type: FETCH_ALLMERCHANTS_SUCCESS,
@@ -62,7 +64,7 @@ export const fetchMerchantSearch = term => (dispatch) => {
 };
 
 // PRODUCT SEARCH ACTIONS CREATORS
-export const fetchAllProducts = () => (dispatch) => {
+export const searchAllProducts = () => (dispatch) => {
   axios.get('/api/search/allProducts')
     .then(res => dispatch({
       type: FETCH_ALLPRODUCTS_SUCCESS,
@@ -80,6 +82,17 @@ export const fetchProductSearch = term => (dispatch) => {
       productsSearch: res.data,
     }), err => dispatch({
       type: FETCH_PRODUCT_SEARCH_FAILURE,
+      error: err,
+    }));
+};
+
+export const searchMixed = term => (dispatch) => {
+  axios.get(`/api/search/${term}`)
+    .then(res => dispatch({
+      type: SEARCH_MIXED_SUCCESS,
+      productsSearch: res.data,
+    }), err => dispatch({
+      type: SEARCH_MIXED_FAILURE,
       error: err,
     }));
 };
