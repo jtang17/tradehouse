@@ -63,7 +63,7 @@ class ChannelView extends React.Component {
       <div>
           Viewing: {this.props.channelInfo.storeName || 'Your Store'} - <Link to={`/store/${this.props.channelInfo.id}`}>Visit {this.props.channelInfo.storeName} Store</Link>
         <br />
-        <span style={{ fontStyle: 'italic' }}>{this.props.channelInfo.broadcastMessage}</span>
+        <span style={{ fontStyle: 'italic' }}>{this.props.streamInfo.broadcastMessage}</span>
         <br />
 
         {this.state.subscribed ?
