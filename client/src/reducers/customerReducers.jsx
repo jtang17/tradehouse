@@ -21,7 +21,6 @@ export function customerInfo(state = {}, action) {
       return action.customerInfo;
     }
     case FETCH_CUSTOMER_FAILURE: {
-      console.error(action.error);
       return state;
     }
     default: {
@@ -36,21 +35,18 @@ export function wishlist(state = [], action) {
       return action.wishlist;
     }
     case FETCH_WISHLIST_FAILURE: {
-      console.error(action.error);
       return state;
     }
     case ADD_WISHLISTED_PRODUCT_SUCCESS: {
       return action.wishlist;
     }
     case ADD_WISHLISTED_PRODUCT_FAILURE: {
-      console.error(action.error);
       return state;
     }
     case REMOVE_WISHLISTED_PRODUCT_SUCCESS: {
       return action.wishlist;
     }
     case REMOVE_WISHLISTED_PRODUCT_FAILURE: {
-      console.error(action.error);
       return state;
     }
     default: {
@@ -65,21 +61,18 @@ export function subscriptions(state = [], action) {
       return action.subscriptions;
     }
     case FETCH_SUBSCRIPTIONS_FAILURE: {
-      console.error(action.error);
       return state;
     }
     case FOLLOW_SUCCESS: {
       return action.subscriptions;
     }
     case FOLLOW_FAILURE: {
-      console.error(action.error);
       return state;
     }
     case UNFOLLOW_SUCCESS: {
       return action.subscriptions;
     }
     case UNFOLLOW_FAILURE: {
-      console.error(action.error);
       return state;
     }
     default: {

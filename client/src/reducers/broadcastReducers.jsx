@@ -23,14 +23,12 @@ export function featuredProduct(state = false, action) {
       return action.product;
     }
     case SELECT_FEATURED_PRODUCT_FAILURE: {
-      console.error(action.error);
       return state;
     }
     case FETCH_FEATURED_PRODUCT_SUCCESS: {
       return action.featuredProduct;
     }
     case FETCH_FEATURED_PRODUCT_FAILURE: {
-      console.error(action.error);
       return state;
     }
     default: {
@@ -45,14 +43,12 @@ export function streamInfo(state = {}, action) {
       return action.streamInfo;
     }
     case FETCH_STREAM_FAILURE: {
-      console.error(action.error);
       return state;
     }
     case EDIT_STREAM_SUCCESS: {
       return action.streamInfo;
     }
     case EDIT_STREAM_FAILURE: {
-      console.error(action.error);
       return state;
     }
     default: {

@@ -18,41 +18,31 @@ export function cart(state = [], action) {
       return action.cart;
     }
     case ADD_TO_CART_FAILURE: {
-      console.error(action.error);
       return state;
-      // notify user of error?
     }
     case REMOVE_FROM_CART_SUCCESS: {
       return action.cart;
     }
     case REMOVE_FROM_CART_FAILURE: {
-      console.error(action.error);
       return state;
-      // notify user of error?
     }
     case FETCH_CART_SUCCESS: {
       return action.cart;
     }
     case FETCH_CART_FAILURE: {
-      console.error(action.error);
       return state;
-      // notify user of error?
     }
     case INCREASE_QUANTITY_CART_SUCCESS: {
       return action.cart;
     }
     case INCREASE_QUANTITY_CART_FAILURE: {
-      console.error(action.error);
       return state;
-      // notify user of error?
     }
     case DECREASE_QUANTITY_CART_SUCCESS: {
       return action.cart;
     }
     case DECREASE_QUANTITY_CART_FAILURE: {
-      console.error(action.error);
       return state;
-      // notify user of error?
     }
     case EMPTY_CART: {
       return [];

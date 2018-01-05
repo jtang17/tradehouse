@@ -31,23 +31,18 @@ export function merchantProducts(state = [], action) {
       return [...state, action.product];
     }
     case ADD_MERCHANT_PRODUCT_FAILURE: {
-      console.error(action.error);
       return state;
-      // notify user of error?
     }
     case DELETE_MERCHANT_PRODUCT_SUCCESS: {
       return action.products;
     }
     case DELETE_MERCHANT_PRODUCT_FAILURE: {
-      console.error(action.error);
       return state;
-      // notify user of error?
     }
     case FETCH_MERCHANT_PRODUCTS_SUCCESS: {
       return action.products;
     }
     case FETCH_MERCHANT_PRODUCTS_FAILURE: {
-      console.error(action.error);
       return state;
     }
     default: {
@@ -62,7 +57,6 @@ export function singleProduct(state = {}, action) {
       return action.product;
     }
     case FETCH_SINGLE_PRODUCT_FAILURE: {
-      console.error(action.error);
       return state;
     }
     default: {
