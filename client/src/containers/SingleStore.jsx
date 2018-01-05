@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import Cart from './Cart.jsx';
 import StoreItem from '../components/customer/StoreItem.jsx';
 
-import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
-import { fetchMerchantProducts } from '../actions/productActions.jsx';
-import { fetchChannelInfo } from '../actions/merchantActions.jsx';
 import { addToCart, removeFromCart } from '../actions/cartActions.jsx';
 
 class SingleStore extends React.Component {
@@ -19,7 +16,7 @@ class SingleStore extends React.Component {
     return (
       <div className="singleStore">
         <div className="storeHeader">
-          <img src={storeInfo.logo} style={{ width: '200px' }} />
+          {storeInfo.logo && <img src={storeInfo.logo} style={{ width: '200px' }} />}
           <h4>Store Page: {storeInfo.storeName}</h4>
           Location:{storeInfo.location}<br />
           <p>{storeInfo.description}</p>
@@ -41,9 +38,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   addToCart,
   removeFromCart,
-  fetchMerchantProducts,
-  fetchChannelInfo,
-  fetchCustomerInfoByToken,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleStore);

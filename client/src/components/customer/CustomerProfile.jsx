@@ -8,11 +8,11 @@ const CustomerProfile = props => (
     <div>
       <h6>Followed Channels</h6>
       {props.subscriptions.map((subscription, index) => (
-        <div>{subscription.storeName}</div>
+        <div key={index}>{subscription.storeName}</div>
       ))}
       <h6>Wishlisted Products</h6>
       {props.wishlist.map((product, index) => (
-        <div>{product.title}</div>
+        <div key={index}>{product.title}</div>
       ))}
     </div>
   </div>

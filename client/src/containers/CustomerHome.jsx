@@ -24,9 +24,6 @@ class CustomerHome extends React.Component {
   }
 
   render() {
-    console.log(this.props.customerInfo);
-    console.log(this.props.subscriptions);
-    console.log(this.props.wishlist);
     // redirect to home if not logged in, shouldn't be here
     if (!auth.isAuthenticated()) {
       return <Redirect to="/" />;
