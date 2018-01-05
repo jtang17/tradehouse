@@ -50,6 +50,7 @@ const defaultState = {
   merchantsSearch: [],
   allProductsSearch: [],
   productsSearch: [],
+  searchMixed: [],
 };
 const store = createStore(
   tradehouseApp,

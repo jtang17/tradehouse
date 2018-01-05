@@ -12,7 +12,7 @@ class BrowserBody extends React.Component {
       type: 'products',
     };
     this.toggleStreams = this.toggleStreams.bind(this);
-    // this.toggleStores = this.toggleStores.bind(this);
+    this.toggleStores = this.toggleStores.bind(this);
     // this.toggleVideos = this.toggleVideos.bind(this);
     this.toggleProducts = this.toggleProducts.bind(this);
   }
@@ -37,11 +37,11 @@ class BrowserBody extends React.Component {
   //   });
   // }
 
-  // toggleStores() {
-  //   this.setState({
-  //     type: 'stores',
-  //   });
-  // }
+  toggleStores() {
+    this.setState({
+      type: 'stores',
+    });
+  }
 
   toggleProducts() {
     this.setState({
@@ -52,18 +52,31 @@ class BrowserBody extends React.Component {
   // TODO: refactor streams, videos, products to components
   // also, each stream/video/product within a card/container
   render() {
+    const products = this.props.searchMixed.filter((item, index) => item._type === 'product').map(element => element._source);
+
+
+    const streams = this.props.searchMixed.filter((item, index) => item._type === 'stream').map(element => element._source);
+
+    const merchants = this.props.searchMixed.filter((item, index) => item._type === 'merchant').map(element => element._source);
+
+    console.log(products);
+    console.log(merchants);
+    console.log(streams);
+
     return (
       <div>
         <div className="browseNavigation__container">
           <h3 className="container-header">Browse Contents</h3>
           <div className="filter__container">
             <a className="btn--filter hvr-icon-down" onClick={this.toggleStreams}>Streams</a>
+            <a className="btn--filter hvr-icon-down" onClick={this.toggleStores}>Stores</a>
             <a className="btn--filter hvr-icon-down" onClick={this.toggleProducts}>Products</a>
           </div>
         </div>
-        {this.state.type === 'streams' && <BrowseStreams merchants={this.props.merchants} />}
 
-        {this.state.type === 'products' && <BrowseProducts products={this.props.products} addToCart={this.props.addToCart} customerInfo={this.props.customerInfo} />}
+        {this.state.type === 'streams' && <BrowseStreams merchants={streams} />}
+        {this.state.type === 'stores' && <BrowseStores merc={merchants} />}
+        {this.state.type === 'products' && <BrowseProducts products={products} addToCart={this.props.addToCart} customerInfo={this.props.customerInfo} />}
       </div>
     );
   }

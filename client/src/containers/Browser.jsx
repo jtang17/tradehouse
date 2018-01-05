@@ -5,12 +5,14 @@ import { fetchAllMerchants } from '../actions/merchantActions.jsx';
 import { addToCart } from '../actions/cartActions.jsx';
 import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
 import { fetchAllStreams } from '../actions/streamActions.jsx';
-
 import BrowserBody from '../components/customer/BrowserBody.jsx';
 
 class Browser extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+
+    };
   }
 
   componentDidMount() {
@@ -29,6 +31,7 @@ class Browser extends React.Component {
           streams={this.props.streams}
           addToCart={this.props.addToCart}
           customerInfo={this.props.customerInfo}
+          searchMixed={this.props.searchMixed}
         />
       </div>
     );
@@ -41,6 +44,7 @@ const mapStateToProps = state => ({
   merchants: state.allMerchants,
   customerInfo: state.customerInfo,
   streams: state.streams,
+  searchMixed: state.searchMixed,
 });
 
 export default connect(mapStateToProps, {

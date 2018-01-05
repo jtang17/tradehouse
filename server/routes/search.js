@@ -239,7 +239,7 @@ router.get('/:query', (req, res) => {
 
   const searchMixed = () => {
     const body = {
-      size: 20,
+      size: 100,
       from: 0,
       query: {
         multi_match: {
