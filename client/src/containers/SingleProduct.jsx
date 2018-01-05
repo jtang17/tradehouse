@@ -20,7 +20,7 @@ class SingleProduct extends React.Component {
     const { product } = this.props;
     return (
       <div>
-        <img src={`${product.imageUrl}`} style={{ width: '200px' }} />
+        {product.imageUrl && <img src={`${product.imageUrl}`} style={{ width: '200px' }} />}
         <br />
         <h5>{product.title}</h5>
         {product.quantity} remaining<br />
