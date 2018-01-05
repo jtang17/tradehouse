@@ -41,6 +41,7 @@ class ProductsView extends React.Component {
         <h3>{this.props.merchantInfo.storeName}</h3>
         <a className="btn--action" onClick={this.showAddProduct}>Add New Product</a>
         {this.state.addProduct && <AddProductForm
+          toggleAddProduct={this.showAddProduct}
           addProduct={this.props.addProduct}
           merchantId={this.props.merchantInfo.id}
         />}

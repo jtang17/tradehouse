@@ -14,7 +14,9 @@ class ProductList extends React.Component {
     if (!items.length) {
       return (
         <p>
-          <i>No products</i>
+          You currently have no products listed.
+          <br />
+          Add some products to start up your store!
         </p>
       );
     }
