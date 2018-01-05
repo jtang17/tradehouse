@@ -64,13 +64,11 @@ class Sidebar extends React.Component {
     return (
       <div className="sidebar__container">
         {this.state.merchant || this.props.customerInfo.id ? (
-          <div className="tabs">
-            <h4 className="rightTab" onClick={this.handleRightTabClick}>
-              Dashboard
-            </h4>
-            <h4 className="searchTab" onClick={this.handlesearchTabClick}>
+          <div className="sidebar__tabs">
+            <a className="btn--sidebar rightTab" onClick={this.handleRightTabClick}>Dashboard</a>
+            <a className="btn--sidebar searchTab" onClick={this.handlesearchTabClick}>
               Search
-            </h4>
+            </a>
           </div>
         ) : (
           <h3>Search</h3>

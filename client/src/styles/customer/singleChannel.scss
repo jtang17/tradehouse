@@ -1,0 +1,13 @@
+.singleChannel__container {
+	@include cardShadow();
+
+	.follow {
+		float: right;
+	}
+	.singleChannel__heading {
+		@include no-margin--bottom();
+	}
+
+	
+}
+

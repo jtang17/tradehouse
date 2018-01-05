@@ -87,3 +87,26 @@
 		color: $ortan;
 	}
 }
+
+
+.btn--sidebar {
+	background: $ortan;
+	padding: 2.5px;
+	margin: 1px;
+	border: 2px solid $ortan;
+	color: $finaldblue;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 1.5rem;
+
+	&:hover {
+		background: $ortan;
+		transition: 0.5s;
+		border: 1px solid $text;
+		color: $finaldblue;
+	}
+
+	&:visited {
+		color: $ortan;
+	}
+}

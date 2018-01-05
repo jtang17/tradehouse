@@ -1,8 +1,13 @@
-.browseStreams__container {
-	min-width: calc(100vw - 250px);
+.singleStore__container {
 
 
-	ul {
+
+
+
+
+
+
+	.storeProductList {
 		@include cardShadow();
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -24,58 +29,81 @@
 			grid-column: r4;
 		}
 	}
+}
 
-	.streamsTitle__card {
-		margin: 5px;
+.productsEntry__card {
+	@include lmainShadow();
+	border-top: 5px solid $finaldblue;
+	width: 90%;
+	margin: 0 auto;
+	display: grid;
+	padding: 0;
+	grid-template-columns: [leftcol] 62% [rightcol] 38%;
+	grid-template-rows: [r1] auto [r2] fit-content(200px);
+
+	&:hover {
+		
+
+	
+		.productCTA__card {
+			background: $finaldblue;
+			color: $lmarble;
+			transition: 0.5s;
+
+		}
 	}
 
-	.streamsEntry__card {
-		@include lmainShadow();
-		border-top: 5px solid $finaldblue;
-		width: 90%;
-		margin: 0 auto;
-		display: grid;
-		padding: 10px 0 0 0;
-		grid-template-columns: [leftcol] 62% [rightcol] 38%;
-		grid-template-rows: [r1] fit-content(100px) [r2] fit-content(200px);
-		
-		* {
-		overflow: hidden;
-		word-wrap: break-word;
-		}
-		&:hover {
-			@include actionShadow();
-			padding: 10px 0 0 0;
-			transition: 0.25s;
-			border-bottom: 1px solid $finaldblue;
-		
-			.streamsDescription__card {
-				background: $hilight;
-				color: $lmarble;
-		
-				transition: 0.25s;
-				border: 4px inset $lmarble;
-			}
-		}
 
-		.mercLogo__browser {
-			grid-column: rightcol;
-		}
+	.productTitle__card {
+		padding: 10px;
 
-		.streamsDescription__card {
-			background: $lortan;
-			border: 1.5px solid $gray;
+		h5 {
+			color: $hilight;
+		}
+	}
+
+	.productImg__card {
+		grid-row: r1 / r2;
+
+		img {
+			max-height: 100%;
+			max-width: 100%;
+			height: auto;
+			border-right: 1px solid $gray;
 			padding: 5px;
-			grid-column: leftcol / 3;
+		}
+	}
+	.mercLogo__browser {
+		grid-column: rightcol;
+	}
+
+	.productDescription__card {
+		background: $lortan;
+
+		padding: 5px;
+		grid-column: leftcol / 3;
+	}
+
+	.productCTA__card {
+		grid-column: leftcol / 3;
+		display: flex;
+		background: $ortan;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 10px 0 20px;
+
+		a {
+			margin: 2.5px 0;
 		}
 	}
 }
 
+
 @media screen and (max-width: 1400px) {
-	.browseStreams__container {
+	.singleStore__container {
 		min-width: calc(100vw - 250px);
 
-		ul {
+		.productsEntry__card {
 			@include cardShadow();
 			display: grid;
 			grid-template-columns: [r1] 33% [r2] 33% [r3] 33%;
@@ -94,16 +122,14 @@
 				grid-column: r3;
 			}
 		}
-
-
 	}
 }
 
 @media only screen and (max-width: 1200px) {
-	.browseStreams__container {
+	.singleStore__container {
 		min-width: calc(100vw - 250px);
 
-		ul {
+		.productsEntry__card {
 			@include cardShadow();
 			display: grid;
 			grid-template-columns: [r1] 50% [r2] 50%;
@@ -117,24 +143,20 @@
 			&:nth-child(odd) {
 				grid-column: r2;
 			}
-	
-
-
 		}
 	}
 }
 
 @media only screen and (max-width: 650px) {
-	.browseStreams__container {
+	.singleStore__container {
 		min-width: calc(100vw - 250px);
 
-		ul {
+		.productsEntry__card {
 			@include cardShadow();
 			display: grid;
 			grid-template-columns: [r1] auto;
 			grid-gap: 10px;
 			list-style: none;
-
 		}
 	}
 }
