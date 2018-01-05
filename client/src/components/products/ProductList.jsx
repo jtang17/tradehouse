@@ -25,7 +25,7 @@ class ProductList extends React.Component {
         <table className="productsTable">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>#</th>
               <th>Name</th>
               <th>Quantity</th>
               <th>Price</th>

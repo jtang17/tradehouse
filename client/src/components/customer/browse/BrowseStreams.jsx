@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const BrowseStreams = props => (
   <div className="browseStreams__container">
     <ul>
-      {props.merchants.map((merchant, index) => (
+      {props.merchants.map((merchant, index) => merchant.storeName && (
         <Link key={index} to={`/channel/${merchant.id || 1}`}>
           <div className="streamsEntry__card">
             <div className="streamsTitle__card">

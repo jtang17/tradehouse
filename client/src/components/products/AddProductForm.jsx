@@ -24,6 +24,7 @@ let AddProductForm = (props) => {
         <Field type="text" component="input" name="productQuantity" placeholder="Quantity" />
         <Field type="text" component="input" name="price" placeholder="Price" />
         <Field type="text" component="input" name="description" placeholder="Description" />
+        <Field type="text" component="input" name="imageUrl" placeholder="Image URL" />
         <input className="btn--action" type="submit" value="Add Product" />
       </form>
   </div>
