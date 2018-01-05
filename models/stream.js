@@ -7,4 +7,5 @@ module.exports = (sequelize, DataTypes) =>
     storeName: DataTypes.TEXT,
     description: DataTypes.TEXT,
     url: DataTypes.TEXT,
+    logo: DataTypes.STRING,
   });
