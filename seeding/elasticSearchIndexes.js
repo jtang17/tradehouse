@@ -65,6 +65,15 @@ elastic.indices.create({
           id: {
             type: 'integer',
           },
+          storeName: {
+            type: 'text',
+          },
+          description: {
+            type: 'text',
+          },
+          url: {
+            type: 'text',
+          },
           url: {
             type: 'text',
           },

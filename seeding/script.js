@@ -1,7 +1,7 @@
 const db = require('../models/index.js');
 const controllers = require('../controllers/controllers');
 const products = require('./mock_products--cars.json');
-const streams = require('./mock_streams.json');
+const streams = require('./BGM_Streams.json');
 const merchants = require('./mock_merchants.json');
 const customers = require('./customers.json');
 const elastic = require('../models/elasticSearch.js');
@@ -101,6 +101,9 @@ async function seed() {
       body: {
         id: stream.dataValues.id || 0,
         url: stream.dataValues.url || 'Missing Username',
+        storeName: stream.dataValues.storeName || 'Missing Storename',
+        description: stream.dataValues.description || 'Missing Description',
+        logo: stream.dataValues.logo || 'Missing Logo',
         currentProduct: stream.dataValues.currentProduct || 0,
         broadcastMessage: stream.dataValues.broadcastMessage || 0,
         live: stream.dataValues.live || false,

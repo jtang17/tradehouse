@@ -55,21 +55,18 @@ class BrowserBody extends React.Component {
     let streams = [];
     let products = [];
     let merchants = [];
-   console.log(this.props.searchMixed);
+    console.log(this.props.searchMixed);
     if (Array.isArray(this.props.searchMixed)) {
       products = this.props.searchMixed.filter((item, index) => item._type === 'product').map(element => element._source);
       console.log('products', products);
-
     }
     if (Array.isArray(this.props.searchMixed)) {
       streams = this.props.searchMixed.filter((item, index) => item._type === 'stream').map(element => element._source);
       console.log('streams', streams);
- 
     }
     if (Array.isArray(this.props.searchMixed)) {
       merchants = this.props.searchMixed.filter((item, index) => item._type === 'merchant').map(element => element._source);
       console.log('merchants', merchants);
-
     }
 
     if (this.props.searchMixed.length === 0 || typeof this.props.searchMixed === 'string') {

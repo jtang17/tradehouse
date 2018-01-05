@@ -2,24 +2,33 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-const BrowseStreams = props => (
-  <div className="browseStreams__container">
-    <ul>
-      {props.merchants.map((merchant, index) => merchant.storeName && (
-        <Link key={index} to={`/channel/${merchant.id || 1}`}>
-          <div className="streamsEntry__card">
-            <div className="streamsTitle__card">
-              <h5>{merchant.storeName}</h5>
-              <p>Rating: {merchant.rating}</p>
-              <p>Website: {merchant.website}</p>
+class BrowseStreams extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
+  }
+  render() {
+    return (
+      <div className="browseStreams__container">
+        <ul>
+          {this.props.streams.map((stream, index) => stream.id && (
+          <Link key={index} to={`/channel/${stream.id || 1}`}>
+            <div className="streamsEntry__card">
+              <div className="streamsTitle__card">
+                <h5>{stream.storeName || 'Store Name'}</h5>
+                <p>Streaming: {stream.broadcastMessage}</p>
+                <p>Website: {stream.broadcastMessage}</p>
+              </div>
+              <img className="mercLogo__browser" src={stream.logo || 'http://clipartandscrap.com/wp-content/uploads/2017/07/Teddy-bear-clip-art-on-teddy-bears-and-clipartwiz-4.png'} style={{ width: '75px' }} />
             </div>
-            <img className="mercLogo__browser" src={merchant.logo || 'http://clipartandscrap.com/wp-content/uploads/2017/07/Teddy-bear-clip-art-on-teddy-bears-and-clipartwiz-4.png'} style={{ width: '75px' }} />
-          </div>
-        </Link>
-      ))}
-    </ul>
-  </div>
-);
+          </Link>
+        ))}
+        </ul>
+      </div>);
+  }
+}
 
 export default BrowseStreams;
 
@@ -34,3 +43,4 @@ export default BrowseStreams;
 //     </div>
 //   );
 // })}
+

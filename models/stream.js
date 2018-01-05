@@ -4,4 +4,7 @@ module.exports = (sequelize, DataTypes) =>
     broadcastMessage: DataTypes.TEXT,
     currentProduct: DataTypes.TEXT,
     live: DataTypes.BOOLEAN,
+    storeName: DataTypes.TEXT,
+    description: DataTypes.TEXT,
+    url: DataTypes.TEXT,
   });

@@ -46,6 +46,9 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
     id: newStream.dataValues.id || 'Missing ID',
     body: {
       id: newStream.dataValues.id || 0,
+      storeName: newStream.dataValues.storeName || 'Missing Storename',
+      description: newStream.dataValues.description || 'Missing Description',
+      logo: newStream.dataValues.logo || 'Missing Logo',
       url: newStream.dataValues.url || 'Missing Username',
       currentProduct: newStream.dataValues.currentProduct || 0,
       broadcastMessage: newStream.dataValues.broadcastMessage || 0,
@@ -160,6 +163,9 @@ router.put('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
     body: {
       id: streamInfo.dataValues.id || 0,
       url: streamInfo.dataValues.url || 'Missing Username',
+      storeName: streamInfo.dataValues.storeName || 'Missing Storename',
+      description: streamInfo.dataValues.description || 'Missing Description',
+      logo: streamInfo.dataValues.logo || 'Missing Logo',
       currentProduct: streamInfo.dataValues.currentProduct || 0,
       broadcastMessage: streamInfo.dataValues.broadcastMessage || 0,
       live: streamInfo.dataValues.live || false,
