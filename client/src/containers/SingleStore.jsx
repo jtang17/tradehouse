@@ -6,7 +6,7 @@ import StoreItem from '../components/customer/StoreItem.jsx';
 
 import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
 import { fetchMerchantProducts } from '../actions/productActions.jsx';
-import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
+import { fetchChannelInfo } from '../actions/merchantActions.jsx';
 import { addToCart, removeFromCart } from '../actions/cartActions.jsx';
 
 class SingleStore extends React.Component {
@@ -14,21 +14,15 @@ class SingleStore extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchMerchantProducts(this.props.merchantId);
-    this.props.fetchMerchantInfo(this.props.merchantId);
-    this.props.fetchCustomerInfoByToken();
-  }
-
   render() {
-    const { merchantInfo } = this.props;
+    const { storeInfo } = this.props;
     return (
       <div className="singleStore">
         <div className="storeHeader">
-          <img src={merchantInfo.logo} style={{ width: '200px' }} />
-          <h4>Store Page: {merchantInfo.storeName}</h4>
-          Location:{merchantInfo.location}<br />
-          <p>{merchantInfo.description}</p>
+          <img src={storeInfo.logo} style={{ width: '200px' }} />
+          <h4>Store Page: {storeInfo.storeName}</h4>
+          Location:{storeInfo.location}<br />
+          <p>{storeInfo.description}</p>
         </div>
         <hr />
         <div className="storeProductList">
@@ -41,8 +35,6 @@ class SingleStore extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  merchantProducts: state.merchantProducts,
-  merchantInfo: state.merchantInfo,
   customerInfo: state.customerInfo,
 });
 
@@ -50,7 +42,7 @@ const mapDispatchToProps = {
   addToCart,
   removeFromCart,
   fetchMerchantProducts,
-  fetchMerchantInfo,
+  fetchChannelInfo,
   fetchCustomerInfoByToken,
 };
 

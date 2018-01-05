@@ -5,6 +5,8 @@ import Cart from './Cart.jsx';
 import { connect } from 'react-redux';
 
 import { fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
+import { fetchChannelInfo } from '../actions/merchantActions.jsx';
+import { fetchMerchantProducts } from '../actions/productActions.jsx';
 
 class StoreView extends React.Component {
   constructor(props) {
@@ -12,6 +14,8 @@ class StoreView extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchChannelInfo(this.props.match.params.merchantId);
+    this.props.fetchMerchantProducts(this.props.match.params.merchantId);
     this.props.fetchCustomerInfoByToken();
   }
 
@@ -19,8 +23,8 @@ class StoreView extends React.Component {
     return (
       <div>
         <SingleStore
-          customerId={this.props.customerInfo.id}
-          merchantId={this.props.match.params.merchantId}
+          storeInfo={this.props.channelInfo}
+          merchantProducts={this.props.merchantProducts}
         />
       </div>
     );
@@ -29,6 +33,8 @@ class StoreView extends React.Component {
 
 const mapStateToProps = state => ({
   customerInfo: state.customerInfo,
+  channelInfo: state.channelInfo,
+  merchantProducts: state.merchantProducts,
 });
 
-export default connect(mapStateToProps, { fetchCustomerInfoByToken })(StoreView);
+export default connect(mapStateToProps, { fetchCustomerInfoByToken, fetchChannelInfo, fetchMerchantProducts })(StoreView);
