@@ -24,7 +24,7 @@ class CustomerHome extends React.Component {
   }
 
   render() {
-    console.log(this.props.customerInfo)
+    console.log(this.props.customerInfo);
     console.log(this.props.subscriptions);
     console.log(this.props.wishlist);
     // redirect to home if not logged in, shouldn't be here
@@ -48,4 +48,6 @@ const mapStateToProps = state => ({
   subscriptions: state.subscriptions,
   wishlist: state.wishlist,
 });
-export default connect(mapStateToProps, { fetchCustomerInfo, fetchCustomerInfoByToken, fetchWishlist, fetchSubscriptions, })(CustomerHome);
+export default connect(mapStateToProps, {
+  fetchCustomerInfo, fetchCustomerInfoByToken, fetchWishlist, fetchSubscriptions,
+})(CustomerHome);
