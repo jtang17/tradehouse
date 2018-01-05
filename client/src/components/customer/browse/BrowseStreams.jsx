@@ -21,7 +21,7 @@ class BrowseStreams extends React.Component {
                 <p>Streaming: {stream.broadcastMessage}</p>
                 <p>Website: {stream.broadcastMessage}</p>
               </div>
-              <img className="mercLogo__browser" src={stream.logo || 'http://clipartandscrap.com/wp-content/uploads/2017/07/Teddy-bear-clip-art-on-teddy-bears-and-clipartwiz-4.png'} style={{ width: '75px' }} />
+              <img className="mercLogo__browser" src={stream.logo} style={{ width: '75px' }} />
             </div>
           </Link>
         ))}

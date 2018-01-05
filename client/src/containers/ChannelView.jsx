@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import StoreItem from '../components/customer/StoreItem.jsx';
 import CustomerChat from '../chat/CustomerChat.jsx';
 // Actions
+import { fetchStreamInfo } from '../actions/broadcastActions.jsx';
 import { addToCart } from '../actions/cartActions.jsx';
 import { fetchChannelInfo } from '../actions/merchantActions.jsx';
 import { fetchSingleProduct } from '../actions/productActions.jsx';
@@ -22,6 +23,7 @@ class ChannelView extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchStreamInfo(this.props.match.params.merchantId);
     this.props.fetchChannelInfo(this.props.match.params.merchantId)
       .then(() => this.props.fetchSingleProduct(this.props.channelInfo.currentProduct));
     this.props.fetchCustomerInfoByToken()
@@ -57,6 +59,8 @@ class ChannelView extends React.Component {
   }
 
   render() {
+    console.log(this.props.streamInfo)
+    console.log(this.props.channelInfo)
     return (
       <div>
           Viewing: {this.props.channelInfo.storeName || 'Your Store'} - <Link to={`/store/${this.props.channelInfo.id}`}>Visit {this.props.channelInfo.storeName} Store</Link>
@@ -69,15 +73,15 @@ class ChannelView extends React.Component {
           <button onClick={this.followButtonClick}>Follow</button>
         }
         <br />
-
+        {(this.props.streamInfo && this.props.streamInfo.stream) &&
         <iframe
           width="400"
           height="300"
-          src={this.props.channelInfo.stream}
+          src={this.props.streamInfo.stream}
           frameBorder="0"
           allowFullScreen
         />
-
+        }
         <div className="channelFeaturedProduct">
           {this.props.product &&
             <StoreItem
@@ -97,6 +101,7 @@ const mapStateToProps = state => ({
   product: state.singleProduct,
   subscriptions: state.subscriptions,
   customerInfo: state.customerInfo,
+  streamInfo: state.streamInfo,
 });
 
 const mapDispatchToProps = {
@@ -107,6 +112,7 @@ const mapDispatchToProps = {
   unfollow,
   fetchSubscriptions,
   fetchCustomerInfoByToken,
+  fetchStreamInfo,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelView);
