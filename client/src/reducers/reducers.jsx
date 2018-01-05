@@ -19,6 +19,7 @@ import {
 import {
   merchantInfo,
   allMerchants,
+  channelInfo,
 } from './merchantReducers.jsx';
 import { streams } from './streamReducers.jsx';
 import {
@@ -42,6 +43,7 @@ const tradehouseApp = combineReducers({
   wishlist,
   subscriptions,
   customerInfo,
+  channelInfo,
   merchantInfo,
   streamInfo,
   streams,

@@ -5,6 +5,8 @@ import {
   FETCH_MERCHANT_FAILURE,
   FETCH_ALL_MERCHANTS_SUCCESS,
   FETCH_ALL_MERCHANTS_FAILURE,
+  FETCH_CHANNEL_SUCCESS,
+  FETCH_CHANNEL_FAILURE,
 } from '../actions/merchantActions.jsx';
 
 export function merchantInfo(state = {}, action) {
@@ -35,6 +37,20 @@ export function allMerchants(state = [], action) {
       return action.allMerchants;
     }
     case FETCH_ALL_MERCHANTS_FAILURE: {
+      return state;
+    }
+    default: {
+      return state;
+    }
+  }
+}
+
+export function channelInfo(state = {}, action) {
+  switch (action.type) {
+    case FETCH_CHANNEL_SUCCESS: {
+      return action.channelInfo;
+    }
+    case FETCH_CHANNEL_FAILURE: {
       return state;
     }
     default: {

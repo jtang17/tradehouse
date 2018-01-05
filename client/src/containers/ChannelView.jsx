@@ -7,7 +7,7 @@ import StoreItem from '../components/customer/StoreItem.jsx';
 import CustomerChat from '../chat/CustomerChat.jsx';
 // Actions
 import { addToCart } from '../actions/cartActions.jsx';
-import { fetchMerchantInfo } from '../actions/merchantActions.jsx';
+import { fetchChannelInfo } from '../actions/merchantActions.jsx';
 import { fetchSingleProduct } from '../actions/productActions.jsx';
 import { follow, unfollow, fetchSubscriptions, fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
 
@@ -21,9 +21,9 @@ class ChannelView extends React.Component {
     };
   }
 
-  componentWillMount() {
-    this.props.fetchMerchantInfo(this.props.match.params.merchantId)
-      .then(() => this.props.fetchSingleProduct(this.props.merchantInfo.currentProduct));
+  componentDidMount() {
+    this.props.fetchChannelInfo(this.props.match.params.merchantId)
+      .then(() => this.props.fetchSingleProduct(this.props.channelInfo.currentProduct));
     this.props.fetchCustomerInfoByToken()
       .then(() => this.props.fetchSubscriptions(this.props.customerInfo.id))
       .then(() => this.props.subscriptions.forEach((subscription) => {
@@ -57,11 +57,12 @@ class ChannelView extends React.Component {
   }
 
   render() {
+    console.log(this.props.channelInfo)
     return (
       <div>
-          Viewing: {this.props.merchantInfo.storeName || 'Your Store'} - <Link to={`/store/${this.props.merchantInfo.id}`}>Visit {this.props.merchantInfo.storeName} Store</Link>
+          Viewing: {this.props.channelInfo.storeName || 'Your Store'} - <Link to={`/store/${this.props.channelInfo.id}`}>Visit {this.props.channelInfo.storeName} Store</Link>
         <br />
-        <span style={{ fontStyle: 'italic' }}>{this.props.merchantInfo.broadcastMessage}</span>
+        <span style={{ fontStyle: 'italic' }}>{this.props.channelInfo.broadcastMessage}</span>
         <br />
 
         {this.state.subscribed ?
@@ -73,7 +74,7 @@ class ChannelView extends React.Component {
         <iframe
           width="400"
           height="300"
-          src={this.props.merchantInfo.stream}
+          src={this.props.channelInfo.stream}
           frameBorder="0"
           allowFullScreen
         />
@@ -93,7 +94,7 @@ class ChannelView extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  merchantInfo: state.merchantInfo,
+  channelInfo: state.channelInfo,
   product: state.singleProduct,
   subscriptions: state.subscriptions,
   customerInfo: state.customerInfo,
@@ -101,7 +102,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   addToCart,
-  fetchMerchantInfo,
+  fetchChannelInfo,
   fetchSingleProduct,
   follow,
   unfollow,
