@@ -9,7 +9,7 @@ class BrowserBody extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: 'products',
+      type: 'streams',
     };
     this.toggleStreams = this.toggleStreams.bind(this);
     this.toggleStores = this.toggleStores.bind(this);
@@ -52,16 +52,32 @@ class BrowserBody extends React.Component {
   // TODO: refactor streams, videos, products to components
   // also, each stream/video/product within a card/container
   render() {
-    const products = this.props.searchMixed.filter((item, index) => item._type === 'product').map(element => element._source);
+    let streams = [];
+    let products = [];
+    let merchants = [];
+   console.log(this.props.searchMixed);
+    if (Array.isArray(this.props.searchMixed)) {
+      products = this.props.searchMixed.filter((item, index) => item._type === 'product').map(element => element._source);
+      console.log('products', products);
 
+    }
+    if (Array.isArray(this.props.searchMixed)) {
+      streams = this.props.searchMixed.filter((item, index) => item._type === 'stream').map(element => element._source);
+      console.log('streams', streams);
+ 
+    }
+    if (Array.isArray(this.props.searchMixed)) {
+      merchants = this.props.searchMixed.filter((item, index) => item._type === 'merchant').map(element => element._source);
+      console.log('merchants', merchants);
 
-    const streams = this.props.searchMixed.filter((item, index) => item._type === 'stream').map(element => element._source);
+    }
 
-    const merchants = this.props.searchMixed.filter((item, index) => item._type === 'merchant').map(element => element._source);
+    if (this.props.searchMixed.length === 0 || typeof this.props.searchMixed === 'string') {
+      products = this.props.products;
+      streams = this.props.streams;
+      merchants = this.props.merchants;
+    }
 
-    console.log(products);
-    console.log(merchants);
-    console.log(streams);
 
     return (
       <div>
@@ -74,8 +90,8 @@ class BrowserBody extends React.Component {
           </div>
         </div>
 
-        {this.state.type === 'streams' && <BrowseStreams merchants={streams} />}
-        {this.state.type === 'stores' && <BrowseStores merc={merchants} />}
+        {this.state.type === 'streams' && <BrowseStreams streams={streams} />}
+        {this.state.type === 'stores' && <BrowseStores merchants={merchants} />}
         {this.state.type === 'products' && <BrowseProducts products={products} addToCart={this.props.addToCart} customerInfo={this.props.customerInfo} />}
       </div>
     );
