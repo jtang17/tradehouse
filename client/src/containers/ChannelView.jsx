@@ -59,8 +59,6 @@ class ChannelView extends React.Component {
   }
 
   render() {
-    console.log(this.props.streamInfo)
-    console.log(this.props.channelInfo)
     return (
       <div>
           Viewing: {this.props.channelInfo.storeName || 'Your Store'} - <Link to={`/store/${this.props.channelInfo.id}`}>Visit {this.props.channelInfo.storeName} Store</Link>
@@ -73,15 +71,13 @@ class ChannelView extends React.Component {
           <button onClick={this.followButtonClick}>Follow</button>
         }
         <br />
-        {(this.props.streamInfo && this.props.streamInfo.stream) &&
         <iframe
           width="400"
           height="300"
-          src={this.props.streamInfo.stream}
+          src={this.props.streamInfo.url}
           frameBorder="0"
           allowFullScreen
         />
-        }
         <div className="channelFeaturedProduct">
           {this.props.product &&
             <StoreItem
