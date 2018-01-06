@@ -10,7 +10,7 @@ Origin: your github/tradehouse
 Local: Local files in git.
 
 ##
-Tests are written in Jest and Enzyme.  They are automatically run through Circle CI. To contribute tests, create files in __tests__ folders. 
+Tests are written in Jest and Enzyme.  They are automatically run through Circle CI. To contribute tests, create files in ____tests____ folders. 
 
 # Workflow
 ## 1. Update the local master branch.
