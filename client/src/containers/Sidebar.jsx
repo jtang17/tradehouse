@@ -128,6 +128,3 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
-
-
-// rebase comment
