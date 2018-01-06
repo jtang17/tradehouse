@@ -109,8 +109,33 @@ router.put('/:merchantId', asyncMiddleware(async (req, res, next) => {
       updatedAt: merchant.dataValues.updatedAt || null,
     },
   }, (err, res) => {
-    if (err) { console.error(err); } else {
+    if (err) { console.error(err); } 
+    else {
       console.log(`Added new item to Elastic! ${res}`);
+    }
+  });
+
+  const stream = await controllers.editStream(req.params.merchantId, req.body.profile);
+
+  elastic.index({
+    index: 'bgm_streams',
+    type: 'stream',
+    id: merchant.dataValues.id || 'Missing ID',
+    body: {
+      id: merchant.dataValues.id || 0,
+      storeName: merchant.dataValues.storeName || 'Missing Storename',
+      description: merchant.dataValues.description || 'Missing Description',
+      logo: merchant.dataValues.logo || 'Missing Logo',
+      url: merchant.dataValues.url || 'Missing Username',
+      currentProduct: merchant.dataValues.currentProduct || 0,
+      broadcastMessage: merchant.dataValues.broadcastMessage || 0,
+      live: merchant.dataValues.live || false,
+      createdAt: merchant.dataValues.createdAt || 'Missing CreatedAt',
+      updatedAt: merchant.dataValues.updatedAt || 'Missing EditedAt',
+    },
+  }, (err, res) => {
+    if (err) { console.error(err); } else {
+      console.log(`Created a new stream for ${res}`);
     }
   });
 

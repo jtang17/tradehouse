@@ -6,6 +6,5 @@ module.exports = (sequelize, DataTypes) =>
     live: DataTypes.BOOLEAN,
     storeName: DataTypes.TEXT,
     description: DataTypes.TEXT,
-    url: DataTypes.TEXT,
     logo: DataTypes.STRING,
   });

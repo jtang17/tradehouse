@@ -10,7 +10,7 @@ class SingleProduct extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchCustomerInfoByToken()
       .then(() => this.props.fetchWishlist(this.props.customerInfo.id));
     this.props.fetchSingleProduct(this.props.match.params.productId);
