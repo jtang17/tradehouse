@@ -47,7 +47,7 @@
 			@include actionShadow();
 			padding: 10px 0 0 0;
 			transition: 0.25s;
-			border-bottom: 1px solid $finaldblue;
+			border-bottom: 0;
 		
 			.streamsDescription__card {
 				background: $hilight;

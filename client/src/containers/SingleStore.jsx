@@ -14,16 +14,16 @@ class SingleStore extends React.Component {
   render() {
     const { storeInfo } = this.props;
     return (
-      <div className="singleStore__container">
-        <h4 className="heading">Store Page: {storeInfo.storeName}</h4>
+      <div className="singleStore">
         <div className="storeHeader">
           {storeInfo.logo && <img src={storeInfo.logo} style={{ width: '200px' }} />}
+          <h4>Store Page: {storeInfo.storeName}</h4>
           Location:{storeInfo.location}<br />
           <p>{storeInfo.description}</p>
         </div>
         <hr />
-        <h4>Products:</h4>
         <div className="storeProductList">
+          <h4>Products:</h4>
           {this.props.merchantProducts.map((product, index) => <StoreItem key={index} product={product} addToCart={this.props.addToCart} customerInfo={this.props.customerInfo} />)}
         </div>
       </div>

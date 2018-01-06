@@ -10,12 +10,7 @@ import { fetchStreamInfo } from '../actions/broadcastActions.jsx';
 import { addToCart } from '../actions/cartActions.jsx';
 import { fetchChannelInfo } from '../actions/merchantActions.jsx';
 import { fetchSingleProduct } from '../actions/productActions.jsx';
-import {
-  follow,
-  unfollow,
-  fetchSubscriptions,
-  fetchCustomerInfoByToken,
-} from '../actions/customerActions.jsx';
+import { follow, unfollow, fetchSubscriptions, fetchCustomerInfoByToken } from '../actions/customerActions.jsx';
 
 class ChannelView extends React.Component {
   constructor(props) {
@@ -33,16 +28,13 @@ class ChannelView extends React.Component {
       .then(() => this.props.fetchSingleProduct(this.props.channelInfo.currentProduct));
     this.props.fetchCustomerInfoByToken()
       .then(() => this.props.fetchSubscriptions(this.props.customerInfo.id))
-      .then(() =>
-        this.props.subscriptions.forEach((subscription) => {
-          if (
-            subscription.id.toString() === this.props.match.params.merchantId
-          ) {
-            this.setState({
-              subscribed: true,
-            });
-          }
-        }));
+      .then(() => this.props.subscriptions.forEach((subscription) => {
+        if (subscription.id.toString() === this.props.match.params.merchantId) {
+          this.setState({
+            subscribed: true,
+          });
+        }
+      }));
   }
 
   followButtonClick() {
@@ -50,22 +42,16 @@ class ChannelView extends React.Component {
     if (!loggedIn) {
       alert('Please register or log in.');
     } else {
-      this.props.follow(
-        this.props.customerInfo.id,
-        this.props.match.params.merchantId,
-      );
+      this.props.follow(this.props.customerInfo.id, this.props.match.params.merchantId);
       this.setState({
         subscribed: true,
       });
-      // THIS SETSTATE NEEDS TO BE REMOVED WHEN FETCH SUBSCRIPTIONS AND PROMISE ARE WORKING PROPERLY
+    // THIS SETSTATE NEEDS TO BE REMOVED WHEN FETCH SUBSCRIPTIONS AND PROMISE ARE WORKING PROPERLY
     }
   }
 
   unfollowButtonClick() {
-    this.props.unfollow(
-      this.props.customerInfo.id,
-      this.props.match.params.merchantId,
-    );
+    this.props.unfollow(this.props.customerInfo.id, this.props.match.params.merchantId);
     this.setState({
       subscribed: false,
     });
@@ -74,24 +60,17 @@ class ChannelView extends React.Component {
 
   render() {
     return (
-      <div className="singleChannel__container">
-        <h2 className="heading singleChannel__heading">
-          Viewing: {this.props.streamInfo.storeName || 'Your Store'}
-        </h2>
+      <div>
+          Viewing: {this.props.channelInfo.storeName || 'Your Store'} - <Link to={`/store/${this.props.channelInfo.id}`}>Visit {this.props.channelInfo.storeName} Store</Link>
+        <br />
+        <span style={{ fontStyle: 'italic' }}>{this.props.channelInfo.broadcastMessage}</span>
+        <br />
 
-        {this.state.subscribed ? (
-          <a className="btn--filter follow" onClick={this.unfollowButtonClick}>
-            Unfollow
-          </a>
-        ) : (
-          <a className="btn--filter follow" onClick={this.followButtonClick}>
-            Follow
-          </a>
-        )}
-        <h5><Link to={`/store/${this.props.channelInfo.id}`}>
-          Visit {this.props.channelInfo.storeName} Store
-        </Link>
-        </h5>
+        {this.state.subscribed ?
+          <button onClick={this.unfollowButtonClick}>Unfollow</button> :
+          <button onClick={this.followButtonClick}>Follow</button>
+        }
+        <br />
         <iframe
           width="400"
           height="300"
@@ -99,19 +78,14 @@ class ChannelView extends React.Component {
           frameBorder="0"
           allowFullScreen
         />
-        <h5 style={{ fontStyle: 'italic' }}>
-          Broadcast Message: {this.props.channelInfo.broadcastMessage}
-        </h5>
-
-
-        <div className="singleChannel__featuredProduct">
-          {this.props.product && (
+        <div className="channelFeaturedProduct">
+          {this.props.product &&
             <StoreItem
               product={this.props.product}
               addToCart={this.props.addToCart}
               customerInfo={this.props.customerInfo}
             />
-          )}
+          }
         </div>
       </div>
     );

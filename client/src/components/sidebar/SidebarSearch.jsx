@@ -33,14 +33,14 @@ class SidebarSearch extends React.Component {
     } = this.props;
 
     return (
-      <div className="sidebar__container--search">
+      <div>
         <form onSubmit={this.search}>
-          <input className="search__input" onChange={this.onChangeSearch} type="text" name="search" placeholder="Search..." />
-          <input className="btn--action sidebar-submit" type="submit" value="Get Results!" />
+          <input onChange={this.onChangeSearch} type="text" name="search" placeholder="Search..." />
+          <input type="submit" value="Get Results!" />
         </form>
         <Link to="/browse"><h6>Browse All Content</h6></Link>
         <h6 onClick={this.props.fetchAllStreams}>Browse All Streams</h6>
-        <h6 onClick={this.props.searchAllMerchants}>Browse All Stores</h6>
+        <h6 onClick={this.props.searchAllMerchants}>Browse All Merchants</h6>
         <h6 onClick={this.props.searchAllProducts}>Browse All Products</h6>
       </div>
     );

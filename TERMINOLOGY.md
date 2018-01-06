@@ -5,4 +5,3 @@
 * Price = Price
 * Broadcast = Broadcast
 * Stream = Stream
-* Store = Store
