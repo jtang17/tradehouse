@@ -32,7 +32,7 @@ Deployed at https://www.bestglobalmarket.com
 
 ### Installing Dependencies
 
-Make sure Nodemon is installed.  Then, from within the root directory:
+Ensure that Nodemon is installed to use be-start.  Then, from within the root directory:
 
 ```sh
 npm install
