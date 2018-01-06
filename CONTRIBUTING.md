@@ -1,52 +1,58 @@
-* Overview
+# Overview
 This project uses a linear history workflow, i.e., /rebase/ instead of /merge/.
 
-** Style Guide
+## Style Guide
 This project uses the Airbnb style guide. Refer to: https://github.com/airbnb/javascript.
 
-**  Definitions
+##  Definitions
 Upstream: corekoans/tradehouse
 Origin: your github/tradehouse
 Local: Local files in git.
 
-* Workflow
-** 1. Update the local master branch.
-#+BEGIN_SRC bash
+##
+Tests are written in Jest and Enzyme.  They are automatically run through Circle CI. To contribute tests, create files in __tests__ folders. 
+
+# Workflow
+## 1. Update the local master branch.
+```sh
 git checkout master
 git pull --rebase upstream master
-#+END_SRC
+```
 
-** 2. Create a new feature-branch, or check out an existing one.
-#+BEGIN_SRC bash
+## 2. Create a new feature-branch, or check out an existing one.
+```sh
 git checkout -b feature-branch-name
-#+END_SRC
+```
 
-** 3. Edit your code, commit and pull from upstream/master regularly.
-#+BEGIN_SRC bash
+## 3. Edit your code, commit and pull from upstream/master regularly.
+```sh
 git status
 git add
 git commit
-#+END_SRC
+```
 
-** 4. Make sure you are still up-to-date with master before pushing.
-#+BEGIN_SRC bash
+## 4. Make sure you are still up-to-date with master before pushing.
+```sh
 git pull --rebase upstream master
-#+END_SRC
+```
 
-** 5. Push your branch to github.
-#+BEGIN_SRC bash
+## 5. Push your branch to github.
+```sh
 git push origin feature-branch
-#+END_SRC
+```
 
-** 6. Make a pull request on github.
+## 6. Make a pull request on github.
 
-*** Rejected
+### Rejected
 If your pull request was rejected, return to step 3.
 
-*** Merged
+### Merged
 Update your local master branch, then your github master branch.
-#+BEGIN_SRC bash
+```sh
 git checkout master
 git pull --rebase upstream master
 git push origin master -f
-#+END_SRC
+```
+
+## Git Resources
+Visit https://chris.beams.io/posts/git-commit/
