@@ -9,7 +9,7 @@ module.exports = router;
 
 router.post('/', asyncMiddleware(async (req, res, next) => {
   const newMerchant = await controllers.saveNewMerchant(req.body);
-  // Duplicate the edited merchant to Elastic Search
+
   elastic.index({
     index: 'bgm_merchants',
     type: 'merchant',
@@ -39,7 +39,6 @@ router.post('/', asyncMiddleware(async (req, res, next) => {
 
   const newStream = await controllers.saveNewStream(newMerchant[0].dataValues);
 
-  // Duplicate the edited merchant to Elastic Search
   elastic.index({
     index: 'bgm_streams',
     type: 'stream',
@@ -86,7 +85,6 @@ router.get('/bySub/:merchantIdToken', asyncMiddleware(async (req, res, next) => 
 router.put('/:merchantId', asyncMiddleware(async (req, res, next) => {
   const merchant = await controllers.editMerchantProfile(req.params.merchantId, req.body.profile);
 
-  // Duplicate the edited merchant to Elastic Search
   elastic.index({
     index: 'bgm_merchants',
     type: 'merchant',
@@ -179,7 +177,6 @@ router.post('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
 router.put('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
   const streamInfo = await controllers.editStream(req.params.merchantId, req.body);
 
-  // Duplicate the edited merchant to Elastic Search
   elastic.index({
     index: 'bgm_streams',
     type: 'stream',
