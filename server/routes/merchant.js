@@ -73,7 +73,6 @@ router.get('/', asyncMiddleware(async (req, res, next) => {
 
 router.get('/:merchantId', asyncMiddleware(async (req, res, next) => {
   const merchant = await controllers.findOneMerchant(req.params.merchantId);
-  console.log('request parameters', req.params);
   res.json(merchant);
 }));
 
