@@ -330,7 +330,7 @@ const getOneStream = merchantId => db.Stream.findOne({ where: { merchantId } });
 
 // We need a function to toggle stream live attribute
 
-const editStream = (entry, merchantId) =>
+const editStream = (merchantId, entry) =>
   db.Stream.findOne({
     where: {
       merchantId,
