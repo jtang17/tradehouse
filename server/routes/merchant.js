@@ -109,8 +109,7 @@ router.put('/:merchantId', asyncMiddleware(async (req, res, next) => {
       updatedAt: merchant.dataValues.updatedAt || null,
     },
   }, (err, res) => {
-    if (err) { console.error(err); } 
-    else {
+    if (err) { console.error(err); } else {
       console.log(`Added new item to Elastic! ${res}`);
     }
   });
@@ -203,8 +202,6 @@ router.put('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
       console.log(`Updated Stream info for ${streamInfo.dataValues.merchantId} ${res}`);
     }
   });
-  // Add Elastic Search Edit Stream functionality
-
 
   res.json(streamInfo);
 }));
