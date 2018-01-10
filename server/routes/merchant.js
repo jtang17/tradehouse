@@ -178,8 +178,8 @@ router.post('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
 }));
 
 router.put('/:merchantId/streams', asyncMiddleware(async (req, res, next) => {
-  const streamInfo = await controllers.editStream(req.body, req.params.merchantId);
-  console.log('stream Info', streamInfo);
+  const streamInfo = await controllers.editStream(req.params.merchantId, req.body);
+
   // Duplicate the edited merchant to Elastic Search
   elastic.index({
     index: 'bgm_streams',
